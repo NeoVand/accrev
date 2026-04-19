@@ -24,8 +24,8 @@
 	let level = $state(1);
 	let dueToday = $state(0);
 	let lapsedCount = $state(0);
-	let foundational = $state({ total: 0, mastered: 0 });
-	let cpaStats = $state<Record<string, { total: number; mastered: number }>>({});
+	let foundational = $state({ total: 0, studied: 0 });
+	let cpaStats = $state<Record<string, { total: number; studied: number }>>({});
 	let cpaTotal = $state(0);
 	let loaded = $state(false);
 
@@ -40,11 +40,11 @@
 		dueToday = await countDueTerms();
 		lapsedCount = await countLapsed();
 		const f = await getSectionStats('Foundational');
-		foundational = { total: f.total, mastered: f.mastered };
+		foundational = { total: f.total, studied: f.studied };
 		let sum = 0;
 		for (const d of CPA_DECKS) {
 			const s = await getSectionStats(d.key);
-			cpaStats[d.key] = { total: s.total, mastered: s.mastered };
+			cpaStats[d.key] = { total: s.total, studied: s.studied };
 			sum += s.total;
 		}
 		cpaTotal = sum;
@@ -63,9 +63,9 @@
 
 	const isFa = $derived(i18n.lang === 'fa');
 	const foundationalPct = $derived(
-		foundational.total === 0 ? 0 : (foundational.mastered / foundational.total) * 100
+		foundational.total === 0 ? 0 : (foundational.studied / foundational.total) * 100
 	);
-	const foundationalContinuing = $derived(foundational.mastered > 0);
+	const foundationalContinuing = $derived(foundational.studied > 0);
 </script>
 
 <section class="flex h-full flex-col gap-3 pt-3 pb-2">
@@ -138,7 +138,7 @@
 					></div>
 				</div>
 				<span class="font-mono text-[10.5px] tracking-wider text-ink-muted tabular-nums">
-					{foundational.mastered}/{foundational.total}
+					{foundational.studied}/{foundational.total}
 				</span>
 			</div>
 		</div>

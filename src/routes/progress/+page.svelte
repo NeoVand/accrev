@@ -13,9 +13,9 @@
 	const SECTIONS: CpaSection[] = ['Foundational', 'FAR', 'AUD', 'REG', 'BAR', 'ISC', 'TCP'];
 
 	let profile = $state<Profile | null>(null);
-	let stats = $state<{ section: CpaSection; total: number; mastered: number; lapsed: number }[]>(
-		[]
-	);
+	let stats = $state<
+		{ section: CpaSection; total: number; studied: number; mastered: number; lapsed: number }[]
+	>([]);
 	let dayCounts = $state<Record<string, number>>({});
 	let recent = $state<Session[]>([]);
 

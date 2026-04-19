@@ -10,7 +10,7 @@
 		open: boolean;
 		onClose: () => void;
 		decks: DeckMeta[];
-		stats: Record<string, { total: number; mastered: number }>;
+		stats: Record<string, { total: number; studied: number }>;
 	};
 
 	let { open, onClose, decks, stats }: Props = $props();
@@ -63,7 +63,7 @@
 
 			<ul class="flex flex-col overflow-y-auto px-1 pb-1">
 				{#each decks as deck, i (deck.key)}
-					{@const s = stats[deck.key] ?? { total: 0, mastered: 0 }}
+					{@const s = stats[deck.key] ?? { total: 0, studied: 0 }}
 					<li>
 						<a
 							href={`${resolve('/study')}?run=1&cpa=${deck.key}`}
@@ -78,8 +78,8 @@
 								<p class="text-[11.5px] text-ink-muted">{t(deck.subKey)}</p>
 							</div>
 							<div class="flex items-baseline gap-2.5 text-ink-muted">
-								<span class="font-display text-[18px] leading-none tabular-nums text-ink">
-									{s.total}
+								<span class="font-mono text-[11px] tracking-wider tabular-nums">
+									{s.studied}/{s.total}
 								</span>
 								<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 									<path d="M9 6l6 6-6 6" />

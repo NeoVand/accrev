@@ -135,19 +135,29 @@ export async function countByCpaSection(section: CpaSection): Promise<number> {
 	return db().terms.where('cpaSection').equals(section).count();
 }
 
-/** Section mastery: how many terms have at least one review that has graduated to FSRS 'review' state. */
+/**
+ * Section progress.
+ *  - `total`: how many terms exist in the section.
+ *  - `studied`: how many distinct terms have been graded at least once (any direction).
+ *               This is the responsive number — it ticks up on every grade, including Forgot,
+ *               so the home counter reflects effort right away.
+ *  - `mastered`: stricter — distinct terms with a review that has graduated to FSRS `review`
+ *                state (i.e. past the initial learning phase). Used for the Progress page.
+ *  - `lapsed`: distinct terms currently in the recall pile (last grade was Forgot).
+ */
 export async function getSectionStats(
 	section: CpaSection
-): Promise<{ total: number; mastered: number; lapsed: number }> {
+): Promise<{ total: number; studied: number; mastered: number; lapsed: number }> {
 	const d = db();
 	const terms = await d.terms.where('cpaSection').equals(section).toArray();
 	const total = terms.length;
 	const lapsed = terms.filter((t) => t.lapsed === 1).length;
-	if (total === 0) return { total: 0, mastered: 0, lapsed: 0 };
+	if (total === 0) return { total: 0, studied: 0, mastered: 0, lapsed: 0 };
 	const termIds = terms.map((t) => t.id!).filter((id): id is number => id != null);
 	const reviews = await d.reviews.where('termId').anyOf(termIds).toArray();
+	const studiedIds = new Set(reviews.map((r) => r.termId));
 	const masteredIds = new Set(reviews.filter((r) => r.state === 'review').map((r) => r.termId));
-	return { total, mastered: masteredIds.size, lapsed };
+	return { total, studied: studiedIds.size, mastered: masteredIds.size, lapsed };
 }
 
 export async function getRecentSessions(limit = 5): Promise<Session[]> {
