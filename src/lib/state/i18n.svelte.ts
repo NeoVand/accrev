@@ -20,6 +20,8 @@ const en = {
 	cards_in_recall: (n: number) =>
 		n === 1 ? '1 card waiting in your recall deck' : `${n} cards waiting in your recall deck`,
 	decks: 'decks',
+	decks_cores: 'core decks',
+	decks_disciplines: 'discipline decks',
 	foundational: 'Foundational',
 	foundational_sub: 'Acronyms',
 	far_core: 'FAR Core',
@@ -133,6 +135,37 @@ const en = {
 	// Study session
 	exit_session: 'exit session',
 
+	// Home hero
+	greeting_morning: 'good morning',
+	greeting_afternoon: 'good afternoon',
+	greeting_evening: 'good evening',
+	greeting_night: 'good night',
+	greeting_latenight: 'late night',
+	hero_eyebrow_today: 'today',
+	hero_eyebrow_recall: 'pick up where you left off',
+	hero_title_begin: 'A fresh session.',
+	hero_title_continue: 'Keep going.',
+	hero_title_recall: 'Catch up on what slipped.',
+	hero_body_begin: (n: number) =>
+		n === 0
+			? 'No cards yet — pull some in and start.'
+			: `${n} cards across all CPA sections.`,
+	hero_body_recall: (n: number) =>
+		n === 1 ? '1 card in your recall deck.' : `${n} cards in your recall deck.`,
+	hero_button_start: 'start session',
+	hero_button_recall: 'review now',
+	chip_streak: (n: number) => (n === 1 ? '1 day streak' : `${n} day streak`),
+	chip_level: (n: number) => `level ${n}`,
+	chip_browse: 'browse decks',
+	hero_eyebrow_foundations: 'start with the basics',
+	hero_button_foundations: 'start foundations',
+	hero_button_continue: 'continue',
+	cpa_sections_label: 'cpa exam sections',
+	cpa_sections_subtitle: (decks: number, cards: number) =>
+		`${decks} decks · ${cards} cards`,
+	recall_pill_inline: (n: number) =>
+		n === 1 ? '1 card in your recall deck' : `${n} cards in your recall deck`,
+
 	// Reset
 	reset_eyebrow: 'reset',
 	reset_title: 'Reset everything',
@@ -159,6 +192,8 @@ const fa: Record<MessageKey, MsgValue> = {
 	review_tripped: 'مرور چیزایی که گیر افتادی',
 	cards_in_recall: (n: number) => `${n} کارت تو دستۀ مرور منتظره`,
 	decks: 'دسته‌ها',
+	decks_cores: 'دسته‌های هسته',
+	decks_disciplines: 'دسته‌های تخصصی',
 	foundational: 'پایه',
 	foundational_sub: 'سرواژه‌ها',
 	far_core: 'هستۀ FAR',
@@ -265,6 +300,33 @@ const fa: Record<MessageKey, MsgValue> = {
 	welcome_footer: 'اگه الی نیستی، این برنامه برای تو نیست.',
 
 	exit_session: 'خروج از جلسه',
+
+	greeting_morning: 'صبح بخیر',
+	greeting_afternoon: 'عصر بخیر',
+	greeting_evening: 'غروب بخیر',
+	greeting_night: 'شب بخیر',
+	greeting_latenight: 'آخر شب',
+	hero_eyebrow_today: 'امروز',
+	hero_eyebrow_recall: 'ادامه بده',
+	hero_title_begin: 'یه جلسۀ تازه.',
+	hero_title_continue: 'ادامه بدیم.',
+	hero_title_recall: 'چیزایی که گیر افتادی رو مرور کن.',
+	hero_body_begin: (n: number) =>
+		n === 0
+			? 'هنوز کارتی نیست — یکم کارت اضافه کن و شروع کنیم.'
+			: `${n} کارت در همۀ بخش‌های CPA.`,
+	hero_body_recall: (n: number) => `${n} کارت توی دستۀ مرور.`,
+	hero_button_start: 'شروع جلسه',
+	hero_button_recall: 'الان مرور کن',
+	chip_streak: (n: number) => `${n} روز دنباله`,
+	chip_level: (n: number) => `سطح ${n}`,
+	chip_browse: 'دیدن دسته‌ها',
+	hero_eyebrow_foundations: 'با پایه‌ها شروع کن',
+	hero_button_foundations: 'شروع پایه',
+	hero_button_continue: 'ادامه',
+	cpa_sections_label: 'بخش‌های آزمون CPA',
+	cpa_sections_subtitle: (decks: number, cards: number) => `${decks} دسته · ${cards} کارت`,
+	recall_pill_inline: (n: number) => `${n} کارت تو دستۀ مرور`,
 
 	reset_eyebrow: 'پاک‌سازی',
 	reset_title: 'پاک کردن همه چیز',
