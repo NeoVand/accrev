@@ -206,6 +206,29 @@ export async function addXp(amount: number): Promise<Profile> {
 	return updated;
 }
 
+/**
+ * Nuclear reset — closes Dexie, deletes the entire IndexedDB, and wipes every `accrev:*`
+ * localStorage entry (lock, theme, lang, seed version, unlocked eggs). Caller should reload
+ * the page after this so a fresh DB + locked welcome screen come up cleanly.
+ */
+export async function wipeEverything(): Promise<void> {
+	if (!browser) return;
+	if (_db) {
+		_db.close();
+		_db = null;
+	}
+	await new Promise<void>((resolve, reject) => {
+		const req = indexedDB.deleteDatabase('accrev');
+		req.onsuccess = () => resolve();
+		req.onerror = () => reject(req.error);
+		req.onblocked = () => resolve();
+	});
+	for (let i = localStorage.length - 1; i >= 0; i--) {
+		const k = localStorage.key(i);
+		if (k?.startsWith('accrev:')) localStorage.removeItem(k);
+	}
+}
+
 export async function recordEggUnlock(key: string): Promise<Profile> {
 	const d = db();
 	const profile = await getOrCreateProfile();

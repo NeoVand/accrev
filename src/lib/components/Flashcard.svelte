@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fly } from 'svelte/transition';
 	import Bilingual from './Bilingual.svelte';
 	import HelpModal from './HelpModal.svelte';
 	import PronounceButton from './PronounceButton.svelte';
@@ -47,9 +48,27 @@
 >
 	<header class="flex items-center justify-between gap-3">
 		<span class="eyebrow">{eyebrow}</span>
-		{#if !isPureAcronym}
-			<PronounceButton text={pronounceText} class="-mr-1" />
-		{/if}
+		<div class="flex items-center gap-1">
+			{#if !isPureAcronym}
+				<PronounceButton text={pronounceText} />
+			{/if}
+			{#if revealed}
+				<button
+					type="button"
+					onclick={() => (helpOpen = true)}
+					aria-label={t('help_title')}
+					title={t('help_title')}
+					in:fly={{ y: -4, duration: 200 }}
+					class="grid h-8 w-8 place-items-center rounded-full text-ink-muted hover:text-accent"
+				>
+					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<circle cx="12" cy="12" r="10" />
+						<path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.7-2.5 2-2.5 4" />
+						<path d="M12 17.5h.01" />
+					</svg>
+				</button>
+			{/if}
+		</div>
 	</header>
 
 	{#if !revealed}
@@ -90,22 +109,6 @@
 		</div>
 
 		<div class="flex flex-col gap-2">
-			<div class="flex items-center justify-between">
-				<p class="text-[11.5px] tracking-[0.14em] text-ink-muted uppercase">{t('how_well')}</p>
-				<button
-					type="button"
-					onclick={() => (helpOpen = true)}
-					aria-label={t('help_title')}
-					class="grid h-6 w-6 place-items-center rounded-full text-ink-muted hover:bg-bg-soft hover:text-ink"
-				>
-					<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<circle cx="12" cy="12" r="10" />
-						<path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.7-2.5 2-2.5 4" />
-						<path d="M12 17.5h.01" />
-					</svg>
-				</button>
-			</div>
-
 			<div class="grid grid-cols-4 gap-1.5">
 				<button
 					type="button"

@@ -192,19 +192,36 @@
 {#if !runMode}
 	<SessionPicker />
 {:else}
-	<section class="flex flex-col gap-3.5 pt-3">
-		{#if !done}
-			<div class="flex items-center justify-between">
-				<p class="eyebrow">{recallMode ? t('recall_couldnt') : t('study')}</p>
+	<section class="flex flex-col gap-4 pt-3">
+		{#if !done && current}
+			<div class="flex items-center gap-3">
+				<a
+					href={resolve('/')}
+					aria-label={t('exit_session')}
+					title={t('exit_session')}
+					class="grid h-7 w-7 flex-none place-items-center rounded-full text-ink-muted hover:bg-bg-soft hover:text-ink"
+				>
+					<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M6 6l12 12M18 6L6 18" />
+					</svg>
+				</a>
+				<div class="flex flex-1 items-center gap-2">
+					<div class="h-[3px] flex-1 overflow-hidden rounded-full bg-hairline/60">
+						<div
+							class="h-full rounded-full bg-accent transition-[width] duration-300"
+							style:width="{progress}%"
+						></div>
+					</div>
+					<span class="font-mono text-[10.5px] tracking-wider text-ink-faint tabular-nums">
+						{index + 1}/{total}
+					</span>
+				</div>
 				<a
 					href={resolve('/study')}
-					class="rounded-full border border-hairline px-3 py-1 text-[10.5px] tracking-[0.16em] text-ink-muted uppercase hover:border-ink/30 hover:text-ink"
+					class="flex-none rounded-full px-2 py-1 text-[10.5px] tracking-[0.16em] text-ink-muted uppercase hover:text-ink"
 				>
 					{t('picker_change')}
 				</a>
-			</div>
-			<div class="h-[2px] w-full overflow-hidden rounded-full bg-hairline/60">
-				<div class="h-full bg-accent transition-[width]" style:width="{progress}%"></div>
 			</div>
 		{/if}
 
@@ -305,9 +322,6 @@
 			</div>
 		{:else if current}
 			<Flashcard term={current} {direction} onGrade={handleGrade} />
-			<p class="text-center text-[11px] tracking-[0.14em] text-ink-faint uppercase">
-				{index + 1} {t('of')} {total}
-			</p>
 		{/if}
 	</section>
 {/if}

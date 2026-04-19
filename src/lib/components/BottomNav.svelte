@@ -31,7 +31,7 @@
 </script>
 
 <nav
-	class="sticky bottom-0 z-30 grid grid-cols-4 border-t border-hairline/60 bg-bg/90 pb-[max(0.25rem,env(safe-area-inset-bottom))] backdrop-blur-md"
+	class="z-30 grid flex-none grid-cols-4 border-t border-hairline/60 bg-bg/90 pb-[max(0.25rem,env(safe-area-inset-bottom))] backdrop-blur-md"
 	aria-label="Primary"
 >
 	{#each items as item (item.route)}

@@ -74,7 +74,39 @@ html {
 
 body {
 	background: var(--bg);
+	background-image:
+		radial-gradient(ellipse 80% 50% at 50% -10%, var(--accent-soft) 0%, transparent 55%),
+		radial-gradient(
+			ellipse 70% 60% at 100% 100%,
+			color-mix(in oklab, var(--gold) 28%, transparent) 0%,
+			transparent 55%
+		),
+		radial-gradient(
+			ellipse 60% 60% at 0% 80%,
+			color-mix(in oklab, var(--accent) 14%, transparent) 0%,
+			transparent 60%
+		);
+	background-attachment: fixed;
 	min-height: 100dvh;
+}
+
+[data-theme='dark'] body {
+	background-image:
+		radial-gradient(
+			ellipse 80% 50% at 50% -10%,
+			color-mix(in oklab, var(--accent) 22%, transparent) 0%,
+			transparent 55%
+		),
+		radial-gradient(
+			ellipse 70% 60% at 100% 100%,
+			color-mix(in oklab, var(--gold) 16%, transparent) 0%,
+			transparent 55%
+		),
+		radial-gradient(
+			ellipse 60% 60% at 0% 80%,
+			color-mix(in oklab, var(--accent) 14%, transparent) 0%,
+			transparent 60%
+		);
 }
 
 /* Persian content always uses Vazirmatn */
@@ -117,9 +149,15 @@ body {
 
 /* Smooth, brief transitions everywhere */
 * {
-	transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+	transition-property: background-color, border-color, color, fill, stroke, box-shadow, transform;
 	transition-duration: 200ms;
 	transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Tactile feedback on press for buttons + links */
+button:not(:disabled):active,
+a:active {
+	transform: scale(0.98);
 }
 
 @media (prefers-reduced-motion: reduce) {

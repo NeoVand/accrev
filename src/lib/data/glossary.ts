@@ -1,11 +1,16 @@
 import type { CpaSection, Term } from '../types';
+import researchedRaw from './research-glossary.json';
 
 /**
- * Bulk term corpus extracted from references/Accounting Glossary for Iranian Immigrants.md
- * Organized per CPA Evolution (Foundational / FAR / AUD / REG / BAR / ISC / TCP).
+ * Bulk term corpus. Two layers:
+ *   1. `curatedTerms` — hand-curated from references/Accounting Glossary for Iranian Immigrants.md
+ *      using the compact `term()` helper below.
+ *   2. `researchedTerms` — bulk-imported from the deep-research pass over Kordi PDFs + AICPA /
+ *      Becker / NYSSCPA / NASBA glossaries. Source-of-truth lives at
+ *      src/lib/data/research-glossary.json (also mirrored at references/research-output.json).
  *
- * The `term()` helper keeps each entry compact and consistent. `createdAt` / `updatedAt`
- * are filled in by the seed runner so we don't bake timestamps into source.
+ * Both arrays are merged into `glossary`, which the seed runner upserts by slug.
+ * `createdAt` / `updatedAt` get stamped at seed time.
  */
 type TermInput = {
 	slug: string;
@@ -48,7 +53,7 @@ function term(t: TermInput): Term {
 	};
 }
 
-export const glossary: Term[] = [
+const curatedTerms: Term[] = [
 	// ─── Foundational acronyms ──────────────────────────────────────────
 	term({
 		slug: 'aicpa',
@@ -610,3 +615,58 @@ export const glossary: Term[] = [
 		difficulty: 4
 	})
 ];
+
+/** Shape of each entry in research-glossary.json — mirrors `TermInput` from src/lib/admin.ts. */
+type ResearchEntry = {
+	slug: string;
+	itemType?: Term['itemType'];
+	en: {
+		term: string;
+		acronym?: string;
+		expansion?: string;
+		definition: string;
+		example?: string;
+	};
+	fa: {
+		term: string;
+		acronym?: string;
+		definition?: string;
+		transliteration?: string;
+	};
+	categories?: string[];
+	cpaSection?: CpaSection;
+	topic?: string;
+	difficulty?: 1 | 2 | 3 | 4 | 5;
+	tags?: string[];
+	source?: string;
+};
+
+function fromResearch(t: ResearchEntry): Term {
+	const derivedCategories = Array.from(
+		new Set([
+			...(t.cpaSection ? [t.cpaSection] : []),
+			...(t.topic ? [t.topic] : []),
+			...(t.en.acronym ? ['Acronym'] : [])
+		])
+	);
+	return {
+		slug: t.slug,
+		itemType: t.itemType ?? 'term',
+		en: t.en,
+		fa: t.fa,
+		categories: t.categories?.length ? t.categories : derivedCategories,
+		cpaSection: t.cpaSection,
+		topic: t.topic,
+		difficulty: t.difficulty ?? 3,
+		...(t.tags ? { tags: t.tags } : {}),
+		source: t.source ?? 'research-2026-04-19',
+		lapsed: 0,
+		lapseCount: 0,
+		createdAt: 0,
+		updatedAt: 0
+	};
+}
+
+const researchedTerms: Term[] = (researchedRaw as ResearchEntry[]).map(fromResearch);
+
+export const glossary: Term[] = [...curatedTerms, ...researchedTerms];

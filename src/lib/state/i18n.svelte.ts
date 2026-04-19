@@ -118,7 +118,31 @@ const en = {
 	progress_no_sessions: 'No sessions yet — start your first one.',
 	mastery_progress: (m: number, total: number) => `${m} of ${total} mastered`,
 	session_score: (correct: number, total: number) => `${correct}/${total}`,
-	mastered_label: 'mastered'
+	mastered_label: 'mastered',
+
+	// Welcome / PIN gate
+	welcome_for: 'for',
+	welcome_name: 'ellie',
+	welcome_tagline: 'a love letter, in flashcards.',
+	welcome_pin_label: 'enter pin',
+	welcome_pin_placeholder: '••••',
+	welcome_unlock: 'open',
+	welcome_wrong: 'try again 💗',
+	welcome_footer: "if you're not ellie, this app isn't for you.",
+
+	// Study session
+	exit_session: 'exit session',
+
+	// Reset
+	reset_eyebrow: 'reset',
+	reset_title: 'Reset everything',
+	reset_body:
+		'Wipes all terms, reviews, sessions, streak, XP, theme, language, and PIN unlock. You’ll land back at the welcome screen. Cannot be undone.',
+	reset_button: 'reset all data',
+	reset_confirm_title: 'Wipe everything?',
+	reset_confirm_body: 'You’ll be back at the welcome screen with no progress.',
+	reset_confirm_yes: 'yes, wipe everything',
+	reset_cancel: 'cancel'
 } as const satisfies Record<string, MsgValue>;
 
 type MessageKey = keyof typeof en;
@@ -229,7 +253,28 @@ const fa: Record<MessageKey, MsgValue> = {
 	progress_no_sessions: 'هنوز جلسه‌ای نیست — اولینش رو شروع کن.',
 	mastery_progress: (m: number, total: number) => `${m} از ${total} مسلط`,
 	session_score: (correct: number, total: number) => `${correct}/${total}`,
-	mastered_label: 'مسلط'
+	mastered_label: 'مسلط',
+
+	welcome_for: 'برای',
+	welcome_name: 'الی',
+	welcome_tagline: 'یک نامۀ عاشقانه، با فلش‌کارت.',
+	welcome_pin_label: 'پین رو وارد کن',
+	welcome_pin_placeholder: '••••',
+	welcome_unlock: 'بازکن',
+	welcome_wrong: 'دوباره امتحان کن 💗',
+	welcome_footer: 'اگه الی نیستی، این برنامه برای تو نیست.',
+
+	exit_session: 'خروج از جلسه',
+
+	reset_eyebrow: 'پاک‌سازی',
+	reset_title: 'پاک کردن همه چیز',
+	reset_body:
+		'تمام اصطلاحات، مرورها، جلسات، دنباله، تجربه، پوسته، زبان و قفل پین رو پاک می‌کنه. به صفحۀ خوشامدگویی برمی‌گردی. غیرقابل بازگشته.',
+	reset_button: 'پاک کردن همۀ داده‌ها',
+	reset_confirm_title: 'همه چیز پاک بشه؟',
+	reset_confirm_body: 'به صفحۀ خوشامدگویی بدون هیچ پیشرفتی برمی‌گردی.',
+	reset_confirm_yes: 'بله، همه چیز رو پاک کن',
+	reset_cancel: 'لغو'
 };
 
 const all: Record<Lang, Record<MessageKey, MsgValue>> = { en, fa };

@@ -5,7 +5,7 @@
 </script>
 
 <header
-	class="sticky top-0 z-30 flex items-center justify-between border-b border-hairline/60 bg-bg/85 px-4 pt-[max(0.4rem,env(safe-area-inset-top))] pb-1.5 backdrop-blur-md"
+	class="z-30 flex flex-none items-center justify-between border-b border-hairline/60 bg-bg/85 px-4 pt-[max(0.4rem,env(safe-area-inset-top))] pb-1.5 backdrop-blur-md"
 >
 	<a
 		href={resolve('/')}
