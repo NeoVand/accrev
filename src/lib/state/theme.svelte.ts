@@ -4,8 +4,8 @@ import type { Theme } from '$lib/types';
 const STORAGE_KEY = 'accrev:theme';
 
 class ThemeState {
-	pref = $state<Theme>('system');
-	resolved = $state<'light' | 'dark'>('light');
+	pref = $state<Theme>('dark');
+	resolved = $state<'light' | 'dark'>('dark');
 
 	constructor() {
 		if (!browser) return;

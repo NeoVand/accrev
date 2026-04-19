@@ -66,7 +66,7 @@ export async function getOrCreateProfile(): Promise<Profile> {
 		totalXp: 0,
 		level: 1,
 		unlockedEggs: [],
-		theme: 'system',
+		theme: 'dark',
 		uiLang: 'en',
 		createdAt: Date.now()
 	};

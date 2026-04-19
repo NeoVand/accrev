@@ -14,17 +14,18 @@
 		<link rel="apple-touch-icon" href="%sveltekit.assets%/icon.svg" />
 		<title>accrev</title>
 		<script>
-			// Set theme before paint to avoid flash
+			// Set theme before paint to avoid flash. Defaults to dark; only flips to light when
+			// the user has explicitly chosen 'light', or 'system' AND the OS prefers light.
 			(function () {
 				try {
-					var t = localStorage.getItem('accrev:theme') || 'system';
-					var dark =
-						t === 'dark' ||
+					var t = localStorage.getItem('accrev:theme') || 'dark';
+					var light =
+						t === 'light' ||
 						(t === 'system' &&
-							window.matchMedia('(prefers-color-scheme: dark)').matches);
-					document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+							window.matchMedia('(prefers-color-scheme: light)').matches);
+					document.documentElement.setAttribute('data-theme', light ? 'light' : 'dark');
 				} catch (e) {
-					document.documentElement.setAttribute('data-theme', 'light');
+					document.documentElement.setAttribute('data-theme', 'dark');
 				}
 			})();
 		</script>

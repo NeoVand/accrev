@@ -297,7 +297,7 @@ const fa: Record<MessageKey, MsgValue> = {
 	welcome_pin_placeholder: '••••',
 	welcome_unlock: 'بازکن',
 	welcome_wrong: 'دوباره امتحان کن 💗',
-	welcome_footer: 'اگه الی نیستی، این برنامه برای تو نیست.',
+	welcome_footer: 'اگه دوست‌دخترم نیستی، این برنامه برای تو نیست.',
 
 	exit_session: 'خروج از جلسه',
 
