@@ -1,0 +1,28 @@
+{
+	"name": "accrev",
+	"short_name": "accrev",
+	"description": "Accounting English flashcards for CPA prep — bilingual EN/FA, spaced repetition, offline-first.",
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"orientation": "portrait",
+	"background_color": "#fbf6ee",
+	"theme_color": "#fbf6ee",
+	"lang": "en",
+	"dir": "ltr",
+	"categories": ["education", "productivity"],
+	"icons": [
+		{
+			"src": "/icon.svg",
+			"sizes": "any",
+			"type": "image/svg+xml",
+			"purpose": "any"
+		},
+		{
+			"src": "/icon.svg",
+			"sizes": "any",
+			"type": "image/svg+xml",
+			"purpose": "maskable"
+		}
+	]
+}

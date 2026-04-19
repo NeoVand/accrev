@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="accrev">
+	<rect width="512" height="512" rx="96" fill="#FBF6EE"/>
+	<text
+		x="50%"
+		y="59%"
+		text-anchor="middle"
+		dominant-baseline="middle"
+		font-family="Fraunces, Georgia, serif"
+		font-weight="500"
+		font-size="320"
+		fill="#2A1F2D"
+		letter-spacing="-8"
+	>a</text>
+	<circle cx="376" cy="360" r="22" fill="#B5635A"/>
+</svg>
