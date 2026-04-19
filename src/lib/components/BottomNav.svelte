@@ -7,17 +7,27 @@
 	type NavItem = {
 		route: RouteId;
 		key: 'home' | 'study' | 'progress' | 'settings';
-		match: (path: string) => boolean;
 	};
 
 	const items: NavItem[] = [
-		{ route: '/', key: 'home', match: (p) => p === '/' },
-		{ route: '/study', key: 'study', match: (p) => p.startsWith('/study') },
-		{ route: '/progress', key: 'progress', match: (p) => p.startsWith('/progress') },
-		{ route: '/settings', key: 'settings', match: (p) => p.startsWith('/settings') }
+		{ route: '/', key: 'home' },
+		{ route: '/study', key: 'study' },
+		{ route: '/progress', key: 'progress' },
+		{ route: '/settings', key: 'settings' }
 	];
 
-	const path = $derived(page.url.pathname);
+	/**
+	 * Use `page.route.id` (logical route id like `/study`) instead of
+	 * `page.url.pathname`, which is base-prefixed on sub-path deploys (e.g. GitHub
+	 * Pages serving the app under `/<repo>/`) and won't match our bare routes.
+	 */
+	const routeId = $derived(page.route.id ?? '');
+
+	function isActive(item: NavItem): boolean {
+		if (!routeId) return false;
+		if (item.route === '/') return routeId === '/';
+		return routeId === item.route || routeId.startsWith(item.route + '/');
+	}
 
 	function labelFor(key: NavItem['key']): string {
 		return key === 'home'
@@ -35,7 +45,7 @@
 	aria-label="Primary"
 >
 	{#each items as item (item.route)}
-		{@const active = item.match(path)}
+		{@const active = isActive(item)}
 		<a
 			href={resolve(item.route)}
 			aria-current={active ? 'page' : undefined}
