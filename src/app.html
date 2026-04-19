@@ -26,8 +26,9 @@
 			property="og:description"
 			content="Bilingual accounting flashcards. English ↔ Persian, built for CPA prep."
 		/>
-		<meta property="og:image" content="%sveltekit.assets%/og-image.svg" />
-		<meta property="og:image:type" content="image/svg+xml" />
+		<!-- PNG primary because iMessage / WhatsApp / FB / older Slack don't render SVG og:images. -->
+		<meta property="og:image" content="%sveltekit.assets%/og-image.png" />
+		<meta property="og:image:type" content="image/png" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:image:alt" content="accrev — bilingual accounting flashcards" />
@@ -39,7 +40,7 @@
 			name="twitter:description"
 			content="Bilingual accounting flashcards. English ↔ Persian, built for CPA prep."
 		/>
-		<meta name="twitter:image" content="%sveltekit.assets%/og-image.svg" />
+		<meta name="twitter:image" content="%sveltekit.assets%/og-image.png" />
 		<meta name="twitter:image:alt" content="accrev — bilingual accounting flashcards" />
 		<script>
 			// Set theme before paint to avoid flash. Defaults to dark; only flips to light when
