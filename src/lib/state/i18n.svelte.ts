@@ -130,7 +130,7 @@ const en = {
 	welcome_pin_placeholder: '••••',
 	welcome_unlock: 'open',
 	welcome_wrong: 'try again 💗',
-	welcome_footer: "if you're not ellie, this app isn't for you.",
+	welcome_footer: "if you're not my girlfriend, this app isn't for you.",
 
 	// Study session
 	exit_session: 'exit session',
@@ -160,7 +160,7 @@ const en = {
 	hero_eyebrow_foundations: 'start with the basics',
 	hero_button_foundations: 'start foundations',
 	hero_button_continue: 'continue',
-	cpa_sections_label: 'cpa exam sections',
+	cpa_sections_label: 'CPA Exam Sections',
 	cpa_sections_subtitle: (decks: number, cards: number) =>
 		`${decks} decks · ${cards} cards`,
 	recall_pill_inline: (n: number) =>

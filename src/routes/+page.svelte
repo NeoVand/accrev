@@ -1,26 +1,22 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fade, fly, slide } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 	import { resolve } from '$app/paths';
-	import {
-		countDueTerms,
-		countLapsed,
-		getOrCreateProfile,
-		getSectionStats
-	} from '$lib/db';
+	import CpaSectionsSheet from '$lib/components/CpaSectionsSheet.svelte';
+	import { countDueTerms, countLapsed, getOrCreateProfile, getSectionStats } from '$lib/db';
 	import { seedIfNeeded } from '$lib/seed';
 	import { i18n, t } from '$lib/state/i18n.svelte';
 	import type { CpaSection } from '$lib/types';
 
-	type DeckMeta = { key: CpaSection; titleKey: string; subKey: string; accent: string };
+	type DeckMeta = { key: CpaSection; titleKey: string; subKey: string };
 
 	const CPA_DECKS: DeckMeta[] = [
-		{ key: 'FAR', titleKey: 'cpa_far', subKey: 'cpa_far_sub', accent: 'var(--accent)' },
-		{ key: 'AUD', titleKey: 'cpa_aud', subKey: 'cpa_aud_sub', accent: 'var(--success)' },
-		{ key: 'REG', titleKey: 'cpa_reg', subKey: 'cpa_reg_sub', accent: 'var(--ink-muted)' },
-		{ key: 'BAR', titleKey: 'cpa_bar', subKey: 'cpa_bar_sub', accent: 'var(--accent)' },
-		{ key: 'ISC', titleKey: 'cpa_isc', subKey: 'cpa_isc_sub', accent: 'var(--gold)' },
-		{ key: 'TCP', titleKey: 'cpa_tcp', subKey: 'cpa_tcp_sub', accent: 'var(--success)' }
+		{ key: 'FAR', titleKey: 'cpa_far', subKey: 'cpa_far_sub' },
+		{ key: 'AUD', titleKey: 'cpa_aud', subKey: 'cpa_aud_sub' },
+		{ key: 'REG', titleKey: 'cpa_reg', subKey: 'cpa_reg_sub' },
+		{ key: 'BAR', titleKey: 'cpa_bar', subKey: 'cpa_bar_sub' },
+		{ key: 'ISC', titleKey: 'cpa_isc', subKey: 'cpa_isc_sub' },
+		{ key: 'TCP', titleKey: 'cpa_tcp', subKey: 'cpa_tcp_sub' }
 	];
 
 	let streakDays = $state(0);
@@ -33,7 +29,7 @@
 	let cpaTotal = $state(0);
 	let loaded = $state(false);
 
-	let cpaOpen = $state(false);
+	let cpaSheetOpen = $state(false);
 
 	onMount(async () => {
 		await seedIfNeeded();
@@ -154,67 +150,29 @@
 		</div>
 	</a>
 
-	<!-- CPA Exam Sections — progressive disclosure -->
-	<div class="flex flex-col gap-2">
-		<button
-			type="button"
-			onclick={() => (cpaOpen = !cpaOpen)}
-			aria-expanded={cpaOpen}
-			class="flex items-center justify-between rounded-2xl border border-hairline bg-bg-elevated/60 px-4 py-3 text-left hover:border-accent/40"
-		>
-			<div class="flex flex-col">
-				<p class="eyebrow">{t('cpa_sections_label')}</p>
-				<p class="text-[12px] text-ink-muted">
-					{t('cpa_sections_subtitle', CPA_DECKS.length, cpaTotal)}
-				</p>
-			</div>
-			<svg
-				viewBox="0 0 24 24"
-				width="16"
-				height="16"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="1.7"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				aria-hidden="true"
-				class="text-ink-muted transition-transform duration-300"
-				style:transform={cpaOpen ? 'rotate(180deg)' : 'rotate(0deg)'}
-			>
-				<path d="M6 9l6 6 6-6" />
-			</svg>
-		</button>
+	<!-- CPA Exam Sections — opens a bottom sheet so it doesn't disturb layout -->
+	<button
+		type="button"
+		onclick={() => (cpaSheetOpen = true)}
+		class="flex items-center justify-between rounded-2xl border border-hairline bg-bg-elevated/60 px-4 py-3 text-left hover:border-accent/40"
+	>
+		<div class="flex flex-col">
+			<p class="eyebrow uppercase">CPA EXAM SECTIONS</p>
+			<p class="text-[12px] text-ink-muted">
+				{t('cpa_sections_subtitle', CPA_DECKS.length, cpaTotal)}
+			</p>
+		</div>
+		<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="text-ink-muted">
+			<path d="M9 6l6 6-6 6" />
+		</svg>
+	</button>
 
-		{#if cpaOpen}
-			<div transition:slide={{ duration: 240 }} class="grid grid-cols-2 gap-2">
-				{#each CPA_DECKS as deck (deck.key)}
-					{@const s = cpaStats[deck.key] ?? { total: 0, mastered: 0 }}
-					<a
-						href={`${resolve('/study')}?run=1&cpa=${deck.key}`}
-						class="group relative flex flex-col gap-1 overflow-hidden rounded-2xl border border-hairline bg-bg-elevated px-3.5 py-3 hover:border-accent/40"
-					>
-						<span
-							class="pointer-events-none absolute top-3 bottom-3 left-0 w-[3px] rounded-r-full"
-							style:background={deck.accent}
-							style:opacity="0.6"
-						></span>
-						<p class="ml-1 font-display text-[15px] leading-tight font-medium text-ink">
-							{t(deck.titleKey)}
-						</p>
-						<p class="ml-1 truncate text-[11px] text-ink-muted">{t(deck.subKey)}</p>
-						<div class="mt-auto ml-1 flex items-baseline justify-between pt-1.5">
-							<span class="font-display text-[18px] leading-none" style:color={deck.accent}>
-								{s.total}
-							</span>
-							<span class="text-[10px] tracking-wider text-ink-faint tabular-nums">
-								{s.mastered}/{s.total}
-							</span>
-						</div>
-					</a>
-				{/each}
-			</div>
-		{/if}
-	</div>
+	<CpaSectionsSheet
+		open={cpaSheetOpen}
+		onClose={() => (cpaSheetOpen = false)}
+		decks={CPA_DECKS}
+		stats={cpaStats}
+	/>
 
 	<!-- Footer chips -->
 	<div
@@ -244,14 +202,5 @@
 				{t('chip_level', level)}
 			</span>
 		{/if}
-		<a
-			href={resolve('/study')}
-			class="ms-auto flex items-center gap-1 rounded-full px-3 py-1.5 text-ink-muted hover:text-accent"
-		>
-			{t('chip_browse')}
-			<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-				<path d="M9 6l6 6-6 6" />
-			</svg>
-		</a>
 	</div>
 </section>

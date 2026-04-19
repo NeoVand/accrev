@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
+	import { asset } from '$app/paths';
 	import '../app.css';
 	import '$lib/state/theme.svelte';
 	import '$lib/state/i18n.svelte';
@@ -12,7 +13,7 @@
 	let { children } = $props();
 </script>
 
-<svelte:head><link rel="icon" type="image/svg+xml" href="/icon.svg" /></svelte:head>
+<svelte:head><link rel="icon" type="image/svg+xml" href={asset('/icon.svg')} /></svelte:head>
 
 {#if !lock.unlocked}
 	<div in:fade={{ duration: 240 }}>
