@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="accrev — bilingual accounting flashcards">
+	<defs>
+		<radialGradient id="topWash" cx="50%" cy="0%" r="70%" fx="50%" fy="0%">
+			<stop offset="0%" stop-color="#ECD0C9" stop-opacity="0.55"/>
+			<stop offset="100%" stop-color="#FBF6EE" stop-opacity="0"/>
+		</radialGradient>
+		<radialGradient id="cornerWash" cx="100%" cy="100%" r="60%" fx="100%" fy="100%">
+			<stop offset="0%" stop-color="#A88A5C" stop-opacity="0.22"/>
+			<stop offset="100%" stop-color="#FBF6EE" stop-opacity="0"/>
+		</radialGradient>
+	</defs>
+
+	<rect width="1200" height="630" fill="#FBF6EE"/>
+	<rect width="1200" height="630" fill="url(#topWash)"/>
+	<rect width="1200" height="630" fill="url(#cornerWash)"/>
+
+	<!-- Decorative serif glyph in the corner — same motif as the favicon -->
+	<text
+		x="1080"
+		y="640"
+		text-anchor="end"
+		font-family="Fraunces, Georgia, serif"
+		font-weight="500"
+		font-size="520"
+		fill="#A88A5C"
+		fill-opacity="0.10"
+	>a</text>
+
+	<!-- Wordmark -->
+	<text
+		x="600"
+		y="312"
+		text-anchor="middle"
+		font-family="Fraunces, Georgia, serif"
+		font-weight="500"
+		font-size="180"
+		fill="#2A1F2D"
+		letter-spacing="-4"
+	>
+		accrev<tspan fill="#B5635A">.</tspan>
+	</text>
+
+	<!-- Tagline -->
+	<text
+		x="600"
+		y="384"
+		text-anchor="middle"
+		font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+		font-weight="400"
+		font-size="28"
+		fill="#6B5A6E"
+		letter-spacing="2.8"
+	>
+		BILINGUAL ACCOUNTING FLASHCARDS
+	</text>
+
+	<!-- Hairline rule -->
+	<line x1="540" y1="430" x2="660" y2="430" stroke="#A88A5C" stroke-opacity="0.6" stroke-width="1.5"/>
+
+	<!-- Sub-tagline -->
+	<text
+		x="600"
+		y="475"
+		text-anchor="middle"
+		font-family="Fraunces, Georgia, serif"
+		font-weight="400"
+		font-style="italic"
+		font-size="26"
+		fill="#6B5A6E"
+	>
+		English ↔ Persian, for the CPA.
+	</text>
+</svg>
