@@ -28,7 +28,11 @@
 	/** A term is a pure acronym when its display equals its acronym (e.g. GAAP). TTS mangles those. */
 	const isPureAcronym = $derived(!!term.en.acronym && term.en.acronym === term.en.term);
 	/** Strip parentheticals for cleaner TTS pronunciation (e.g. "Right-of-Use (ROU) Asset" → "Right-of-Use Asset"). */
-	const pronounceText = $derived(term.en.term.replace(/\s*\(.+?\)/g, '').trim());
+	const cleanTerm = $derived(term.en.term.replace(/\s*\(.+?\)/g, '').trim());
+	/** Front-side TTS reads the full form (expansion) when present; otherwise the cleaned English term. Pure acronyms with no expansion have nothing safe to speak. */
+	const frontPronounceText = $derived(expansion ?? (isPureAcronym ? '' : cleanTerm));
+	/** Header pronunciation: full form on the front, English description on the back. */
+	const headerPronounceText = $derived(revealed ? enDef : frontPronounceText);
 
 	function reveal() {
 		revealed = true;
@@ -49,8 +53,8 @@
 	<header class="flex items-center justify-between gap-3">
 		<span class="eyebrow">{eyebrow}</span>
 		<div class="flex items-center gap-1">
-			{#if !isPureAcronym}
-				<PronounceButton text={pronounceText} />
+			{#if headerPronounceText}
+				<PronounceButton text={headerPronounceText} />
 			{/if}
 			{#if revealed}
 				<button
@@ -74,8 +78,14 @@
 	{#if !revealed}
 		<div class="flex flex-1 flex-col items-center justify-center gap-5 text-center">
 			<Bilingual text={front} class="font-display text-[34px] leading-tight text-ink" />
+			{#if expansion && direction === 'en→fa'}
+				<p class="max-w-prose text-[14.5px] leading-relaxed text-ink-muted">{expansion}</p>
+			{/if}
 			{#if hintShown}
-				<p class="max-w-prose text-[14.5px] leading-relaxed text-ink-muted">{enDef}</p>
+				<div class="flex max-w-prose items-start justify-center gap-1.5">
+					<p class="text-[14.5px] leading-relaxed text-ink-muted">{enDef}</p>
+					<PronounceButton text={enDef} class="-mt-1 shrink-0" />
+				</div>
 			{:else}
 				<button
 					type="button"
