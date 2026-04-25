@@ -31,8 +31,11 @@
 	const cleanTerm = $derived(term.en.term.replace(/\s*\(.+?\)/g, '').trim());
 	/** Front-side TTS reads the full form (expansion) when present; otherwise the cleaned English term. Pure acronyms with no expansion have nothing safe to speak. */
 	const frontPronounceText = $derived(expansion ?? (isPureAcronym ? '' : cleanTerm));
-	/** Header pronunciation: full form on the front, English description on the back. */
-	const headerPronounceText = $derived(revealed ? enDef : frontPronounceText);
+	/** Header pronunciation: only available when English is visible on the current face.
+	 * - Back: always English description. - Front: only when the front shows English (en→fa direction). */
+	const headerPronounceText = $derived(
+		revealed ? enDef : direction === 'en→fa' ? frontPronounceText : ''
+	);
 	/** Hint pronunciation reads the full form (when present) followed by the definition, so it speaks the entire hint contents. */
 	const hintPronounceText = $derived(expansion ? `${expansion}. ${enDef}` : enDef);
 

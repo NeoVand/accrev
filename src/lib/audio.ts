@@ -44,12 +44,24 @@ export function primeVoices(): void {
 	});
 }
 
+/** Strip Persian/Arabic letters and any RTL formatting marks before TTS — this app only ever speaks English. */
+function stripNonEnglish(text: string): string {
+	return text
+		.replace(/[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/g, '')
+		.replace(/[\u200C\u200D\u200E\u200F\u202A-\u202E]/g, '')
+		.replace(/\s+/g, ' ')
+		.trim();
+}
+
 export function pronounce(
 	text: string,
 	opts: { lang?: string; rate?: number; onEnd?: () => void } = {}
 ): boolean {
 	if (typeof window === 'undefined' || !window.speechSynthesis) return false;
-	const utter = new SpeechSynthesisUtterance(text);
+	const synth = window.speechSynthesis;
+	const cleaned = stripNonEnglish(text);
+	if (!cleaned) return false;
+	const utter = new SpeechSynthesisUtterance(cleaned);
 	utter.lang = opts.lang ?? 'en-US';
 	utter.rate = opts.rate ?? 0.95;
 	utter.pitch = 1;
@@ -58,10 +70,27 @@ export function pronounce(
 		const voice = pickEnglishVoice();
 		if (voice) utter.voice = voice;
 	}
-	if (opts.onEnd) utter.onend = () => opts.onEnd?.();
-	window.speechSynthesis.cancel();
-	window.speechSynthesis.speak(utter);
+	if (opts.onEnd) {
+		utter.onend = () => opts.onEnd?.();
+		utter.onerror = () => opts.onEnd?.();
+	}
+	// Chrome bug: cancel() immediately followed by speak() can leave the engine in a
+	// "paused" state where the new utterance silently fires onend. Only cancel when there
+	// is actually something to interrupt, and yield a tick before speaking afterwards.
+	const needsCancel = synth.speaking || synth.pending;
+	if (needsCancel) {
+		synth.cancel();
+		setTimeout(() => synth.speak(utter), 0);
+	} else {
+		synth.speak(utter);
+	}
 	return true;
+}
+
+export function stopPronounce(): void {
+	if (typeof window === 'undefined' || !window.speechSynthesis) return;
+	const synth = window.speechSynthesis;
+	if (synth.speaking || synth.pending) synth.cancel();
 }
 
 export function canPronounce(): boolean {
