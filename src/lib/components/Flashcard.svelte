@@ -33,6 +33,8 @@
 	const frontPronounceText = $derived(expansion ?? (isPureAcronym ? '' : cleanTerm));
 	/** Header pronunciation: full form on the front, English description on the back. */
 	const headerPronounceText = $derived(revealed ? enDef : frontPronounceText);
+	/** Hint pronunciation reads the full form (when present) followed by the definition, so it speaks the entire hint contents. */
+	const hintPronounceText = $derived(expansion ? `${expansion}. ${enDef}` : enDef);
 
 	function reveal() {
 		revealed = true;
@@ -83,8 +85,13 @@
 			{/if}
 			{#if hintShown}
 				<div class="flex max-w-prose items-start justify-center gap-1.5">
-					<p class="text-[14.5px] leading-relaxed text-ink-muted">{enDef}</p>
-					<PronounceButton text={enDef} class="-mt-1 shrink-0" />
+					<div class="space-y-1.5">
+						{#if expansion}
+							<p class="font-medium text-[15px] leading-snug text-ink">{expansion}</p>
+						{/if}
+						<p class="text-[14.5px] leading-relaxed text-ink-muted">{enDef}</p>
+					</div>
+					<PronounceButton text={hintPronounceText} class="-mt-1 shrink-0" />
 				</div>
 			{:else}
 				<button
