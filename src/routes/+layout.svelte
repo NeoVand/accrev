@@ -22,7 +22,7 @@
 {:else}
 	<!-- App shell: fixed viewport height, only the main column scrolls. Header + nav stay put. -->
 	<div
-		class="mx-auto flex h-dvh max-w-[480px] flex-col overflow-hidden bg-bg text-ink"
+		class="app-grain mx-auto flex h-dvh max-w-[480px] flex-col overflow-hidden bg-bg text-ink"
 		in:fade={{ duration: 240 }}
 	>
 		<Header />

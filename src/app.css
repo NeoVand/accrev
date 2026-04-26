@@ -46,6 +46,21 @@
 	--hairline: #e6d8c6;
 	--success: #6b8e62;
 	--danger: #a6453f;
+
+	/* Layered shadow system: ambient (soft + diffuse) + contact (sharp + close).
+	   Tinted with the warm ink color so shadows feel of-a-piece with the palette. */
+	--shadow-card:
+		0 1px 2px rgba(42, 31, 45, 0.04),
+		0 4px 12px -6px rgba(42, 31, 45, 0.08),
+		0 18px 40px -22px rgba(42, 31, 45, 0.18);
+	--shadow-card-hover:
+		0 1px 2px rgba(42, 31, 45, 0.05),
+		0 8px 22px -8px rgba(42, 31, 45, 0.12),
+		0 28px 60px -22px rgba(42, 31, 45, 0.28);
+	/* Inner top-edge highlight: simulates a soft light source above the card. */
+	--card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+	/* Inset highlight on dark CTAs for top-edge sheen. */
+	--cta-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 [data-theme='dark'] {
@@ -61,6 +76,17 @@
 	--hairline: #3a2f3b;
 	--success: #8fae85;
 	--danger: #c76860;
+
+	--shadow-card:
+		0 1px 2px rgba(0, 0, 0, 0.3),
+		0 6px 16px -6px rgba(0, 0, 0, 0.35),
+		0 22px 48px -22px rgba(0, 0, 0, 0.6);
+	--shadow-card-hover:
+		0 1px 2px rgba(0, 0, 0, 0.35),
+		0 10px 26px -8px rgba(0, 0, 0, 0.45),
+		0 32px 70px -22px rgba(0, 0, 0, 0.75);
+	--card-highlight: inset 0 1px 0 rgba(255, 230, 217, 0.06);
+	--cta-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 html {
@@ -88,6 +114,34 @@ body {
 		);
 	background-attachment: fixed;
 	min-height: 100dvh;
+	position: relative;
+}
+
+/* Paper-grain overlay: a tactile, editorial texture that keeps the warm
+   palette from reading as plastic. Applied via an .app-grain wrapper so it
+   paints inside the (opaque) app shell, behind content but on top of bg. */
+.app-grain {
+	position: relative;
+}
+.app-grain::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	opacity: 0.5;
+	mix-blend-mode: multiply;
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+.app-grain > * {
+	position: relative;
+	z-index: 1;
+}
+
+[data-theme='dark'] .app-grain::before {
+	opacity: 0.55;
+	mix-blend-mode: overlay;
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.04 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
 [data-theme='dark'] body {
@@ -155,6 +209,16 @@ input,
 textarea,
 select {
 	font-size: 16px;
+}
+
+/* Reusable refined card surface: layered shadow + a 1px top-edge highlight that
+   simulates a soft light source above. Use on elevated cards (Flashcard, hero,
+   DeckCard). Keep border + radius on the element itself. */
+.surface-card {
+	box-shadow: var(--card-highlight), var(--shadow-card);
+}
+.surface-card-hover:hover {
+	box-shadow: var(--card-highlight), var(--shadow-card-hover);
 }
 
 /* Smooth, brief transitions everywhere */

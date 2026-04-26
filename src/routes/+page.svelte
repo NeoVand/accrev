@@ -280,11 +280,28 @@
 		text-decoration: none;
 		color: inherit;
 		overflow: hidden;
-		box-shadow: 0 18px 48px -28px rgba(42, 31, 45, 0.3);
-		transition: box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1);
+		box-shadow: var(--card-highlight), var(--shadow-card);
+		transition:
+			box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1),
+			transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
 	}
 	.hero:hover {
-		box-shadow: 0 26px 70px -28px rgba(42, 31, 45, 0.42);
+		transform: translateY(-2px);
+		box-shadow: var(--card-highlight), var(--shadow-card-hover);
+	}
+	/* Tinted hover halo: each hero gets a wash of its own accent on hover, so
+	   the lift feels like a warm light glowing through, not a generic shadow. */
+	.hero-learn:hover {
+		box-shadow:
+			var(--card-highlight),
+			var(--shadow-card-hover),
+			0 24px 60px -28px color-mix(in oklab, var(--gold) 55%, transparent);
+	}
+	.hero-practice:hover {
+		box-shadow:
+			var(--card-highlight),
+			var(--shadow-card-hover),
+			0 24px 60px -28px color-mix(in oklab, var(--accent) 50%, transparent);
 	}
 
 	.hero-wash {
@@ -359,30 +376,60 @@
 		letter-spacing: 0.18em;
 		text-transform: uppercase;
 		font-weight: 500;
+		/* Inset top-edge sheen + soft ambient drop: makes pills feel injection-molded. */
+		box-shadow:
+			var(--cta-highlight),
+			0 1px 1px rgba(42, 31, 45, 0.06),
+			0 6px 14px -8px rgba(42, 31, 45, 0.35);
 		transition:
-			background-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
-			color 220ms cubic-bezier(0.22, 1, 0.36, 1);
+			background 280ms cubic-bezier(0.22, 1, 0.36, 1),
+			color 280ms cubic-bezier(0.22, 1, 0.36, 1),
+			box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1);
 	}
 	.hero-cta svg {
 		flex: none;
 		opacity: 0.85;
 	}
 	.hero-cta-learn {
-		background: var(--gold);
+		/* Subtle vertical gradient: top is a hair lighter than base gold,
+		   bottom is a hair darker — gives the pill a sculpted, lit feel. */
+		background:
+			linear-gradient(
+				180deg,
+				color-mix(in oklab, var(--gold) 88%, white) 0%,
+				var(--gold) 55%,
+				color-mix(in oklab, var(--gold) 92%, black) 100%
+			);
 		color: #1a1414;
 	}
 	.hero:hover .hero-cta-learn,
 	.hero:focus-visible .hero-cta-learn {
-		background: var(--ink);
+		background:
+			linear-gradient(
+				180deg,
+				color-mix(in oklab, var(--ink) 92%, white) 0%,
+				var(--ink) 100%
+			);
 		color: var(--bg);
 	}
 	.hero-cta-practice {
-		background: var(--ink);
+		background:
+			linear-gradient(
+				180deg,
+				color-mix(in oklab, var(--ink) 92%, white) 0%,
+				var(--ink) 100%
+			);
 		color: var(--bg);
 	}
 	.hero:hover .hero-cta-practice,
 	.hero:focus-visible .hero-cta-practice {
-		background: var(--accent);
+		background:
+			linear-gradient(
+				180deg,
+				color-mix(in oklab, var(--accent) 88%, white) 0%,
+				var(--accent) 60%,
+				color-mix(in oklab, var(--accent) 92%, black) 100%
+			);
 		color: var(--bg);
 	}
 </style>

@@ -64,7 +64,7 @@
 </script>
 
 <article
-	class="relative flex min-h-[58dvh] flex-col gap-5 rounded-[var(--radius-card)] border border-hairline bg-bg-elevated p-6 shadow-[0_1px_0_var(--color-hairline),0_24px_48px_-28px_rgba(42,31,45,0.22)]"
+	class="flashcard relative flex min-h-[58dvh] flex-col gap-5 overflow-hidden rounded-[var(--radius-card)] border border-hairline bg-bg-elevated p-6"
 >
 	<header class="flex items-center justify-between gap-3">
 		<span class="eyebrow">{eyebrow}</span>
@@ -188,3 +188,28 @@
 </article>
 
 <HelpModal open={helpOpen} onClose={() => (helpOpen = false)} />
+
+<style>
+	.flashcard {
+		box-shadow: var(--card-highlight), var(--shadow-card);
+	}
+	/* Whisper of warmth from the top — paints behind content. Pulls the eye
+	   toward the term face without competing with it. */
+	.flashcard::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		z-index: 0;
+		background:
+			radial-gradient(
+				ellipse 60% 30% at 50% 0%,
+				color-mix(in oklab, var(--accent-soft) 35%, transparent) 0%,
+				transparent 70%
+			);
+	}
+	.flashcard > :global(*) {
+		position: relative;
+		z-index: 1;
+	}
+</style>

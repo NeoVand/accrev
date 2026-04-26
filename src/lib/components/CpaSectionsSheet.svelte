@@ -37,7 +37,7 @@
 			aria-modal="true"
 			aria-labelledby="cpa-sheet-title"
 			transition:fly={{ y: 24, duration: 240 }}
-			class="relative flex max-h-[85dvh] w-full max-w-[440px] flex-col overflow-hidden rounded-t-[var(--radius-card)] border border-hairline border-b-0 bg-bg-elevated pb-[max(0.5rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-16px_rgba(42,31,45,0.35)] sm:rounded-[var(--radius-card)] sm:border-b sm:pb-3"
+			class="cpa-sheet relative flex max-h-[85dvh] w-full max-w-[440px] flex-col overflow-hidden rounded-t-[var(--radius-card)] border border-hairline border-b-0 bg-bg-elevated pb-[max(0.5rem,env(safe-area-inset-bottom))] sm:rounded-[var(--radius-card)] sm:border-b sm:pb-3"
 		>
 			<header class="flex items-start justify-between gap-3 px-5 pt-5 pb-2">
 				<div class="flex flex-col gap-0.5">
@@ -68,7 +68,7 @@
 						<a
 							href={`${resolve('/study')}?run=1&cpa=${deck.key}`}
 							onclick={onClose}
-							class="flex items-center justify-between gap-3 rounded-xl px-4 py-3 hover:bg-bg-soft/60"
+							class="deck-row flex items-center justify-between gap-3 rounded-xl px-4 py-3"
 							class:mt-px={i > 0}
 						>
 							<div class="flex flex-col gap-0.5">
@@ -92,3 +92,38 @@
 		</div>
 	</div>
 {/if}
+
+<style>
+	/* Layered shadow that reads as 'lifted from the page' rather than a flat drop. */
+	.cpa-sheet {
+		box-shadow:
+			var(--card-highlight),
+			0 -2px 6px rgba(42, 31, 45, 0.06),
+			0 -12px 40px -16px rgba(42, 31, 45, 0.35),
+			0 -28px 70px -28px rgba(42, 31, 45, 0.45);
+	}
+
+	/* Deck rows: hover paints a soft accent wash from the right (where the chevron
+	   lives) — a tiny invitation to tap. */
+	.deck-row {
+		position: relative;
+		isolation: isolate;
+	}
+	.deck-row::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		opacity: 0;
+		z-index: -1;
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			color-mix(in oklab, var(--accent-soft) 35%, transparent) 100%
+		);
+		transition: opacity 220ms cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	.deck-row:hover::before {
+		opacity: 1;
+	}
+</style>

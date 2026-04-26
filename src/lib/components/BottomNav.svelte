@@ -44,7 +44,7 @@
 </script>
 
 <nav
-	class="z-30 grid flex-none grid-cols-5 border-t border-hairline/60 bg-bg/90 pb-[max(0.25rem,env(safe-area-inset-bottom))] backdrop-blur-md"
+	class="bottom-nav relative z-30 grid flex-none grid-cols-5 border-t border-hairline/60 bg-bg/90 pb-[max(0.25rem,env(safe-area-inset-bottom))] backdrop-blur-md"
 	aria-label="Primary"
 >
 	{#each items as item (item.route)}
@@ -52,7 +52,7 @@
 		<a
 			href={resolve(item.route)}
 			aria-current={active ? 'page' : undefined}
-			class="flex flex-col items-center gap-0.5 py-1.5 text-ink-muted aria-[current=page]:text-accent"
+			class="nav-item relative flex flex-col items-center gap-0.5 py-1.5 text-ink-muted aria-[current=page]:text-accent"
 		>
 			<span class="grid h-5 w-5 place-items-center">
 				{#if item.key === 'home'}
@@ -86,3 +86,51 @@
 		</a>
 	{/each}
 </nav>
+
+<style>
+	/* Whisper-thin gradient on the top edge of the nav: a sheen of light catching
+	   the seam between content and chrome. Replaces a flat divider with depth. */
+	.bottom-nav::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: -1px;
+		height: 1px;
+		pointer-events: none;
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			color-mix(in oklab, var(--accent) 30%, transparent) 50%,
+			transparent 100%
+		);
+		opacity: 0.6;
+	}
+
+	/* Soft glow blooming under the active tab. Anchors the eye without a hard pill. */
+	.nav-item::before {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 6px;
+		width: 32px;
+		height: 32px;
+		transform: translateX(-50%) scale(0.6);
+		border-radius: 9999px;
+		background: radial-gradient(
+			circle,
+			color-mix(in oklab, var(--accent) 32%, transparent) 0%,
+			transparent 70%
+		);
+		opacity: 0;
+		pointer-events: none;
+		transition:
+			opacity 280ms cubic-bezier(0.22, 1, 0.36, 1),
+			transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+		z-index: -1;
+	}
+	.nav-item[aria-current='page']::before {
+		opacity: 1;
+		transform: translateX(-50%) scale(1);
+	}
+</style>
