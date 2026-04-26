@@ -134,8 +134,8 @@
 		<div class="hero-cta hero-cta-learn">
 			<svg
 				viewBox="0 0 24 24"
-				width="14"
-				height="14"
+				width="16"
+				height="16"
 				fill="none"
 				stroke="currentColor"
 				stroke-width="1.7"
@@ -143,9 +143,11 @@
 				stroke-linejoin="round"
 				aria-hidden="true"
 			>
-				<path d="M12 6v14" />
-				<path d="M3 5a1.5 1.5 0 0 1 1.5-1.5H11V20H4.5A1.5 1.5 0 0 1 3 18.5z" />
-				<path d="M21 5a1.5 1.5 0 0 0-1.5-1.5H13V20h6.5a1.5 1.5 0 0 0 1.5-1.5z" />
+				<circle cx="7" cy="13.5" r="3.5" />
+				<circle cx="17" cy="13.5" r="3.5" />
+				<path d="M10.5 13.5h3" />
+				<path d="M3.5 12.2c.2-1.8 1-4 2-5.5" />
+				<path d="M20.5 12.2c-.2-1.8-1-4-2-5.5" />
 			</svg>
 			<span>{isFa ? 'باز کردن کتاب' : 'open the book'}</span>
 		</div>
@@ -193,8 +195,8 @@
 		<div class="hero-cta hero-cta-practice">
 			<svg
 				viewBox="0 0 24 24"
-				width="14"
-				height="14"
+				width="16"
+				height="16"
 				fill="none"
 				stroke="currentColor"
 				stroke-width="1.7"
@@ -202,8 +204,9 @@
 				stroke-linejoin="round"
 				aria-hidden="true"
 			>
-				<rect x="6.5" y="4.5" width="13" height="15" rx="2" transform="rotate(-6 13 12)" />
-				<rect x="4" y="6" width="13" height="15" rx="2" />
+				<circle cx="12" cy="12" r="9" />
+				<circle cx="12" cy="12" r="5" />
+				<circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
 			</svg>
 			<span>
 				{foundationalContinuing ? t('hero_button_continue') : t('hero_button_foundations')}
