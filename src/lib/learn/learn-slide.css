@@ -1,0 +1,449 @@
+/* ============================================================
+   Learn-section slide body styles.
+
+   The original "Accounting, Reviewed" deck was authored for a
+   1200×1200 canvas with its own CSS variables. The HTML in
+   `slides.generated.ts` keeps the deck's class names — this file
+   restyles them for a 480px-wide phone column inside accrev.
+
+   Scope: everything is under `.learn-slide`.
+   Variant: `.learn-slide.is-navy | .is-tan | .is-sage | .is-ink`
+   re-tints colors for the dark slide variants.
+   ============================================================ */
+
+.learn-slide {
+	/* Map the deck's variables to the app's palette. Inline backgrounds
+	   that referenced `--paper|navy|ink|tan|sage` are stripped at build
+	   time, so these values are mostly used for accent text colors now. */
+	--paper: #faf4e8; /* used as text color on dark variants */
+	--cream: #f5f2ec;
+	--cream-2: var(--bg-soft);
+	--ink-soft: var(--ink-muted);
+	--rule: var(--hairline);
+	--tan: var(--gold);
+	--tan-deep: color-mix(in oklab, var(--gold) 70%, var(--ink) 30%);
+	--navy: #28456a;
+	--navy-deep: #1c3251;
+	--sage: #4d5d44;
+
+	font-family: var(--font-sans);
+	color: var(--ink);
+	font-size: 14px;
+	line-height: 1.55;
+	min-width: 0;
+}
+
+.learn-slide *,
+.learn-slide *::before,
+.learn-slide *::after {
+	box-sizing: border-box;
+	max-width: 100%;
+}
+
+/* Override Tailwind's "* { transition }" inheritance so slide content
+   doesn't all transition together when opened. The shell handles motion. */
+
+.learn-slide p {
+	margin: 0 0 10px 0;
+}
+
+.learn-slide hr.rule,
+.learn-slide hr {
+	height: 1px;
+	background: var(--hairline);
+	border: 0;
+	margin: 12px 0;
+}
+
+/* Drop the deck's own header/eyebrow/title/footer — we render those in the shell. */
+.learn-slide .corner-mark,
+.learn-slide .slide-num {
+	display: none;
+}
+
+/* ─── Bilingual lecture grid: stack vertically on phone ──────── */
+
+.learn-slide .lecture-grid {
+	display: flex !important;
+	flex-direction: column;
+	gap: 16px !important;
+	margin-top: 14px;
+}
+
+.learn-slide .col-en,
+.learn-slide .col-fa {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	min-width: 0;
+}
+
+.learn-slide .col-fa {
+	font-family: var(--font-persian);
+	direction: rtl;
+	text-align: right;
+	unicode-bidi: isolate;
+}
+
+.learn-slide .col-en h3,
+.learn-slide .col-fa h3 {
+	font-family: var(--font-serif);
+	font-weight: 500;
+	font-size: 17px;
+	line-height: 1.18;
+	color: var(--ink);
+	margin: 4px 0 0 0;
+}
+.learn-slide .col-fa h3 {
+	font-family: var(--font-persian);
+	font-weight: 700;
+}
+
+.learn-slide .col-en p,
+.learn-slide .col-fa p {
+	font-size: 13.5px;
+	line-height: 1.65;
+	color: var(--ink);
+	margin: 0 0 6px 0;
+}
+.learn-slide .col-fa p {
+	font-size: 14px;
+	line-height: 1.85;
+}
+
+.learn-slide .col-en strong,
+.learn-slide .col-fa strong {
+	color: var(--accent);
+	font-weight: 600;
+}
+
+.learn-slide .col-en em,
+.learn-slide .col-fa em {
+	font-style: italic;
+	color: var(--ink-muted);
+}
+
+.learn-slide .lecture-grid ul {
+	margin: 4px 0;
+	padding-left: 18px;
+	font-size: 13.5px;
+	line-height: 1.55;
+	color: var(--ink);
+}
+.learn-slide .col-fa ul {
+	padding-left: 0;
+	padding-right: 18px;
+	font-size: 14px;
+	line-height: 1.75;
+}
+.learn-slide .lecture-grid li {
+	margin-bottom: 4px;
+}
+
+/* ─── Inline Persian gloss after English term ─────────────────── */
+
+.learn-slide .term-fa {
+	font-family: var(--font-persian);
+	color: var(--gold);
+	font-size: 0.92em;
+	direction: rtl;
+	unicode-bidi: isolate;
+}
+
+/* ─── Pitfall + example callouts: borderless, side-bar accent only ── */
+
+.learn-slide .pitfall {
+	margin: 8px 0 4px 0;
+	padding: 2px 0 2px 12px;
+	border-left: 2px solid var(--gold);
+	background: transparent;
+	font-size: 12.5px;
+	line-height: 1.6;
+	color: var(--ink-muted);
+}
+.learn-slide .col-fa .pitfall {
+	padding: 2px 12px 2px 0;
+	border-left: 0;
+	border-right: 2px solid var(--gold);
+	text-align: right;
+	font-family: var(--font-persian);
+	font-size: 13px;
+	line-height: 1.75;
+}
+.learn-slide .pitfall .label,
+.learn-slide .example .label {
+	font-family: ui-monospace, 'SF Mono', monospace;
+	font-size: 9.5px;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--gold);
+	display: block;
+	margin-bottom: 3px;
+	font-weight: 600;
+}
+
+.learn-slide .example {
+	margin: 8px 0 4px 0;
+	padding: 2px 0 2px 12px;
+	border-left: 2px solid var(--accent);
+	background: transparent;
+	font-size: 12.5px;
+	line-height: 1.6;
+	color: var(--ink);
+}
+.learn-slide .example .label {
+	color: var(--accent);
+}
+.learn-slide .col-fa .example {
+	padding: 2px 12px 2px 0;
+	border-left: 0;
+	border-right: 2px solid var(--accent);
+	text-align: right;
+	font-family: var(--font-persian);
+	font-size: 13px;
+	line-height: 1.75;
+}
+
+/* ─── Standalone Farsi block ──────────────────────────────────── */
+
+.learn-slide .farsi {
+	font-family: var(--font-persian);
+	direction: rtl;
+	text-align: right;
+	color: var(--gold);
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.learn-slide .farsi-block {
+	font-family: var(--font-persian);
+	direction: rtl;
+	text-align: right;
+	font-size: 14px;
+	line-height: 1.85;
+	color: var(--ink);
+	background: transparent;
+	padding: 2px 12px 2px 0;
+	border-right: 2px solid var(--gold);
+	border-radius: 0;
+	margin: 10px 0;
+}
+.learn-slide .farsi-block strong {
+	font-weight: 700;
+	color: var(--accent);
+}
+
+/* ─── Body / subtitle / chip / misc ────────────────────────────── */
+
+.learn-slide .body,
+.learn-slide .body-lg {
+	font-size: 14px;
+	line-height: 1.6;
+	color: var(--ink);
+	margin: 8px 0;
+}
+
+.learn-slide .subtitle {
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--ink-muted);
+	margin: 8px 0 0 0;
+	max-width: none;
+}
+
+.learn-slide .chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 12.5px;
+	color: var(--ink-muted);
+}
+
+/* ─── Responsive layout overrides for inline-styled containers ───── */
+
+/* Inline flex layouts in slide bodies (the equation hero, section
+   summaries, etc.) need wrap on a 343px column or content overflows. */
+.learn-slide [style*='display:flex'],
+.learn-slide [style*='display: flex'] {
+	flex-wrap: wrap;
+	row-gap: 8px;
+}
+/* But the lecture-grid columns (col-en/col-fa) and search-bar style
+   flex layouts inside callouts shouldn't wrap mid-line. */
+.learn-slide .col-en,
+.learn-slide .col-fa,
+.learn-slide .col-en *[style*='display:flex'],
+.learn-slide .col-fa *[style*='display:flex'] {
+	flex-wrap: nowrap;
+}
+/* Authored landscape layouts that aligned children to flex-end were
+   designed for a tall canvas. On phone, stack them top-to-bottom. */
+.learn-slide [style*='align-items:flex-end'],
+.learn-slide [style*='align-items: flex-end'] {
+	flex-direction: column !important;
+	align-items: flex-start !important;
+}
+/* Children with `flex:1` overpower the column on phone — reset their
+   basis so each child takes its natural width. */
+.learn-slide [style*='flex:1'],
+.learn-slide [style*='flex: 1'] {
+	flex: initial !important;
+	width: 100%;
+}
+
+/* Equal-fr inline grids — these are author-decorative, they stack
+   nicely on phone. */
+.learn-slide [style*='grid-template-columns:1fr 1fr'],
+.learn-slide [style*='grid-template-columns: 1fr 1fr'],
+.learn-slide [style*='grid-template-columns:1fr 1fr 1fr'],
+.learn-slide [style*='grid-template-columns: 1fr 1fr 1fr'],
+.learn-slide [style*='grid-template-columns:repeat(2,1fr)'],
+.learn-slide [style*='grid-template-columns: repeat(2,1fr)'],
+.learn-slide [style*='grid-template-columns:repeat(3,1fr)'],
+.learn-slide [style*='grid-template-columns: repeat(3,1fr)'] {
+	grid-template-columns: 1fr !important;
+}
+
+/* Real accountant tables: a monospace wrapper that contains its own
+   grid rows (journal entries, transaction lists). Add hairlines top &
+   bottom for tabular structure. Standalone formulas in mono font (no
+   inner grid) get no frame. */
+.learn-slide [style*="font-family:'JetBrains Mono'"]:has([style*='display:grid']),
+.learn-slide [style*="font-family:'JetBrains Mono'"]:has([style*='display: grid']) {
+	font-size: 10px !important;
+	line-height: 1.45 !important;
+	max-width: 100%;
+	margin: 10px 0 12px 0 !important;
+	padding: 8px 0 !important;
+	border-top: 1px solid var(--hairline);
+	border-bottom: 1px solid var(--hairline);
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+.learn-slide [style*="font-family:'JetBrains Mono'"]:has([style*='display:grid']) [style*='display:grid'],
+.learn-slide [style*="font-family:'JetBrains Mono'"]:has([style*='display: grid']) [style*='display: grid'] {
+	gap: 4px !important;
+	min-width: 0;
+}
+.learn-slide [style*="font-family:'JetBrains Mono'"]:has([style*='display:grid']) [style*='display:grid'] > * {
+	min-width: 0;
+	word-break: normal;
+}
+/* Header row (DATE / ACCOUNT / DR / CR) — uppercase + thin underline */
+.learn-slide [style*="font-family:'JetBrains Mono'"]:has([style*='display:grid']) [style*="font-family:'Inter'"] {
+	font-size: 8.5px !important;
+	letter-spacing: 0.1em !important;
+	color: var(--ink-muted) !important;
+	padding-bottom: 4px !important;
+	border-bottom: 1px solid var(--hairline);
+	margin-bottom: 4px;
+}
+
+/* Standalone monospace formulas — keep slightly smaller font but no frame */
+.learn-slide [style*="font-family:'JetBrains Mono'"]:not(:has([style*='display:grid'])) {
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+/* ─── Variant tints (only for cover / dividers / close — those still
+   sit inside `.learn-slide-frame` in SlideShell. Lecture / glossary
+   slides flow on the page itself with no body background.) ──────── */
+
+.learn-slide.is-navy {
+	color: #f5f2ec;
+}
+.learn-slide.is-navy h1,
+.learn-slide.is-navy h2,
+.learn-slide.is-navy h3,
+.learn-slide.is-navy .title {
+	color: #faf4e8;
+}
+.learn-slide.is-navy p,
+.learn-slide.is-navy .col-en p,
+.learn-slide.is-navy .col-fa p {
+	color: rgba(245, 242, 236, 0.86);
+}
+.learn-slide.is-navy .eyebrow {
+	color: #d2b07e;
+}
+.learn-slide.is-navy .col-en strong,
+.learn-slide.is-navy .col-fa strong,
+.learn-slide.is-navy .farsi-block strong {
+	color: #e0c189;
+}
+.learn-slide.is-navy .pitfall,
+.learn-slide.is-navy .example {
+	background: rgba(245, 242, 236, 0.08);
+	color: rgba(245, 242, 236, 0.9);
+	border-left-color: #e0c189;
+}
+.learn-slide.is-navy .col-fa .pitfall,
+.learn-slide.is-navy .col-fa .example {
+	border-left: 0;
+	border-right-color: #e0c189;
+}
+.learn-slide.is-navy .farsi-block {
+	background: rgba(245, 242, 236, 0.06);
+	color: rgba(245, 242, 236, 0.92);
+	border-right-color: #d2b07e;
+}
+.learn-slide.is-navy hr,
+.learn-slide.is-navy .rule {
+	background: rgba(245, 242, 236, 0.18);
+}
+
+.learn-slide.is-tan {
+	color: #fbf6ee;
+}
+.learn-slide.is-tan h1,
+.learn-slide.is-tan h2,
+.learn-slide.is-tan h3,
+.learn-slide.is-tan .title {
+	color: #fbf6ee;
+}
+.learn-slide.is-tan .eyebrow {
+	color: #1f2f4a;
+}
+.learn-slide.is-tan p {
+	color: rgba(251, 246, 238, 0.92);
+}
+
+.learn-slide.is-sage {
+	color: #f5f2ec;
+}
+.learn-slide.is-sage h1,
+.learn-slide.is-sage h2,
+.learn-slide.is-sage h3,
+.learn-slide.is-sage .title {
+	color: #faf4e8;
+}
+.learn-slide.is-sage .eyebrow {
+	color: #e0c189;
+}
+.learn-slide.is-sage p,
+.learn-slide.is-sage .col-en p,
+.learn-slide.is-sage .col-fa p {
+	color: rgba(245, 242, 236, 0.92);
+}
+.learn-slide.is-sage .col-en strong,
+.learn-slide.is-sage .col-fa strong {
+	color: #faf4e8;
+}
+
+.learn-slide.is-ink {
+	color: var(--bg);
+}
+.learn-slide.is-ink h1,
+.learn-slide.is-ink h2,
+.learn-slide.is-ink h3,
+.learn-slide.is-ink .title {
+	color: var(--bg);
+}
+.learn-slide.is-ink .eyebrow {
+	color: var(--gold);
+}
+.learn-slide.is-ink p,
+.learn-slide.is-ink .col-en p,
+.learn-slide.is-ink .col-fa p {
+	color: rgba(241, 230, 217, 0.86);
+}

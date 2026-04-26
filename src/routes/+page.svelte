@@ -3,9 +3,11 @@
 	import { fade, fly } from 'svelte/transition';
 	import { resolve } from '$app/paths';
 	import CpaSectionsSheet from '$lib/components/CpaSectionsSheet.svelte';
+	import UnifiedSearch from '$lib/components/UnifiedSearch.svelte';
 	import { countDueTerms, countLapsed, getOrCreateProfile, getSectionStats } from '$lib/db';
 	import { seedIfNeeded } from '$lib/seed';
 	import { i18n, t } from '$lib/state/i18n.svelte';
+	import { slides as learnSlides } from '$lib/learn';
 	import type { CpaSection } from '$lib/types';
 
 	type DeckMeta = { key: CpaSection; titleKey: string; subKey: string };
@@ -66,24 +68,29 @@
 		foundational.total === 0 ? 0 : (foundational.studied / foundational.total) * 100
 	);
 	const foundationalContinuing = $derived(foundational.studied > 0);
+
+	const learnSlideCount = learnSlides.length;
 </script>
 
 <section class="flex h-full flex-col gap-3 pt-3 pb-2">
 	<!-- Greeting -->
 	<header class="flex flex-col gap-0.5" in:fly={{ y: 8, duration: 320 }}>
 		<p class="eyebrow">{greeting}</p>
-		<h1 class="font-display text-[32px] leading-[1.05] font-medium tracking-tight text-ink">
-			{t('ellie')} <span class="text-accent italic">{t('jooon')}</span><span class="text-accent"
-				>.</span
-			>
+		<h1 class="font-display text-[30px] leading-[1.05] font-medium tracking-tight text-ink">
+			{t('ellie')} <span class="text-accent italic">{t('jooon')}</span><span class="text-accent">.</span>
 		</h1>
 	</header>
 
-	<!-- Recall: small inline banner if there's a pile -->
+	<!-- Unified search: terms + slides, fancy autocomplete -->
+	<div in:fly={{ y: 6, duration: 320, delay: 40 }}>
+		<UnifiedSearch />
+	</div>
+
+	<!-- Recall pill (only if there's a pile) -->
 	{#if loaded && lapsedCount > 0}
 		<a
 			href={`${resolve('/study')}?recall=1`}
-			in:fly={{ y: 6, duration: 280, delay: 60 }}
+			in:fly={{ y: 6, duration: 280, delay: 80 }}
 			class="flex items-center justify-between rounded-full border border-accent/40 bg-accent-soft/40 px-4 py-2 text-[12.5px] hover:border-accent"
 		>
 			<span class="flex items-center gap-2 text-ink">
@@ -97,43 +104,83 @@
 		</a>
 	{/if}
 
-	<!-- Hero: Foundations -->
+	<!-- LEARN — read the deck end-to-end -->
 	<a
-		href={`${resolve('/study')}?run=1&cpa=Foundational`}
-		in:fly={{ y: 16, duration: 420, delay: 80 }}
-		class="group relative flex flex-col justify-between overflow-hidden rounded-[28px] border border-hairline bg-bg-elevated p-6 shadow-[0_24px_60px_-32px_rgba(42,31,45,0.35)] hover:shadow-[0_32px_80px_-32px_rgba(42,31,45,0.45)]"
+		href={resolve('/learn')}
+		in:fly={{ y: 16, duration: 420, delay: 120 }}
+		class="hero hero-learn group"
 	>
-		<!-- Decorative wash + corner glyph -->
-		<div
-			class="pointer-events-none absolute inset-0 -z-10"
-			style="background:
-				radial-gradient(ellipse 65% 55% at 100% 0%, color-mix(in oklab, var(--gold) 30%, transparent) 0%, transparent 65%),
-				radial-gradient(ellipse 50% 50% at 0% 100%, color-mix(in oklab, var(--accent-soft) 70%, transparent) 0%, transparent 60%);"
-		></div>
+		<div class="hero-wash hero-wash-learn"></div>
 		<span
 			aria-hidden="true"
-			class="font-display pointer-events-none absolute text-[140px] leading-none text-gold/15 select-none"
-			style:bottom={isFa ? 'auto' : '-2rem'}
-			style:top={isFa ? '-1.5rem' : 'auto'}
-			style:right={isFa ? 'auto' : '-0.5rem'}
-			style:left={isFa ? '-0.5rem' : 'auto'}
-		>
-			a
-		</span>
+			class="hero-glyph hero-glyph-learn"
+			style:top="14px"
+			style:right={isFa ? 'auto' : '14px'}
+			style:left={isFa ? '14px' : 'auto'}
+		>A·R</span>
 
-		<div class="flex flex-col gap-2.5">
-			<p class="eyebrow text-gold">
+		<div class="flex flex-col gap-2">
+			<p class="eyebrow text-gold">{isFa ? 'یادگیری' : 'read · learn'}</p>
+			<p class="font-display text-[24px] leading-[1.1] font-medium text-ink">
+				{isFa ? 'حسابداری، مرور شد' : 'Accounting, Reviewed'}<span class="text-gold">.</span>
+			</p>
+			<p class="text-[12.5px] leading-[1.55] text-ink-muted">
+				{isFa
+					? `${learnSlideCount} اسلاید — از پایه تا تحلیل صورت‌های مالی، با مثال‌های دوزبانه.`
+					: `${learnSlideCount} slides — from the equation up to financial-statement analysis, in English & Farsi.`}
+			</p>
+		</div>
+
+		<div class="hero-cta hero-cta-learn">
+			<svg
+				viewBox="0 0 24 24"
+				width="14"
+				height="14"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="1.7"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+			>
+				<path d="M12 6v14" />
+				<path d="M3 5a1.5 1.5 0 0 1 1.5-1.5H11V20H4.5A1.5 1.5 0 0 1 3 18.5z" />
+				<path d="M21 5a1.5 1.5 0 0 0-1.5-1.5H13V20h6.5a1.5 1.5 0 0 0 1.5-1.5z" />
+			</svg>
+			<span>{isFa ? 'باز کردن کتاب' : 'open the book'}</span>
+		</div>
+	</a>
+
+	<!-- PRACTICE — flashcard study -->
+	<a
+		href={`${resolve('/study')}?run=1&cpa=Foundational`}
+		in:fly={{ y: 16, duration: 420, delay: 160 }}
+		class="hero hero-practice group"
+	>
+		<div class="hero-wash hero-wash-practice"></div>
+		<span
+			aria-hidden="true"
+			class="hero-glyph hero-glyph-practice"
+			style:top="14px"
+			style:right={isFa ? 'auto' : '14px'}
+			style:left={isFa ? '14px' : 'auto'}
+		>a</span>
+
+		<div class="flex flex-col gap-2">
+			<p class="eyebrow text-accent">
 				{foundationalContinuing ? t('hero_eyebrow_today') : t('hero_eyebrow_foundations')}
 			</p>
-			<p class="font-display text-[28px] leading-[1.1] font-medium text-ink">
-				{t('cpa_foundational')}<span class="text-gold">.</span>
+			<p class="font-display text-[24px] leading-[1.1] font-medium text-ink">
+				{isFa ? 'تمرین با فلش‌کارت' : 'Practice flashcards'}<span class="text-accent">.</span>
 			</p>
-			<p class="text-[13px] text-ink-muted">{t('cpa_foundational_sub')}</p>
+			<p class="text-[12.5px] leading-[1.55] text-ink-muted">
+				{isFa ? 'پایه‌ها، با تکرار فاصله‌دار و دو جهتی.' : t('cpa_foundational_sub')}
+			</p>
 
-			<div class="mt-2 flex items-center gap-2">
+			<div class="mt-1.5 flex items-center gap-2">
 				<div class="h-[3px] flex-1 overflow-hidden rounded-full bg-hairline/60">
 					<div
-						class="h-full rounded-full bg-gold transition-[width] duration-500"
+						class="h-full rounded-full bg-accent transition-[width] duration-500"
 						style:width="{foundationalPct}%"
 					></div>
 				</div>
@@ -143,21 +190,35 @@
 			</div>
 		</div>
 
-		<div
-			class="relative z-10 mt-5 grid place-items-center rounded-full bg-ink py-3 text-[12px] tracking-[0.18em] text-bg uppercase transition group-hover:bg-accent"
-		>
-			{foundationalContinuing ? t('hero_button_continue') : t('hero_button_foundations')}
+		<div class="hero-cta hero-cta-practice">
+			<svg
+				viewBox="0 0 24 24"
+				width="14"
+				height="14"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="1.7"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+			>
+				<rect x="6.5" y="4.5" width="13" height="15" rx="2" transform="rotate(-6 13 12)" />
+				<rect x="4" y="6" width="13" height="15" rx="2" />
+			</svg>
+			<span>
+				{foundationalContinuing ? t('hero_button_continue') : t('hero_button_foundations')}
+			</span>
 		</div>
 	</a>
 
-	<!-- CPA Exam Sections — opens a bottom sheet so it doesn't disturb layout -->
+	<!-- CPA Exam Sections — bottom sheet -->
 	<button
 		type="button"
 		onclick={() => (cpaSheetOpen = true)}
 		class="flex items-center justify-between rounded-2xl border border-hairline bg-bg-elevated/60 px-4 py-3 text-left hover:border-accent/40"
 	>
 		<div class="flex flex-col">
-			<p class="eyebrow uppercase">CPA EXAM SECTIONS</p>
+			<p class="eyebrow uppercase">{isFa ? 'بخش‌های آزمون CPA' : 'CPA Exam Sections'}</p>
 			<p class="text-[12px] text-ink-muted">
 				{t('cpa_sections_subtitle', CPA_DECKS.length, cpaTotal)}
 			</p>
@@ -195,12 +256,124 @@
 				class="flex items-center gap-1.5 rounded-full border border-hairline bg-bg-elevated/60 px-3 py-1.5 text-ink-muted"
 			>
 				<svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden="true">
-					<path
-						d="M12 2l2.39 6.95H21l-5.31 4.27L17.83 20 12 15.77 6.17 20l2.14-6.78L3 8.95h6.61z"
-					/>
+					<path d="M12 2l2.39 6.95H21l-5.31 4.27L17.83 20 12 15.77 6.17 20l2.14-6.78L3 8.95h6.61z" />
 				</svg>
 				{t('chip_level', level)}
 			</span>
 		{/if}
 	</div>
 </section>
+
+<style>
+	.hero {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		padding: 18px;
+		border-radius: 24px;
+		border: 1px solid var(--hairline);
+		background: var(--bg-elevated);
+		text-decoration: none;
+		color: inherit;
+		overflow: hidden;
+		box-shadow: 0 18px 48px -28px rgba(42, 31, 45, 0.3);
+		transition: box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	.hero:hover {
+		box-shadow: 0 26px 70px -28px rgba(42, 31, 45, 0.42);
+	}
+
+	.hero-wash {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		z-index: 0;
+	}
+	.hero-wash-learn {
+		background:
+			radial-gradient(
+				ellipse 70% 60% at 100% 0%,
+				color-mix(in oklab, var(--gold) 38%, transparent) 0%,
+				transparent 65%
+			),
+			radial-gradient(
+				ellipse 50% 50% at 0% 100%,
+				color-mix(in oklab, var(--gold) 14%, transparent) 0%,
+				transparent 60%
+			);
+	}
+	.hero-wash-practice {
+		background:
+			radial-gradient(
+				ellipse 70% 60% at 100% 0%,
+				color-mix(in oklab, var(--accent-soft) 70%, transparent) 0%,
+				transparent 60%
+			),
+			radial-gradient(
+				ellipse 60% 60% at 0% 100%,
+				color-mix(in oklab, var(--accent) 16%, transparent) 0%,
+				transparent 60%
+			);
+	}
+
+	.hero-glyph {
+		position: absolute;
+		font-family: var(--font-serif);
+		line-height: 1;
+		pointer-events: none;
+		user-select: none;
+		font-feature-settings: 'lnum';
+		z-index: 0;
+	}
+	.hero-glyph-learn {
+		font-size: 44px;
+		font-weight: 300;
+		font-style: italic;
+		letter-spacing: 0.08em;
+		color: color-mix(in oklab, var(--gold) 35%, transparent);
+	}
+	.hero-glyph-practice {
+		font-size: 64px;
+		font-weight: 400;
+		color: color-mix(in oklab, var(--accent) 22%, transparent);
+	}
+
+	.hero > div,
+	.hero > .hero-cta {
+		position: relative;
+		z-index: 1;
+	}
+
+	.hero-cta {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 9px;
+		padding: 11px 16px;
+		border-radius: 999px;
+		font-size: 11.5px;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		font-weight: 500;
+		transition: background-color 200ms;
+	}
+	.hero-cta svg {
+		flex: none;
+		opacity: 0.85;
+	}
+	.hero-cta-learn {
+		background: var(--gold);
+		color: #1a1414;
+	}
+	.hero:hover .hero-cta-learn {
+		background: color-mix(in oklab, var(--gold) 80%, var(--ink) 20%);
+	}
+	.hero-cta-practice {
+		background: var(--ink);
+		color: var(--bg);
+	}
+	.hero:hover .hero-cta-practice {
+		background: var(--accent);
+	}
+</style>

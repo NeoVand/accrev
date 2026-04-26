@@ -6,11 +6,12 @@
 
 	type NavItem = {
 		route: RouteId;
-		key: 'home' | 'study' | 'progress' | 'settings';
+		key: 'home' | 'learn' | 'study' | 'progress' | 'settings';
 	};
 
 	const items: NavItem[] = [
 		{ route: '/', key: 'home' },
+		{ route: '/learn', key: 'learn' },
 		{ route: '/study', key: 'study' },
 		{ route: '/progress', key: 'progress' },
 		{ route: '/settings', key: 'settings' }
@@ -32,16 +33,18 @@
 	function labelFor(key: NavItem['key']): string {
 		return key === 'home'
 			? t('nav_home')
-			: key === 'study'
-				? t('nav_study')
-				: key === 'progress'
-					? t('nav_progress')
-					: t('nav_settings');
+			: key === 'learn'
+				? t('nav_learn')
+				: key === 'study'
+					? t('nav_study')
+					: key === 'progress'
+						? t('nav_progress')
+						: t('nav_settings');
 	}
 </script>
 
 <nav
-	class="z-30 grid flex-none grid-cols-4 border-t border-hairline/60 bg-bg/90 pb-[max(0.25rem,env(safe-area-inset-bottom))] backdrop-blur-md"
+	class="z-30 grid flex-none grid-cols-5 border-t border-hairline/60 bg-bg/90 pb-[max(0.25rem,env(safe-area-inset-bottom))] backdrop-blur-md"
 	aria-label="Primary"
 >
 	{#each items as item (item.route)}
@@ -56,6 +59,11 @@
 					<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 						<path d="M3 11.5L12 4l9 7.5" />
 						<path d="M5 10v10h14V10" />
+					</svg>
+				{:else if item.key === 'learn'}
+					<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v15H5.5A1.5 1.5 0 0 1 4 17.5z" />
+						<path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v15h5.5a1.5 1.5 0 0 0 1.5-1.5z" />
 					</svg>
 				{:else if item.key === 'study'}
 					<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
