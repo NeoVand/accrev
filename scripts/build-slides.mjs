@@ -308,14 +308,34 @@ function mobilize(html) {
 	out = out.replace(/(?<![a-z-])padding[a-z-]*\s*:\s*[^;"']+;?/gi, '');
 	out = out.replace(/(?<![a-z-])box-shadow\s*:\s*[^;"']+;?/gi, '');
 
-	// Drop `color:var(--paper|cream|cream-2)` — those were authored against
-	// dark backgrounds we just removed. Let text inherit from page.
+	// Drop `color:var(--paper|cream|cream-2)` — authored for dark bg cards
+	// we just removed. Let text inherit from page.
 	out = out.replace(
 		/(?<![a-z-])color\s*:\s*var\(--(?:paper|cream(?:-2)?)\)\s*;?/gi,
 		''
 	);
+	// Drop hardcoded cream rgba colors `rgba(245, 242, 236, x)` — same
+	// reason: invisible on a cream/light page.
+	out = out.replace(
+		/(?<![a-z-])color\s*:\s*rgba?\(\s*245\s*,\s*242\s*,\s*236[^)]*\)\s*;?/gi,
+		''
+	);
+	// Drop hex variants of cream/paper (#f5f2ec, #faf4e8, #fbf6ee, etc.)
+	out = out.replace(
+		/(?<![a-z-])color\s*:\s*#(?:f[a-f5-9]|f[a-f0-9]){3}(?:[a-f0-9]{2})?\s*;?/gi,
+		''
+	);
 	// Drop opacity overrides authored against colored bg cards.
 	out = out.replace(/(?<![a-z-])opacity\s*:\s*0?\.\d+\s*;?/gi, '');
+
+	// Section dividers had a footer block listing the slides in their
+	// part as static "§05 ... · §06 ..." text. On phone it reads like
+	// it should be a hyperlinked TOC but isn't. The slide-list lives on
+	// the part-hub already, so just strip the redundant decoration.
+	out = out.replace(
+		/<div[^>]*>\s*<div[^>]*>\s*SLIDES IN THIS PART[\s\S]*?<\/div>\s*<\/div>/gi,
+		''
+	);
 
 	out = out.replace(/font-size\s*:\s*(\d+)px/gi, (_m, n) => `font-size:${scaleFontSize(+n)}px`);
 

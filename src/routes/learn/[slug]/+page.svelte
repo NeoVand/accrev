@@ -4,13 +4,19 @@
 	import { i18n, t } from '$lib/state/i18n.svelte';
 	import SlideShell from '$lib/learn/components/SlideShell.svelte';
 	import LectureBody from '$lib/learn/components/LectureBody.svelte';
+	import SlideListItem from '$lib/learn/components/SlideListItem.svelte';
 	import '$lib/learn/learn-slide.css';
 
 	const { data } = $props();
-	const { slide, prev, next, part } = $derived(data);
+	const { slide, prev, next, part, partSlides } = $derived(data);
 
 	const backHref = $derived(part ? `/learn/parts/${part.id}` : '/learn');
 	const backLabel = $derived(part ? t('learn_back_to_part') : t('learn_back_to_index'));
+
+	// Full-bleed cover / dividers / close keep the variant tint card.
+	const framed = $derived(
+		slide.kind === 'cover' || slide.kind === 'divider' || slide.kind === 'close'
+	);
 </script>
 
 <svelte:head>
@@ -39,8 +45,21 @@
 		</a>
 
 		<SlideShell {slide} {part}>
-			<LectureBody {slide} />
+			<LectureBody {slide} {framed} />
 		</SlideShell>
+
+		{#if slide.kind === 'divider' && partSlides && partSlides.length > 0}
+			<div class="part-toc">
+				<p class="eyebrow">{t('learn_part_intro')}</p>
+				<ul class="part-toc-list">
+					{#each partSlides as s (s.slug)}
+						<li>
+							<SlideListItem slide={s} />
+						</li>
+					{/each}
+				</ul>
+			</div>
+		{/if}
 
 		<!-- Prev / Next -->
 		<nav class="slide-nav" aria-label="Slide navigation">
@@ -60,7 +79,7 @@
 					</svg>
 					<span class="slide-nav-meta">
 						<span class="dir">{t('learn_prev')}</span>
-						<span class="title-line">
+						<span class="title-line" dir="ltr">
 							<span class="num">§{prev.num.toString().padStart(2, '0')}</span>
 							<span class="ttl">{prev.title}</span>
 						</span>
@@ -74,7 +93,7 @@
 				<a href={resolve(`/learn/${next.slug}` as never)} class="slide-nav-link slide-nav-next">
 					<span class="slide-nav-meta align-end">
 						<span class="dir">{t('learn_next')}</span>
-						<span class="title-line">
+						<span class="title-line" dir="ltr">
 							<span class="num">§{next.num.toString().padStart(2, '0')}</span>
 							<span class="ttl">{next.title}</span>
 						</span>
@@ -100,6 +119,24 @@
 {/key}
 
 <style>
+	.part-toc {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		margin-top: 4px;
+	}
+	.part-toc-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1px;
+		padding: 4px;
+		border-radius: var(--radius-card);
+		border: 1px solid var(--hairline);
+		background: var(--bg-elevated);
+		list-style: none;
+		margin: 0;
+	}
+
 	:global([dir='rtl']) .back-link svg,
 	:global([dir='rtl']) .slide-nav-prev svg,
 	:global([dir='rtl']) .slide-nav-next svg {

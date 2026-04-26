@@ -112,8 +112,12 @@
 		opacity: 0.85;
 	}
 	:global([lang='fa']) .part-card-title .alt {
-		/* Alt is English on FA side — keep serif italic */
+		/* Alt is English on FA side — keep serif italic, force LTR
+		   so the period and other neutrals don't drift to the left. */
 		font-family: var(--font-serif);
+		direction: ltr;
+		text-align: right;
+		unicode-bidi: isolate;
 	}
 	:global(:not([lang='fa'])) .part-card-title .alt {
 		/* Alt is Farsi on EN side */
@@ -122,6 +126,15 @@
 		direction: rtl;
 		text-align: left;
 		unicode-bidi: isolate;
+	}
+	.part-card-title .primary {
+		unicode-bidi: isolate;
+	}
+	:global([lang='fa']) .part-card-title .primary {
+		direction: rtl;
+	}
+	:global(:not([lang='fa'])) .part-card-title .primary {
+		direction: ltr;
 	}
 
 	.part-card-blurb {

@@ -173,15 +173,15 @@
 								aria-selected={active === idx}
 							>
 								<span class="us-row-main">
-									<span class="us-row-title">{@html highlight(hit.term.en.term, query)}</span>
+									<span class="us-row-title" dir="ltr">{@html highlight(hit.term.en.term, query)}</span>
 									{#if hit.term.en.acronym}
-										<span class="us-row-acro">{hit.term.en.acronym}</span>
+										<span class="us-row-acro" dir="ltr">{hit.term.en.acronym}</span>
 									{/if}
 									{#if hit.term.fa.term}
-										<span class="us-row-fa">{hit.term.fa.term}</span>
+										<span class="us-row-fa" dir="rtl">{hit.term.fa.term}</span>
 									{/if}
 								</span>
-								<span class="us-row-sub">{hit.term.en.definition}</span>
+								<span class="us-row-sub" dir="ltr">{hit.term.en.definition}</span>
 							</a>
 						{/each}
 					</div>
@@ -217,12 +217,15 @@
 								role="option"
 								aria-selected={active === idx}
 							>
-								<span class="us-row-main">
+								<span class="us-row-main" dir="ltr">
 									<span class="us-row-num">§{hit.slide.num.toString().padStart(2, '0')}</span>
 									<span class="us-row-title">{@html highlight(hit.slide.title, query)}</span>
 								</span>
 								{#if hit.slide.eyebrowEn || hit.slide.eyebrowFa}
-									<span class="us-row-sub">
+									<span
+										class="us-row-sub"
+										dir={i18n.lang === 'fa' && hit.slide.eyebrowFa ? 'rtl' : 'ltr'}
+									>
 										{i18n.lang === 'fa'
 											? hit.slide.eyebrowFa || hit.slide.eyebrowEn
 											: hit.slide.eyebrowEn || hit.slide.eyebrowFa}
@@ -279,7 +282,8 @@
 		outline: 0;
 		background: transparent;
 		font: inherit;
-		font-size: 14px;
+		/* 16px+ prevents iOS Safari from auto-zooming on focus. */
+		font-size: 16px;
 		color: var(--ink);
 	}
 	.us-bar input::placeholder {

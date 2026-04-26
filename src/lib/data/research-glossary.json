@@ -3776,5 +3776,2750 @@
     "cpaSection": "TCP",
     "topic": "Trusts",
     "difficulty": 4
+  },
+  {
+    "slug": "asset",
+    "en": {
+      "term": "Asset",
+      "definition": "A resource controlled by an entity as a result of past events from which future economic benefits are expected to flow. Reported on the left (or top) of the balance sheet and classified as current or non-current."
+    },
+    "fa": {
+      "term": "دارایی",
+      "definition": "منبعی که در نتیجه رویدادهای گذشته در کنترل واحد تجاری است و انتظار می‌رود منافع اقتصادی آتی برای آن ایجاد کند؛ در ترازنامه به دو دسته جاری و غیرجاری طبقه‌بندی می‌شود."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Building Blocks",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "liability",
+    "en": {
+      "term": "Liability",
+      "definition": "A present obligation of an entity to transfer an economic resource as a result of past events. Settled by paying cash, transferring other assets, or providing services. Classified as current (due within 12 months) or non-current."
+    },
+    "fa": {
+      "term": "بدهی",
+      "definition": "تعهدی فعلی برای انتقال منابع اقتصادی به دیگران که از رویدادهای گذشته ناشی شده است؛ از طریق پرداخت نقدی، انتقال دارایی یا ارائه خدمت تسویه می‌شود و به دو دسته جاری و غیرجاری تقسیم می‌گردد."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Building Blocks",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "equity",
+    "en": {
+      "term": "Equity (Stockholders' Equity / Owners' Equity)",
+      "definition": "The residual interest in the assets of an entity after deducting all its liabilities (Assets − Liabilities = Equity). For a corporation it includes contributed capital, retained earnings, treasury stock, and accumulated other comprehensive income."
+    },
+    "fa": {
+      "term": "حقوق صاحبان سهام (حقوق مالکانه)",
+      "definition": "باقیماندهٔ دارایی‌های واحد تجاری پس از کسر تمامی بدهی‌ها (دارایی منهای بدهی)؛ در شرکت‌های سهامی شامل سرمایهٔ پرداخت‌شده، سود انباشته، سهام خزانه و سایر اقلام جامع انباشته است."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Building Blocks",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "revenue",
+    "en": {
+      "term": "Revenue",
+      "definition": "Inflows of assets (or settlement of liabilities) from delivering goods, rendering services, or other activities that constitute the entity's ongoing major operations. Recognized under ASC 606 when control of the promised goods or services transfers to the customer."
+    },
+    "fa": {
+      "term": "درآمد",
+      "definition": "ورود دارایی یا کاهش بدهی ناشی از فروش کالا، ارائه خدمت یا سایر فعالیت‌های اصلی واحد تجاری؛ طبق استاندارد ASC 606 زمانی شناسایی می‌شود که کنترل کالا یا خدمت به مشتری منتقل گردد."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Building Blocks",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "expense",
+    "en": {
+      "term": "Expense",
+      "definition": "An outflow of assets (or incurrence of liabilities) from delivering goods or services in the entity's ongoing operations. Recognized when incurred under accrual accounting, regardless of cash payment timing (matching principle)."
+    },
+    "fa": {
+      "term": "هزینه",
+      "definition": "خروج دارایی یا ایجاد بدهی به‌منظور تولید درآمد در فعالیت‌های اصلی واحد تجاری؛ طبق مبنای تعهدی در زمان تحمل (نه پرداخت نقدی) و بر اساس اصل تطابق شناسایی می‌شود."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Building Blocks",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "account",
+    "en": {
+      "term": "Account",
+      "definition": "An individual record used to track the increases, decreases, and resulting balance of a single asset, liability, equity, revenue, or expense item (e.g., 'Cash' account, 'Accounts Payable' account). The chart of accounts lists every account in use."
+    },
+    "fa": {
+      "term": "حساب",
+      "definition": "واحد مستقلی برای ثبت و نگهداری تغییرات (افزایش/کاهش) و مانده یک قلم خاص از دارایی، بدهی، حقوق مالکانه، درآمد یا هزینه (مثلاً حساب «صندوق» یا حساب «بستانکاران»). فهرست تمامی حساب‌ها در «کدینگ حساب‌ها» قرار دارد."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Bookkeeping",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "t-account",
+    "en": {
+      "term": "T-Account",
+      "definition": "A simplified two-column visual representation of a ledger account, shaped like the letter 'T'. Debits go on the left side, credits on the right; the difference is the account balance. Used as a teaching and analysis tool."
+    },
+    "fa": {
+      "term": "حساب T (نمودار حساب)",
+      "definition": "نمایش ساده‌شدهٔ یک حساب دفتر کل به‌شکل حرف T؛ ثبت‌های بدهکار در سمت چپ و بستانکار در سمت راست قرار می‌گیرند و تفاوت آن‌ها مانده حساب است. این ابزار برای آموزش و تحلیل سریع کاربرد دارد."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Bookkeeping",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "posting",
+    "en": {
+      "term": "Posting",
+      "definition": "The bookkeeping step of transferring journal entries from the general journal (chronological record) to the appropriate accounts in the general ledger. Posting consolidates transactions by account so balances can be computed."
+    },
+    "fa": {
+      "term": "نقل (انتقال به دفتر کل)",
+      "definition": "مرحله‌ای از چرخهٔ حسابداری که در آن ثبت‌های دفتر روزنامه به حساب‌های مربوطه در دفتر کل منتقل می‌شوند تا مانده هر حساب قابل محاسبه گردد."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Bookkeeping",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "normal-balance",
+    "en": {
+      "term": "Normal Balance",
+      "definition": "The side (debit or credit) on which an account ordinarily carries a positive balance. Assets, expenses, and dividends have normal debit balances; liabilities, equity, and revenues have normal credit balances."
+    },
+    "fa": {
+      "term": "ماهیت حساب (مانده عادی)",
+      "definition": "سمتی (بدهکار یا بستانکار) که یک حساب به‌طور طبیعی مانده مثبت در آن دارد. دارایی‌ها، هزینه‌ها و سود سهام پرداختی ماهیت بدهکار و بدهی‌ها، حقوق صاحبان سهام و درآمدها ماهیت بستانکار دارند."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Bookkeeping",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "contra-account",
+    "en": {
+      "term": "Contra Account",
+      "definition": "An account paired with another account that carries the opposite normal balance and reduces the related account's reported value. Common examples: Accumulated Depreciation (contra-asset), Allowance for Doubtful Accounts (contra-asset), Treasury Stock (contra-equity), Sales Returns (contra-revenue)."
+    },
+    "fa": {
+      "term": "حساب کاهنده (پادحساب)",
+      "definition": "حسابی که در کنار یک حساب اصلی ثبت می‌شود و ماهیتی مخالف آن دارد تا مبلغ گزارش‌شدهٔ حساب اصلی را کاهش دهد؛ نمونه‌های رایج: استهلاک انباشته، ذخیرهٔ مطالبات مشکوک‌الوصول، سهام خزانه و برگشت از فروش."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Bookkeeping",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "subsidiary-ledger",
+    "en": {
+      "term": "Subsidiary Ledger",
+      "definition": "A group of detailed accounts supporting a single control account in the general ledger. The most common are the accounts receivable subsidiary ledger (one account per customer) and the accounts payable subsidiary ledger (one per vendor). Total of subsidiary balances must equal the control account."
+    },
+    "fa": {
+      "term": "دفتر معین",
+      "definition": "مجموعه‌ای از حساب‌های تفصیلی که جزئیات یک حساب کنترل در دفتر کل را نگهداری می‌کند؛ معمول‌ترین آن‌ها معین حساب‌های دریافتنی (به تفکیک هر مشتری) و معین حساب‌های پرداختنی (به تفکیک هر تأمین‌کننده) است. جمع مانده‌های معین باید با مانده حساب کنترل برابر باشد."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Bookkeeping",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "control-account",
+    "en": {
+      "term": "Control Account",
+      "definition": "A summary account in the general ledger whose balance equals the total of all related detailed accounts in a subsidiary ledger (e.g., the Accounts Receivable control account equals the sum of every customer's individual balance)."
+    },
+    "fa": {
+      "term": "حساب کنترل",
+      "definition": "حسابی در دفتر کل که مانده آن باید با جمع مانده‌های تمامی حساب‌های تفصیلی مرتبط در دفتر معین برابر باشد (برای نمونه، مانده حساب کنترل «حساب‌های دریافتنی» مساوی جمع مانده‌های تمام مشتریان است)."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Bookkeeping",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "reversing-entry",
+    "en": {
+      "term": "Reversing Entry",
+      "definition": "An optional journal entry made on the first day of a new accounting period that reverses certain adjusting entries (typically accruals) from the prior period. Simplifies routine bookkeeping by allowing later cash transactions to be recorded normally without splitting between periods."
+    },
+    "fa": {
+      "term": "ثبت معکوس (ثبت برگشتی)",
+      "definition": "ثبتی اختیاری در نخستین روز دورهٔ مالی جدید که برخی از ثبت‌های اصلاحی دورهٔ قبل (معمولاً ثبت‌های تعهدی) را معکوس می‌کند تا ثبت تراکنش‌های نقدی دورهٔ بعد ساده‌تر شود."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Accounting Cycle",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "worksheet",
+    "en": {
+      "term": "Worksheet",
+      "definition": "A multi-column working paper used to organize the unadjusted trial balance, adjusting entries, adjusted trial balance, and the resulting income statement and balance sheet columns. A planning tool — not a formal financial statement — used at period-end."
+    },
+    "fa": {
+      "term": "کاربرگ",
+      "definition": "صفحه‌ای چندستونی که در پایان دوره برای سازماندهی تراز آزمایشی اولیه، ثبت‌های اصلاحی، تراز آزمایشی اصلاح‌شده و انتقال ارقام به صورت سود و زیان و ترازنامه استفاده می‌شود؛ ابزار کاری حسابدار است نه یک صورت مالی رسمی."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Accounting Cycle",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "owners-capital",
+    "en": {
+      "term": "Owner's Capital",
+      "definition": "In a sole proprietorship or partnership, the equity account representing the owner's investment in the business plus accumulated profits less withdrawals. Equivalent to 'Common Stock + Retained Earnings' in a corporation."
+    },
+    "fa": {
+      "term": "سرمایه مالک",
+      "definition": "در شرکت‌های انفرادی و تضامنی، حساب حقوق مالکانه که شامل آورده مالک به اضافه سود انباشته منهای برداشت‌ها است؛ معادل «سرمایه به‌علاوه سود انباشته» در شرکت‌های سهامی محسوب می‌شود."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Equity",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "drawings",
+    "en": {
+      "term": "Drawings (Owner's Withdrawals)",
+      "definition": "Cash or other assets withdrawn by the owner of a sole proprietorship or partnership for personal use. Reduces owner's capital — not an expense and not deducted in computing net income. The corporate equivalent is a dividend."
+    },
+    "fa": {
+      "term": "برداشت",
+      "definition": "وجه نقد یا دارایی‌هایی که مالک یک شرکت انفرادی یا تضامنی برای مصرف شخصی از واحد تجاری برمی‌دارد؛ مانده حساب سرمایه را کاهش می‌دهد و هزینه محسوب نمی‌شود. معادل آن در شرکت‌های سهامی، توزیع سود سهام است."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Equity",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "liquidity",
+    "en": {
+      "term": "Liquidity",
+      "definition": "An entity's ability to meet its short-term obligations as they come due, typically using current assets. Measured by ratios such as current ratio, quick (acid-test) ratio, and cash ratio."
+    },
+    "fa": {
+      "term": "نقدینگی",
+      "definition": "توانایی واحد تجاری برای پرداخت بدهی‌های کوتاه‌مدت در سررسید با اتکا به دارایی‌های جاری؛ با نسبت‌هایی مانند نسبت جاری، نسبت آنی و نسبت وجه نقد سنجیده می‌شود."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Analysis",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "solvency",
+    "en": {
+      "term": "Solvency",
+      "definition": "An entity's long-term ability to meet all financial obligations and continue operating as a going concern. Measured by leverage ratios (debt-to-equity, debt-to-assets) and coverage ratios (interest coverage). Distinct from liquidity, which is short-term."
+    },
+    "fa": {
+      "term": "توان پرداخت بدهی (ملائت مالی)",
+      "definition": "توانایی واحد تجاری در ایفای کلیه تعهدات مالی بلندمدت و تداوم فعالیت؛ با نسبت‌های اهرمی (بدهی به حقوق صاحبان سهام، بدهی به دارایی) و نسبت‌های پوشش (پوشش بهره) سنجیده می‌شود و با نقدینگی که کوتاه‌مدت است تفاوت دارد."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Analysis",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "sales-returns-allowances",
+    "en": {
+      "term": "Sales Returns and Allowances",
+      "definition": "A contra-revenue account recording goods returned by customers (returns) and price reductions granted for defective or unsatisfactory merchandise (allowances). Subtracted from gross sales to compute net sales."
+    },
+    "fa": {
+      "term": "برگشت از فروش و تخفیفات",
+      "definition": "حسابی کاهنده درآمد فروش که شامل کالاهای مرجوعی مشتریان و تخفیف‌هایی است که بابت کالای معیوب یا نامطلوب پس از فروش اعطا می‌شود؛ از فروش ناخالص کسر می‌گردد تا فروش خالص به‌دست آید."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Operations",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "purchase-returns-allowances",
+    "en": {
+      "term": "Purchase Returns and Allowances",
+      "definition": "A contra-purchase account recording merchandise returned to suppliers and price reductions received for defective goods. Reduces gross purchases when computing cost of goods purchased and ultimately COGS."
+    },
+    "fa": {
+      "term": "برگشت از خرید و تخفیفات",
+      "definition": "حسابی کاهنده خرید که کالاهای مرجوعی به فروشنده و تخفیف‌های دریافتی بابت کالای معیوب را ثبت می‌کند؛ در محاسبه بهای تمام‌شده کالای خریداری‌شده و در نهایت بهای تمام‌شده کالای فروش‌رفته از خرید ناخالص کسر می‌شود."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Operations",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "sales-discount",
+    "en": {
+      "term": "Sales Discount (Cash Discount, e.g. 2/10, n/30)",
+      "definition": "A reduction offered to credit customers for early payment, expressed as 'discount/days, net total period' — e.g., 2/10, n/30 means 2% off if paid within 10 days, otherwise the full amount is due in 30 days. Recorded as a contra-revenue."
+    },
+    "fa": {
+      "term": "تخفیف نقدی فروش",
+      "definition": "تخفیفی که به مشتریان نسیه برای پرداخت زودهنگام اعطا می‌شود و معمولاً به شکل «درصد تخفیف/مهلت، مهلت کل» نوشته می‌گردد؛ برای مثال «۲/۱۰ ، خ ۳۰» یعنی ۲٪ تخفیف در صورت پرداخت ظرف ۱۰ روز، در غیر این صورت کل مبلغ ظرف ۳۰ روز قابل پرداخت است. به‌عنوان حساب کاهنده درآمد ثبت می‌شود."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Operations",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "trade-discount",
+    "en": {
+      "term": "Trade Discount",
+      "definition": "A percentage reduction off the list price granted at the point of sale (often for wholesale customers or bulk orders). Unlike a cash discount, a trade discount is not separately recorded — the sale and receivable are booked at the net invoice price."
+    },
+    "fa": {
+      "term": "تخفیف تجاری",
+      "definition": "درصدی از قیمت فهرست (لیست) که در زمان فروش (معمولاً به مشتریان عمده یا بابت خرید حجم بالا) اعمال می‌شود؛ برخلاف تخفیف نقدی، تخفیف تجاری جداگانه ثبت نمی‌گردد و فروش و حساب دریافتنی به قیمت خالص فاکتور ثبت می‌شوند."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Operations",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "fob-shipping-point",
+    "en": {
+      "term": "FOB Shipping Point",
+      "definition": "A shipping term meaning title and risk of loss transfer to the buyer at the seller's loading dock. The buyer owns goods in transit and includes them in inventory; the buyer also pays freight (freight-in is a product cost)."
+    },
+    "fa": {
+      "term": "تحویل در مبدأ (FOB Shipping Point)",
+      "definition": "شرط حمل که طبق آن مالکیت و خطر کالا از زمان تحویل در محل بارگیری فروشنده به خریدار منتقل می‌شود؛ کالای در راه متعلق به خریدار است و باید در موجودی او گزارش شود و هزینه حمل نیز بر عهده خریدار است."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Operations",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "fob-destination",
+    "en": {
+      "term": "FOB Destination",
+      "definition": "A shipping term meaning title and risk of loss remain with the seller until the goods arrive at the buyer's location. The seller owns goods in transit, includes them in inventory, and pays the freight (freight-out is a selling expense)."
+    },
+    "fa": {
+      "term": "تحویل در مقصد (FOB Destination)",
+      "definition": "شرط حمل که طبق آن مالکیت و خطر کالا تا زمان تحویل در محل خریدار با فروشنده باقی می‌ماند؛ کالای در راه متعلق به فروشنده است و در موجودی او گزارش می‌شود و هزینه حمل نیز بر عهده فروشنده (هزینه فروش) است."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Operations",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "gross-profit",
+    "en": {
+      "term": "Gross Profit",
+      "definition": "Net sales minus cost of goods sold (COGS). Represents the profit generated by core sales activity before operating expenses such as selling, general, and administrative costs. Also called gross margin in dollar terms."
+    },
+    "fa": {
+      "term": "سود ناخالص",
+      "definition": "تفاوت فروش خالص و بهای تمام‌شده کالای فروش‌رفته؛ سودی که پیش از کسر هزینه‌های عملیاتی مانند هزینه‌های فروش و اداری از فعالیت اصلی به‌دست می‌آید. به مبلغ آن «حاشیه ناخالص» نیز گفته می‌شود."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Income Statement",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "gross-profit-margin",
+    "en": {
+      "term": "Gross Profit Margin",
+      "definition": "Gross profit divided by net sales, expressed as a percentage. Measures how efficiently a company converts each sales dollar into profit after direct production costs. Useful for comparing companies in the same industry."
+    },
+    "fa": {
+      "term": "حاشیه سود ناخالص",
+      "definition": "نسبت سود ناخالص به فروش خالص که معمولاً به‌صورت درصدی بیان می‌شود؛ نشان می‌دهد شرکت چه بخشی از هر دلار فروش را پس از کسر هزینه‌های مستقیم تولید به‌عنوان سود حفظ می‌کند و برای مقایسه شرکت‌های هم‌صنعت کاربرد دارد."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Income Statement",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "operating-income",
+    "en": {
+      "term": "Operating Income (Operating Profit)",
+      "definition": "Gross profit minus operating expenses (selling, general, administrative, depreciation, amortization). Measures profit from core ongoing operations before interest and taxes. Often used interchangeably with EBIT when there are no non-operating items."
+    },
+    "fa": {
+      "term": "سود عملیاتی",
+      "definition": "سود ناخالص پس از کسر هزینه‌های عملیاتی (هزینه‌های فروش، اداری، استهلاک)؛ نشان‌دهنده سود حاصل از فعالیت‌های اصلی واحد تجاری پیش از کسر بهره و مالیات است و در نبود اقلام غیرعملیاتی، عمدتاً معادل EBIT تلقی می‌شود."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Income Statement",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "single-step-income-statement",
+    "en": {
+      "term": "Single-Step Income Statement",
+      "definition": "A simplified income statement format that groups all revenues together and all expenses together, computing net income in a single subtraction (Total Revenues − Total Expenses). Common in small private companies; does not separately disclose gross profit or operating income."
+    },
+    "fa": {
+      "term": "صورت سود و زیان تک‌مرحله‌ای",
+      "definition": "نوع ساده‌ای از صورت سود و زیان که در آن همه درآمدها در یک گروه و همه هزینه‌ها در گروه دیگر جمع می‌شوند و سود خالص با یک تفریق به‌دست می‌آید؛ سود ناخالص و سود عملیاتی به‌طور جداگانه گزارش نمی‌شود و معمولاً در شرکت‌های کوچک کاربرد دارد."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Income Statement",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "multi-step-income-statement",
+    "en": {
+      "term": "Multi-Step Income Statement",
+      "definition": "An income statement format that distinguishes operating from non-operating items and shows several intermediate subtotals: Gross Profit, Operating Income, Income Before Tax, and Net Income. Standard for public companies and required for FAR exam preparation."
+    },
+    "fa": {
+      "term": "صورت سود و زیان چندمرحله‌ای",
+      "definition": "ساختاری از صورت سود و زیان که اقلام عملیاتی را از غیرعملیاتی تفکیک می‌کند و چند جمع میانی گزارش می‌نماید: سود ناخالص، سود عملیاتی، سود قبل از مالیات و سود خالص. برای شرکت‌های سهامی عام مرسوم است و در آزمون FAR کاربرد گسترده دارد."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Income Statement",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "classified-balance-sheet",
+    "en": {
+      "term": "Classified Balance Sheet",
+      "definition": "A balance sheet that groups assets and liabilities into current and non-current categories and further subdivides equity (e.g., contributed capital, retained earnings, AOCI). Required by US GAAP for most companies; aids users in assessing liquidity and solvency."
+    },
+    "fa": {
+      "term": "ترازنامه طبقه‌بندی شده",
+      "definition": "ترازنامه‌ای که دارایی‌ها و بدهی‌ها را به دو گروه جاری و غیرجاری تفکیک می‌کند و حقوق صاحبان سهام را نیز به اجزای فرعی (سرمایه پرداخت‌شده، سود انباشته، سایر اقلام جامع انباشته) تقسیم می‌نماید؛ طبق GAAP برای بیشتر شرکت‌ها الزامی است و ارزیابی نقدینگی و توان پرداخت بدهی را آسان می‌کند."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Balance Sheet",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "comparative-financial-statements",
+    "en": {
+      "term": "Comparative Financial Statements",
+      "definition": "Financial statements that present the current period alongside one or more prior periods in side-by-side columns. SEC registrants must present two prior years for the balance sheet and three for the income statement, equity, and cash flow statements."
+    },
+    "fa": {
+      "term": "صورت‌های مالی مقایسه‌ای",
+      "definition": "صورت‌هایی که ارقام دوره جاری را در کنار یک یا چند دوره قبل و به‌صورت ستون‌های موازی نمایش می‌دهند؛ شرکت‌های ثبت‌شده در SEC باید برای ترازنامه دو دوره و برای صورت سود و زیان، حقوق صاحبان سهام و جریان وجوه نقد سه دوره قبل را گزارش کنند."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Reporting",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "extraordinary-items-eliminated",
+    "en": {
+      "term": "Extraordinary Items (Eliminated under US GAAP)",
+      "definition": "A historical income statement category for events that were both unusual and infrequent (e.g., major casualty losses), reported net of tax below income from continuing operations. Eliminated by FASB in 2015 (ASU 2015-01); such items are now reported within continuing operations and disclosed as needed. Important for accountants returning after 2015."
+    },
+    "fa": {
+      "term": "اقلام غیرمترقبه (حذف شده در GAAP)",
+      "definition": "طبقه‌ای تاریخی در صورت سود و زیان برای رویدادهایی که هم غیرعادی و هم نادر بودند (مثلاً خسارات سنگین) و پس از کسر مالیات و پایین‌تر از سود عملیات مستمر گزارش می‌شدند. این طبقه در سال ۲۰۱۵ توسط FASB با استاندارد ASU 2015-01 حذف شد و چنین اقلامی اکنون درون «عملیات مستمر» گزارش و در صورت لزوم افشا می‌گردند؛ نکته‌ای کلیدی برای حسابدارانی که پس از ۲۰۱۵ به حرفه بازمی‌گردند."
+    },
+    "cpaSection": "Foundational",
+    "topic": "Reporting",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "conceptual-framework",
+    "en": {
+      "term": "Conceptual Framework (FASB SFAC)",
+      "definition": "FASB's set of Statements of Financial Accounting Concepts that establishes the objectives, qualitative characteristics, elements, recognition, and measurement principles underlying US GAAP. Not authoritative GAAP itself but guides standard setting and resolves ambiguities."
+    },
+    "fa": {
+      "term": "چارچوب نظری (مفاهیم حسابداری مالی FASB)",
+      "definition": "مجموعه‌ای از بیانیه‌های مفاهیم حسابداری مالی (SFAC) که توسط FASB تدوین شده و اهداف، ویژگی‌های کیفی، عناصر، شناخت و اندازه‌گیری زیربنای GAAP را تعیین می‌کند؛ خود یک استاندارد لازم‌الاجرا نیست اما در تدوین استاندارد و رفع ابهامات راهنماست."
+    },
+    "cpaSection": "FAR",
+    "topic": "Framework",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "qualitative-characteristics",
+    "en": {
+      "term": "Qualitative Characteristics of Useful Information",
+      "definition": "Two fundamental qualities — Relevance (predictive value, confirmatory value, materiality) and Faithful Representation (complete, neutral, free from error) — and four enhancing qualities — Comparability, Verifiability, Timeliness, and Understandability. Defined in SFAC 8."
+    },
+    "fa": {
+      "term": "ویژگی‌های کیفی اطلاعات مفید مالی",
+      "definition": "دو ویژگی بنیادی شامل «مربوط بودن» (ارزش پیش‌بینی‌کننده، تأییدکننده و اهمیت) و «بازنمایی صادقانه» (کامل، بی‌طرف و عاری از اشتباه) به‌همراه چهار ویژگی فزاینده شامل «قابلیت مقایسه»، «قابلیت تأیید»، «به‌موقع بودن» و «قابلیت فهم» که در بیانیه SFAC 8 معرفی شده‌اند."
+    },
+    "cpaSection": "FAR",
+    "topic": "Framework",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "property-plant-equipment",
+    "en": {
+      "term": "Property, Plant, and Equipment (PP&E)",
+      "definition": "Tangible long-lived assets used in operations, not held for sale, with useful lives greater than one year — including land, buildings, machinery, equipment, vehicles, and leasehold improvements. Reported at historical cost less accumulated depreciation (land is not depreciated)."
+    },
+    "fa": {
+      "term": "اموال، ماشین‌آلات و تجهیزات (PP&E)",
+      "definition": "دارایی‌های مشهود بلندمدت که در عملیات شرکت مورد استفاده قرار می‌گیرند، برای فروش نگهداری نمی‌شوند و عمر مفید بیش از یک سال دارند؛ شامل زمین، ساختمان، ماشین‌آلات، تجهیزات، وسایل نقلیه و بهسازی اموال استیجاری. به بهای تمام‌شده تاریخی منهای استهلاک انباشته گزارش می‌شوند (زمین مستهلک نمی‌شود)."
+    },
+    "cpaSection": "FAR",
+    "topic": "Long-Lived Assets",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "capitalize-vs-expense",
+    "en": {
+      "term": "Capitalize vs Expense",
+      "definition": "The decision whether an expenditure should be recorded as an asset (capitalized — benefits future periods) or charged immediately to the income statement (expensed). Generally, costs that extend useful life, increase capacity, or improve efficiency are capitalized; routine repairs and maintenance are expensed."
+    },
+    "fa": {
+      "term": "سرمایه‌ای کردن در برابر هزینه‌ای کردن",
+      "definition": "تصمیم‌گیری درباره اینکه یک مخارج به‌عنوان دارایی (سرمایه‌ای، با منافع آتی) ثبت شود یا بلافاصله به سود و زیان منتقل گردد (هزینه‌ای)؛ عموماً مخارجی که عمر مفید را افزایش می‌دهد، ظرفیت را بالا می‌برد یا کارایی را بهبود می‌بخشد سرمایه‌ای می‌شوند، در حالی‌که تعمیرات و نگهداری معمولی در زمان وقوع هزینه می‌گردند."
+    },
+    "cpaSection": "FAR",
+    "topic": "Long-Lived Assets",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "interest-capitalization",
+    "en": {
+      "term": "Interest Capitalization (ASC 835-20)",
+      "definition": "Interest cost incurred during the construction of a qualifying asset (one built for the company's own use or as a discrete project for sale/lease) must be capitalized as part of the asset's cost rather than expensed. Capitalization period ends when the asset is substantially complete and ready for use."
+    },
+    "fa": {
+      "term": "سرمایه‌ای کردن هزینه بهره (ASC 835-20)",
+      "definition": "هزینه بهره‌ای که در دوران ساخت یک دارایی واجد شرایط (دارایی ساخته‌شده برای استفاده خود شرکت یا به‌عنوان پروژه‌ای مجزا برای فروش/اجاره) تحمل می‌شود باید به‌جای هزینه شدن، به بهای تمام‌شده آن دارایی اضافه گردد؛ دوره سرمایه‌ای کردن زمانی پایان می‌یابد که دارایی به‌طور اساسی تکمیل و آماده استفاده شده باشد."
+    },
+    "cpaSection": "FAR",
+    "topic": "Long-Lived Assets",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "net-realizable-value",
+    "en": {
+      "term": "Net Realizable Value (NRV)",
+      "definition": "The estimated selling price in the ordinary course of business minus reasonably predictable costs of completion, disposal, and transportation. Used for valuing inventory under lower of cost or NRV (FIFO/weighted-average) and for measuring accounts receivable net of allowance."
+    },
+    "fa": {
+      "term": "ارزش خالص بازیافتنی (NRV)",
+      "definition": "قیمت برآوردی فروش در روال عادی فعالیت منهای هزینه‌های معقول قابل پیش‌بینی برای تکمیل، فروش و حمل؛ در ارزیابی موجودی کالا به‌روش «اقل بهای تمام‌شده یا NRV» (برای FIFO و میانگین موزون) و در گزارش حساب‌های دریافتنی پس از کسر ذخیره مطالبات مشکوک‌الوصول کاربرد دارد."
+    },
+    "cpaSection": "FAR",
+    "topic": "Inventory",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "specific-identification",
+    "en": {
+      "term": "Specific Identification Method",
+      "definition": "An inventory cost-flow method that tracks the actual cost of each individual item and matches it to revenue when that specific item is sold. Required for unique, high-value items (vehicles, real estate, fine jewelry) but impractical for fungible inventory."
+    },
+    "fa": {
+      "term": "روش شناسایی ویژه (مشخص)",
+      "definition": "روشی برای جریان بهای موجودی کالا که در آن بهای واقعی هر قلم خاص ردیابی شده و در زمان فروش همان قلم با درآمد مرتبط می‌شود؛ برای اقلام منحصربه‌فرد و گران‌قیمت (مانند خودرو، املاک، جواهرات) الزامی است اما برای موجودی‌های هم‌گون عملی نیست."
+    },
+    "cpaSection": "FAR",
+    "topic": "Inventory",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "gross-profit-method",
+    "en": {
+      "term": "Gross Profit Method",
+      "definition": "An inventory estimation technique that applies the historical gross profit ratio to net sales to estimate cost of goods sold, then derives ending inventory by subtraction (Beginning Inventory + Purchases − Estimated COGS). Used for interim reporting and to estimate inventory destroyed in a casualty — not acceptable for year-end financial statements."
+    },
+    "fa": {
+      "term": "روش سود ناخالص",
+      "definition": "روشی برآوردی برای موجودی پایان دوره که در آن نسبت سود ناخالص تاریخی به فروش خالص اعمال می‌شود تا بهای تمام‌شده کالای فروش‌رفته برآورد گردد و سپس موجودی پایان دوره از تفریق به‌دست می‌آید؛ برای گزارشگری میان‌دوره‌ای و برآورد موجودی از‌بین‌رفته در حوادث استفاده می‌شود اما برای صورت‌های مالی پایان سال پذیرفته نیست."
+    },
+    "cpaSection": "FAR",
+    "topic": "Inventory",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "retail-inventory-method",
+    "en": {
+      "term": "Retail Inventory Method",
+      "definition": "An inventory estimation method commonly used by retailers that converts ending inventory at retail (selling) prices to cost using a cost-to-retail ratio. Variants — conventional (LCM), cost, LIFO retail, dollar-value LIFO retail — handle markups, markdowns, and price-level changes differently."
+    },
+    "fa": {
+      "term": "روش موجودی به قیمت خرده‌فروشی",
+      "definition": "روشی برآوردی برای موجودی که عمدتاً در خرده‌فروشی‌ها استفاده می‌شود؛ موجودی پایان دوره به قیمت فروش با اعمال نسبت بهای تمام‌شده به قیمت فروش به بهای تمام‌شده تبدیل می‌گردد. انواع آن (مرسوم/اقل بهای تمام‌شده یا بازار، بهای تمام‌شده، LIFO خرده‌فروشی، LIFO ریالی-خرده‌فروشی) به‌گونه‌ای متفاوت با افزایش و کاهش قیمت‌ها برخورد می‌کنند."
+    },
+    "cpaSection": "FAR",
+    "topic": "Inventory",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "restricted-cash",
+    "en": {
+      "term": "Restricted Cash",
+      "definition": "Cash that is legally or contractually restricted as to withdrawal or use (e.g., bond sinking fund, compensating balance, debt service reserve, escrow deposits). Reported separately from unrestricted cash on the balance sheet and disclosed in the notes; included in the cash flow statement reconciliation per ASU 2016-18."
+    },
+    "fa": {
+      "term": "وجوه نقد محدودشده",
+      "definition": "وجوه نقدی که از نظر قانونی یا قراردادی برای برداشت یا استفاده محدود شده‌اند (مانند ذخیره استهلاک اوراق قرضه، مانده جبرانی، ذخیره خدمات بدهی، سپرده تضمینی)؛ در ترازنامه جدا از وجه نقد آزاد گزارش و در یادداشت‌ها افشا می‌شوند و طبق ASU 2016-18 در صورت جریان وجوه نقد در تطبیق درج می‌گردند."
+    },
+    "cpaSection": "FAR",
+    "topic": "Cash",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "compensating-balance",
+    "en": {
+      "term": "Compensating Balance",
+      "definition": "A minimum cash balance that a borrower must maintain in a bank account as a condition of a loan or line of credit. Effectively raises the loan's true interest cost. Disclosed in the financial statement notes; classified as restricted if legally required."
+    },
+    "fa": {
+      "term": "مانده جبرانی (Compensating Balance)",
+      "definition": "حداقل مانده وجه نقدی که وام‌گیرنده طبق شرط بانک برای دریافت وام یا اعتبار باید در حساب نگه دارد؛ در عمل نرخ بهره مؤثر وام را افزایش می‌دهد و در یادداشت‌های صورت‌های مالی افشا شده و در صورت الزام قانونی به‌عنوان وجه نقد محدودشده طبقه‌بندی می‌گردد."
+    },
+    "cpaSection": "FAR",
+    "topic": "Cash",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "bank-overdraft",
+    "en": {
+      "term": "Bank Overdraft",
+      "definition": "A negative cash balance arising when withdrawals exceed deposits in a bank account. Under US GAAP, overdrafts are reclassified as current liabilities (not netted against cash) unless the same bank holds offsetting positive balances. IFRS allows netting if overdrafts are an integral part of cash management."
+    },
+    "fa": {
+      "term": "اضافه‌برداشت بانکی",
+      "definition": "مانده منفی وجه نقد که وقتی برداشت‌ها از سپرده‌ها در حساب بانکی بیشتر شود ایجاد می‌گردد. طبق US GAAP، اضافه‌برداشت به‌عنوان بدهی جاری طبقه‌بندی می‌شود (با وجه نقد خالص نمی‌گردد) مگر آنکه همان بانک مانده‌های مثبت قابل تهاتر داشته باشد؛ IFRS تهاتر را در صورتی که اضافه‌برداشت بخشی از مدیریت نقدینگی باشد مجاز می‌داند."
+    },
+    "cpaSection": "FAR",
+    "topic": "Cash",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "significant-influence",
+    "en": {
+      "term": "Significant Influence (Equity Method Threshold)",
+      "definition": "The power to participate in financial and operating policy decisions of an investee without controlling it. Presumed when an investor holds 20% to 50% of voting stock. Triggers use of the equity method (vs fair value below 20% or consolidation above 50%)."
+    },
+    "fa": {
+      "term": "نفوذ قابل ملاحظه (آستانه روش ارزش ویژه)",
+      "definition": "توانایی مشارکت در تصمیمات سیاست‌های مالی و عملیاتی شرکت سرمایه‌پذیر بدون داشتن کنترل؛ وقتی سرمایه‌گذار بین ۲۰ تا ۵۰ درصد حق رأی را در اختیار داشته باشد فرض بر وجود نفوذ قابل ملاحظه است و کاربرد روش ارزش ویژه (در برابر ارزش منصفانه زیر ۲۰٪ یا تلفیق بالای ۵۰٪) را الزامی می‌کند."
+    },
+    "cpaSection": "FAR",
+    "topic": "Investments",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "variable-interest-entity",
+    "en": {
+      "term": "Variable Interest Entity (VIE) (ASC 810)",
+      "definition": "An entity in which a controlling financial interest is not established through majority voting rights — instead through contractual, ownership, or other interests that absorb expected losses or returns. The 'primary beneficiary' (the party with power and exposure to significant losses/benefits) must consolidate the VIE."
+    },
+    "fa": {
+      "term": "واحد تجاری با منافع متغیر (VIE) (ASC 810)",
+      "definition": "واحدی که در آن کنترل مالی نه از طریق اکثریت حق رأی، بلکه از طریق منافع قراردادی، مالکیتی یا سایر منافعی ایجاد می‌شود که زیان یا بازده مورد انتظار را جذب می‌کنند. «ذی‌نفع اصلی» (طرفی که قدرت تصمیم‌گیری و در معرض زیان/منافع عمده قرار دارد) موظف به تلفیق واحد VIE است."
+    },
+    "cpaSection": "FAR",
+    "topic": "Consolidation",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "joint-venture",
+    "en": {
+      "term": "Joint Venture",
+      "definition": "An entity owned and jointly controlled by two or more parties (venturers) that share decision-making rights through a contractual arrangement. Investors typically apply the equity method. ASU 2023-05 introduced fresh-start fair-value measurement of contributed assets at formation."
+    },
+    "fa": {
+      "term": "مشارکت خاص (Joint Venture)",
+      "definition": "واحد تجاری که در مالکیت و کنترل مشترک دو یا چند طرف (شرکا) قرار دارد و حقوق تصمیم‌گیری از طریق توافق قراردادی میان آنها تقسیم شده است؛ سرمایه‌گذاران معمولاً از روش ارزش ویژه استفاده می‌کنند و طبق ASU 2023-05 دارایی‌های آورده‌شده هنگام تأسیس به ارزش منصفانه «شروع تازه» اندازه‌گیری می‌شوند."
+    },
+    "cpaSection": "FAR",
+    "topic": "Investments",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "cumulative-preferred-stock",
+    "en": {
+      "term": "Cumulative vs Non-Cumulative Preferred Stock",
+      "definition": "Cumulative preferred stock entitles holders to receive any unpaid (passed) dividends from prior years before common shareholders receive any dividend; non-cumulative preferred forfeits any dividend not declared in the period. Dividends in arrears are disclosed but not recorded as a liability."
+    },
+    "fa": {
+      "term": "سهام ممتاز انباشته‌شونده در برابر غیرانباشته",
+      "definition": "سهام ممتاز انباشته‌شونده به دارندگان حق می‌دهد سود سهام پرداخت‌نشدهٔ سال‌های قبل را پیش از پرداخت سود سهام عادی دریافت کنند؛ ممتاز غیرانباشته در صورت عدم اعلام، حق سود آن دوره را از دست می‌دهد. سودهای معوقه به‌عنوان بدهی ثبت نمی‌شوند اما در یادداشت‌ها افشا می‌گردند."
+    },
+    "cpaSection": "FAR",
+    "topic": "Equity",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "convertible-securities",
+    "en": {
+      "term": "Convertible Securities",
+      "definition": "Bonds or preferred stock that the holder may convert into a fixed number of common shares of the issuer. Treated as potentially dilutive in EPS calculation (using the if-converted method) and may require bifurcation of conversion features under ASC 470 / 815 for issuers."
+    },
+    "fa": {
+      "term": "اوراق بهادار قابل تبدیل",
+      "definition": "اوراق قرضه یا سهام ممتازی که دارنده آن می‌تواند به تعداد مشخصی از سهام عادی ناشر تبدیل کند؛ در محاسبه سود تقلیل‌یافته هر سهم به روش «در صورت تبدیل» منظور می‌شوند و طبق ASC 470/815 ممکن است نیاز به تفکیک ویژگی تبدیل در دفاتر ناشر داشته باشند."
+    },
+    "cpaSection": "FAR",
+    "topic": "Equity",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "stock-warrant",
+    "en": {
+      "term": "Stock Warrant",
+      "definition": "A long-dated option issued by a company giving the holder the right (not obligation) to buy a specific number of the issuer's shares at a fixed exercise price before expiration. Often attached to debt offerings as a sweetener; classified as equity or liability based on settlement terms."
+    },
+    "fa": {
+      "term": "گواهی خرید سهام (Warrant)",
+      "definition": "اختیار بلندمدتی که توسط شرکت صادر می‌شود و به دارنده حق (نه تعهد) خرید تعداد مشخصی از سهام ناشر را به قیمت اعمال ثابت تا قبل از سررسید می‌دهد؛ معمولاً به‌عنوان مشوق همراه با اوراق بدهی منتشر می‌شود و بسته به شرایط تسویه، در حقوق صاحبان سهام یا بدهی طبقه‌بندی می‌گردد."
+    },
+    "cpaSection": "FAR",
+    "topic": "Equity",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "anti-dilutive-securities",
+    "en": {
+      "term": "Anti-Dilutive Securities",
+      "definition": "Potential common shares (options, warrants, convertibles) whose conversion or exercise would increase EPS rather than decrease it. Anti-dilutive securities are excluded from the diluted EPS calculation; only dilutive securities are included."
+    },
+    "fa": {
+      "term": "اوراق ضد رقیق‌کننده",
+      "definition": "سهام بالقوه عادی (اختیارات، گواهی خرید، اوراق قابل تبدیل) که اعمال یا تبدیل آن‌ها سود هر سهم را به‌جای کاهش، افزایش می‌دهد؛ اوراق ضد رقیق‌کننده در محاسبه سود تقلیل‌یافته هر سهم منظور نمی‌شوند و فقط اوراق رقیق‌کننده وارد محاسبه می‌گردند."
+    },
+    "cpaSection": "FAR",
+    "topic": "EPS",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "pension-service-cost",
+    "en": {
+      "term": "Pension Service Cost",
+      "definition": "The increase in the projected benefit obligation attributable to employee service rendered during the current period. Recognized as compensation expense in operating income; the only pension component still classified within operating expenses after ASU 2017-07 (others go to non-operating)."
+    },
+    "fa": {
+      "term": "هزینه خدمات جاری بازنشستگی",
+      "definition": "افزایش در تعهد پیش‌بینی‌شده مزایای بازنشستگی (PBO) که به خدمات کارکنان در دوره جاری مربوط می‌شود؛ به‌عنوان هزینه پرسنلی در سود عملیاتی شناسایی می‌گردد و طبق ASU 2017-07 تنها جزء هزینه بازنشستگی است که در دسته هزینه‌های عملیاتی باقی می‌ماند (سایر اجزا غیرعملیاتی هستند)."
+    },
+    "cpaSection": "FAR",
+    "topic": "Pensions",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "projected-benefit-obligation",
+    "en": {
+      "term": "Projected Benefit Obligation (PBO)",
+      "definition": "The actuarial present value of all benefits earned by employees to date under a defined-benefit pension plan, measured using assumptions about future salary increases. The PBO is the obligation reported on the balance sheet (vs plan assets) and is the broadest of the three measures (PBO > ABO > VBO)."
+    },
+    "fa": {
+      "term": "تعهد پیش‌بینی‌شده مزایا (PBO)",
+      "definition": "ارزش فعلی اکچوئری تمامی مزایای کسب‌شده توسط کارکنان تا تاریخ گزارشگری در طرح بازنشستگی با مزایای معین، با لحاظ مفروضات افزایش حقوق آتی؛ PBO همان تعهدی است که در ترازنامه (در برابر دارایی‌های طرح) گزارش می‌شود و گسترده‌ترین معیار میان سه شاخص PBO > ABO > VBO است."
+    },
+    "cpaSection": "FAR",
+    "topic": "Pensions",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "accumulated-benefit-obligation",
+    "en": {
+      "term": "Accumulated Benefit Obligation (ABO)",
+      "definition": "The actuarial present value of pension benefits earned to date based on current salary levels (no projection of future raises). Used historically for minimum liability tests; today primarily a disclosure measure under US GAAP."
+    },
+    "fa": {
+      "term": "تعهد انباشتهٔ مزایا (ABO)",
+      "definition": "ارزش فعلی اکچوئری مزایای کسب‌شدهٔ تا تاریخ گزارشگری بر مبنای سطح حقوق فعلی (بدون پیش‌بینی افزایش حقوق آتی)؛ در گذشته برای آزمون حداقل بدهی به‌کار می‌رفت و امروزه عمدتاً به‌عنوان معیار افشا در US GAAP استفاده می‌شود."
+    },
+    "cpaSection": "FAR",
+    "topic": "Pensions",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "funded-status",
+    "en": {
+      "term": "Funded Status",
+      "definition": "The difference between the fair value of pension plan assets and the projected benefit obligation (PBO). A positive number is overfunded (asset on balance sheet); a negative number is underfunded (liability). Reported on the balance sheet under ASC 715."
+    },
+    "fa": {
+      "term": "وضعیت تأمین مالی طرح بازنشستگی",
+      "definition": "تفاوت میان ارزش منصفانه دارایی‌های طرح بازنشستگی و تعهد پیش‌بینی‌شده مزایا (PBO)؛ رقم مثبت یعنی طرح بیش‌تأمین (دارایی در ترازنامه) و رقم منفی یعنی کم‌تأمین (بدهی)؛ طبق ASC 715 مستقیماً در ترازنامه گزارش می‌شود."
+    },
+    "cpaSection": "FAR",
+    "topic": "Pensions",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "opeb",
+    "en": {
+      "term": "OPEB (Other Postretirement Employee Benefits)",
+      "acronym": "OPEB",
+      "expansion": "Other Postretirement Employee Benefits",
+      "definition": "Non-pension benefits provided to retirees, primarily retiree health care and life insurance. Accounted for similarly to defined-benefit pensions under ASC 715 — recognized over the employee's service period using actuarial methods, with funded status reported on the balance sheet."
+    },
+    "fa": {
+      "term": "سایر مزایای پس از بازنشستگی (OPEB)",
+      "definition": "مزایایی غیر از حقوق بازنشستگی که به بازنشستگان ارائه می‌شود، عمدتاً بیمه درمان و عمر بازنشستگان؛ طبق ASC 715 مشابه طرح‌های بازنشستگی با مزایای معین حسابداری می‌شود؛ یعنی طی دوره خدمت کارمند با روش‌های اکچوئری شناسایی شده و وضعیت تأمین مالی آن در ترازنامه گزارش می‌گردد."
+    },
+    "cpaSection": "FAR",
+    "topic": "Pensions",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "loss-contingency",
+    "en": {
+      "term": "Loss Contingency (ASC 450)",
+      "definition": "A potential loss whose existence depends on a future event (e.g., pending lawsuit, warranty claims). Three likelihood tiers govern accounting: Probable (likely) AND estimable → accrue liability and disclose; Reasonably Possible → disclose only; Remote → no action required. Gain contingencies are never accrued."
+    },
+    "fa": {
+      "term": "بدهی احتمالی زیان (ASC 450)",
+      "definition": "زیان بالقوه‌ای که تحقق آن به رویداد آتی وابسته است (مانند دعاوی حقوقی در جریان یا ادعاهای گارانتی). سه سطح احتمال، شیوه حسابداری را تعیین می‌کند: «محتمل» و قابل برآورد → ثبت بدهی و افشا؛ «در محدوده احتمال» → فقط افشا؛ «بعید» → نیازی به اقدام نیست. سود احتمالی هرگز شناسایی نمی‌شود."
+    },
+    "cpaSection": "FAR",
+    "topic": "Liabilities",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "warranty-liability",
+    "en": {
+      "term": "Warranty Liability",
+      "definition": "An estimated liability for future repair or replacement costs of products under warranty. Recognized when the product is sold (matching principle) using historical claim experience. Assurance-type warranties accrue a liability; service-type warranties are separate performance obligations under ASC 606."
+    },
+    "fa": {
+      "term": "بدهی ضمانت‌نامه (گارانتی)",
+      "definition": "بدهی برآوردی برای هزینه‌های آتی تعمیر یا تعویض محصولات تحت گارانتی؛ در زمان فروش محصول (طبق اصل تطابق) و با استفاده از تجربه تاریخی مطالبات شناسایی می‌شود. گارانتی «اطمینان‌بخش» موجب ثبت بدهی می‌گردد، در حالی که گارانتی «خدماتی» طبق ASC 606 یک تعهد عملکردی جداگانه است."
+    },
+    "cpaSection": "FAR",
+    "topic": "Liabilities",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "right-of-return",
+    "en": {
+      "term": "Right of Return",
+      "definition": "Under ASC 606, when customers may return products for a refund, revenue is recognized only for the amount the seller expects to retain. The expected refund amount is recognized as a refund liability and the right to recover returned goods as a separate asset."
+    },
+    "fa": {
+      "term": "حق برگشت کالا",
+      "definition": "طبق ASC 606، هنگامی‌که مشتری حق دارد کالا را برای دریافت بازپرداخت برگشت دهد، فروشنده تنها بخشی از مبلغ معامله را به‌عنوان درآمد شناسایی می‌کند که انتظار دارد نگه دارد. مبلغ بازپرداخت قابل پیش‌بینی به‌عنوان بدهی بازپرداخت و حق بازیافت کالا به‌عنوان دارایی جداگانه ثبت می‌شود."
+    },
+    "cpaSection": "FAR",
+    "topic": "Revenue",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "principal-vs-agent",
+    "en": {
+      "term": "Principal vs Agent (Gross vs Net Revenue)",
+      "definition": "Under ASC 606, an entity that controls a good or service before transferring it to the customer is the principal and recognizes revenue gross (entire transaction price); an entity that arranges for another party to provide the good or service is an agent and recognizes revenue net (commission only). Indicators include inventory risk, pricing discretion, and primary responsibility for fulfillment."
+    },
+    "fa": {
+      "term": "اصیل در برابر کارگزار (درآمد ناخالص یا خالص)",
+      "definition": "طبق ASC 606، واحدی که پیش از انتقال کالا یا خدمت به مشتری بر آن کنترل دارد «اصیل» محسوب شده و درآمد را به‌صورت ناخالص (کل قیمت معامله) ثبت می‌کند؛ واحدی که صرفاً ارائه کالا یا خدمت توسط طرف دیگر را تسهیل می‌کند «کارگزار» است و درآمد را به‌صورت خالص (تنها کارمزد) شناسایی می‌نماید. شاخص‌ها شامل ریسک موجودی، اختیار قیمت‌گذاری و مسئولیت اصلی انجام تعهد هستند."
+    },
+    "cpaSection": "FAR",
+    "topic": "Revenue",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "sale-leaseback",
+    "en": {
+      "term": "Sale-Leaseback",
+      "definition": "A transaction in which the owner of an asset sells it to a buyer and immediately leases it back. Under ASC 842, the seller-lessee recognizes the sale (and any gain/loss) only if control transfers per ASC 606; otherwise the transaction is accounted for as financing with the asset remaining on the seller's books."
+    },
+    "fa": {
+      "term": "فروش و اجاره مجدد (Sale-Leaseback)",
+      "definition": "معامله‌ای که در آن مالک یک دارایی، آن را به خریدار می‌فروشد و بلافاصله از او اجاره می‌کند. طبق ASC 842، فروشنده-مستأجر تنها در صورتی فروش (و سود/زیان آن) را شناسایی می‌کند که کنترل دارایی طبق ASC 606 منتقل شده باشد؛ در غیر این صورت معامله به‌عنوان تأمین مالی محسوب و دارایی در دفاتر فروشنده باقی می‌ماند."
+    },
+    "cpaSection": "FAR",
+    "topic": "Leases",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "sublease",
+    "en": {
+      "term": "Sublease",
+      "definition": "A transaction where the original lessee (intermediate lessor) leases the underlying asset to a third party while remaining obligated under the original head lease. The intermediate lessor accounts for both the head lease (as lessee) and the sublease (as lessor) under ASC 842."
+    },
+    "fa": {
+      "term": "اجاره فرعی (Sublease)",
+      "definition": "معامله‌ای که در آن مستأجر اصلی (موجر میانی)، دارایی پایه را به طرف ثالث اجاره می‌دهد در حالی که تعهدات قرارداد اصلی او باقی می‌ماند؛ موجر میانی طبق ASC 842 هر دو قرارداد را به‌طور همزمان حسابداری می‌کند: اصلی به‌عنوان مستأجر و فرعی به‌عنوان موجر."
+    },
+    "cpaSection": "FAR",
+    "topic": "Leases",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "incremental-borrowing-rate",
+    "en": {
+      "term": "Incremental Borrowing Rate (IBR)",
+      "definition": "The rate of interest a lessee would have to pay to borrow, on a collateralized basis over a similar term, an amount equal to the lease payments in a similar economic environment. Used by lessees to discount lease payments under ASC 842 when the rate implicit in the lease is not readily determinable."
+    },
+    "fa": {
+      "term": "نرخ افزایشی استقراض مستأجر (IBR)",
+      "definition": "نرخ بهره‌ای که مستأجر برای قرض گرفتن مبلغی برابر با اقساط اجاره به‌صورت تضمین‌شده، با سررسید مشابه و در شرایط اقتصادی مشابه، باید بپردازد؛ مستأجر طبق ASC 842 از این نرخ برای تنزیل اقساط اجاره استفاده می‌کند، در صورتی‌که نرخ ضمنی اجاره به‌سادگی قابل تعیین نباشد."
+    },
+    "cpaSection": "FAR",
+    "topic": "Leases",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "reclassification-adjustments",
+    "en": {
+      "term": "Reclassification Adjustments (OCI)",
+      "definition": "Amounts moved from accumulated other comprehensive income (AOCI) to net income when previously deferred items are realized — for example, the realized gain/loss on sale of available-for-sale debt securities, or settlement of a cash flow hedge. Disclosed separately in the comprehensive income statement."
+    },
+    "fa": {
+      "term": "تعدیلات تجدید طبقه‌بندی (OCI)",
+      "definition": "مبالغی که هنگام تحقق اقلام قبلاً معوق، از سایر اقلام جامع انباشته (AOCI) به سود خالص منتقل می‌شوند؛ برای نمونه سود/زیان تحقق‌یافته از فروش اوراق بدهی آماده برای فروش، یا تسویه یک پوشش جریان نقدی. این تعدیلات در صورت سود و زیان جامع به‌صورت جداگانه افشا می‌شوند."
+    },
+    "cpaSection": "FAR",
+    "topic": "Equity",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "held-for-sale",
+    "en": {
+      "term": "Held-for-Sale Asset (ASC 360)",
+      "definition": "A long-lived asset (or disposal group) that meets specific criteria — management commitment, available for immediate sale, active program to find a buyer, sale probable within one year. Reclassified from PP&E, ceases depreciation, and measured at the lower of carrying amount or fair value less costs to sell."
+    },
+    "fa": {
+      "term": "دارایی نگهداری‌شده برای فروش (ASC 360)",
+      "definition": "دارایی بلندمدت (یا گروه واگذاری) که معیارهای مشخصی را احراز کرده باشد: تعهد مدیریت به فروش، آماده بودن برای فروش فوری، برنامه فعال برای یافتن خریدار و احتمال فروش ظرف یک سال؛ از PP&E تجدید طبقه‌بندی می‌شود، استهلاک آن متوقف می‌گردد و به اقل مبلغ دفتری یا ارزش منصفانه پس از کسر هزینه‌های فروش اندازه‌گیری می‌شود."
+    },
+    "cpaSection": "FAR",
+    "topic": "Long-Lived Assets",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "prior-period-adjustment",
+    "en": {
+      "term": "Prior Period Adjustment",
+      "definition": "A correction of an error in previously issued financial statements. Recorded by adjusting the opening balance of retained earnings (net of tax) and restating prior periods presented for comparison. Disclosed in notes per ASC 250."
+    },
+    "fa": {
+      "term": "تعدیلات سنواتی",
+      "definition": "اصلاح اشتباه در صورت‌های مالی منتشرشدهٔ دوره‌های قبل که با تعدیل مانده ابتدای دوره سود انباشته (پس از کسر مالیات) و تجدید ارائه دوره‌های قبل ارائه‌شده برای مقایسه ثبت می‌گردد و طبق ASC 250 در یادداشت‌ها افشا می‌شود."
+    },
+    "cpaSection": "FAR",
+    "topic": "Reporting",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "change-in-accounting-estimate",
+    "en": {
+      "term": "Change in Accounting Estimate",
+      "definition": "A revision of an estimate (e.g., useful life, salvage value, allowance for doubtful accounts, warranty rate) based on new information. Accounted for prospectively — only the current and future periods are affected; prior periods are NOT restated. ASC 250."
+    },
+    "fa": {
+      "term": "تغییر در برآورد حسابداری",
+      "definition": "تجدیدنظر در یک برآورد (مانند عمر مفید، ارزش اسقاط، ذخیره مطالبات مشکوک‌الوصول، نرخ گارانتی) بر اساس اطلاعات جدید؛ به‌صورت آینده‌نگر حسابداری می‌شود — تنها دوره جاری و آتی متأثر می‌گردند و دوره‌های قبلی تجدید ارائه نمی‌شوند (طبق ASC 250)."
+    },
+    "cpaSection": "FAR",
+    "topic": "Reporting",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "change-in-accounting-principle",
+    "en": {
+      "term": "Change in Accounting Principle",
+      "definition": "A change from one acceptable accounting method to another (e.g., FIFO to weighted-average; depreciation method change is treated as estimate change). Generally requires retrospective application — restate all prior periods as if the new principle had always been used. ASC 250."
+    },
+    "fa": {
+      "term": "تغییر در رویه حسابداری",
+      "definition": "تغییر از یک روش حسابداری پذیرفته‌شده به روش پذیرفته‌شدهٔ دیگر (مثلاً FIFO به میانگین موزون؛ تغییر روش استهلاک به‌عنوان تغییر در برآورد تلقی می‌شود). معمولاً نیازمند به‌کارگیری گذشته‌نگر است؛ یعنی تمامی دوره‌های قبلی چنان تجدید ارائه می‌شوند که گویی روش جدید همواره به‌کار رفته است (ASC 250)."
+    },
+    "cpaSection": "FAR",
+    "topic": "Reporting",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "error-correction",
+    "en": {
+      "term": "Error Correction (Restatement)",
+      "definition": "Correction of a mathematical mistake, misapplication of GAAP, or oversight of facts existing at the time the prior statements were issued. Treated as a prior period adjustment with retrospective restatement of all affected periods. Distinct from a change in estimate (prospective)."
+    },
+    "fa": {
+      "term": "اصلاح اشتباه (تجدید ارائه)",
+      "definition": "اصلاح اشتباه ریاضی، به‌کارگیری نادرست GAAP، یا قصور در توجه به حقایق موجود در زمان انتشار صورت‌های مالی قبلی؛ به‌عنوان تعدیل سنواتی و با تجدید ارائه گذشته‌نگر تمام دوره‌های متأثر ثبت می‌شود. این مفهوم با تغییر در برآورد (که آینده‌نگر است) متفاوت است."
+    },
+    "cpaSection": "FAR",
+    "topic": "Reporting",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "gaas",
+    "en": {
+      "term": "GAAS (Generally Accepted Auditing Standards)",
+      "acronym": "GAAS",
+      "expansion": "Generally Accepted Auditing Standards",
+      "definition": "The authoritative auditing standards established by the AICPA's Auditing Standards Board (ASB) for audits of nonpublic (private) companies. PCAOB Auditing Standards (AS) apply instead to audits of public companies. GAAS organizes guidance into responsibilities, performance, and reporting principles."
+    },
+    "fa": {
+      "term": "استانداردهای پذیرفته‌شدهٔ حسابرسی (GAAS)",
+      "definition": "استانداردهای رسمی حسابرسی که توسط هیئت استانداردهای حسابرسی (ASB) از انجمن AICPA برای حسابرسی شرکت‌های غیر سهامی عام تدوین شده است؛ برای شرکت‌های سهامی عام، استانداردهای PCAOB (AS) جایگزین می‌شوند. GAAS رهنمودها را در سه گروه «مسئولیت‌ها»، «عملکرد» و «گزارشگری» سامان می‌دهد."
+    },
+    "cpaSection": "AUD",
+    "topic": "Standards",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "pcaob-as-2201",
+    "en": {
+      "term": "PCAOB AS 2201 (ICFR Audit)",
+      "definition": "PCAOB Auditing Standard 2201 governs the integrated audit of internal control over financial reporting (ICFR) and the financial statements for public-company audits. It mandates a top-down, risk-based approach focused on entity-level controls and assertion-level risks per SOX Section 404(b)."
+    },
+    "fa": {
+      "term": "استاندارد PCAOB AS 2201 (حسابرسی کنترل داخلی)",
+      "definition": "استاندارد حسابرسی شمارهٔ ۲۲۰۱ هیئت PCAOB، حاکم بر حسابرسی یکپارچهٔ کنترل داخلی حاکم بر گزارشگری مالی (ICFR) و صورت‌های مالی شرکت‌های سهامی عام؛ رویکردی «از بالا به پایین» و مبتنی بر ریسک با تمرکز بر کنترل‌های سطح واحد و ریسک‌های سطح ادعا را الزامی می‌کند (طبق بند ۴۰۴(b) قانون SOX)."
+    },
+    "cpaSection": "AUD",
+    "topic": "Standards",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "risk-assessment-procedures",
+    "en": {
+      "term": "Risk Assessment Procedures",
+      "definition": "Audit procedures performed to obtain an understanding of the entity, its environment, and its internal control to identify and assess risks of material misstatement. Include inquiries of management, analytical procedures, observation, and inspection. Mandatory under AU-C 315; do NOT provide audit evidence on assertions by themselves."
+    },
+    "fa": {
+      "term": "روش‌های ارزیابی ریسک",
+      "definition": "روش‌های حسابرسی که برای شناخت واحد تجاری، محیط آن و کنترل‌های داخلی به‌منظور شناسایی و ارزیابی ریسک‌های تحریف بااهمیت انجام می‌شود؛ شامل پرس‌وجو از مدیریت، روش‌های تحلیلی، مشاهده و بررسی است. طبق AU-C 315 الزامی است اما به‌تنهایی شواهد حسابرسی در سطح ادعا فراهم نمی‌کند."
+    },
+    "cpaSection": "AUD",
+    "topic": "Risk Assessment",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "seven-audit-procedures",
+    "en": {
+      "term": "Seven Types of Audit Procedures",
+      "definition": "Per AU-C 500, audit evidence is gathered through seven categories of procedure: (1) Inspection of records/documents, (2) Inspection of tangible assets, (3) Observation, (4) Inquiry, (5) Confirmation, (6) Recalculation, (7) Reperformance — plus Analytical Procedures as a related category. Mnemonic: 'AEIOU' + RR (or 'CRIIIIRA')."
+    },
+    "fa": {
+      "term": "هفت نوع روش حسابرسی",
+      "definition": "طبق AU-C 500، شواهد حسابرسی از طریق هفت دستهٔ روش جمع‌آوری می‌شود: (۱) بررسی اسناد و مدارک، (۲) بررسی دارایی‌های مشهود، (۳) مشاهده، (۴) پرس‌وجو، (۵) تأییدخواهی، (۶) محاسبهٔ مجدد، (۷) اجرای مجدد — به‌علاوهٔ روش‌های تحلیلی به‌عنوان دسته‌ای مرتبط. حسابرسان معمولاً از مخفف «AEIOU» یا «CRIIIIRA» استفاده می‌کنند."
+    },
+    "cpaSection": "AUD",
+    "topic": "Procedures",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "assertion-existence-occurrence",
+    "en": {
+      "term": "Assertion: Existence / Occurrence",
+      "definition": "Existence (balance sheet): assets, liabilities, and equity interests actually exist at the reporting date. Occurrence (income statement): recorded transactions and events have actually occurred and pertain to the entity. Tested primarily by vouching from the records to source documents."
+    },
+    "fa": {
+      "term": "ادعا: وجود / وقوع",
+      "definition": "وجود (ترازنامه): دارایی‌ها، بدهی‌ها و حقوق صاحبان سهام در تاریخ گزارشگری واقعاً وجود دارند. وقوع (سود و زیان): معاملات و رویدادهای ثبت‌شده واقعاً اتفاق افتاده و به واحد تجاری مربوط هستند. عمدتاً با «وارسی» از دفاتر به اسناد پشتیبان آزمون می‌شود."
+    },
+    "cpaSection": "AUD",
+    "topic": "Assertions",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "assertion-completeness",
+    "en": {
+      "term": "Assertion: Completeness",
+      "definition": "All transactions, events, assets, liabilities, and equity that should have been recorded are recorded; all required disclosures are included. Tested by tracing from source documents forward to the records (the opposite direction of vouching). Focuses on understatement risk."
+    },
+    "fa": {
+      "term": "ادعا: کامل بودن",
+      "definition": "تمام معاملات، رویدادها، دارایی‌ها، بدهی‌ها و حقوق صاحبان سهامی که باید ثبت می‌شد، ثبت شده و تمام افشاهای الزامی نیز در صورت‌ها وجود دارد. با «ردیابی» از سند پشتیبان به دفاتر (جهت معکوس وارسی) آزمون می‌شود و بر ریسک کم‌ارائه تمرکز دارد."
+    },
+    "cpaSection": "AUD",
+    "topic": "Assertions",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "assertion-accuracy-valuation",
+    "en": {
+      "term": "Assertion: Accuracy, Valuation, and Allocation",
+      "definition": "Amounts and other data have been recorded appropriately, and assets/liabilities/equity are included in the financial statements at appropriate amounts (with any resulting valuation/allocation adjustments properly recorded). Critical for fair-value measurements, inventory NRV, allowance for doubtful accounts, and impairment."
+    },
+    "fa": {
+      "term": "ادعا: دقت، ارزش‌گذاری و تخصیص",
+      "definition": "ارقام و سایر داده‌ها به‌درستی ثبت شده و دارایی‌ها/بدهی‌ها/حقوق صاحبان سهام به مبالغ مناسب در صورت‌های مالی منظور شده‌اند (و هرگونه تعدیل ارزش‌گذاری یا تخصیص نیز به‌درستی ثبت شده است). برای اندازه‌گیری‌های ارزش منصفانه، NRV موجودی، ذخیرهٔ مطالبات مشکوک‌الوصول و کاهش ارزش بسیار حیاتی است."
+    },
+    "cpaSection": "AUD",
+    "topic": "Assertions",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "assertion-cutoff",
+    "en": {
+      "term": "Assertion: Cutoff",
+      "definition": "Transactions and events have been recorded in the correct accounting period. Tested by examining transactions in the days surrounding period-end (e.g., shipping documents around year-end to verify whether sales/COGS belong in this year or next)."
+    },
+    "fa": {
+      "term": "ادعا: انقطاع زمانی (Cutoff)",
+      "definition": "معاملات و رویدادها در دورهٔ مالی صحیح ثبت شده‌اند. با بررسی معاملات روزهای پیرامون پایان دوره (مثلاً اسناد حمل قبل و بعد از سال مالی برای تعیین تعلق فروش/بهای تمام‌شده به سال جاری یا سال بعد) آزمون می‌شود."
+    },
+    "cpaSection": "AUD",
+    "topic": "Assertions",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "assertion-classification",
+    "en": {
+      "term": "Assertion: Classification",
+      "definition": "Transactions and events have been recorded in the proper accounts (e.g., a long-term loan classified as non-current liability rather than current; capital expenditure capitalized rather than expensed). Misclassification can mislead users even when totals are correct."
+    },
+    "fa": {
+      "term": "ادعا: طبقه‌بندی",
+      "definition": "معاملات و رویدادها در حساب‌های صحیح ثبت شده‌اند (برای نمونه، وام بلندمدت در بدهی غیرجاری و نه جاری، یا مخارج سرمایه‌ای سرمایه‌ای شده باشد و نه هزینه)؛ طبقه‌بندی نادرست حتی هنگامی‌که جمع‌ها درست باشد می‌تواند استفاده‌کنندگان را گمراه کند."
+    },
+    "cpaSection": "AUD",
+    "topic": "Assertions",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "assertion-rights-obligations",
+    "en": {
+      "term": "Assertion: Rights and Obligations",
+      "definition": "The entity holds or controls the rights to assets reported, and liabilities are obligations of the entity. Distinguishes owned inventory from consigned goods, owned equipment from leased equipment under operating leases prior to ASC 842, and recognizes whether AR is sold or factored without recourse."
+    },
+    "fa": {
+      "term": "ادعا: حقوق و تعهدات",
+      "definition": "واحد تجاری حقوق دارایی‌های گزارش‌شده را در اختیار یا کنترل دارد و بدهی‌ها تعهدات واقعی واحد محسوب می‌شوند؛ موجودی متعلق به شرکت را از کالای امانی، تجهیزات ملکی را از تجهیزات استیجاری (در اجاره‌های عملیاتی پیش از ASC 842) و حساب‌های دریافتنی فروخته‌شده یا تنزیل‌شدهٔ بدون حق رجوع را تشخیص می‌دهد."
+    },
+    "cpaSection": "AUD",
+    "topic": "Assertions",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "assertion-presentation-disclosure",
+    "en": {
+      "term": "Assertion: Presentation and Disclosure",
+      "definition": "Financial information is appropriately presented and described, and disclosures are clearly expressed. Encompasses understandability, completeness of footnotes, classification of items on the face of statements, and required GAAP disclosures (related parties, subsequent events, contingencies, etc.)."
+    },
+    "fa": {
+      "term": "ادعا: ارائه و افشا",
+      "definition": "اطلاعات مالی به‌درستی ارائه و توصیف شده و افشاها به‌روشنی بیان شده‌اند؛ شامل قابلیت فهم، کامل بودن یادداشت‌ها، طبقه‌بندی اقلام در متن صورت‌ها و افشاهای الزامی GAAP (اشخاص وابسته، رویدادهای پس از تاریخ ترازنامه، بدهی‌های احتمالی و غیره) می‌شود."
+    },
+    "cpaSection": "AUD",
+    "topic": "Assertions",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "sampling-risk",
+    "en": {
+      "term": "Sampling Risk",
+      "definition": "The risk that the auditor's conclusion based on a sample may differ from the conclusion that would be reached if the entire population were tested. Inversely related to sample size — larger samples reduce sampling risk. Includes risk of incorrect acceptance and risk of incorrect rejection."
+    },
+    "fa": {
+      "term": "ریسک نمونه‌گیری",
+      "definition": "ریسک اینکه نتیجه‌گیری حسابرس بر اساس نمونه با نتیجه‌گیری حاصل از آزمون کل جامعه متفاوت باشد؛ با اندازهٔ نمونه رابطهٔ معکوس دارد — نمونهٔ بزرگ‌تر ریسک نمونه‌گیری را کاهش می‌دهد. شامل ریسک پذیرش نادرست و ریسک رد نادرست می‌شود."
+    },
+    "cpaSection": "AUD",
+    "topic": "Sampling",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "nonsampling-risk",
+    "en": {
+      "term": "Non-Sampling Risk",
+      "definition": "The risk that the auditor reaches an incorrect conclusion for any reason unrelated to sample size — e.g., using inappropriate audit procedures, misinterpreting evidence, missing a misstatement that was actually in the sample. Reduced through training, supervision, and proper planning."
+    },
+    "fa": {
+      "term": "ریسک غیرنمونه‌گیری",
+      "definition": "ریسک نتیجه‌گیری نادرست حسابرس به دلایلی غیر از اندازهٔ نمونه — مانند به‌کارگیری روش‌های نامناسب، تفسیر اشتباه شواهد، یا غفلت از تحریف موجود در نمونه؛ از طریق آموزش، نظارت و برنامه‌ریزی صحیح کاهش می‌یابد."
+    },
+    "cpaSection": "AUD",
+    "topic": "Sampling",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "type-i-vs-type-ii-error",
+    "en": {
+      "term": "Type I vs Type II Error (Audit Sampling)",
+      "definition": "Type I (alpha risk): risk of incorrect rejection — concluding a balance is materially misstated when it is not, or controls are ineffective when they are; impacts efficiency. Type II (beta risk): risk of incorrect acceptance — concluding a balance is fairly stated when it is materially misstated, or controls are effective when they are not; impacts effectiveness and is the more serious risk."
+    },
+    "fa": {
+      "term": "خطای نوع اول در برابر نوع دوم (نمونه‌گیری حسابرسی)",
+      "definition": "نوع اول (ریسک آلفا): ریسک رد نادرست — اظهار تحریف بااهمیت برای مانده‌ای که در واقع تحریف ندارد یا ناکارا دانستن کنترل‌های مؤثر؛ بر کارایی اثر می‌گذارد. نوع دوم (ریسک بتا): ریسک پذیرش نادرست — اظهار صحت برای مانده‌ای که در واقع تحریف بااهمیت دارد یا مؤثر دانستن کنترل‌های ناکارا؛ بر اثربخشی حسابرسی اثر می‌گذارد و ریسک جدی‌تری محسوب می‌شود."
+    },
+    "cpaSection": "AUD",
+    "topic": "Sampling",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "tolerable-misstatement",
+    "en": {
+      "term": "Tolerable Misstatement",
+      "definition": "The maximum monetary misstatement in an account balance or class of transactions that the auditor is willing to accept and still conclude the financial statements are fairly stated. Set as a portion of overall materiality (typically 50–75%) and used to plan substantive sample sizes."
+    },
+    "fa": {
+      "term": "تحریف قابل تحمل",
+      "definition": "حداکثر تحریف ریالی در مانده یک حساب یا گروه معاملات که حسابرس می‌پذیرد و باز هم می‌تواند نتیجه بگیرد صورت‌های مالی به‌طور منصفانه ارائه شده‌اند؛ معمولاً درصدی (۵۰ تا ۷۵٪) از اهمیت کلی است و برای برنامه‌ریزی اندازهٔ نمونه‌های آزمون‌های محتوایی به‌کار می‌رود."
+    },
+    "cpaSection": "AUD",
+    "topic": "Sampling",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "stratification-sampling",
+    "en": {
+      "term": "Stratification (Audit Sampling)",
+      "definition": "Dividing a population into homogeneous sub-populations (strata) — e.g., by dollar value or risk — and sampling each separately. Increases sampling efficiency by allowing larger samples from high-risk or high-value strata while reducing total sample size needed."
+    },
+    "fa": {
+      "term": "طبقه‌بندی نمونه‌گیری",
+      "definition": "تقسیم جامعه به زیرجامعه‌های همگن (طبقه‌ها) — برای نمونه بر اساس مبلغ ریالی یا ریسک — و نمونه‌گیری جداگانه از هر طبقه؛ باعث می‌شود نمونهٔ بزرگ‌تری از طبقه‌های پرریسک یا پرارزش انتخاب شود و در عین حال جمع کل نمونه کاهش یابد."
+    },
+    "cpaSection": "AUD",
+    "topic": "Sampling",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "preventive-vs-detective-controls",
+    "en": {
+      "term": "Preventive vs Detective Controls",
+      "definition": "Preventive controls stop errors or fraud before they occur (e.g., segregation of duties, password access, authorization limits). Detective controls identify errors after they occur (e.g., bank reconciliations, exception reports, monitoring). A balanced internal control system needs both."
+    },
+    "fa": {
+      "term": "کنترل‌های پیشگیرانه در برابر کشف‌کننده",
+      "definition": "کنترل‌های پیشگیرانه مانع وقوع خطا یا تقلب پیش از رخداد می‌شوند (مانند تفکیک وظایف، رمز عبور، سقف اختیار)؛ کنترل‌های کشف‌کننده پس از رخداد آن را شناسایی می‌کنند (مانند صورت مغایرت بانکی، گزارش‌های استثنا، نظارت). سیستم کنترل داخلی کارآمد به هر دو نوع نیاز دارد."
+    },
+    "cpaSection": "AUD",
+    "topic": "Internal Control",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "compensating-control",
+    "en": {
+      "term": "Compensating Control",
+      "definition": "A control that mitigates the risk of a missing or weak primary control. For example, when full segregation of duties is impossible in a small business, owner review of bank statements and reconciliations can compensate. Considered when assessing whether a deficiency rises to a significant deficiency or material weakness."
+    },
+    "fa": {
+      "term": "کنترل جبرانی",
+      "definition": "کنترلی که ریسک ناشی از نبود یا ضعف یک کنترل اصلی را کاهش می‌دهد؛ برای نمونه در شرکت‌های کوچک که تفکیک وظایف به‌طور کامل امکان‌پذیر نیست، بازبینی صورت‌حساب‌های بانکی و مغایرت‌گیری توسط مالک می‌تواند جبران‌کننده باشد. در ارزیابی اینکه یک نقص به سطح «ضعف بااهمیت» یا «ضعف عمده» می‌رسد یا خیر، در نظر گرفته می‌شود."
+    },
+    "cpaSection": "AUD",
+    "topic": "Internal Control",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "entity-level-vs-transaction-level-controls",
+    "en": {
+      "term": "Entity-Level vs Transaction-Level Controls",
+      "definition": "Entity-level controls operate over the organization as a whole (tone at the top, code of ethics, board oversight, IT general controls, monitoring) and influence the design and effectiveness of all other controls. Transaction-level controls (also called process-level or activity-level) apply to specific business processes (cash disbursement approvals, three-way match in purchasing). Top-down audits assess entity-level first."
+    },
+    "fa": {
+      "term": "کنترل‌های سطح واحد در برابر کنترل‌های سطح معامله",
+      "definition": "کنترل‌های سطح واحد بر کل سازمان حاکم‌اند (روحیهٔ مدیریت، آیین‌نامه اخلاقی، نظارت هیئت‌مدیره، کنترل‌های عمومی فناوری اطلاعات، نظارت) و طراحی و اثربخشی سایر کنترل‌ها را تحت تأثیر قرار می‌دهند. کنترل‌های سطح معامله (یا فرایند/فعالیت) بر فرایندهای خاص کسب‌وکار اعمال می‌شوند (تأیید پرداخت‌های نقدی، تطبیق سه‌جانبه در خرید). رویکرد «از بالا به پایین» ابتدا کنترل‌های سطح واحد را ارزیابی می‌کند."
+    },
+    "cpaSection": "AUD",
+    "topic": "Internal Control",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "service-auditor-vs-user-auditor",
+    "en": {
+      "term": "Service Auditor vs User Auditor",
+      "definition": "A service organization (e.g., a payroll processor or cloud provider) is audited by a service auditor who issues a SOC 1, 2, or 3 report. The user auditor (auditor of a customer of that service organization) relies on the service auditor's report when assessing controls relevant to the user entity's financial statements."
+    },
+    "fa": {
+      "term": "حسابرس خدمات‌دهنده در برابر حسابرس استفاده‌کننده",
+      "definition": "سازمان خدمات‌دهنده (مانند ارائه‌دهندهٔ خدمات حقوق و دستمزد یا میزبان ابر) توسط «حسابرس خدمات‌دهنده» حسابرسی می‌شود و گزارش SOC 1، 2 یا 3 صادر می‌گردد. «حسابرس استفاده‌کننده» (حسابرس شرکتی که از آن خدمات استفاده می‌کند) برای ارزیابی کنترل‌های مرتبط با صورت‌های مالی مشتری به این گزارش اتکا می‌کند."
+    },
+    "cpaSection": "AUD",
+    "topic": "Service Organizations",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "group-audit-component-auditor",
+    "en": {
+      "term": "Group Audit / Component Auditor",
+      "definition": "A group audit is the audit of consolidated financial statements containing multiple components (subsidiaries, divisions, JVs). The group engagement partner takes responsibility for the audit, but a component auditor may audit individual components. The group auditor must determine the scope and extent of involvement with each component auditor (AU-C 600 / PCAOB AS 1206)."
+    },
+    "fa": {
+      "term": "حسابرسی گروه / حسابرس بخش",
+      "definition": "حسابرسی گروه، حسابرسی صورت‌های مالی تلفیقی است که شامل اجزای متعدد (شرکت‌های فرعی، بخش‌ها، مشارکت‌های خاص) می‌شود. شریک حسابرسی گروه مسئول کلی است اما «حسابرس بخش» می‌تواند هر یک از اجزا را به‌تنهایی حسابرسی کند. حسابرس گروه باید دامنه و میزان مداخلهٔ خود با حسابرسان بخش را طبق AU-C 600 یا PCAOB AS 1206 تعیین کند."
+    },
+    "cpaSection": "AUD",
+    "topic": "Engagement Planning",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "independence-threats-safeguards",
+    "en": {
+      "term": "Independence Threats and Safeguards",
+      "definition": "Five threat categories per AICPA Code: Self-Review (auditing one's own prior work), Self-Interest (financial stake in client), Advocacy (promoting client's interests), Familiarity (long association/family relationship), Intimidation (pressure from client). Safeguards include rotation, EQR review, prohibitions on services, and policies/procedures within the firm. Threats must be evaluated and reduced to an acceptable level."
+    },
+    "fa": {
+      "term": "تهدیدها و تدابیر حفاظتی استقلال",
+      "definition": "پنج دستهٔ تهدید طبق آیین رفتار حرفه‌ای AICPA: «بازبینی خودی» (حسابرسی کار قبلی خود)، «منفعت شخصی» (سهم مالی در صاحبکار)، «حمایت‌گری» (ترویج منافع صاحبکار)، «آشنایی» (ارتباط طولانی یا خانوادگی)، «تهدید» (فشار صاحبکار). تدابیر حفاظتی شامل گردش شریک، بازبینی کیفیت صاحبکار (EQR)، ممنوعیت خدمات و سیاست‌های داخلی مؤسسه است؛ تهدیدها باید ارزیابی شده و تا سطح قابل پذیرش کاهش یابند."
+    },
+    "cpaSection": "AUD",
+    "topic": "Independence",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "workpapers-audit-documentation",
+    "en": {
+      "term": "Workpapers (Audit Documentation)",
+      "definition": "The principal record of audit procedures performed, evidence obtained, and conclusions reached. Required to demonstrate compliance with GAAS/PCAOB standards. Retention: 5 years for AICPA (private) audits, 7 years for PCAOB (public) audits. Documentation completion period: 60 days post-report (AICPA) or 45 days (PCAOB)."
+    },
+    "fa": {
+      "term": "کاربرگ‌های حسابرسی (مستندات)",
+      "definition": "سند اصلی روش‌های حسابرسی انجام‌شده، شواهد به‌دست‌آمده و نتایج حاصل؛ برای اثبات رعایت GAAS/PCAOB ضروری است. مدت نگهداری: ۵ سال برای حسابرسی‌های AICPA (خصوصی) و ۷ سال برای حسابرسی‌های PCAOB (عمومی). مهلت نهایی‌سازی مستندات: ۶۰ روز پس از تاریخ گزارش (AICPA) یا ۴۵ روز (PCAOB)."
+    },
+    "cpaSection": "AUD",
+    "topic": "Documentation",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "aicpa-code-of-professional-conduct",
+    "en": {
+      "term": "AICPA Code of Professional Conduct",
+      "definition": "The ethics framework all AICPA-member CPAs must follow. Built on six principles: Responsibilities, Public Interest, Integrity (honesty and candor), Objectivity and Independence (free from conflicts), Due Care (competence, diligence, continuous learning), Scope and Nature of Services. Confidentiality is a separate enforceable rule. Violations can result in suspension or expulsion."
+    },
+    "fa": {
+      "term": "آیین رفتار حرفه‌ای AICPA",
+      "definition": "چارچوب اخلاقی الزام‌آور برای تمامی حسابداران رسمی عضو AICPA که بر شش اصل استوار است: مسئولیت‌ها، منافع عمومی، درستکاری (صداقت و صراحت)، بی‌طرفی و استقلال (دور از تضاد منافع)، مراقبت حرفه‌ای (صلاحیت، جدیت، یادگیری مستمر)، دامنه و ماهیت خدمات. رازداری به‌عنوان قاعده‌ای جداگانه قابل اجراست. تخلفات می‌تواند به تعلیق یا اخراج بینجامد."
+    },
+    "cpaSection": "AUD",
+    "topic": "Ethics",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "tax-accounting-methods",
+    "en": {
+      "term": "Tax Accounting Methods (Cash / Accrual / Hybrid)",
+      "definition": "Cash method: income recognized when received, expenses when paid — available to most individuals and many small businesses. Accrual method: income when earned, expenses when incurred — required for C-corps over the gross receipts threshold, partnerships with C-corp partners, and businesses with inventory (with TCJA exceptions). Hybrid combines both — used commonly with cash for revenue and accrual for inventory/COGS."
+    },
+    "fa": {
+      "term": "روش‌های حسابداری مالیاتی (نقدی/تعهدی/ترکیبی)",
+      "definition": "روش نقدی: درآمد در زمان دریافت و هزینه در زمان پرداخت شناسایی می‌شود — برای بیشتر اشخاص حقیقی و بسیاری از کسب‌وکارهای کوچک قابل استفاده است. روش تعهدی: درآمد هنگام تحقق و هزینه هنگام تحمل — برای شرکت‌های C بزرگ، شراکت‌هایی با شریک C، و کسب‌وکارهای دارای موجودی الزامی است (با استثنائات TCJA). روش ترکیبی هر دو را به‌کار می‌گیرد، معمولاً نقدی برای درآمد و تعهدی برای موجودی و بهای تمام‌شده."
+    },
+    "cpaSection": "REG",
+    "topic": "Tax Methods",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "constructive-receipt",
+    "en": {
+      "term": "Constructive Receipt Doctrine",
+      "definition": "Cash-method taxpayers must report income in the year it is made available to them without substantial restriction — even if not actually collected. Example: a December paycheck is taxable in December even if the employee delays cashing it until January."
+    },
+    "fa": {
+      "term": "اصل دریافت ضمنی (Constructive Receipt)",
+      "definition": "مودیان روش نقدی باید درآمد را در سالی که بدون محدودیت اساسی در دسترس آنان قرار گرفته است گزارش کنند — حتی اگر آن را عملاً دریافت نکرده باشند؛ مثلاً چک حقوق دسامبر مشمول مالیات همان دسامبر است حتی اگر کارمند تا ژانویه از وصول آن خودداری کند."
+    },
+    "cpaSection": "REG",
+    "topic": "Tax Methods",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "claim-of-right",
+    "en": {
+      "term": "Claim of Right Doctrine",
+      "definition": "Income received without restriction is taxable in the year of receipt, even if the taxpayer may have to repay it in a future year. If repaid in a later year, the taxpayer may deduct the repayment or claim a credit (Section 1341) — whichever produces lower tax."
+    },
+    "fa": {
+      "term": "اصل ادعای حق (Claim of Right)",
+      "definition": "درآمدی که بدون قید و شرط دریافت شود در سال دریافت مشمول مالیات است، حتی اگر مودی در سال‌های بعد ناچار به استرداد آن گردد. در صورت استرداد، مودی می‌تواند آن را به‌عنوان کسر هزینه ثبت کند یا طبق ماده ۱۳۴۱ از اعتبار مالیاتی استفاده نماید — هرکدام مالیات کمتری ایجاد کند."
+    },
+    "cpaSection": "REG",
+    "topic": "Tax Methods",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "all-events-test",
+    "en": {
+      "term": "All-Events Test",
+      "definition": "Under the accrual method for tax, income is recognized when (1) all events have occurred fixing the right to receive the income, and (2) the amount can be determined with reasonable accuracy. The same test applies to expense deductibility (combined with the economic performance requirement)."
+    },
+    "fa": {
+      "term": "آزمون «تمام رویدادها» (All-Events Test)",
+      "definition": "در روش تعهدی مالیاتی، درآمد زمانی شناسایی می‌شود که (۱) تمامی رویدادهایی که حق دریافت درآمد را تثبیت می‌کنند رخ داده باشند، و (۲) مبلغ با دقت معقول قابل تعیین باشد. همین آزمون برای کسر هزینه‌ها نیز به‌کار می‌رود (در کنار الزام «عملکرد اقتصادی»)."
+    },
+    "cpaSection": "REG",
+    "topic": "Tax Methods",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "economic-performance",
+    "en": {
+      "term": "Economic Performance Requirement",
+      "definition": "An accrual-basis taxpayer cannot deduct an expense (even if the all-events test is met) until economic performance has occurred — generally when services are provided, property is used, or payment is made for liabilities arising from torts, workers' comp, or rebates."
+    },
+    "fa": {
+      "term": "الزام عملکرد اقتصادی",
+      "definition": "مودی روش تعهدی نمی‌تواند یک هزینه را کسر کند (حتی اگر آزمون تمام رویدادها برقرار باشد) مگر آنکه «عملکرد اقتصادی» نیز رخ داده باشد — عموماً زمانی که خدمت ارائه، دارایی استفاده، یا پرداخت بابت بدهی‌های ناشی از تقصیر، غرامت کارگران یا تخفیف‌ها انجام شود."
+    },
+    "cpaSection": "REG",
+    "topic": "Tax Methods",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "above-vs-below-the-line-deductions",
+    "en": {
+      "term": "Above-the-Line vs Below-the-Line Deductions",
+      "definition": "Above-the-line (adjustments to income) reduce gross income to arrive at AGI — e.g., HSA contributions, traditional IRA, student loan interest, self-employed health insurance, half of SE tax. Below-the-line deductions reduce AGI to arrive at taxable income — either the standard deduction OR itemized deductions, plus the QBI deduction. Above-the-line is usually more valuable because it lowers AGI itself."
+    },
+    "fa": {
+      "term": "کسورات بالای خط در برابر پایین خط",
+      "definition": "کسورات بالای خط (تعدیل درآمد) درآمد ناخالص را کاهش داده و به AGI می‌رسانند — مانند کمک به HSA، IRA سنتی، بهره وام دانشجویی، بیمه درمان خویش‌فرما و نیمی از مالیات خوداشتغالی. کسورات پایین خط، AGI را به درآمد مشمول مالیات کاهش می‌دهند — یا کسر استاندارد یا کسرهای تفصیلی، به‌علاوهٔ کسر QBI. کسر بالای خط معمولاً ارزشمندتر است زیرا خود AGI را پایین می‌آورد."
+    },
+    "cpaSection": "REG",
+    "topic": "Individual Tax",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "magi",
+    "en": {
+      "term": "MAGI (Modified Adjusted Gross Income)",
+      "acronym": "MAGI",
+      "expansion": "Modified Adjusted Gross Income",
+      "definition": "AGI with specific items added back, varying by tax provision. Used to determine eligibility for many tax benefits — Roth IRA contributions, Premium Tax Credit, Education Credits, Net Investment Income Tax. Each provision has its own MAGI definition; there is no single 'MAGI'."
+    },
+    "fa": {
+      "term": "MAGI (درآمد ناخالص تعدیل‌شدهٔ تعدیل‌یافته)",
+      "definition": "همان AGI به‌علاوهٔ بازافزودن اقلام خاص که برای هر مادهٔ مالیاتی متفاوت است؛ برای تعیین واجد شرایط بودن استفاده در بسیاری از مزایای مالیاتی به‌کار می‌رود — مانند سهم Roth IRA، اعتبار مالیاتی بیمه (PTC)، اعتبارات آموزشی، و مالیات بر درآمد سرمایه‌گذاری خالص (NIIT). هر ماده تعریف MAGI خود را دارد؛ یک MAGI واحد وجود ندارد."
+    },
+    "cpaSection": "REG",
+    "topic": "Individual Tax",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "qualifying-child-relative",
+    "en": {
+      "term": "Qualifying Child / Qualifying Relative (Dependent Tests)",
+      "definition": "Qualifying Child requires: relationship, age (<19, or <24 if full-time student, or any age if disabled), residency (>half year with taxpayer), support (child did not provide more than half), and joint-return tests. Qualifying Relative requires: relationship OR member of household for full year, gross income under threshold ($5,200 for 2026), support (taxpayer provides >50%), and not qualifying child of another."
+    },
+    "fa": {
+      "term": "فرزند واجد شرایط / خویشاوند واجد شرایط (آزمون‌های افراد تحت تکفل)",
+      "definition": "فرزند واجد شرایط به آزمون‌های نسبت، سن (زیر ۱۹، زیر ۲۴ در صورت دانشجویی تمام‌وقت، یا هر سنی در صورت معلولیت)، اقامت (بیش از نیم سال با مودی)، حمایت (فرزند بیش از نیم آن را تأمین نکرده باشد) و آزمون اظهارنامهٔ مشترک نیاز دارد. خویشاوند واجد شرایط به آزمون‌های نسبت یا عضویت تمام‌سال در خانوار، درآمد ناخالص زیر آستانه (۵٬۲۰۰ دلار برای سال ۲۰۲۶)، حمایت (مودی بیش از ۵۰٪ تأمین کند) و عدم واجد شرایط بودن به‌عنوان فرزند فردی دیگر نیاز دارد."
+    },
+    "cpaSection": "REG",
+    "topic": "Individual Tax",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "net-operating-loss",
+    "en": {
+      "term": "Net Operating Loss (NOL)",
+      "acronym": "NOL",
+      "expansion": "Net Operating Loss",
+      "definition": "When deductible business expenses exceed gross income for the year. Post-TCJA NOLs (after 2017): no carryback (with limited exceptions), unlimited carryforward, but limited to 80% of taxable income in the year used. Pre-2018 NOLs retain old rules (2-year carryback, 20-year carryforward, no 80% cap)."
+    },
+    "fa": {
+      "term": "زیان عملیاتی خالص (NOL)",
+      "definition": "زمانی که هزینه‌های قابل کسر کسب‌وکار از درآمد ناخالص سال بیشتر شود. زیان‌های پس از ۲۰۱۷ (TCJA): انتقال به سال‌های قبل وجود ندارد (به استثنای موارد محدود)، انتقال به سال‌های آتی نامحدود، اما در هر سال استفاده فقط تا ۸۰٪ درآمد مشمول مالیات قابل اعمال است. زیان‌های پیش از ۲۰۱۸ تابع قواعد قدیمی هستند (۲ سال به عقب، ۲۰ سال به جلو، بدون سقف ۸۰٪)."
+    },
+    "cpaSection": "REG",
+    "topic": "Business Tax",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "capital-loss-limitation",
+    "en": {
+      "term": "Capital Loss Limitation",
+      "definition": "For individuals, net capital losses are deductible against ordinary income up to $3,000 per year ($1,500 if MFS); excess losses carry forward indefinitely. C-corporations cannot deduct capital losses against ordinary income at all — losses can only offset capital gains, with 3-year carryback and 5-year carryforward."
+    },
+    "fa": {
+      "term": "محدودیت کسر زیان سرمایه‌ای",
+      "definition": "برای اشخاص حقیقی، زیان خالص سرمایه‌ای تا سقف ۳٬۰۰۰ دلار در سال (۱٬۵۰۰ دلار برای MFS) قابل کسر از درآمد عادی است و مازاد آن به‌صورت نامحدود به سال‌های بعد منتقل می‌شود. شرکت‌های C اصلاً نمی‌توانند زیان سرمایه‌ای را از درآمد عادی کسر کنند؛ زیان فقط با سود سرمایه‌ای تهاتر می‌شود، با ۳ سال انتقال به عقب و ۵ سال انتقال به جلو."
+    },
+    "cpaSection": "REG",
+    "topic": "Capital Gains",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "holding-period",
+    "en": {
+      "term": "Holding Period",
+      "definition": "Length of time a capital asset is owned, determining short-term (≤ 1 year, taxed at ordinary rates) or long-term (> 1 year, taxed at preferential 0/15/20% rates). Holding period begins the day AFTER acquisition and includes the day of sale. For gifted property, the donor's holding period is added (tacking)."
+    },
+    "fa": {
+      "term": "دورهٔ نگهداری",
+      "definition": "مدت زمان مالکیت یک دارایی سرمایه‌ای که تعیین می‌کند سود/زیان «کوتاه‌مدت» (≤ یک سال، با نرخ عادی) یا «بلندمدت» (> یک سال، با نرخ ترجیحی ۰/۱۵/۲۰٪) محسوب شود. دورهٔ نگهداری از روز پس از تحصیل آغاز می‌شود و روز فروش را شامل می‌شود. در دارایی هدیه‌شده، دورهٔ نگهداری بخشنده به آن افزوده می‌گردد."
+    },
+    "cpaSection": "REG",
+    "topic": "Capital Gains",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "section-1231",
+    "en": {
+      "term": "Section 1231 Property",
+      "definition": "Depreciable property and real property used in a trade or business and held more than one year. Net Section 1231 gains are taxed at favorable long-term capital gain rates; net Section 1231 losses are deducted as ordinary losses (best of both worlds). Five-year lookback rule recharacterizes current gains as ordinary to the extent of prior 1231 losses."
+    },
+    "fa": {
+      "term": "دارایی ماده ۱۲۳۱",
+      "definition": "اموال مستهلک‌شونده و املاک مورد استفاده در کسب‌وکار با دورهٔ نگهداری بیش از یک سال. سود خالص ماده ۱۲۳۱ با نرخ ترجیحی سود سرمایه‌ای بلندمدت مشمول مالیات می‌شود، و زیان خالص آن به‌عنوان زیان عادی قابل کسر است (بهترین حالت ممکن). قاعدهٔ پنج‌ساله، سود سال جاری را تا میزان زیان‌های ۱۲۳۱ سال‌های قبل به سود عادی تبدیل می‌کند."
+    },
+    "cpaSection": "REG",
+    "topic": "Capital Gains",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "section-1244",
+    "en": {
+      "term": "Section 1244 Stock",
+      "definition": "Common or preferred stock of a small domestic corporation (capitalized with ≤ $1 million) issued in exchange for cash or property. Loss on sale or worthlessness is treated as ORDINARY (not capital) — up to $50,000 single / $100,000 MFJ per year. Excess loss is capital. Encourages investment in small business."
+    },
+    "fa": {
+      "term": "سهام ماده ۱۲۴۴",
+      "definition": "سهام عادی یا ممتاز یک شرکت کوچک داخلی (با سرمایه ≤ ۱ میلیون دلار) که در ازای وجه نقد یا دارایی منتشر شده باشد. زیان حاصل از فروش یا بی‌ارزش شدن به‌عنوان زیان «عادی» (نه سرمایه‌ای) محسوب می‌شود — تا سقف ۵۰ هزار دلار برای مجرد و ۱۰۰ هزار دلار برای زوج. زیان مازاد سرمایه‌ای است. این قاعده برای تشویق سرمایه‌گذاری در کسب‌وکارهای کوچک طراحی شده است."
+    },
+    "cpaSection": "REG",
+    "topic": "Capital Gains",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "section-1202-qsbs",
+    "en": {
+      "term": "Section 1202 QSBS (Qualified Small Business Stock)",
+      "definition": "Stock in a qualified C-corporation (gross assets ≤ $50 million at issuance) acquired at original issuance and held > 5 years. Gain on sale is excluded from federal tax up to the greater of $10 million or 10× basis (100% exclusion for stock acquired after 9/27/2010). One of the most powerful capital-gain exclusions in the Code."
+    },
+    "fa": {
+      "term": "سهام QSBS ماده ۱۲۰۲",
+      "definition": "سهام شرکت C واجد شرایط (دارایی ناخالص ≤ ۵۰ میلیون دلار در زمان انتشار) که در زمان انتشار اولیه خریداری و بیش از ۵ سال نگهداری شده باشد. سود حاصل از فروش تا سقف بزرگ‌تر از ۱۰ میلیون دلار یا ۱۰ برابر بهای تمام‌شده، از مالیات فدرال معاف می‌شود (معافیت ۱۰۰٪ برای سهام خریداری‌شده پس از ۲۷ سپتامبر ۲۰۱۰). یکی از قدرتمندترین معافیت‌های سود سرمایه‌ای در کد مالیاتی آمریکا."
+    },
+    "cpaSection": "REG",
+    "topic": "Capital Gains",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "salt-cap",
+    "en": {
+      "term": "SALT Cap (State and Local Tax Deduction Limit)",
+      "definition": "TCJA-imposed cap of $10,000 ($5,000 MFS) on the itemized deduction for combined state/local income (or sales) tax plus property tax. A major itemized deduction limitation since 2018; encourages workarounds like state pass-through entity (PTE) elections."
+    },
+    "fa": {
+      "term": "سقف SALT (محدودیت کسر مالیات ایالتی و محلی)",
+      "definition": "سقف ۱۰٬۰۰۰ دلاری (۵٬۰۰۰ دلار برای MFS) که قانون TCJA بر کسر تفصیلی جمع مالیات بر درآمد یا فروش ایالتی/محلی به‌علاوهٔ مالیات املاک اعمال کرد. مهم‌ترین محدودیت در کسرهای تفصیلی از سال ۲۰۱۸ به‌بعد است و مودیان را به راهکارهایی مانند انتخاب «PTE» در سطح ایالت سوق داده است."
+    },
+    "cpaSection": "REG",
+    "topic": "Itemized Deductions",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "mortgage-interest-deduction",
+    "en": {
+      "term": "Mortgage Interest Deduction",
+      "definition": "Interest on acquisition debt secured by the taxpayer's main or second home is itemizable, capped at the first $750,000 of debt ($375,000 MFS) for loans originated after 12/15/2017 — older loans are grandfathered at $1,000,000. Home equity interest deductible only if proceeds buy/build/improve the home."
+    },
+    "fa": {
+      "term": "کسر بهرهٔ وام مسکن",
+      "definition": "بهرهٔ بدهی تحصیل مسکن که به خانهٔ اول یا دوم مودی وثیقه دارد در کسر تفصیلی قابل اعمال است، با سقف ۷۵۰٬۰۰۰ دلار اصل بدهی (۳۷۵٬۰۰۰ برای MFS) برای وام‌های پس از ۱۵ دسامبر ۲۰۱۷؛ وام‌های قدیمی‌تر تا سقف ۱٬۰۰۰٬۰۰۰ دلار حفظ می‌شوند. بهرهٔ وام «ارزش ویژهٔ خانه» تنها در صورتی قابل کسر است که صرف خرید، ساخت یا بهسازی همان خانه شود."
+    },
+    "cpaSection": "REG",
+    "topic": "Itemized Deductions",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "medical-expense-deduction",
+    "en": {
+      "term": "Medical Expense Deduction (7.5% AGI Floor)",
+      "definition": "Unreimbursed medical and dental expenses paid for the taxpayer, spouse, and dependents are deductible as an itemized deduction only to the extent they exceed 7.5% of AGI. Includes premiums, doctor/hospital, prescriptions, certain LTC insurance — NOT cosmetic procedures, OTC drugs (except insulin), or general health items."
+    },
+    "fa": {
+      "term": "کسر هزینه‌های پزشکی (آستانهٔ ۷٫۵٪ AGI)",
+      "definition": "هزینه‌های پزشکی و دندان‌پزشکی جبران‌نشده که مودی برای خود، همسر و افراد تحت تکفل پرداخت می‌کند تنها به میزانی که از ۷٫۵٪ AGI فراتر رود به‌عنوان کسر تفصیلی قابل اعمال است. شامل حق بیمه، پزشک و بیمارستان، داروهای تجویزی و برخی بیمه‌های مراقبت بلندمدت می‌شود — اما اقدامات زیبایی، داروهای بدون نسخه (به‌جز انسولین) و اقلام بهداشت عمومی را در بر نمی‌گیرد."
+    },
+    "cpaSection": "REG",
+    "topic": "Itemized Deductions",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "casualty-loss",
+    "en": {
+      "term": "Casualty Loss (Federally Declared Disaster Only)",
+      "definition": "Personal casualty losses (theft, fire, flood) are deductible only if attributable to a federally declared disaster (post-TCJA, through 2025). Each loss reduced by $100, then total deductible amount reduced by 10% of AGI. Business casualty losses are not subject to these limitations."
+    },
+    "fa": {
+      "term": "زیان حادثه (فقط در بلایای اعلام‌شدهٔ فدرال)",
+      "definition": "زیان‌های شخصی ناشی از حادثه (سرقت، آتش‌سوزی، سیل) تنها در صورتی قابل کسر هستند که به یک بلیه اعلام‌شدهٔ فدرال مربوط باشند (طبق TCJA تا پایان ۲۰۲۵). از هر زیان ۱۰۰ دلار کسر می‌شود و سپس مبلغ قابل کسر کل ۱۰٪ از AGI نیز کاهش می‌یابد. زیان‌های حادثهٔ کسب‌وکار مشمول این محدودیت‌ها نیستند."
+    },
+    "cpaSection": "REG",
+    "topic": "Itemized Deductions",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "education-credits",
+    "en": {
+      "term": "Education Credits (AOTC and Lifetime Learning)",
+      "definition": "American Opportunity Tax Credit (AOTC): up to $2,500 per student per year (100% of first $2,000 + 25% of next $2,000) for first 4 years of post-secondary education, 40% refundable. Lifetime Learning Credit: 20% of first $10,000 of qualified expenses ($2,000 max), unlimited years, non-refundable. Both phased out by MAGI."
+    },
+    "fa": {
+      "term": "اعتبارهای مالیاتی آموزشی (AOTC و LLC)",
+      "definition": "اعتبار فرصت آمریکایی (AOTC): تا ۲٬۵۰۰ دلار به ازای هر دانشجو در سال (۱۰۰٪ از ۲٬۰۰۰ دلار اول + ۲۵٪ از ۲٬۰۰۰ دلار بعدی) برای ۴ سال نخست تحصیلات عالی، با ۴۰٪ قابل بازپرداخت. اعتبار یادگیری مادام‌العمر (LLC): ۲۰٪ از ۱۰٬۰۰۰ دلار اول هزینه‌های واجد شرایط (حداکثر ۲٬۰۰۰ دلار)، بدون محدودیت سال، غیرقابل بازپرداخت. هر دو با افزایش MAGI تدریجی حذف می‌شوند."
+    },
+    "cpaSection": "REG",
+    "topic": "Tax Credits",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "rollover-direct-vs-indirect",
+    "en": {
+      "term": "Direct vs Indirect Rollover",
+      "definition": "Direct (trustee-to-trustee): funds move from one retirement account to another without the participant taking possession — no withholding, no 60-day rule. Indirect: distribution paid to participant who must redeposit within 60 days; 20% mandatory withholding (which the participant must replace from other funds to avoid tax). Limited to one indirect IRA rollover per 12-month period."
+    },
+    "fa": {
+      "term": "انتقال مستقیم در برابر غیرمستقیم وجوه بازنشستگی",
+      "definition": "مستقیم (امین به امین): وجه از یک حساب بازنشستگی به دیگری منتقل می‌شود بدون اینکه ذی‌نفع آن را در اختیار بگیرد — کسر مالیات منبع و قاعدهٔ ۶۰ روزه ندارد. غیرمستقیم: وجه به ذی‌نفع پرداخت می‌شود و او باید ظرف ۶۰ روز در حساب جدید سپرده کند؛ ۲۰٪ کسر اجباری منبع (که فرد باید از منابع دیگر جبران کند تا مشمول مالیات نشود). فقط یک انتقال غیرمستقیم IRA در هر بازهٔ ۱۲‌ماهه مجاز است."
+    },
+    "cpaSection": "REG",
+    "topic": "Retirement",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "required-minimum-distribution",
+    "en": {
+      "term": "Required Minimum Distribution (RMD)",
+      "acronym": "RMD",
+      "expansion": "Required Minimum Distribution",
+      "definition": "Mandatory annual withdrawals from traditional IRAs and qualified plans starting at age 73 (per SECURE 2.0; rises to 75 in 2033). Roth IRAs have no RMDs during owner's life. Penalty for missing an RMD reduced from 50% to 25% (10% if corrected timely) by SECURE 2.0."
+    },
+    "fa": {
+      "term": "حداقل برداشت اجباری (RMD)",
+      "definition": "برداشت سالانهٔ الزامی از IRAهای سنتی و طرح‌های واجد شرایط که از سن ۷۳ سالگی آغاز می‌شود (طبق SECURE 2.0؛ از سال ۲۰۳۳ به ۷۵ افزایش می‌یابد). Roth IRA در طول حیات مالک RMD ندارد. جریمهٔ عدم برداشت طبق SECURE 2.0 از ۵۰٪ به ۲۵٪ کاهش یافت (و در صورت اصلاح به‌موقع به ۱۰٪)."
+    },
+    "cpaSection": "REG",
+    "topic": "Retirement",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "early-withdrawal-penalty",
+    "en": {
+      "term": "10% Early Withdrawal Penalty",
+      "definition": "Distributions from IRAs and qualified plans before age 59½ are subject to a 10% additional tax on top of regular income tax. Exceptions include: death, disability, qualified higher-education expenses, first-time home purchase ($10K IRA), substantially equal periodic payments (72(t)), medical expenses > 7.5% AGI, qualified birth/adoption ($5K)."
+    },
+    "fa": {
+      "term": "جریمهٔ ۱۰٪ برداشت زودهنگام",
+      "definition": "برداشت از IRA و طرح‌های واجد شرایط پیش از سن ۵۹٫۵ سالگی مشمول ۱۰٪ مالیات اضافی علاوه بر مالیات عادی بر درآمد است. استثنائات شامل: فوت، ازکارافتادگی، هزینه‌های آموزش عالی واجد شرایط، خرید اولین خانه (۱۰ هزار دلار از IRA)، پرداخت‌های دوره‌ای تقریباً مساوی (72(t))، هزینه‌های پزشکی فراتر از ۷٫۵٪ AGI، و تولد/فرزندخواندگی واجد شرایط (۵ هزار دلار)."
+    },
+    "cpaSection": "REG",
+    "topic": "Retirement",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "roth-conversion",
+    "en": {
+      "term": "Roth Conversion",
+      "definition": "A taxable transfer of funds from a traditional IRA (or pre-tax 401(k)) to a Roth IRA. The converted amount is included in current-year ordinary income but grows tax-free thereafter and avoids future RMDs. No income limit on conversions (unlike Roth contributions). Cannot be undone (recharacterization eliminated by TCJA)."
+    },
+    "fa": {
+      "term": "تبدیل به Roth",
+      "definition": "انتقال مشمول مالیاتِ وجوه از IRA سنتی (یا 401(k) پیش از مالیات) به Roth IRA. مبلغ تبدیل‌شده در درآمد عادی همان سال منظور می‌شود اما پس از آن بدون مالیات رشد می‌کند و از RMD آتی معاف است. سقف درآمد برای تبدیل وجود ندارد (برخلاف سهم‌گذاری Roth). طبق TCJA «بازتبدیل» (recharacterization) حذف شده و قابل بازگشت نیست."
+    },
+    "cpaSection": "REG",
+    "topic": "Retirement",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "section-1033-involuntary-conversion",
+    "en": {
+      "term": "Section 1033 Involuntary Conversion",
+      "definition": "When property is destroyed, stolen, condemned, or sold under threat of condemnation, gain is deferred if the taxpayer reinvests the proceeds in qualifying replacement property within 2 years (3 years for condemned business real estate). Loss is recognized currently. Distinct from Section 1031 (voluntary like-kind exchanges)."
+    },
+    "fa": {
+      "term": "تبدیل غیرارادی ماده ۱۰۳۳",
+      "definition": "هنگامی‌که دارایی نابود، سرقت، مصادره یا تحت تهدید مصادره فروخته شود، سود در صورتی به تعویق می‌افتد که مودی عواید را در دارایی جایگزین واجد شرایط ظرف ۲ سال (۳ سال برای املاک کسب‌وکار مصادره‌شده) سرمایه‌گذاری کند. زیان در سال جاری شناسایی می‌شود. این ماده با ۱۰۳۱ (مبادلات هم‌نوع ارادی) متفاوت است."
+    },
+    "cpaSection": "REG",
+    "topic": "Property Tax",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "estimated-tax-safe-harbor",
+    "en": {
+      "term": "Estimated Tax Safe Harbor",
+      "definition": "Individuals avoid the underpayment penalty if quarterly estimated payments + withholding equal at least: (1) 90% of current-year tax, OR (2) 100% of prior-year tax (110% if prior-year AGI > $150K). The lower of the two is the safe harbor target. C-corps generally use 100% of current or prior year (no AGI threshold)."
+    },
+    "fa": {
+      "term": "پناهگاه امن مالیات تخمینی",
+      "definition": "اشخاص حقیقی از جریمهٔ کم‌پرداخت در امان می‌مانند اگر مجموع پرداخت‌های فصلی تخمینی و کسر منبع دست‌کم برابر باشد با: (۱) ۹۰٪ مالیات سال جاری یا (۲) ۱۰۰٪ مالیات سال قبل (۱۱۰٪ اگر AGI سال قبل از ۱۵۰ هزار دلار بیشتر باشد). کمتر این دو هدف پناهگاه امن است. شرکت‌های C معمولاً ۱۰۰٪ سال جاری یا قبل را به‌کار می‌گیرند (بدون آستانهٔ AGI)."
+    },
+    "cpaSection": "REG",
+    "topic": "Tax Compliance",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "statute-of-limitations-tax",
+    "en": {
+      "term": "Statute of Limitations (Tax)",
+      "definition": "Time limit for the IRS to assess additional tax: 3 years from filing date (general rule), 6 years if gross income understated by > 25%, unlimited if no return filed or if fraud. Statute of limitations for refund claims: later of 3 years from filing OR 2 years from payment."
+    },
+    "fa": {
+      "term": "مرور زمان مالیاتی",
+      "definition": "مهلت IRS برای ارزیابی مالیات اضافی: ۳ سال از تاریخ تسلیم اظهارنامه (قاعدهٔ عمومی)، ۶ سال در صورت کم‌اظهاری درآمد ناخالص بیش از ۲۵٪، و نامحدود در صورت عدم تسلیم یا تقلب. مهلت ادعای استرداد: دیرتر بین ۳ سال از تسلیم یا ۲ سال از پرداخت."
+    },
+    "cpaSection": "REG",
+    "topic": "Tax Compliance",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "backup-withholding",
+    "en": {
+      "term": "Backup Withholding",
+      "definition": "Mandatory withholding (currently 24%) on certain payments (interest, dividends, broker proceeds, gig payments) to a payee who has not provided a valid TIN, has under-reported interest/dividends, or whose TIN does not match IRS records. Reported on Form 1099 in box 4."
+    },
+    "fa": {
+      "term": "کسر مالیاتی پشتیبان (Backup Withholding)",
+      "definition": "کسر مالیات منبع اجباری (در حال حاضر ۲۴٪) بر برخی پرداخت‌ها (بهره، سود سهام، عواید کارگزاری، درآمد گیگ) به دریافت‌کننده‌ای که TIN معتبر ارائه نکرده، بهره/سود سهام را کم‌اظهار کرده، یا TIN او با سوابق IRS تطبیق ندارد؛ در فرم 1099 کادر ۴ گزارش می‌شود."
+    },
+    "cpaSection": "REG",
+    "topic": "Tax Compliance",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "offer-acceptance-counteroffer",
+    "en": {
+      "term": "Offer, Acceptance, Counteroffer (Contract Formation)",
+      "definition": "Three building blocks of contract formation. Offer: definite proposal communicated to offeree showing intent to be bound. Acceptance: unconditional assent on the offer's terms (mirror-image rule under common law). Counteroffer: a response that varies the original terms — terminates the original offer and becomes a new offer. UCC Article 2 sales relax the mirror-image rule for merchants."
+    },
+    "fa": {
+      "term": "ایجاب، قبول، ایجاب متقابل (تشکیل قرارداد)",
+      "definition": "سه عنصر بنیادی تشکیل قرارداد. ایجاب: پیشنهاد قطعی اعلام‌شده به طرف قبول‌کننده با قصد پایبندی. قبول: پذیرش بدون قید و شرط شرایط ایجاب (طبق قاعدهٔ «آینهٔ بازتاب» در حقوق عرفی). ایجاب متقابل: پاسخی که شرایط را تغییر می‌دهد — ایجاب اصلی را خاتمه می‌بخشد و خود ایجاب جدیدی محسوب می‌شود. در فروش‌های UCC ماده ۲ برای بازرگانان قاعدهٔ آینه ملایم‌تر است."
+    },
+    "cpaSection": "REG",
+    "topic": "Business Law",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "promissory-estoppel",
+    "en": {
+      "term": "Promissory Estoppel",
+      "definition": "An equitable doctrine that enforces a promise even without consideration when: (1) the promisor reasonably expected reliance, (2) the promisee actually relied to their detriment, and (3) injustice can only be avoided by enforcement. Substitutes for consideration in cases like charitable pledges and certain employment promises."
+    },
+    "fa": {
+      "term": "اصل مانع وعده (Promissory Estoppel)",
+      "definition": "اصلی انصافی که یک وعده را حتی بدون عوض قابل اجرا می‌داند، در صورتی‌که: (۱) وعده‌دهنده به‌طور معقول اعتماد طرف مقابل را پیش‌بینی می‌کرده، (۲) دریافت‌کنندهٔ وعده عملاً به ضرر خود به آن اعتماد کرده باشد، و (۳) جلوگیری از بی‌عدالتی فقط با اجرای وعده ممکن باشد؛ جایگزین «عوض» در مواردی مانند تعهدات خیریه و برخی وعده‌های شغلی است."
+    },
+    "cpaSection": "REG",
+    "topic": "Business Law",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "parol-evidence-rule",
+    "en": {
+      "term": "Parol Evidence Rule",
+      "definition": "When parties have a fully integrated written contract, prior or contemporaneous oral or written agreements are inadmissible to contradict, vary, or add to its terms. Exceptions: subsequent modifications, ambiguity clarification, fraud/duress/mistake, condition precedent, and trade usage explanations."
+    },
+    "fa": {
+      "term": "قاعدهٔ ادله شفاهی (Parol Evidence)",
+      "definition": "هنگامی‌که طرفین یک قرارداد کاملاً مدوّن مکتوب دارند، توافقات شفاهی یا کتبی قبلی یا هم‌زمان برای رد، تغییر یا افزودن به شرایط آن قابل پذیرش نیست. استثنائات شامل: اصلاحات بعدی، رفع ابهام، تقلب/اکراه/اشتباه، شرط مقدم بر قرارداد، و توضیح عرف تجاری است."
+    },
+    "cpaSection": "REG",
+    "topic": "Business Law",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "ucc-articles-summary",
+    "en": {
+      "term": "UCC Articles 2, 3, and 9 (Quick Map)",
+      "definition": "Article 2: Sale of Goods (movable, tangible items between merchants/consumers — replaces common law for goods). Article 3: Negotiable Instruments (drafts, checks, notes — transferability and holder rights). Article 9: Secured Transactions (security interests in personal property — attachment, perfection, priority). Real estate, services, and employment remain under common law."
+    },
+    "fa": {
+      "term": "مواد UCC شمارهٔ ۲، ۳ و ۹ (نمای سریع)",
+      "definition": "مادهٔ ۲: فروش کالا (اقلام منقول و مشهود بین بازرگانان/مصرف‌کنندگان — جایگزین حقوق عرفی برای کالا). مادهٔ ۳: اوراق تجاری قابل انتقال (برات، چک، سفته — قابلیت انتقال و حقوق دارنده). مادهٔ ۹: معاملات تضمینی (وثیقهٔ اموال منقول — اتصال، تنفیذ، اولویت). املاک، خدمات و قراردادهای استخدامی همچنان تابع حقوق عرفی هستند."
+    },
+    "cpaSection": "REG",
+    "topic": "Business Law",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "holder-in-due-course",
+    "en": {
+      "term": "Holder in Due Course (HDC)",
+      "definition": "Under UCC Article 3, a holder of a negotiable instrument who took it: (1) for value, (2) in good faith, and (3) without notice of defenses, claims, or that it is overdue or dishonored. An HDC takes the instrument free of most personal defenses (e.g., lack of consideration, fraud in inducement) but remains subject to real defenses (forgery, infancy, duress, illegality)."
+    },
+    "fa": {
+      "term": "دارندهٔ در زمان مقتضی (HDC)",
+      "definition": "طبق مادهٔ ۳ UCC، دارندهٔ یک سند تجاری قابل انتقال که آن را: (۱) در ازای ارزش، (۲) با حسن نیت، و (۳) بدون اطلاع از دفاعیات، ادعاها یا اینکه سند سررسید گذشته یا نکول‌شده است، تحصیل کرده است. HDC سند را عاری از بیشتر دفاعیات شخصی (مانند نبود عوض یا تقلب در ترغیب) می‌گیرد ولی همچنان تابع دفاعیات واقعی (جعل، صغر، اکراه، عدم مشروعیت) باقی می‌ماند."
+    },
+    "cpaSection": "REG",
+    "topic": "Business Law",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "perfection-of-security-interest",
+    "en": {
+      "term": "Perfection of Security Interest (UCC Article 9)",
+      "definition": "After 'attachment' (creditor has interest), perfection establishes priority over other claimants. Methods: (1) filing a financing statement (UCC-1) — most common; (2) possession (for tangible collateral); (3) control (for deposit accounts, investment property); (4) automatic perfection (PMSI in consumer goods). Generally, first to file or perfect has priority."
+    },
+    "fa": {
+      "term": "تنفیذ منافع تضمینی (مادهٔ ۹ UCC)",
+      "definition": "پس از «اتصال» (ایجاد حق برای طلبکار)، «تنفیذ» اولویت او را در برابر سایر مدعیان تثبیت می‌کند. روش‌ها: (۱) تسلیم اظهارنامهٔ تأمین مالی (UCC-1) — رایج‌ترین روش؛ (۲) تصرف (برای وثیقهٔ مشهود)؛ (۳) کنترل (برای حساب‌های سپرده و اوراق سرمایه‌گذاری)؛ (۴) تنفیذ خودکار (PMSI در کالاهای مصرفی). به‌طور کلی، اولین کسی که تسلیم یا تنفیذ کند، اولویت دارد."
+    },
+    "cpaSection": "REG",
+    "topic": "Business Law",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "surety-guarantor",
+    "en": {
+      "term": "Surety vs Guarantor",
+      "definition": "Both promise to pay another's debt if the debtor defaults. A surety is primarily liable — creditor can demand payment immediately upon default, without first pursuing the debtor. A guarantor is secondarily liable — creditor must first attempt collection from the principal debtor (in many states). Both have rights of subrogation and contribution."
+    },
+    "fa": {
+      "term": "ضامن (Surety) در برابر تعهدکننده (Guarantor)",
+      "definition": "هر دو متعهد به پرداخت دین دیگری در صورت نکول مدیون اصلی هستند. «ضامن» مسئولیت مستقیم دارد و طلبکار بلافاصله پس از نکول می‌تواند از او مطالبه کند بدون آنکه ابتدا به مدیون اصلی مراجعه کند. «تعهدکننده» مسئولیت ثانوی دارد و طلبکار باید ابتدا (در بسیاری از ایالت‌ها) از مدیون اصلی وصول را تلاش کند. هر دو از حق جانشینی و حق مشارکت برخوردارند."
+    },
+    "cpaSection": "REG",
+    "topic": "Business Law",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "agency-authority-types",
+    "en": {
+      "term": "Agency: Express, Implied, and Apparent Authority",
+      "definition": "Express authority: explicitly granted by principal (oral or written). Implied authority: reasonably necessary to carry out express authority. Apparent authority: principal's actions cause a third party reasonably to believe the agent is authorized — binds the principal even if no actual authority exists. Ratification: principal accepts unauthorized act after the fact."
+    },
+    "fa": {
+      "term": "نمایندگی: اختیار صریح، ضمنی و ظاهری",
+      "definition": "اختیار صریح: به‌طور آشکار توسط اصیل اعطا می‌شود (شفاهی یا کتبی). اختیار ضمنی: به‌طور معقول برای اجرای اختیار صریح ضروری است. اختیار ظاهری: رفتار اصیل سبب می‌شود طرف ثالث به‌طور معقول گمان کند که نماینده مجاز است — حتی در نبود اختیار واقعی نیز اصیل را متعهد می‌کند. تنفیذ: اصیل عمل غیرمجاز را پس از وقوع می‌پذیرد."
+    },
+    "cpaSection": "REG",
+    "topic": "Business Law",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "securities-act-1933",
+    "en": {
+      "term": "Securities Act of 1933",
+      "definition": "Federal law regulating the INITIAL issuance of securities. Requires registration with SEC unless an exemption applies (Reg D private placements, Reg A+, intrastate, Rule 144 resales). Mandates disclosure via prospectus. Section 11 imposes strict liability on issuers for material misstatements in registration statements; Section 12 covers oral/written communications."
+    },
+    "fa": {
+      "term": "قانون اوراق بهادار ۱۹۳۳",
+      "definition": "قانون فدرال ناظر بر «انتشار اولیه» اوراق بهادار. ثبت در SEC را الزامی می‌کند مگر در صورت معافیت (مانند عرضه خصوصی Reg D، Reg A+، درون‌ایالتی، فروش مجدد قانون 144). افشای اطلاعات از طریق امیدنامه (Prospectus) را الزامی می‌کند. مادهٔ ۱۱ مسئولیت سختگیرانه‌ای بر ناشر بابت تحریف بااهمیت در اظهارنامهٔ ثبت تحمیل می‌کند و مادهٔ ۱۲ ارتباطات شفاهی و کتبی را پوشش می‌دهد."
+    },
+    "cpaSection": "REG",
+    "topic": "Securities Law",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "securities-exchange-act-1934",
+    "en": {
+      "term": "Securities Exchange Act of 1934",
+      "definition": "Federal law regulating SECONDARY trading of securities and creating the SEC. Requires ongoing reporting (10-K, 10-Q, 8-K) by public companies. Section 10(b) and Rule 10b-5 prohibit fraud and insider trading. Section 16 governs insider transactions; Section 14 covers proxy solicitations and tender offers."
+    },
+    "fa": {
+      "term": "قانون مبادلات اوراق بهادار ۱۹۳۴",
+      "definition": "قانون فدرال ناظر بر «معاملات ثانویه» اوراق بهادار که SEC را تأسیس کرد. شرکت‌های سهامی عام را به گزارش‌گری مستمر (10-K، 10-Q، 8-K) ملزم می‌سازد. مادهٔ ۱۰(b) و قانون 10b-5 تقلب و معاملات داخلی را ممنوع می‌کنند. مادهٔ ۱۶ معاملات افراد داخلی و مادهٔ ۱۴ جلب وکالت (Proxy) و پیشنهادهای خرید (Tender Offer) را پوشش می‌دهند."
+    },
+    "cpaSection": "REG",
+    "topic": "Securities Law",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "job-order-costing",
+    "en": {
+      "term": "Job Order Costing",
+      "definition": "A cost accounting system that accumulates direct materials, direct labor, and applied overhead by individual job (custom contract or batch). Used when products are heterogeneous and identifiable — e.g., construction, custom furniture, audit engagements. Each job has its own job cost sheet."
+    },
+    "fa": {
+      "term": "بهایابی سفارش کار",
+      "definition": "سیستم بهایابی که مواد مستقیم، دستمزد مستقیم و سربار اعمال‌شده را به‌تفکیک هر سفارش (قرارداد سفارشی یا دسته) جمع‌آوری می‌کند؛ زمانی به‌کار می‌رود که محصولات ناهمگن و قابل تفکیک باشند — مانند ساخت‌وساز، مبلمان سفارشی، یا قراردادهای حسابرسی. هر سفارش برگ بهای سفارش جداگانه‌ای دارد."
+    },
+    "cpaSection": "BAR",
+    "topic": "Cost Accounting",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "process-costing",
+    "en": {
+      "term": "Process Costing",
+      "definition": "A cost accounting system that averages costs over many homogeneous units produced continuously through a series of production departments. Used in mass-production industries (chemicals, food, oil refining). Cost per equivalent unit = total costs / equivalent units (FIFO or weighted-average method)."
+    },
+    "fa": {
+      "term": "بهایابی مرحله‌ای",
+      "definition": "سیستم بهایابی که بهای تمام‌شده را بر تعداد زیادی واحد همگن تولیدشده در دپارتمان‌های پیوسته به‌طور میانگین تخصیص می‌دهد؛ در صنایع تولید انبوه (شیمیایی، غذایی، پالایش نفت) به‌کار می‌رود. بهای هر واحد معادل = جمع بهای تمام‌شده ÷ واحدهای معادل (به روش FIFO یا میانگین موزون)."
+    },
+    "cpaSection": "BAR",
+    "topic": "Cost Accounting",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "activity-based-costing",
+    "en": {
+      "term": "Activity-Based Costing (ABC)",
+      "acronym": "ABC",
+      "expansion": "Activity-Based Costing",
+      "definition": "A costing method that assigns overhead to products based on the activities they consume (cost drivers like machine setups, inspections, design changes), rather than a single plant-wide rate. More accurate for complex product mixes; used to expose cross-subsidization between high- and low-volume products."
+    },
+    "fa": {
+      "term": "بهایابی بر مبنای فعالیت (ABC)",
+      "definition": "روشی برای تخصیص سربار به محصولات بر اساس فعالیت‌هایی که هر محصول مصرف می‌کند (محرک‌های هزینه‌ای مانند راه‌اندازی ماشین، بازرسی، تغییر طراحی) به‌جای استفاده از یک نرخ سربار واحد در سطح کارخانه؛ برای ترکیب‌های پیچیدهٔ محصول دقیق‌تر است و یارانهٔ متقابل میان محصولات کم‌حجم و پرحجم را آشکار می‌سازد."
+    },
+    "cpaSection": "BAR",
+    "topic": "Cost Accounting",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "standard-costing",
+    "en": {
+      "term": "Standard Costing",
+      "definition": "A control system that records inventory and COGS at predetermined standard costs (per unit of material, labor, and overhead) rather than actual costs. Differences (variances) are isolated, analyzed, and either disposed of as period costs or prorated to inventory and COGS. Useful for budgeting and managerial control."
+    },
+    "fa": {
+      "term": "بهایابی استاندارد",
+      "definition": "سیستم کنترلی که موجودی و بهای تمام‌شدهٔ کالای فروش‌رفته را به بهای استاندارد از پیش تعیین‌شده (به ازای هر واحد مواد، دستمزد و سربار) ثبت می‌کند، نه به بهای واقعی. تفاوت‌ها (انحرافات) جداسازی، تحلیل و یا به‌عنوان هزینه دوره منظور یا میان موجودی و بهای تمام‌شده تسهیم می‌شوند؛ ابزار مفیدی برای بودجه‌بندی و کنترل مدیریتی است."
+    },
+    "cpaSection": "BAR",
+    "topic": "Cost Accounting",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "variance-analysis",
+    "en": {
+      "term": "Variance Analysis (Material, Labor, Overhead)",
+      "definition": "Systematic comparison of standard costs with actual costs to identify and explain differences. Materials: Price Variance (AQ × (AP − SP)) + Quantity Variance (SP × (AQ − SQ)). Labor: Rate Variance (AH × (AR − SR)) + Efficiency Variance (SR × (AH − SH)). Variable OH: Spending + Efficiency. Fixed OH: Budget (Spending) + Volume."
+    },
+    "fa": {
+      "term": "تحلیل انحرافات (مواد، دستمزد، سربار)",
+      "definition": "مقایسهٔ نظام‌مند بهای استاندارد با بهای واقعی برای شناسایی و توضیح اختلافات. مواد: انحراف قیمت (AQ × (AP − SP)) + انحراف مقدار (SP × (AQ − SQ)). دستمزد: انحراف نرخ (AH × (AR − SR)) + انحراف کارایی (SR × (AH − SH)). سربار متغیر: انحراف مصرف + کارایی. سربار ثابت: انحراف بودجه (مصرف) + انحراف حجم."
+    },
+    "cpaSection": "BAR",
+    "topic": "Cost Accounting",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "break-even-point",
+    "en": {
+      "term": "Break-Even Point",
+      "definition": "The sales volume at which total revenue equals total cost — neither profit nor loss. Break-Even Units = Fixed Costs / Contribution Margin per unit. Break-Even Sales $ = Fixed Costs / Contribution Margin Ratio. Foundation of cost-volume-profit (CVP) analysis."
+    },
+    "fa": {
+      "term": "نقطهٔ سربه‌سر",
+      "definition": "حجم فروشی که در آن مجموع درآمد با مجموع هزینه برابر می‌شود — نه سود و نه زیان. سربه‌سر به واحد = هزینه‌های ثابت ÷ حاشیهٔ مشارکت هر واحد. سربه‌سر به دلار = هزینه‌های ثابت ÷ نسبت حاشیهٔ مشارکت. سنگ بنای تحلیل هزینه-حجم-سود (CVP) است."
+    },
+    "cpaSection": "BAR",
+    "topic": "CVP",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "contribution-margin",
+    "en": {
+      "term": "Contribution Margin",
+      "definition": "Sales revenue minus variable costs — represents the dollars available to cover fixed costs and then contribute to profit. CM per unit = Selling Price − Variable Cost per unit. CM Ratio = CM / Sales. Higher CM = more leverage from each additional sale."
+    },
+    "fa": {
+      "term": "حاشیهٔ مشارکت",
+      "definition": "درآمد فروش منهای هزینه‌های متغیر — نشان‌دهندهٔ مبلغی است که برای پوشش هزینه‌های ثابت و سپس کمک به سود در دسترس است. حاشیهٔ مشارکت هر واحد = قیمت فروش − هزینهٔ متغیر هر واحد. نسبت حاشیهٔ مشارکت = CM ÷ فروش. CM بیشتر یعنی اهرم بیشتر از هر فروش اضافی."
+    },
+    "cpaSection": "BAR",
+    "topic": "CVP",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "margin-of-safety",
+    "en": {
+      "term": "Margin of Safety",
+      "definition": "The excess of actual (or budgeted) sales over break-even sales. Indicates how far sales can decline before the company incurs a loss. Margin of Safety $ = Actual Sales − Break-Even Sales; Margin of Safety % = Margin of Safety / Actual Sales."
+    },
+    "fa": {
+      "term": "حاشیهٔ ایمنی",
+      "definition": "مازاد فروش واقعی (یا بودجه‌ای) بر فروش سربه‌سر؛ نشان می‌دهد فروش تا چه میزان می‌تواند کاهش یابد تا شرکت به زیان برسد. حاشیهٔ ایمنی به دلار = فروش واقعی − فروش سربه‌سر؛ حاشیهٔ ایمنی درصدی = حاشیهٔ ایمنی ÷ فروش واقعی."
+    },
+    "cpaSection": "BAR",
+    "topic": "CVP",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "operating-leverage",
+    "en": {
+      "term": "Degree of Operating Leverage (DOL)",
+      "definition": "A measure of how a percentage change in sales translates into a percentage change in operating income. DOL = Contribution Margin / Operating Income. Companies with high fixed costs (and therefore high DOL) experience amplified profit changes from sales fluctuations — creating both upside and downside risk."
+    },
+    "fa": {
+      "term": "درجهٔ اهرم عملیاتی (DOL)",
+      "definition": "معیاری که نشان می‌دهد یک تغییر درصدی در فروش به چه میزان درصدی در سود عملیاتی منجر می‌شود. DOL = حاشیهٔ مشارکت ÷ سود عملیاتی. شرکت‌هایی با هزینه‌های ثابت بالا (و در نتیجه DOL بالا) از نوسانات فروش، تغییرات سود تشدیدشده‌ای را تجربه می‌کنند — هم در جهت مثبت و هم منفی."
+    },
+    "cpaSection": "BAR",
+    "topic": "CVP",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "payback-period",
+    "en": {
+      "term": "Payback Period",
+      "definition": "The time required for a project's cumulative cash inflows to recover the initial investment. Simple Payback = Initial Investment / Annual Cash Inflow (when even). Discounted payback uses present-value cash flows. Easy to compute but ignores time value (simple version) and cash flows beyond the payback point."
+    },
+    "fa": {
+      "term": "دورهٔ بازگشت سرمایه",
+      "definition": "مدت زمانی که جریان‌های نقدی انباشتهٔ یک پروژه برای جبران سرمایه‌گذاری اولیه نیاز دارد. دورهٔ بازگشت ساده = سرمایه‌گذاری اولیه ÷ جریان نقدی سالانه (در صورت یکنواختی). دورهٔ بازگشت تنزیل‌شده از جریان‌های نقدی به ارزش فعلی استفاده می‌کند. روشی ساده اما نقص آن نادیده گرفتن ارزش زمانی پول و جریان‌های پس از نقطهٔ بازگشت است."
+    },
+    "cpaSection": "BAR",
+    "topic": "Capital Budgeting",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "profitability-index",
+    "en": {
+      "term": "Profitability Index (PI)",
+      "definition": "A capital budgeting metric calculated as PV of Future Cash Flows / Initial Investment. Accept project when PI > 1 (equivalent to NPV > 0). Useful for ranking projects under capital rationing — higher PI means more value created per dollar invested."
+    },
+    "fa": {
+      "term": "شاخص سودآوری (PI)",
+      "definition": "معیاری در بودجه‌بندی سرمایه‌ای که از تقسیم ارزش فعلی جریان‌های نقدی آتی بر سرمایه‌گذاری اولیه به‌دست می‌آید. اگر PI > 1 باشد پروژه پذیرفته می‌شود (معادل NPV > 0). در شرایط محدودیت سرمایه برای رتبه‌بندی پروژه‌ها مفید است — PI بالاتر یعنی ارزش بیشتر به ازای هر دلار سرمایه‌گذاری."
+    },
+    "cpaSection": "BAR",
+    "topic": "Capital Budgeting",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "capm",
+    "en": {
+      "term": "CAPM (Capital Asset Pricing Model)",
+      "acronym": "CAPM",
+      "expansion": "Capital Asset Pricing Model",
+      "definition": "A model used to estimate the required return on equity: Re = Rf + β × (Rm − Rf), where Rf is the risk-free rate, β (beta) measures systematic risk relative to the market, and (Rm − Rf) is the market risk premium. Foundation for computing cost of equity in WACC."
+    },
+    "fa": {
+      "term": "مدل قیمت‌گذاری دارایی‌های سرمایه‌ای (CAPM)",
+      "definition": "مدلی برای برآورد نرخ بازده مورد انتظار سرمایه: Re = Rf + β × (Rm − Rf)، که در آن Rf نرخ بدون ریسک، β (بتا) معیار ریسک سیستماتیک نسبت به بازار و (Rm − Rf) صرف ریسک بازار است. مبنای محاسبهٔ هزینه سرمایهٔ سهام در WACC به‌شمار می‌رود."
+    },
+    "cpaSection": "BAR",
+    "topic": "Cost of Capital",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "beta",
+    "en": {
+      "term": "Beta (β)",
+      "definition": "A measure of a stock's systematic (non-diversifiable) risk relative to the overall market. Beta = 1 means the stock moves with the market; > 1 is more volatile (e.g., tech stocks); < 1 is less volatile (e.g., utilities); negative beta moves opposite to the market (e.g., gold). Used in CAPM to compute cost of equity."
+    },
+    "fa": {
+      "term": "بتا (β)",
+      "definition": "معیار ریسک سیستماتیک (غیرقابل تنوع‌بخشی) یک سهم نسبت به کل بازار. بتا = ۱ یعنی سهم همراه بازار حرکت می‌کند؛ بزرگ‌تر از ۱ پرنوسان‌تر است (مانند سهام فناوری)؛ کوچک‌تر از ۱ کم‌نوسان‌تر است (مانند صنایع برق و آب)؛ بتای منفی برخلاف بازار حرکت می‌کند (مانند طلا). در مدل CAPM برای محاسبهٔ هزینه سرمایه سهام به‌کار می‌رود."
+    },
+    "cpaSection": "BAR",
+    "topic": "Cost of Capital",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "cost-of-debt",
+    "en": {
+      "term": "Cost of Debt",
+      "definition": "The effective rate a company pays on its borrowed funds. Pre-tax cost of debt = yield to maturity on outstanding bonds (or interest expense / average debt). After-tax cost of debt = Pre-tax × (1 − tax rate), since interest is tax-deductible. Used in WACC."
+    },
+    "fa": {
+      "term": "هزینه بدهی",
+      "definition": "نرخ مؤثری که شرکت بر وجوه استقراضی خود می‌پردازد. هزینه بدهی پیش از مالیات = نرخ بازده تا سررسید اوراق منتشره (یا هزینه بهره ÷ متوسط بدهی). هزینه بدهی پس از مالیات = پیش از مالیات × (۱ − نرخ مالیات)، زیرا بهره از مالیات قابل کسر است. در محاسبهٔ WACC استفاده می‌شود."
+    },
+    "cpaSection": "BAR",
+    "topic": "Cost of Capital",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "relevant-vs-sunk-cost",
+    "en": {
+      "term": "Relevant Cost / Sunk Cost / Opportunity Cost",
+      "definition": "Relevant cost: a future cost that differs between alternatives — the only kind that matters for a decision. Sunk cost: a past cost already incurred, unaffected by any decision — IGNORE it. Opportunity cost: the value of the next-best alternative foregone — INCLUDE it even though it's not in accounting records."
+    },
+    "fa": {
+      "term": "هزینهٔ مربوط / هزینهٔ ریخته / هزینه فرصت",
+      "definition": "هزینهٔ مربوط: هزینه‌ای آتی که میان گزینه‌ها متفاوت است — تنها هزینه‌ای که برای تصمیم اهمیت دارد. هزینهٔ ریخته: هزینه‌ای گذشته که قبلاً متحمل شده و از هیچ تصمیمی متأثر نمی‌شود — باید نادیده گرفته شود. هزینه فرصت: ارزش بهترین گزینهٔ از‌دست‌رفته — حتی با وجود اینکه در دفاتر حسابداری ثبت نمی‌شود، باید در نظر گرفته شود."
+    },
+    "cpaSection": "BAR",
+    "topic": "Decision Making",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "make-or-buy",
+    "en": {
+      "term": "Make-or-Buy Decision",
+      "definition": "Determining whether to manufacture a component in-house or purchase it from an outside supplier. Compare the relevant costs of making (variable manufacturing costs + avoidable fixed costs + opportunity cost of capacity) vs the price of buying. Qualitative factors: supplier reliability, quality control, intellectual property protection."
+    },
+    "fa": {
+      "term": "تصمیم ساخت یا خرید",
+      "definition": "تعیین اینکه یک قطعه در داخل سازمان ساخته شود یا از تأمین‌کنندهٔ بیرونی خریداری شود. هزینه‌های مربوط ساخت (هزینه‌های متغیر تولید + هزینه‌های ثابت قابل اجتناب + هزینه فرصت ظرفیت) با قیمت خرید مقایسه می‌گردد. عوامل کیفی: قابلیت اتکا به تأمین‌کننده، کنترل کیفیت، و حفاظت از مالکیت فکری."
+    },
+    "cpaSection": "BAR",
+    "topic": "Decision Making",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "special-order-decision",
+    "en": {
+      "term": "Special Order Decision",
+      "definition": "Evaluating a one-time order at a price below normal. Accept if incremental revenue > incremental cost AND there is idle capacity (no opportunity cost displaced). At full capacity, must include opportunity cost of foregone regular sales. Beware of price discrimination concerns and effects on regular customers."
+    },
+    "fa": {
+      "term": "تصمیم سفارش ویژه",
+      "definition": "ارزیابی یک سفارش یک‌باره با قیمتی پایین‌تر از عادی. در صورتی پذیرفته می‌شود که درآمد افزایشی > هزینهٔ افزایشی باشد و ظرفیت بلااستفاده وجود داشته باشد (بدون هزینه فرصت). در ظرفیت کامل، هزینه فرصت فروش‌های عادی از‌دست‌رفته باید لحاظ شود. مراقب مسائل تبعیض قیمتی و اثرات منفی بر مشتریان عادی باشید."
+    },
+    "cpaSection": "BAR",
+    "topic": "Decision Making",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "master-budget",
+    "en": {
+      "term": "Master Budget",
+      "definition": "An integrated set of budgets covering an entire organization for a period — typically a year. Includes the operating budget (sales, production, materials, labor, OH, S&A → budgeted income statement) and the financial budget (cash budget, capital expenditure → budgeted balance sheet and cash flow). Top-down or participative."
+    },
+    "fa": {
+      "term": "بودجه جامع",
+      "definition": "مجموعهٔ یکپارچه‌ای از بودجه‌ها که کل سازمان را برای یک دوره (معمولاً یک سال) پوشش می‌دهد. شامل بودجهٔ عملیاتی (فروش، تولید، مواد، دستمزد، سربار، فروش و اداری → سود و زیان بودجه‌ای) و بودجهٔ مالی (بودجهٔ نقدی، مخارج سرمایه‌ای → ترازنامه و جریان وجوه نقد بودجه‌ای) است. می‌تواند از بالا به پایین یا مشارکتی تدوین شود."
+    },
+    "cpaSection": "BAR",
+    "topic": "Budgeting",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "flexible-vs-static-budget",
+    "en": {
+      "term": "Flexible vs Static Budget",
+      "definition": "Static budget: prepared for one expected level of activity — useful for planning but limited for evaluating performance. Flexible budget: adjusts revenue and variable costs based on actual activity — separates volume effects from price/efficiency effects, enabling meaningful variance analysis."
+    },
+    "fa": {
+      "term": "بودجهٔ منعطف در برابر بودجهٔ ثابت",
+      "definition": "بودجهٔ ثابت: برای یک سطح فعالیت مورد انتظار تهیه می‌شود — برای برنامه‌ریزی مناسب اما برای ارزیابی عملکرد محدود است. بودجهٔ منعطف: درآمد و هزینه‌های متغیر را بر اساس فعالیت واقعی تعدیل می‌کند — اثرات حجم را از اثرات قیمت/کارایی جدا می‌کند و تحلیل انحرافات معنادار را ممکن می‌سازد."
+    },
+    "cpaSection": "BAR",
+    "topic": "Budgeting",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "capital-projects-fund",
+    "en": {
+      "term": "Capital Projects Fund (Governmental)",
+      "definition": "A governmental fund used to account for financial resources restricted, committed, or assigned to the acquisition or construction of major capital facilities (other than those financed by proprietary or trust funds). Uses modified accrual basis; fixed assets purchased are NOT recorded here — they go on the government-wide statements."
+    },
+    "fa": {
+      "term": "صندوق پروژه‌های سرمایه‌ای (دولتی)",
+      "definition": "صندوقی دولتی برای ثبت منابع مالی محدودشده، متعهدشده یا تخصیص‌یافته جهت تحصیل یا ساخت تأسیسات سرمایه‌ای بزرگ (به‌جز مواردی که از طریق صندوق‌های اختصاصی یا تراست تأمین می‌شوند). از مبنای نیمه‌تعهدی استفاده می‌کند؛ دارایی‌های ثابت خریداری‌شده در این صندوق ثبت نمی‌شوند بلکه در صورت‌های مالی سطح دولت گزارش می‌گردند."
+    },
+    "cpaSection": "BAR",
+    "topic": "Governmental",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "debt-service-fund",
+    "en": {
+      "term": "Debt Service Fund (Governmental)",
+      "definition": "A governmental fund that accounts for the accumulation of resources for, and the payment of, principal and interest on general long-term debt (typically general obligation bonds). Uses modified accrual basis. Required when legally mandated or when financial resources are being accumulated for future debt service."
+    },
+    "fa": {
+      "term": "صندوق خدمات بدهی (دولتی)",
+      "definition": "صندوقی دولتی برای ثبت تجمیع منابع و پرداخت اصل و فرع بدهی‌های بلندمدت عمومی (معمولاً اوراق قرضهٔ تعهد عمومی). از مبنای نیمه‌تعهدی استفاده می‌کند. زمانی که قانون الزام کرده باشد یا منابع مالی برای خدمات بدهی آتی تجمیع شود، الزامی است."
+    },
+    "cpaSection": "BAR",
+    "topic": "Governmental",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "permanent-fund",
+    "en": {
+      "term": "Permanent Fund (Governmental)",
+      "definition": "A governmental fund used to account for resources legally restricted such that only earnings (not principal) may be used to support government programs benefiting the citizenry — e.g., a perpetual care cemetery fund. Distinct from private-purpose trust funds (which are fiduciary)."
+    },
+    "fa": {
+      "term": "صندوق دائمی (دولتی)",
+      "definition": "صندوقی دولتی برای منابعی که از نظر قانونی به‌نحوی محدود شده‌اند که فقط درآمد حاصل (نه اصل سرمایه) برای پشتیبانی برنامه‌های دولتی به نفع شهروندان قابل استفاده است — برای نمونه صندوق نگهداری دائمی گورستان. این صندوق با صندوق‌های تراست با مقاصد خصوصی (که فیدوشیاری هستند) تفاوت دارد."
+    },
+    "cpaSection": "BAR",
+    "topic": "Governmental",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "net-position",
+    "en": {
+      "term": "Net Position (GASB)",
+      "definition": "The governmental equivalent of equity on government-wide statements. Three components: (1) Net Investment in Capital Assets (capital assets less related debt); (2) Restricted Net Position (constraints from external parties or law); (3) Unrestricted Net Position (residual). Reported per GASB 34/63."
+    },
+    "fa": {
+      "term": "خالص وضعیت مالی (GASB)",
+      "definition": "معادل دولتی «حقوق صاحبان سهام» در صورت‌های سطح دولت. شامل سه جزء: (۱) خالص سرمایه‌گذاری در دارایی‌های سرمایه‌ای (دارایی‌های سرمایه‌ای منهای بدهی مرتبط)؛ (۲) خالص وضعیت محدودشده (محدودیت‌های ناشی از طرف بیرونی یا قانون)؛ (۳) خالص وضعیت بدون محدودیت (باقیمانده). طبق GASB 34/63 گزارش می‌شود."
+    },
+    "cpaSection": "BAR",
+    "topic": "Governmental",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "major-fund-criteria",
+    "en": {
+      "term": "Major Fund Criteria (GASB)",
+      "definition": "A governmental or enterprise fund must be reported separately as 'major' if BOTH conditions met: (a) total assets/liabilities/revenues/expenditures of that fund are ≥10% of the corresponding total for all funds in its category, AND (b) the same item is ≥5% of the total of all governmental and enterprise funds combined. The General Fund is always reported as major."
+    },
+    "fa": {
+      "term": "معیار صندوق عمده (GASB)",
+      "definition": "یک صندوق دولتی یا اختصاصی زمانی باید جداگانه به‌عنوان «عمده» گزارش شود که هر دو شرط برقرار باشد: (الف) جمع دارایی‌ها/بدهی‌ها/درآمدها/مخارج آن صندوق ≥ ۱۰٪ جمع متناظر همهٔ صندوق‌های هم‌گروه آن باشد، و (ب) همان قلم ≥ ۵٪ جمع کل صندوق‌های دولتی و اختصاصی روی هم باشد. صندوق عمومی همیشه به‌عنوان عمده گزارش می‌شود."
+    },
+    "cpaSection": "BAR",
+    "topic": "Governmental",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "component-unit",
+    "en": {
+      "term": "Component Unit (GASB)",
+      "definition": "A legally separate organization for which the elected officials of the primary government are financially accountable, OR for which exclusion would render the financial statements misleading. Reported either by 'blending' (treated as a fund of the primary government) or 'discrete presentation' (separate columns)."
+    },
+    "fa": {
+      "term": "واحد جزء (GASB)",
+      "definition": "سازمانی از نظر حقوقی مستقل که مقامات منتخب دولت اصلی نسبت به آن مسئولیت مالی دارند، یا سازمانی که حذف آن صورت‌های مالی را گمراه‌کننده می‌سازد. به‌صورت «تلفیق» (به‌عنوان یک صندوق از دولت اصلی) یا «ارائهٔ مستقل» (در ستون‌های جداگانه) گزارش می‌شود."
+    },
+    "cpaSection": "BAR",
+    "topic": "Governmental",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "gasb-87-leases",
+    "en": {
+      "term": "GASB 87 (Leases)",
+      "definition": "The governmental equivalent of FASB ASC 842, effective fiscal years beginning after June 15, 2021. Eliminates the operating/capital lease distinction for governments — virtually all leases are recorded as a right-to-use asset and a corresponding lease liability. Short-term leases (≤ 12 months) are exempt."
+    },
+    "fa": {
+      "term": "استاندارد GASB 87 (اجاره‌ها)",
+      "definition": "معادل دولتی FASB ASC 842 که از سال‌های مالی پس از ۱۵ ژوئن ۲۰۲۱ لازم‌الاجراست. تفاوت اجاره عملیاتی و سرمایه‌ای را برای دولت‌ها حذف می‌کند — تقریباً تمامی اجاره‌ها به‌عنوان دارایی حق استفاده و بدهی اجاره ثبت می‌شوند. اجاره‌های کوتاه‌مدت (≤ ۱۲ ماه) معاف هستند."
+    },
+    "cpaSection": "BAR",
+    "topic": "Governmental",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "iaas-paas-saas",
+    "en": {
+      "term": "Cloud Service Models: IaaS, PaaS, SaaS",
+      "definition": "IaaS (Infrastructure-as-a-Service): provider supplies virtualized servers, storage, network — customer manages OS up (e.g., AWS EC2). PaaS (Platform-as-a-Service): provider also manages OS, runtime, databases — customer manages app and data (e.g., Heroku). SaaS (Software-as-a-Service): fully managed application accessed via browser — customer only configures (e.g., Salesforce, QuickBooks Online)."
+    },
+    "fa": {
+      "term": "مدل‌های خدمات ابری: IaaS، PaaS، SaaS",
+      "definition": "IaaS (زیرساخت به‌عنوان خدمت): ارائه‌دهنده سرور مجازی، ذخیره‌سازی و شبکه را فراهم می‌کند — مشتری از سیستم‌عامل به‌بالا را مدیریت می‌کند (مانند AWS EC2). PaaS (سکو به‌عنوان خدمت): ارائه‌دهنده سیستم‌عامل، محیط اجرایی و پایگاه داده را نیز مدیریت می‌کند — مشتری برنامه و داده را مدیریت می‌کند (مانند Heroku). SaaS (نرم‌افزار به‌عنوان خدمت): برنامه‌ای کاملاً مدیریت‌شده که از طریق مرورگر استفاده می‌شود و مشتری فقط آن را پیکربندی می‌کند (مانند Salesforce و QuickBooks Online)."
+    },
+    "cpaSection": "ISC",
+    "topic": "Cloud",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "public-private-hybrid-cloud",
+    "en": {
+      "term": "Public, Private, and Hybrid Cloud",
+      "definition": "Public cloud: multi-tenant infrastructure shared across organizations, owned by a provider (AWS, Azure, GCP). Private cloud: single-tenant, dedicated to one organization, on-premises or hosted. Hybrid cloud: combination — sensitive workloads in private, scalable workloads in public, often connected via secure VPN/Direct Connect."
+    },
+    "fa": {
+      "term": "ابر عمومی، خصوصی و ترکیبی",
+      "definition": "ابر عمومی: زیرساخت چندمستأجره که میان سازمان‌ها به اشتراک گذاشته می‌شود و متعلق به ارائه‌دهنده است (AWS، Azure، GCP). ابر خصوصی: تک‌مستأجره و اختصاصی یک سازمان، در محل یا میزبانی‌شده. ابر ترکیبی: ترکیبی از این دو — بارهای کاری حساس در ابر خصوصی و بارهای کاری مقیاس‌پذیر در ابر عمومی، که معمولاً با VPN امن یا Direct Connect متصل می‌شوند."
+    },
+    "cpaSection": "ISC",
+    "topic": "Cloud",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "firewall",
+    "en": {
+      "term": "Firewall",
+      "definition": "A network security device (hardware or software) that monitors and controls incoming/outgoing traffic based on predetermined security rules. Establishes a barrier between trusted internal networks and untrusted external networks. Modern next-gen firewalls add deep packet inspection, application awareness, and intrusion prevention."
+    },
+    "fa": {
+      "term": "دیوار آتش (Firewall)",
+      "definition": "دستگاه امنیت شبکه (سخت‌افزاری یا نرم‌افزاری) که ترافیک ورودی و خروجی را بر اساس قوانین امنیتی از پیش تعیین‌شده پایش و کنترل می‌کند. مرزی میان شبکه‌های داخلی مورد اعتماد و شبکه‌های بیرونی غیرمورد اعتماد ایجاد می‌نماید. دیوارهای آتش نسل جدید، بررسی عمیق بسته، آگاهی از برنامه و پیشگیری از نفوذ را نیز اضافه می‌کنند."
+    },
+    "cpaSection": "ISC",
+    "topic": "Network Security",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "ids-vs-ips",
+    "en": {
+      "term": "IDS vs IPS (Intrusion Detection / Prevention)",
+      "definition": "IDS (Intrusion Detection System): passive monitor that analyzes traffic and alerts on suspicious activity — does NOT block. IPS (Intrusion Prevention System): inline device that detects AND blocks malicious traffic in real time. Both use signature-based and anomaly-based detection methods."
+    },
+    "fa": {
+      "term": "IDS در برابر IPS (تشخیص/پیشگیری از نفوذ)",
+      "definition": "IDS (سامانهٔ تشخیص نفوذ): پایش‌گر منفعل که ترافیک را تحلیل و در صورت مشاهدهٔ فعالیت مشکوک هشدار می‌دهد — مسدود نمی‌کند. IPS (سامانهٔ پیشگیری از نفوذ): دستگاه درون‌خط که ترافیک مخرب را در زمان واقعی تشخیص داده و مسدود می‌کند. هر دو از روش‌های مبتنی بر امضا و مبتنی بر ناهنجاری استفاده می‌کنند."
+    },
+    "cpaSection": "ISC",
+    "topic": "Network Security",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "vpn",
+    "en": {
+      "term": "VPN (Virtual Private Network)",
+      "acronym": "VPN",
+      "expansion": "Virtual Private Network",
+      "definition": "An encrypted tunnel that extends a private network across the public internet, allowing remote users to securely access resources as if directly connected. Site-to-site VPNs link branch offices; remote-access VPNs serve individual users. Common protocols: IPsec, SSL/TLS, WireGuard."
+    },
+    "fa": {
+      "term": "شبکهٔ خصوصی مجازی (VPN)",
+      "definition": "تونلی رمزنگاری‌شده که شبکهٔ خصوصی را از طریق اینترنت عمومی گسترش می‌دهد تا کاربران از راه دور بتوانند به‌طور امن به منابع دسترسی داشته باشند، گویی به‌طور مستقیم متصل‌اند. VPN سایت‌به‌سایت دفاتر شعب را به‌هم متصل می‌کند؛ VPN دسترسی از راه دور برای کاربران منفرد است. پروتکل‌های رایج: IPsec، SSL/TLS، WireGuard."
+    },
+    "cpaSection": "ISC",
+    "topic": "Network Security",
+    "difficulty": 1,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "sql-injection",
+    "en": {
+      "term": "SQL Injection",
+      "definition": "A code-injection attack in which malicious SQL statements are inserted into application input fields, manipulating the backend database to expose, modify, or destroy data. OWASP Top 10 vulnerability. Mitigated via parameterized queries (prepared statements), input validation, and least-privilege database accounts."
+    },
+    "fa": {
+      "term": "تزریق SQL",
+      "definition": "حمله‌ای از نوع تزریق کد که در آن دستورات SQL مخرب در فیلدهای ورودی برنامه قرار داده می‌شوند تا پایگاه دادهٔ پشتیبان را برای افشا، تغییر یا تخریب داده‌ها دستکاری کنند. از آسیب‌پذیری‌های OWASP Top 10 است. با کوئری‌های پارامتری (Prepared Statements)، اعتبارسنجی ورودی و حساب‌های پایگاه داده با کمترین سطح دسترسی کاهش می‌یابد."
+    },
+    "cpaSection": "ISC",
+    "topic": "App Security",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "hashing",
+    "en": {
+      "term": "Hashing",
+      "definition": "A one-way cryptographic function that maps data of arbitrary size to a fixed-length output (hash/digest). Used for password storage, file integrity verification, and digital signatures. Not reversible (unlike encryption). Modern algorithms: SHA-256, SHA-3, bcrypt/Argon2 for passwords. MD5 and SHA-1 are deprecated."
+    },
+    "fa": {
+      "term": "درهم‌سازی (Hashing)",
+      "definition": "تابع رمزنگاری یک‌طرفه که داده‌های با اندازهٔ دلخواه را به خروجی با طول ثابت (هش) تبدیل می‌کند؛ برای ذخیرهٔ رمز عبور، تأیید یکپارچگی فایل و امضای دیجیتال به‌کار می‌رود. برخلاف رمزنگاری، قابل بازگشت نیست. الگوریتم‌های مدرن: SHA-256، SHA-3 و bcrypt/Argon2 برای رمز عبور. MD5 و SHA-1 منسوخ شده‌اند."
+    },
+    "cpaSection": "ISC",
+    "topic": "Cryptography",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "pki-digital-signature",
+    "en": {
+      "term": "PKI and Digital Signatures",
+      "definition": "Public Key Infrastructure (PKI): system of certificates, certificate authorities (CAs), and key pairs (public + private) enabling secure identity verification and encryption. Digital signature: a hash of the document encrypted with the sender's private key — recipient verifies authenticity and integrity using the sender's public key. Foundation of HTTPS, SSL/TLS, and authenticated APIs."
+    },
+    "fa": {
+      "term": "زیرساخت کلید عمومی (PKI) و امضای دیجیتال",
+      "definition": "زیرساخت کلید عمومی (PKI): سامانه‌ای از گواهی‌ها، مراجع صدور گواهی (CA) و جفت‌کلیدها (عمومی + خصوصی) که شناسایی هویت و رمزنگاری امن را ممکن می‌سازد. امضای دیجیتال: هش سند که با کلید خصوصی فرستنده رمزنگاری می‌شود — گیرنده با کلید عمومی فرستنده اصالت و یکپارچگی آن را تأیید می‌کند. مبنای HTTPS، SSL/TLS و APIهای احراز هویت‌شده."
+    },
+    "cpaSection": "ISC",
+    "topic": "Cryptography",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "single-sign-on",
+    "en": {
+      "term": "Single Sign-On (SSO)",
+      "acronym": "SSO",
+      "expansion": "Single Sign-On",
+      "definition": "An authentication scheme allowing a user to log in once with a single set of credentials and access multiple connected applications without re-authenticating. Implemented via SAML, OAuth 2.0, or OpenID Connect. Improves user experience and security (fewer passwords) but creates a high-value attack target — must be paired with strong MFA."
+    },
+    "fa": {
+      "term": "ورود یکپارچه (SSO)",
+      "definition": "روش احراز هویتی که به کاربر اجازه می‌دهد یک‌بار با یک مجموعه اعتبارنامه وارد شود و به چندین برنامهٔ متصل بدون احراز هویت مجدد دسترسی یابد. از طریق SAML، OAuth 2.0 یا OpenID Connect پیاده‌سازی می‌شود. تجربهٔ کاربری و امنیت (کاهش تعداد رمز عبور) را بهبود می‌بخشد اما هدف ارزشمندی برای حمله ایجاد می‌کند — باید با MFA قوی همراه باشد."
+    },
+    "cpaSection": "ISC",
+    "topic": "Identity",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "iam-rbac",
+    "en": {
+      "term": "Identity & Access Management (IAM) and RBAC",
+      "definition": "IAM: the discipline ensuring the right individuals access the right resources at the right time for the right reasons — covers authentication, authorization, provisioning, and deprovisioning. Role-Based Access Control (RBAC): assigns permissions to roles (e.g., 'AP Clerk') rather than individuals — users inherit permissions from their assigned role. Simplifies maintenance and supports segregation of duties."
+    },
+    "fa": {
+      "term": "مدیریت هویت و دسترسی (IAM) و RBAC",
+      "definition": "IAM: رشته‌ای که تضمین می‌کند افراد صحیح در زمان صحیح و به دلایل صحیح به منابع صحیح دسترسی دارند — شامل احراز هویت، مجوزدهی، ایجاد و حذف حساب کاربری. کنترل دسترسی مبتنی بر نقش (RBAC): مجوزها را به نقش‌ها (مانند «کارشناس حساب‌های پرداختنی») اختصاص می‌دهد، نه به افراد — کاربران مجوزهای نقش تعیین‌شدهٔ خود را به ارث می‌برند. نگهداری را ساده و تفکیک وظایف را پشتیبانی می‌کند."
+    },
+    "cpaSection": "ISC",
+    "topic": "Identity",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "sdlc",
+    "en": {
+      "term": "SDLC (System Development Life Cycle)",
+      "acronym": "SDLC",
+      "expansion": "System Development Life Cycle",
+      "definition": "Structured process for planning, creating, testing, deploying, and maintaining information systems. Classic phases: Planning → Requirements → Design → Development → Testing → Deployment → Maintenance. Methodologies include Waterfall (sequential), Agile/Scrum (iterative), DevOps (continuous). ITGC auditors test SDLC controls to ensure code changes are authorized, tested, and approved."
+    },
+    "fa": {
+      "term": "چرخهٔ توسعه سیستم (SDLC)",
+      "definition": "فرایند ساختاریافته برای برنامه‌ریزی، ایجاد، آزمون، استقرار و نگهداری سیستم‌های اطلاعاتی. مراحل کلاسیک: برنامه‌ریزی → نیازسنجی → طراحی → توسعه → آزمون → استقرار → نگهداری. روش‌شناسی‌ها شامل آبشاری (متوالی)، Agile/Scrum (تکرارشونده) و DevOps (پیوسته) است. حسابرسان ITGC، کنترل‌های SDLC را برای اطمینان از مجوزدار، آزمون‌شده و تأییدشده بودن تغییرات کد آزمایش می‌کنند."
+    },
+    "cpaSection": "ISC",
+    "topic": "IT Operations",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "change-management",
+    "en": {
+      "term": "Change Management (IT)",
+      "definition": "Formal process for proposing, evaluating, approving, implementing, and reviewing changes to production IT systems. Key controls: change request documentation, impact assessment, segregation of development from production, testing in non-prod environment, approval workflow, post-implementation review, rollback plan. A core ITGC tested in every IT audit."
+    },
+    "fa": {
+      "term": "مدیریت تغییر (فناوری اطلاعات)",
+      "definition": "فرایند رسمی برای پیشنهاد، ارزیابی، تأیید، اجرا و بازبینی تغییرات در سیستم‌های فناوری اطلاعات تولیدی. کنترل‌های کلیدی: مستندسازی درخواست تغییر، ارزیابی اثر، تفکیک محیط توسعه از تولید، آزمون در محیط غیرتولیدی، گردش‌کار تأیید، بازبینی پس از اجرا، و طرح بازگشت. یک ITGC اصلی است که در هر حسابرسی فناوری اطلاعات آزمایش می‌شود."
+    },
+    "cpaSection": "ISC",
+    "topic": "IT Operations",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "patch-management",
+    "en": {
+      "term": "Patch Management",
+      "definition": "Discipline of identifying, acquiring, testing, and installing software patches (security fixes, bug fixes, feature updates) on systems. Critical for closing known vulnerabilities exploited by attackers. Best practice: inventory all assets, prioritize critical patches (per CVSS score), test in non-prod, deploy via automated tools, verify, and document."
+    },
+    "fa": {
+      "term": "مدیریت وصله (Patch Management)",
+      "definition": "رشتهٔ شناسایی، تحصیل، آزمون و نصب وصله‌های نرم‌افزاری (اصلاحات امنیتی، رفع اشکال، به‌روزرسانی ویژگی) بر روی سیستم‌ها. برای بستن آسیب‌پذیری‌های شناخته‌شده‌ای که مهاجمان از آن‌ها سوءاستفاده می‌کنند حیاتی است. بهترین رویه: فهرست‌برداری از تمامی دارایی‌ها، اولویت‌بندی وصله‌های حیاتی (طبق نمرهٔ CVSS)، آزمون در محیط غیرتولیدی، استقرار با ابزار خودکار، تأیید و مستندسازی."
+    },
+    "cpaSection": "ISC",
+    "topic": "IT Operations",
+    "difficulty": 2,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "rto-rpo",
+    "en": {
+      "term": "RTO and RPO (Recovery Objectives)",
+      "definition": "RTO (Recovery Time Objective): maximum acceptable downtime after a disruption — how quickly systems must be restored. RPO (Recovery Point Objective): maximum acceptable data loss measured in time — how recent the last backup must be. RTO drives infrastructure investment (hot vs warm vs cold sites); RPO drives backup frequency."
+    },
+    "fa": {
+      "term": "RTO و RPO (اهداف بازیابی)",
+      "definition": "RTO (هدف زمان بازیابی): حداکثر زمان توقف قابل قبول پس از یک اختلال — یعنی سیستم‌ها چقدر سریع باید بازیابی شوند. RPO (هدف نقطهٔ بازیابی): حداکثر میزان از‌دست‌رفتن داده که بر حسب زمان اندازه‌گیری می‌شود — یعنی آخرین نسخهٔ پشتیبان چقدر باید جدید باشد. RTO سرمایه‌گذاری زیرساخت را تعیین می‌کند (سایت گرم/ولرم/سرد) و RPO فراوانی پشتیبان‌گیری را."
+    },
+    "cpaSection": "ISC",
+    "topic": "BCP/DR",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "residual-risk",
+    "en": {
+      "term": "Inherent Risk vs Residual Risk (Cybersecurity)",
+      "definition": "Inherent risk: the level of risk that exists in the absence of any controls or mitigations. Residual risk: the risk remaining after controls have been applied. Risk management aims to reduce residual risk to a level the organization deems acceptable (its risk appetite). Both must be re-assessed periodically as threats evolve."
+    },
+    "fa": {
+      "term": "ریسک ذاتی در برابر ریسک باقیمانده (امنیت سایبری)",
+      "definition": "ریسک ذاتی: سطح ریسک در نبود هرگونه کنترل یا کاهش‌دهنده. ریسک باقیمانده: ریسکی که پس از اعمال کنترل‌ها هنوز باقی می‌ماند. مدیریت ریسک می‌کوشد ریسک باقیمانده را تا سطحی که سازمان قابل قبول می‌داند (اشتها برای ریسک) کاهش دهد. هر دو باید با تحول تهدیدها به‌طور دوره‌ای بازارزیابی شوند."
+    },
+    "cpaSection": "ISC",
+    "topic": "Risk Management",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "section-1031-real-property-only",
+    "en": {
+      "term": "Section 1031 — Real Property Only (Post-TCJA)",
+      "definition": "Critical TCJA change effective 2018: tax-deferred like-kind exchanges under Section 1031 are now LIMITED to real property held for productive business use or investment. Personal property (vehicles, equipment, machinery, livestock, intangibles) NO LONGER QUALIFIES. A common trap for accountants returning to practice."
+    },
+    "fa": {
+      "term": "ماده ۱۰۳۱ — فقط املاک (پس از TCJA)",
+      "definition": "تغییر کلیدی قانون TCJA از سال ۲۰۱۸: تبادلات هم‌نوع با تعویق مالیات تحت ماده ۱۰۳۱ اکنون فقط برای املاک نگهداری‌شده برای استفاده مولد در کسب‌وکار یا سرمایه‌گذاری مجاز است. اموال شخصی (وسایل نقلیه، تجهیزات، ماشین‌آلات، احشام، دارایی‌های نامشهود) دیگر مشمول نمی‌شوند. این یک تله رایج برای حسابدارانی است که پس از سال‌ها به حرفه بازمی‌گردند."
+    },
+    "cpaSection": "TCP",
+    "topic": "Property Transactions",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "charitable-appreciated-property",
+    "en": {
+      "term": "Charitable Contribution of Appreciated Property",
+      "definition": "Donating long-term capital gain property (held > 1 year) to a public charity allows deduction at FAIR MARKET VALUE without recognizing the built-in gain — a powerful planning tool. Limited to 30% of AGI (vs 60% for cash). Short-term or ordinary-income property is deductible only at LOWER of basis or FMV."
+    },
+    "fa": {
+      "term": "اهدای دارایی افزایش‌یافتهٔ ارزش به خیریه",
+      "definition": "اهدای دارایی سرمایه‌ای بلندمدت (نگهداری > ۱ سال) به خیریه‌های عمومی، اجازهٔ کسر بر مبنای «ارزش منصفانه» را بدون شناسایی سود ذاتی می‌دهد — ابزار قدرتمند برنامه‌ریزی. محدود به ۳۰٪ از AGI (در برابر ۶۰٪ برای وجه نقد). دارایی‌های کوتاه‌مدت یا با درآمد عادی فقط تا کمتر از بهای تمام‌شده یا ارزش منصفانه قابل کسر هستند."
+    },
+    "cpaSection": "TCP",
+    "topic": "Charitable Planning",
+    "difficulty": 3,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "grantor-trust-rules",
+    "en": {
+      "term": "Grantor Trust Rules (IRC §§671–679)",
+      "definition": "Specific powers retained by the grantor that cause a trust to be 'defective' (taxed to grantor): power to revoke, power to control beneficial enjoyment, reversionary interest > 5%, administrative powers (substitute property), borrowing without adequate interest/security, foreign trust with US beneficiaries. Used intentionally in IDGT planning to shift assets while paying tax."
+    },
+    "fa": {
+      "term": "قواعد تراست واگذارنده‌محور (IRC §§671–679)",
+      "definition": "اختیارات خاصی که واگذارنده حفظ می‌کند و باعث می‌شود تراست «معیوب» (مالیات‌خورده توسط واگذارنده) شود: اختیار فسخ، اختیار کنترل بهره‌مندی، منافع برگشتی > ۵٪، اختیارات اداری (تعویض دارایی)، استقراض بدون بهره/وثیقهٔ کافی، و تراست خارجی با ذی‌نفعان آمریکایی. در برنامه‌ریزی IDGT به‌طور عمدی استفاده می‌شود تا دارایی منتقل گردد در حالی که واگذارنده مالیات آن را می‌پردازد."
+    },
+    "cpaSection": "TCP",
+    "topic": "Trusts",
+    "difficulty": 5,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "dsue-portability",
+    "en": {
+      "term": "DSUE / Estate Exemption Portability",
+      "definition": "Deceased Spousal Unused Exclusion (DSUE): the unused portion of a deceased spouse's federal estate tax exemption that can be 'ported' to the surviving spouse. Combined with the surviving spouse's own exemption to shield more assets from estate tax. Requires timely Form 706 election even if no estate tax is owed."
+    },
+    "fa": {
+      "term": "انتقال‌پذیری معافیت ارث (DSUE)",
+      "definition": "معافیت استفاده‌نشدهٔ همسر متوفی (DSUE): بخش استفاده‌نشدهٔ معافیت مالیات ارث فدرال همسر متوفی که می‌تواند به همسر بازمانده «منتقل» شود. این معافیت با معافیت خود همسر بازمانده ترکیب می‌شود تا دارایی بیشتری از مالیات ارث محافظت گردد. نیازمند انتخاب به‌موقع در فرم 706 است حتی اگر مالیات ارثی پرداختنی نباشد."
+    },
+    "cpaSection": "TCP",
+    "topic": "Estate Planning",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "family-limited-partnership",
+    "en": {
+      "term": "Family Limited Partnership (FLP)",
+      "acronym": "FLP",
+      "expansion": "Family Limited Partnership",
+      "definition": "An LP formed among family members where senior generation contributes assets in exchange for general (control) and limited (non-voting) interests, then gifts limited interests to children/grandchildren. Limited interests qualify for valuation discounts (lack of marketability, lack of control) — typically 25-40% — leveraging gift/estate tax exemptions."
+    },
+    "fa": {
+      "term": "شراکت محدود خانوادگی (FLP)",
+      "definition": "شراکت محدود (LP) میان اعضای خانواده که در آن نسل ارشد دارایی‌ها را در ازای منافع عمومی (کنترل) و محدود (بدون حق رأی) می‌آورد و سپس منافع محدود را به فرزندان و نوادگان هدیه می‌کند. منافع محدود واجد تخفیف‌های ارزش‌گذاری (نبود بازار، نبود کنترل) — معمولاً ۲۵ تا ۴۰٪ — می‌شوند و معافیت‌های مالیات هدیه/ارث را اهرم‌گذاری می‌کنند."
+    },
+    "cpaSection": "TCP",
+    "topic": "Estate Planning",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "grat",
+    "en": {
+      "term": "GRAT (Grantor Retained Annuity Trust)",
+      "acronym": "GRAT",
+      "expansion": "Grantor Retained Annuity Trust",
+      "definition": "An irrevocable trust into which the grantor transfers appreciating assets in exchange for the right to receive a fixed annuity for a term. Any growth above the IRS Section 7520 hurdle rate passes to remainder beneficiaries (typically children) gift-tax-free. 'Zeroed-out' GRATs minimize gift tax. Risk: grantor must outlive the term."
+    },
+    "fa": {
+      "term": "GRAT (تراست انواوتی نگه‌داشته‌شده توسط واگذارنده)",
+      "definition": "تراست غیرقابل فسخی که واگذارنده دارایی‌های در حال رشد را به آن منتقل می‌کند و در ازای آن مستمری ثابتی برای مدت معین دریافت می‌کند. هرگونه رشد بیش از نرخ آستانهٔ IRS (ماده 7520) بدون مالیات هدیه به ذی‌نفعان باقیمانده (معمولاً فرزندان) منتقل می‌شود. GRATهای «صفرشده» مالیات هدیه را به حداقل می‌رسانند. ریسک: واگذارنده باید از مدت زنده بماند."
+    },
+    "cpaSection": "TCP",
+    "topic": "Estate Planning",
+    "difficulty": 5,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "idgt",
+    "en": {
+      "term": "IDGT (Intentionally Defective Grantor Trust)",
+      "acronym": "IDGT",
+      "expansion": "Intentionally Defective Grantor Trust",
+      "definition": "An irrevocable trust deliberately structured to be a grantor trust for income tax (so grantor pays the income tax — effectively an additional gift) but excluded from grantor's estate for estate tax. Common technique: grantor sells appreciating assets to the IDGT in exchange for a low-interest installment note. Powerful wealth transfer tool."
+    },
+    "fa": {
+      "term": "IDGT (تراست واگذارنده‌محور عمداً معیوب)",
+      "definition": "تراست غیرقابل فسخی که به‌طور عمد به‌گونه‌ای ساختار می‌یابد که برای مالیات بر درآمد، تراست واگذارنده‌محور باشد (پس واگذارنده مالیات درآمد را می‌پردازد — عملاً هدیهٔ اضافه‌ای) اما برای مالیات ارث از ترکهٔ واگذارنده مستثنی است. تکنیک رایج: واگذارنده دارایی‌های در حال رشد را در ازای سفته‌ای اقساطی با نرخ پایین به IDGT می‌فروشد. ابزار قدرتمند انتقال ثروت."
+    },
+    "cpaSection": "TCP",
+    "topic": "Estate Planning",
+    "difficulty": 5,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "ilit",
+    "en": {
+      "term": "ILIT (Irrevocable Life Insurance Trust)",
+      "acronym": "ILIT",
+      "expansion": "Irrevocable Life Insurance Trust",
+      "definition": "An irrevocable trust that owns and is beneficiary of a life insurance policy on the grantor's life. Removes the death benefit from the grantor's taxable estate (potential 40% federal estate tax savings). Grantor makes annual gifts to fund premiums, often using Crummey withdrawal rights to qualify for the gift tax annual exclusion."
+    },
+    "fa": {
+      "term": "ILIT (تراست بیمه عمر غیرقابل فسخ)",
+      "definition": "تراستی غیرقابل فسخ که مالک و ذی‌نفع بیمه‌نامهٔ عمر بر زندگی واگذارنده است. مزیت فوتی را از ترکهٔ مشمول مالیات واگذارنده خارج می‌کند (صرفه‌جویی بالقوه ۴۰٪ مالیات ارث فدرال). واگذارنده هر سال هدایایی برای تأمین حق بیمه ارسال می‌کند، که اغلب با اختیارات برداشت Crummey برای واجد شرایط شدن معافیت سالانهٔ مالیات هدیه همراه است."
+    },
+    "cpaSection": "TCP",
+    "topic": "Estate Planning",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "crt-clt",
+    "en": {
+      "term": "CRT vs CLT (Charitable Trusts)",
+      "definition": "Charitable Remainder Trust (CRT): grantor or beneficiary receives income for life or term; remainder goes to charity. Generates current-year income tax deduction equal to PV of charitable remainder. Charitable Lead Trust (CLT): charity receives income for term; remainder goes to family. Removes appreciation from estate. Both 'split-interest' trusts under IRC §§664/170."
+    },
+    "fa": {
+      "term": "CRT در برابر CLT (تراست‌های خیریه)",
+      "definition": "تراست باقیماندهٔ خیریه (CRT): واگذارنده یا ذی‌نفع برای حیات یا مدت معین درآمد می‌گیرد و باقیمانده به خیریه می‌رسد. کسر مالیات بر درآمد سال جاری معادل ارزش فعلی باقیماندهٔ خیریه ایجاد می‌کند. تراست پیشرو خیریه (CLT): خیریه برای مدتی درآمد می‌گیرد و باقیمانده به خانواده می‌رسد. رشد ارزش را از ترکه خارج می‌کند. هر دو، تراست‌های «منفعت تقسیم‌شده» تحت IRC §§664/170 هستند."
+    },
+    "cpaSection": "TCP",
+    "topic": "Charitable Planning",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
+  },
+  {
+    "slug": "qprt",
+    "en": {
+      "term": "QPRT (Qualified Personal Residence Trust)",
+      "acronym": "QPRT",
+      "expansion": "Qualified Personal Residence Trust",
+      "definition": "An irrevocable trust into which the grantor transfers a personal residence while retaining the right to live in it for a term of years. Reduces gift value (and thus uses less estate exemption) because the gift is the future remainder interest, valued at a discount. Risk: if grantor dies during the term, full FMV is included in estate."
+    },
+    "fa": {
+      "term": "QPRT (تراست واجد شرایط مسکن شخصی)",
+      "definition": "تراستی غیرقابل فسخ که واگذارنده، مسکن شخصی خود را به آن منتقل می‌کند در حالی که حق سکونت در آن برای مدت معینی را حفظ می‌نماید. ارزش هدیه را کاهش می‌دهد (و بنابراین معافیت ارث کمتری مصرف می‌شود) زیرا هدیه «منافع باقیماندهٔ آتی» با ارزش تنزیل‌یافته است. ریسک: اگر واگذارنده در طول دوره فوت کند، کل ارزش منصفانه به ترکه افزوده می‌شود."
+    },
+    "cpaSection": "TCP",
+    "topic": "Estate Planning",
+    "difficulty": 4,
+    "source": "refresher-2026-04-25"
   }
 ]

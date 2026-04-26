@@ -72,7 +72,7 @@
 	const learnSlideCount = learnSlides.length;
 </script>
 
-<section class="flex h-full flex-col gap-3 pt-3 pb-2">
+<section class="flex flex-col gap-3 pt-3 pb-6">
 	<!-- Greeting -->
 	<header class="flex flex-col gap-0.5" in:fly={{ y: 8, duration: 320 }}>
 		<p class="eyebrow">{greeting}</p>
@@ -240,7 +240,7 @@
 
 	<!-- Footer chips -->
 	<div
-		class="mt-auto flex flex-wrap items-center gap-2 text-[11px] tracking-[0.14em] uppercase"
+		class="mt-1 flex flex-wrap items-center gap-2 text-[11px] tracking-[0.14em] uppercase"
 		in:fade={{ duration: 320, delay: 240 }}
 	>
 		{#if loaded && streakDays > 0}
@@ -359,7 +359,9 @@
 		letter-spacing: 0.18em;
 		text-transform: uppercase;
 		font-weight: 500;
-		transition: background-color 200ms;
+		transition:
+			background-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+			color 220ms cubic-bezier(0.22, 1, 0.36, 1);
 	}
 	.hero-cta svg {
 		flex: none;
@@ -369,14 +371,18 @@
 		background: var(--gold);
 		color: #1a1414;
 	}
-	.hero:hover .hero-cta-learn {
-		background: color-mix(in oklab, var(--gold) 80%, var(--ink) 20%);
+	.hero:hover .hero-cta-learn,
+	.hero:focus-visible .hero-cta-learn {
+		background: var(--ink);
+		color: var(--bg);
 	}
 	.hero-cta-practice {
 		background: var(--ink);
 		color: var(--bg);
 	}
-	.hero:hover .hero-cta-practice {
+	.hero:hover .hero-cta-practice,
+	.hero:focus-visible .hero-cta-practice {
 		background: var(--accent);
+		color: var(--bg);
 	}
 </style>

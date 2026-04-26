@@ -147,6 +147,16 @@ body {
 	border-radius: 6px;
 }
 
+/* iOS Safari auto-zooms when focusing an input whose font-size is < 16px.
+   We force a 16px minimum for actual input UA size while letting CSS in
+   each component still control the visible text via line-height/letter-
+   spacing. This is a no-op on platforms that don't auto-zoom. */
+input,
+textarea,
+select {
+	font-size: 16px;
+}
+
 /* Smooth, brief transitions everywhere */
 * {
 	transition-property: background-color, border-color, color, fill, stroke, box-shadow, transform;

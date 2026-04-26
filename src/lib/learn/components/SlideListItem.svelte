@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { i18n } from '$lib/state/i18n.svelte';
 	import type { Slide } from '../slides.generated';
 
 	interface Props {
@@ -9,12 +8,6 @@
 	}
 
 	const { slide, highlight = '' }: Props = $props();
-
-	const eyebrow = $derived(
-		i18n.lang === 'fa'
-			? slide.eyebrowFa || slide.eyebrowEn
-			: slide.eyebrowEn || slide.eyebrowFa
-	);
 
 	function escapeRe(s: string) {
 		return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -27,23 +20,19 @@
 	});
 </script>
 
-<a href={resolve(`/learn/${slide.slug}` as never)} class="slide-link">
+<a href={resolve(`/learn/${slide.slug}` as never)} class="slide-link" dir="ltr">
 	<span class="slide-link-num" aria-hidden="true">{slide.num.toString().padStart(2, '0')}</span>
-	<span class="slide-link-body">
-		{#if eyebrow}
-			<span class="slide-link-eyebrow">{eyebrow}</span>
-		{/if}
-		<span class="slide-link-title">
-			{#if titleHTML}{@html titleHTML}{:else}{slide.title}{/if}
-		</span>
+	<span class="slide-link-title" dir="ltr">
+		{#if titleHTML}{@html titleHTML}{:else}{slide.title}{/if}
 	</span>
 	<svg
 		viewBox="0 0 24 24"
-		width="14"
-		height="14"
+		width="12"
+		height="12"
 		fill="none"
 		stroke="currentColor"
-		stroke-width="1.7"
+		stroke-width="1.8"
+		stroke-linecap="round"
 		aria-hidden="true"
 		class="slide-link-chev"
 	>
@@ -54,53 +43,46 @@
 <style>
 	.slide-link {
 		display: grid;
-		grid-template-columns: 36px 1fr 14px;
+		grid-template-columns: 28px 1fr auto;
 		gap: 10px;
-		align-items: center;
-		padding: 10px 12px;
-		border-radius: 12px;
+		align-items: baseline;
+		padding: 8px 10px;
+		border-radius: 8px;
 		text-decoration: none;
-		color: inherit;
+		color: var(--ink);
 		min-width: 0;
+		transition:
+			background-color 180ms ease,
+			color 180ms ease;
 	}
 	.slide-link:hover {
-		background: color-mix(in oklab, var(--gold) 7%, var(--bg-elevated));
+		background: color-mix(in oklab, var(--accent) 8%, transparent);
+		color: var(--accent);
 	}
 
 	.slide-link-num {
 		font-family: ui-monospace, 'SF Mono', monospace;
-		font-size: 11px;
-		letter-spacing: 0.14em;
-		color: var(--gold);
-		font-weight: 600;
+		font-size: 10px;
+		letter-spacing: 0.06em;
+		color: var(--ink-faint);
+		font-variant-numeric: tabular-nums;
+		flex: none;
 	}
-
-	.slide-link-body {
-		display: flex;
-		flex-direction: column;
-		gap: 2px;
-		min-width: 0;
-	}
-
-	.slide-link-eyebrow {
-		font-family: ui-monospace, 'SF Mono', monospace;
-		font-size: 9.5px;
-		letter-spacing: 0.16em;
-		text-transform: uppercase;
-		color: var(--ink-muted);
+	.slide-link:hover .slide-link-num {
+		color: var(--accent);
 	}
 
 	.slide-link-title {
-		font-family: var(--font-serif);
-		font-weight: 500;
-		font-size: 14.5px;
-		line-height: 1.25;
-		color: var(--ink);
-		letter-spacing: -0.005em;
+		font-size: 13.5px;
+		line-height: 1.35;
+		color: inherit;
+		min-width: 0;
+		font-weight: 400;
 	}
-	:global([lang='fa']) .slide-link-title {
-		font-family: var(--font-persian);
-		font-weight: 600;
+	.slide-link:hover .slide-link-title {
+		text-decoration: underline;
+		text-decoration-color: color-mix(in oklab, var(--accent) 60%, transparent);
+		text-underline-offset: 3px;
 	}
 
 	.slide-link-title :global(mark) {
@@ -111,12 +93,21 @@
 	}
 
 	.slide-link-chev {
+		flex: none;
 		color: var(--ink-faint);
+		transform: translateX(0);
+		transition:
+			transform 180ms ease,
+			color 180ms ease;
 	}
 	.slide-link:hover .slide-link-chev {
 		color: var(--accent);
+		transform: translateX(2px);
 	}
 	:global([dir='rtl']) .slide-link-chev {
 		transform: scaleX(-1);
+	}
+	:global([dir='rtl']) .slide-link:hover .slide-link-chev {
+		transform: scaleX(-1) translateX(2px);
 	}
 </style>

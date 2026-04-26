@@ -31,6 +31,15 @@
 	font-size: 14px;
 	line-height: 1.55;
 	min-width: 0;
+
+	/* Slide content is fundamentally English with Persian as embedded
+	   parallel columns (`.col-fa`, `.farsi-block`, `.farsi`, `.term-fa`).
+	   Force LTR on the wrapper so when the app is in RTL (Farsi UI), the
+	   English paragraphs don't get right-aligned with periods on the
+	   left. The Persian-specific selectors below override back to RTL. */
+	direction: ltr;
+	text-align: left;
+	unicode-bidi: isolate;
 }
 
 .learn-slide *,

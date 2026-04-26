@@ -40,7 +40,7 @@
 				</p>
 			{/if}
 
-			<h1 class="learn-slide-title">{slide.title}</h1>
+			<h1 class="learn-slide-title" dir="ltr">{slide.title}</h1>
 		</header>
 
 		<div class="learn-slide-body">{@render children()}</div>
@@ -71,7 +71,7 @@
 				</p>
 			{/if}
 
-			<h1 class="flat-title">{slide.title}</h1>
+			<h1 class="flat-title" dir="ltr">{slide.title}</h1>
 		</header>
 
 		<div class="flat-body">{@render children()}</div>

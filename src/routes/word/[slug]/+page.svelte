@@ -36,26 +36,26 @@
 
 	<header class="flex flex-col gap-1">
 		<p class="eyebrow">{i18n.lang === 'fa' ? 'واژه' : 'word'}</p>
-		<div class="flex items-baseline flex-wrap gap-x-3 gap-y-1">
-			<h1 class="font-display text-[34px] leading-[1.04] font-medium tracking-tight text-ink">
+		<div class="flex items-baseline flex-wrap gap-x-3 gap-y-1" dir="ltr">
+			<h1
+				class="font-display text-[34px] leading-[1.04] font-medium tracking-tight text-ink"
+				dir="ltr"
+			>
 				{term.en.term}
 			</h1>
 			{#if term.en.acronym}
-				<span class="font-mono text-[12px] tracking-[0.08em] text-ink-faint">
+				<span class="font-mono text-[12px] tracking-[0.08em] text-ink-faint" dir="ltr">
 					{term.en.acronym}
 				</span>
 			{/if}
 		</div>
 		{#if term.fa.term}
-			<p
-				class="font-persian text-[18px] leading-[1.4] text-gold"
-				dir="rtl"
-			>
+			<p class="font-persian text-[18px] leading-[1.4] text-gold" dir="rtl">
 				{term.fa.term}
 			</p>
 		{/if}
 		{#if term.en.expansion}
-			<p class="mt-1 text-[12.5px] italic text-ink-muted">{term.en.expansion}</p>
+			<p class="mt-1 text-[12.5px] italic text-ink-muted" dir="ltr">{term.en.expansion}</p>
 		{/if}
 	</header>
 
@@ -63,12 +63,9 @@
 	<div class="flex flex-col gap-3">
 		<div class="flex flex-col gap-1.5">
 			<p class="eyebrow">{isFa ? 'تعریف' : 'definition'}</p>
-			<p class="text-[14.5px] leading-[1.6] text-ink">{term.en.definition}</p>
+			<p class="text-[14.5px] leading-[1.6] text-ink" dir="ltr">{term.en.definition}</p>
 			{#if term.fa.definition}
-				<p
-					class="font-persian text-[14px] leading-[1.85] text-ink-muted"
-					dir="rtl"
-				>
+				<p class="font-persian text-[14px] leading-[1.85] text-ink-muted" dir="rtl">
 					{term.fa.definition}
 				</p>
 			{/if}
@@ -77,7 +74,7 @@
 		{#if term.en.example}
 			<div class="example-card">
 				<span class="example-label">{isFa ? 'مثال' : 'example'}</span>
-				<p>{term.en.example}</p>
+				<p dir="ltr">{term.en.example}</p>
 			</div>
 		{/if}
 	</div>
