@@ -87,14 +87,14 @@
 				<p class="max-w-prose text-[14.5px] leading-relaxed text-ink-muted">{expansion}</p>
 			{/if}
 			{#if hintShown}
-				<div class="flex max-w-prose items-start justify-center gap-1.5">
-					<div class="space-y-1.5">
-						{#if expansion}
+				<div class="grid max-w-prose grid-cols-[1fr_auto_1fr] items-start gap-1.5">
+					<div class="col-start-2 space-y-1.5">
+						{#if expansion && direction === 'fa→en'}
 							<p class="font-medium text-[15px] leading-snug text-ink">{expansion}</p>
 						{/if}
 						<p class="text-[14.5px] leading-relaxed text-ink-muted">{enDef}</p>
 					</div>
-					<PronounceButton text={hintPronounceText} class="-mt-1 shrink-0" />
+					<PronounceButton text={hintPronounceText} class="-mt-1 shrink-0 justify-self-start" />
 				</div>
 			{:else}
 				<button
