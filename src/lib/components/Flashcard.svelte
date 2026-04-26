@@ -42,6 +42,17 @@
 	function reveal() {
 		revealed = true;
 	}
+	function flipBackFromClick(e: MouseEvent) {
+		// Allow clicks on inner buttons (e.g. the speaker) to act normally.
+		if (e.target instanceof Element && e.target.closest('button')) return;
+		revealed = false;
+	}
+	function flipBackFromKey(e: KeyboardEvent) {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			revealed = false;
+		}
+	}
 	function showHint() {
 		hintShown = true;
 	}
@@ -135,7 +146,15 @@
 			{t('reveal_answer')}
 		</button>
 	{:else}
-		<div class="flex flex-1 flex-col items-center justify-center gap-4 text-center">
+		<div
+			role="button"
+			tabindex="0"
+			onclick={flipBackFromClick}
+			onkeydown={flipBackFromKey}
+			aria-label={t('flip_back')}
+			title={t('flip_back')}
+			class="flex flex-1 cursor-pointer flex-col items-center justify-center gap-4 text-center focus-visible:outline-none"
+		>
 			<Bilingual text={back} class="font-display text-[30px] leading-tight text-accent" />
 			<div class="space-y-2.5 text-ink-muted">
 				<p class="max-w-prose text-[14px] leading-relaxed">{enDef}</p>
