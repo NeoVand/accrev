@@ -17,18 +17,23 @@
 		slide.kind === 'cover' || slide.kind === 'divider' || slide.kind === 'close'
 	);
 	const variantClass = $derived(`is-${slide.variant}`);
+
+	// Meta line: "Part I · Foundations" for slides that belong to a part,
+	// nothing for free-standing front/back matter (cover, contents, how-to,
+	// glossary, close — they speak for themselves).
+	const showPartMeta = $derived(!!part && slide.kind !== 'divider');
 </script>
 
 {#if isFullBleed}
 	<article class="learn-slide-frame {variantClass}">
 		<header class="learn-slide-head">
-			<div class="learn-slide-meta">
-				<span class="learn-slide-num">§ {slide.num.toString().padStart(2, '0')}</span>
-				{#if part}
+			{#if showPartMeta && part}
+				<div class="learn-slide-meta">
+					<span>{t('learn_part_label', part.roman)}</span>
 					<span class="learn-slide-sep">·</span>
-					<span class="learn-slide-section">{part.title}</span>
-				{/if}
-			</div>
+					<span>{part.title}</span>
+				</div>
+			{/if}
 
 			{#if slide.eyebrowEn || slide.eyebrowFa}
 				<p class="learn-eyebrow">
@@ -48,13 +53,13 @@
 {:else}
 	<article class="learn-slide-flat">
 		<header class="flat-head">
-			<div class="flat-meta">
-				<span class="flat-num">§ {slide.num.toString().padStart(2, '0')}</span>
-				{#if part}
+			{#if showPartMeta && part}
+				<div class="flat-meta">
+					<span>{t('learn_part_label', part.roman)}</span>
 					<span class="flat-sep">·</span>
-					<span class="flat-section">{part.title}</span>
-				{/if}
-			</div>
+					<span>{part.title}</span>
+				</div>
+			{/if}
 
 			{#if slide.eyebrowEn || slide.eyebrowFa}
 				<p class="flat-eyebrow">
@@ -75,8 +80,6 @@
 		</header>
 
 		<div class="flat-body">{@render children()}</div>
-
-		<p class="flat-foot" aria-hidden="true">{t('learn_slide_of', slide.num, 60)}</p>
 	</article>
 {/if}
 
@@ -98,10 +101,6 @@
 		letter-spacing: 0.18em;
 		text-transform: uppercase;
 		color: var(--ink-muted);
-	}
-	.flat-num {
-		font-weight: 600;
-		color: var(--gold);
 	}
 	.flat-sep {
 		opacity: 0.5;
@@ -139,16 +138,6 @@
 		flex-direction: column;
 		gap: 6px;
 		min-width: 0;
-	}
-
-	.flat-foot {
-		margin: 6px 0 0 0;
-		text-align: right;
-		font-family: ui-monospace, 'SF Mono', monospace;
-		font-size: 10px;
-		letter-spacing: 0.16em;
-		text-transform: uppercase;
-		color: var(--ink-faint);
 	}
 
 	/* ─── Full-bleed card — cover / dividers / close ───────────────── */
@@ -206,8 +195,8 @@
 	.is-ink .learn-slide-meta {
 		color: rgba(245, 242, 236, 0.7);
 	}
-	.learn-slide-num {
-		font-weight: 600;
+	.learn-slide-sep {
+		opacity: 0.5;
 	}
 
 	.learn-eyebrow {

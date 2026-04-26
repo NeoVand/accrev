@@ -218,7 +218,6 @@
 								aria-selected={active === idx}
 							>
 								<span class="us-row-main" dir="ltr">
-									<span class="us-row-num">§{hit.slide.num.toString().padStart(2, '0')}</span>
 									<span class="us-row-title">{@html highlight(hit.slide.title, query)}</span>
 								</span>
 								{#if hit.slide.eyebrowEn || hit.slide.eyebrowFa}
@@ -472,14 +471,6 @@
 		/* Push Persian gloss to the trailing edge of the row */
 		margin-inline-start: auto;
 		text-align: end;
-		flex: none;
-	}
-	.us-row-num {
-		font-family: ui-monospace, 'SF Mono', monospace;
-		font-size: 10.5px;
-		letter-spacing: 0.06em;
-		color: var(--gold);
-		font-weight: 600;
 		flex: none;
 	}
 	.us-row-sub {

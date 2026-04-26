@@ -6,12 +6,9 @@
 	import PartCard from '$lib/learn/components/PartCard.svelte';
 	import UnifiedSearch from '$lib/components/UnifiedSearch.svelte';
 
-	const totalSlides = $derived(
-		parts.reduce((acc, p) => acc + (slidesByPart[p.id]?.length ?? 0), 0) +
-			(slidesByPart.frontmatter?.length ?? 0)
-	);
-
-	const howToSlide = $derived(slidesByPart.frontmatter?.find((s) => s.kind === 'how-to'));
+	// Cover slide (with the dedication) is reachable via the footer
+	// dedication line — no dedicated nav block needed.
+	const coverSlide = $derived(slidesByPart.frontmatter?.find((s) => s.kind === 'cover'));
 </script>
 
 <svelte:head>
@@ -35,13 +32,7 @@
 	<div class="flex flex-col gap-5" in:fly={{ y: 6, duration: 240 }}>
 		<!-- Eight parts -->
 		<div class="flex flex-col gap-2">
-			<div class="flex items-baseline justify-between">
-				<p class="eyebrow">{t('learn_eight_parts')}</p>
-				<span class="font-mono text-[10px] tracking-[0.16em] text-ink-faint uppercase">
-					{totalSlides}
-					{i18n.lang === 'fa' ? 'اسلاید' : 'slides'}
-				</span>
-			</div>
+			<p class="eyebrow">{t('learn_eight_parts')}</p>
 			<div class="flex flex-col gap-2.5">
 				{#each parts as part (part.id)}
 					<PartCard {part} />
@@ -49,41 +40,32 @@
 			</div>
 		</div>
 
-		<!-- "How to use" card linking to the original slide -->
-		{#if howToSlide}
-			<a
-				href={resolve(`/learn/${howToSlide.slug}` as never)}
-				class="how-to flex items-center justify-between gap-3 rounded-[var(--radius-card)] border border-hairline bg-bg-soft/50 p-4"
-			>
-				<div class="flex flex-col gap-1 min-w-0">
-					<p class="eyebrow">{t('learn_how_to_use')}</p>
-					<p class="text-[12.5px] leading-[1.55] text-ink-muted">{t('learn_how_to_body')}</p>
-				</div>
-				<svg
-					viewBox="0 0 24 24"
-					width="16"
-					height="16"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="1.7"
-					stroke-linecap="round"
-					class="shrink-0 text-ink-faint"
-					aria-hidden="true"
-				>
-					<path d="M9 6l6 6-6 6" />
-				</svg>
+		<!-- Footer dedication doubles as a discreet entry point to the cover -->
+		{#if coverSlide}
+			<a class="dedication-link" href={resolve(`/learn/${coverSlide.slug}` as never)}>
+				{t('learn_for_you')}
 			</a>
+		{:else}
+			<p class="dedication-text">{t('learn_for_you')}</p>
 		{/if}
-
-		<!-- Footer dedication -->
-		<p class="px-2 pb-2 text-center text-[12px] italic leading-[1.6] text-ink-faint">
-			{t('learn_for_you')}
-		</p>
 	</div>
 </section>
 
 <style>
-	:global([dir='rtl']) .how-to svg {
-		transform: scaleX(-1);
+	.dedication-link,
+	.dedication-text {
+		display: block;
+		padding: 0.5rem;
+		text-align: center;
+		font-family: var(--font-serif);
+		font-style: italic;
+		font-size: 12px;
+		line-height: 1.6;
+		color: var(--ink-faint);
+		text-decoration: none;
+		transition: color 180ms ease;
+	}
+	.dedication-link:hover {
+		color: var(--accent);
 	}
 </style>

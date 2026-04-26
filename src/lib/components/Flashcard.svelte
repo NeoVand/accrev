@@ -45,6 +45,17 @@
 	function showHint() {
 		hintShown = true;
 	}
+	function toggleHintFromClick(e: MouseEvent) {
+		// Allow clicks on inner buttons (e.g. the speaker) to act normally.
+		if (e.target instanceof Element && e.target.closest('button')) return;
+		hintShown = false;
+	}
+	function toggleHintFromKey(e: KeyboardEvent) {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			hintShown = false;
+		}
+	}
 	function grade(g: Grade) {
 		onGrade?.(g, hintShown);
 		revealed = false;
@@ -87,14 +98,23 @@
 				<p class="max-w-prose text-[14.5px] leading-relaxed text-ink-muted">{expansion}</p>
 			{/if}
 			{#if hintShown}
-				<div class="grid max-w-prose grid-cols-[1fr_auto_1fr] items-start gap-1.5">
-					<div class="col-start-2 space-y-1.5">
+				<div
+					role="button"
+					tabindex="0"
+					onclick={toggleHintFromClick}
+					onkeydown={toggleHintFromKey}
+					aria-label={t('hide_hint')}
+					title={t('hide_hint')}
+					in:fly={{ y: -4, duration: 200 }}
+					class="flex w-full max-w-prose cursor-pointer flex-col items-center gap-3 rounded-2xl border border-hairline/70 bg-bg-soft/40 px-5 py-4 text-center transition hover:border-hairline hover:bg-bg-soft/70 focus-visible:border-accent/50 focus-visible:outline-none"
+				>
+					<div class="space-y-1.5">
 						{#if expansion && direction === 'fa→en'}
 							<p class="font-medium text-[15px] leading-snug text-ink">{expansion}</p>
 						{/if}
 						<p class="text-[14.5px] leading-relaxed text-ink-muted">{enDef}</p>
 					</div>
-					<PronounceButton text={hintPronounceText} class="-mt-1 shrink-0 justify-self-start" />
+					<PronounceButton text={hintPronounceText} />
 				</div>
 			{:else}
 				<button

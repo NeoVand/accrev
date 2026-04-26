@@ -79,10 +79,7 @@
 					</svg>
 					<span class="slide-nav-meta">
 						<span class="dir">{t('learn_prev')}</span>
-						<span class="title-line" dir="ltr">
-							<span class="num">§{prev.num.toString().padStart(2, '0')}</span>
-							<span class="ttl">{prev.title}</span>
-						</span>
+						<span class="ttl" dir="ltr">{prev.title}</span>
 					</span>
 				</a>
 			{:else}
@@ -93,10 +90,7 @@
 				<a href={resolve(`/learn/${next.slug}` as never)} class="slide-nav-link slide-nav-next">
 					<span class="slide-nav-meta align-end">
 						<span class="dir">{t('learn_next')}</span>
-						<span class="title-line" dir="ltr">
-							<span class="num">§{next.num.toString().padStart(2, '0')}</span>
-							<span class="ttl">{next.title}</span>
-						</span>
+						<span class="ttl" dir="ltr">{next.title}</span>
 					</span>
 					<svg
 						viewBox="0 0 24 24"
@@ -201,33 +195,18 @@
 		color: var(--ink-muted);
 	}
 
-	.slide-nav-meta .title-line {
-		display: flex;
-		align-items: baseline;
-		gap: 6px;
-		min-width: 0;
-		max-width: 100%;
-	}
-
-	.slide-nav-meta .num {
-		font-family: ui-monospace, 'SF Mono', monospace;
-		font-size: 10.5px;
-		letter-spacing: 0.1em;
-		color: var(--gold);
-		font-weight: 600;
-		flex: none;
-	}
-
 	.slide-nav-meta .ttl {
+		display: block;
 		font-family: var(--font-serif);
 		font-weight: 500;
-		font-size: 12.5px;
-		line-height: 1.2;
+		font-size: 13.5px;
+		line-height: 1.25;
 		color: var(--ink);
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		min-width: 0;
+		max-width: 100%;
 	}
 	:global([lang='fa']) .slide-nav-meta .ttl {
 		font-family: var(--font-persian);

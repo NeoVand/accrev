@@ -18,10 +18,16 @@
 		const re = new RegExp(`(${escapeRe(highlight)})`, 'i');
 		return slide.title.replace(re, '<mark>$1</mark>');
 	});
+
+	// Lectures get a 1-based per-part lesson number; dividers/front/back
+	// matter (lessonNum === 0) get a soft bullet so the row still aligns.
+	const numLabel = $derived(
+		slide.lessonNum > 0 ? slide.lessonNum.toString().padStart(2, '0') : '·'
+	);
 </script>
 
 <a href={resolve(`/learn/${slide.slug}` as never)} class="slide-link" dir="ltr">
-	<span class="slide-link-num" aria-hidden="true">{slide.num.toString().padStart(2, '0')}</span>
+	<span class="slide-link-num" aria-hidden="true">{numLabel}</span>
 	<span class="slide-link-title" dir="ltr">
 		{#if titleHTML}{@html titleHTML}{:else}{slide.title}{/if}
 	</span>

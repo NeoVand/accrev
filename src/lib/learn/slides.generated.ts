@@ -23,7 +23,10 @@ export type PartId =
 
 export interface Slide {
 	slug: string;
+	/** Global 1-based slide index across the deck. Used for prev/next ordering. */
 	num: number;
+	/** 1-based index within the part's lecture slides; 0 for non-lecture (dividers, frontmatter, glossary, close). */
+	lessonNum: number;
 	label: string;
 	variant: SlideVariant;
 	kind: SlideKind;
@@ -42,7 +45,8 @@ export interface Part {
 	titleFa: string;
 	blurb: string;
 	blurbFa: string;
-	range: string;
+	/** Number of numbered lecture slides in this part (excludes the divider). */
+	lessonCount: number;
 	dividerSlug: string;
 }
 
@@ -54,7 +58,7 @@ export const parts: Part[] = [
 		"titleFa": "پایه‌ها",
 		"blurb": "One equation, five account types, a chart of accounts, and a two-sided ledger.",
 		"blurbFa": "یک معادله، پنج نوع حساب، فهرست حساب‌ها، و دفتر دوطرفه.",
-		"range": "§05–10",
+		"lessonCount": 6,
 		"dividerSlug": "04-section-i"
 	},
 	{
@@ -64,7 +68,7 @@ export const parts: Part[] = [
 		"titleFa": "چرخهٔ حسابداری",
 		"blurb": "Journals, ledgers, trial balance, adjusting & closing entries.",
 		"blurbFa": "دفاتر روزنامه و کل، تراز آزمایشی، ثبت‌های اصلاحی و اختتامی.",
-		"range": "§12–19",
+		"lessonCount": 8,
 		"dividerSlug": "11-section-ii"
 	},
 	{
@@ -74,7 +78,7 @@ export const parts: Part[] = [
 		"titleFa": "زمان‌بندی و شناسایی",
 		"blurb": "Accrual basis, five-step revenue model, matching, deferrals.",
 		"blurbFa": "مبنای تعهدی، مدل پنج‌مرحله‌ای درآمد، تطابق، انتقالی‌ها.",
-		"range": "§21–24",
+		"lessonCount": 4,
 		"dividerSlug": "20-section-iii"
 	},
 	{
@@ -84,7 +88,7 @@ export const parts: Part[] = [
 		"titleFa": "صورت‌های مالی",
 		"blurb": "BS, IS, CFS (indirect), interconnection, end-to-end mini case.",
 		"blurbFa": "ترازنامه، صورت سود و زیان، صورت جریان وجوه نقد و مثال یکپارچه.",
-		"range": "§26–32",
+		"lessonCount": 7,
 		"dividerSlug": "25-section-iv"
 	},
 	{
@@ -94,7 +98,7 @@ export const parts: Part[] = [
 		"titleFa": "انتخاب‌های اندازه‌گیری",
 		"blurb": "Depreciation methods, inventory methods, bad debt allowance.",
 		"blurbFa": "روش‌های استهلاک، روش‌های موجودی، ذخیرهٔ مطالبات مشکوک‌الوصول.",
-		"range": "§34–39",
+		"lessonCount": 6,
 		"dividerSlug": "33-section-v"
 	},
 	{
@@ -104,7 +108,7 @@ export const parts: Part[] = [
 		"titleFa": "تحلیل",
 		"blurb": "Liquidity, solvency, profitability, efficiency, DuPont decomposition.",
 		"blurbFa": "نقدینگی، توان پرداخت بدهی، سودآوری، کارایی، تجزیهٔ دوپون.",
-		"range": "§41–45",
+		"lessonCount": 5,
 		"dividerSlug": "40-section-vi"
 	},
 	{
@@ -114,7 +118,7 @@ export const parts: Part[] = [
 		"titleFa": "چارچوب‌ها",
 		"blurb": "GAAP vs IFRS, the revenue standard, leases on the balance sheet.",
 		"blurbFa": "مقایسهٔ GAAP و IFRS، استاندارد درآمد، اجاره‌ها در ترازنامه.",
-		"range": "§47–49",
+		"lessonCount": 3,
 		"dividerSlug": "46-section-vii"
 	},
 	{
@@ -124,7 +128,7 @@ export const parts: Part[] = [
 		"titleFa": "جمع‌بندی",
 		"blurb": "Annual report end-to-end, two full problem sets with solutions.",
 		"blurbFa": "مرور یک گزارش سالانهٔ کامل، همراه با دو مجموعهٔ تمرین.",
-		"range": "§51–60",
+		"lessonCount": 8,
 		"dividerSlug": "51-capstone-divider"
 	}
 ];
@@ -133,6 +137,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "01-cover",
 		"num": 1,
+		"lessonNum": 0,
 		"label": "01 Cover",
 		"variant": "paper",
 		"kind": "cover",
@@ -146,6 +151,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "02-contents",
 		"num": 2,
+		"lessonNum": 0,
 		"label": "02 Contents",
 		"variant": "paper",
 		"kind": "contents",
@@ -159,6 +165,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "03-how-to-use",
 		"num": 3,
+		"lessonNum": 0,
 		"label": "03 How to use",
 		"variant": "paper",
 		"kind": "how-to",
@@ -172,6 +179,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "04-section-i",
 		"num": 4,
+		"lessonNum": 0,
 		"label": "04 Section I",
 		"variant": "navy",
 		"kind": "divider",
@@ -185,6 +193,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "05-equation",
 		"num": 5,
+		"lessonNum": 1,
 		"label": "05 Equation",
 		"variant": "paper",
 		"kind": "lecture",
@@ -198,6 +207,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "06-expanded-equation",
 		"num": 6,
+		"lessonNum": 2,
 		"label": "06 Expanded Equation",
 		"variant": "paper",
 		"kind": "lecture",
@@ -211,6 +221,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "07-account-types",
 		"num": 7,
+		"lessonNum": 3,
 		"label": "07 Account Types",
 		"variant": "paper",
 		"kind": "lecture",
@@ -224,6 +235,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "08-chart-of-accounts",
 		"num": 8,
+		"lessonNum": 4,
 		"label": "08 Chart of Accounts",
 		"variant": "paper",
 		"kind": "lecture",
@@ -237,6 +249,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "09-debits-credits",
 		"num": 9,
+		"lessonNum": 5,
 		"label": "09 Debits Credits",
 		"variant": "paper",
 		"kind": "lecture",
@@ -250,6 +263,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "10-normal-balance",
 		"num": 10,
+		"lessonNum": 6,
 		"label": "10 Normal Balance",
 		"variant": "ink",
 		"kind": "lecture",
@@ -263,6 +277,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "11-section-ii",
 		"num": 11,
+		"lessonNum": 0,
 		"label": "11 Section II",
 		"variant": "tan",
 		"kind": "divider",
@@ -276,6 +291,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "12-nine-steps",
 		"num": 12,
+		"lessonNum": 1,
 		"label": "12 Nine Steps",
 		"variant": "paper",
 		"kind": "lecture",
@@ -289,6 +305,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "13-journal-entries",
 		"num": 13,
+		"lessonNum": 2,
 		"label": "13 Journal Entries",
 		"variant": "paper",
 		"kind": "lecture",
@@ -302,6 +319,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "14-t-accounts",
 		"num": 14,
+		"lessonNum": 3,
 		"label": "14 T-Accounts",
 		"variant": "paper",
 		"kind": "lecture",
@@ -315,6 +333,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "15-trial-balance",
 		"num": 15,
+		"lessonNum": 4,
 		"label": "15 Trial Balance",
 		"variant": "paper",
 		"kind": "lecture",
@@ -328,6 +347,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "16-adjusting-entries",
 		"num": 16,
+		"lessonNum": 5,
 		"label": "16 Adjusting Entries",
 		"variant": "paper",
 		"kind": "lecture",
@@ -341,6 +361,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "17-prepaid",
 		"num": 17,
+		"lessonNum": 6,
 		"label": "17 Prepaid",
 		"variant": "paper",
 		"kind": "lecture",
@@ -354,6 +375,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "18-accrued-liability",
 		"num": 18,
+		"lessonNum": 7,
 		"label": "18 Accrued Liability",
 		"variant": "paper",
 		"kind": "lecture",
@@ -367,6 +389,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "19-closing-entries",
 		"num": 19,
+		"lessonNum": 8,
 		"label": "19 Closing Entries",
 		"variant": "paper",
 		"kind": "lecture",
@@ -380,6 +403,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "20-section-iii",
 		"num": 20,
+		"lessonNum": 0,
 		"label": "20 Section III",
 		"variant": "navy",
 		"kind": "divider",
@@ -393,6 +417,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "21-cash-vs-accrual",
 		"num": 21,
+		"lessonNum": 1,
 		"label": "21 Cash vs Accrual",
 		"variant": "paper",
 		"kind": "lecture",
@@ -406,6 +431,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "22-revenue-recognition",
 		"num": 22,
+		"lessonNum": 2,
 		"label": "22 Revenue Recognition",
 		"variant": "paper",
 		"kind": "lecture",
@@ -419,6 +445,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "23-matching",
 		"num": 23,
+		"lessonNum": 3,
 		"label": "23 Matching",
 		"variant": "sage",
 		"kind": "lecture",
@@ -432,6 +459,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "24-deferrals-accruals",
 		"num": 24,
+		"lessonNum": 4,
 		"label": "24 Deferrals Accruals",
 		"variant": "paper",
 		"kind": "lecture",
@@ -445,6 +473,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "25-section-iv",
 		"num": 25,
+		"lessonNum": 0,
 		"label": "25 Section IV",
 		"variant": "tan",
 		"kind": "divider",
@@ -458,6 +487,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "26-balance-sheet",
 		"num": 26,
+		"lessonNum": 1,
 		"label": "26 Balance Sheet",
 		"variant": "paper",
 		"kind": "lecture",
@@ -471,6 +501,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "27-income-statement",
 		"num": 27,
+		"lessonNum": 2,
 		"label": "27 Income Statement",
 		"variant": "paper",
 		"kind": "lecture",
@@ -484,6 +515,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "28-cfs-structure",
 		"num": 28,
+		"lessonNum": 3,
 		"label": "28 CFS Structure",
 		"variant": "paper",
 		"kind": "lecture",
@@ -497,6 +529,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "29-cfs-indirect",
 		"num": 29,
+		"lessonNum": 4,
 		"label": "29 CFS Indirect",
 		"variant": "paper",
 		"kind": "lecture",
@@ -510,6 +543,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "30-three-connect",
 		"num": 30,
+		"lessonNum": 5,
 		"label": "30 Three Connect",
 		"variant": "paper",
 		"kind": "lecture",
@@ -523,6 +557,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "31-mini-case-transactions",
 		"num": 31,
+		"lessonNum": 6,
 		"label": "31 Mini Case Transactions",
 		"variant": "paper",
 		"kind": "lecture",
@@ -536,6 +571,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "32-mini-case-statements",
 		"num": 32,
+		"lessonNum": 7,
 		"label": "32 Mini Case Statements",
 		"variant": "paper",
 		"kind": "lecture",
@@ -549,6 +585,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "33-section-v",
 		"num": 33,
+		"lessonNum": 0,
 		"label": "33 Section V",
 		"variant": "navy",
 		"kind": "divider",
@@ -562,6 +599,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "34-sl-depreciation",
 		"num": 34,
+		"lessonNum": 1,
 		"label": "34 SL Depreciation",
 		"variant": "paper",
 		"kind": "lecture",
@@ -575,6 +613,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "35-ddb-depreciation",
 		"num": 35,
+		"lessonNum": 2,
 		"label": "35 DDB Depreciation",
 		"variant": "paper",
 		"kind": "lecture",
@@ -588,6 +627,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "36-uop-depreciation",
 		"num": 36,
+		"lessonNum": 3,
 		"label": "36 UOP Depreciation",
 		"variant": "paper",
 		"kind": "lecture",
@@ -601,6 +641,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "37-inventory-overview",
 		"num": 37,
+		"lessonNum": 4,
 		"label": "37 Inventory Overview",
 		"variant": "paper",
 		"kind": "lecture",
@@ -614,6 +655,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "38-inventory-worked",
 		"num": 38,
+		"lessonNum": 5,
 		"label": "38 Inventory Worked",
 		"variant": "paper",
 		"kind": "lecture",
@@ -627,6 +669,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "39-bad-debt",
 		"num": 39,
+		"lessonNum": 6,
 		"label": "39 Bad Debt",
 		"variant": "paper",
 		"kind": "lecture",
@@ -640,6 +683,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "40-section-vi",
 		"num": 40,
+		"lessonNum": 0,
 		"label": "40 Section VI",
 		"variant": "tan",
 		"kind": "divider",
@@ -653,6 +697,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "41-liquidity",
 		"num": 41,
+		"lessonNum": 1,
 		"label": "41 Liquidity",
 		"variant": "paper",
 		"kind": "lecture",
@@ -666,6 +711,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "42-solvency",
 		"num": 42,
+		"lessonNum": 2,
 		"label": "42 Solvency",
 		"variant": "paper",
 		"kind": "lecture",
@@ -679,6 +725,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "43-profitability",
 		"num": 43,
+		"lessonNum": 3,
 		"label": "43 Profitability",
 		"variant": "paper",
 		"kind": "lecture",
@@ -692,6 +739,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "44-efficiency",
 		"num": 44,
+		"lessonNum": 4,
 		"label": "44 Efficiency",
 		"variant": "paper",
 		"kind": "lecture",
@@ -705,6 +753,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "45-dupont",
 		"num": 45,
+		"lessonNum": 5,
 		"label": "45 DuPont",
 		"variant": "ink",
 		"kind": "lecture",
@@ -718,6 +767,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "46-section-vii",
 		"num": 46,
+		"lessonNum": 0,
 		"label": "46 Section VII",
 		"variant": "navy",
 		"kind": "divider",
@@ -731,6 +781,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "47-gaap-ifrs",
 		"num": 47,
+		"lessonNum": 1,
 		"label": "47 GAAP IFRS",
 		"variant": "paper",
 		"kind": "lecture",
@@ -744,6 +795,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "48-revenue-standard",
 		"num": 48,
+		"lessonNum": 2,
 		"label": "48 Revenue Standard",
 		"variant": "paper",
 		"kind": "lecture",
@@ -757,6 +809,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "49-leases",
 		"num": 49,
+		"lessonNum": 3,
 		"label": "49 Leases",
 		"variant": "paper",
 		"kind": "lecture",
@@ -770,6 +823,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "50-glossary",
 		"num": 50,
+		"lessonNum": 0,
 		"label": "50 Glossary",
 		"variant": "paper",
 		"kind": "glossary",
@@ -783,6 +837,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "51-capstone-divider",
 		"num": 51,
+		"lessonNum": 0,
 		"label": "51 Capstone Divider",
 		"variant": "tan",
 		"kind": "divider",
@@ -796,6 +851,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "52-meet-ranger-coffee",
 		"num": 52,
+		"lessonNum": 1,
 		"label": "52 Meet Ranger Coffee",
 		"variant": "paper",
 		"kind": "lecture",
@@ -809,6 +865,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "53-annual-report-anatomy",
 		"num": 53,
+		"lessonNum": 2,
 		"label": "53 Annual Report Anatomy",
 		"variant": "paper",
 		"kind": "lecture",
@@ -822,6 +879,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "54-reading-is",
 		"num": 54,
+		"lessonNum": 3,
 		"label": "54 Reading IS",
 		"variant": "paper",
 		"kind": "lecture",
@@ -835,6 +893,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "55-reading-bs",
 		"num": 55,
+		"lessonNum": 4,
 		"label": "55 Reading BS",
 		"variant": "paper",
 		"kind": "lecture",
@@ -848,6 +907,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "56-reading-cfs",
 		"num": 56,
+		"lessonNum": 5,
 		"label": "56 Reading CFS",
 		"variant": "paper",
 		"kind": "lecture",
@@ -861,6 +921,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "57-reading-notes",
 		"num": 57,
+		"lessonNum": 6,
 		"label": "57 Reading Notes",
 		"variant": "paper",
 		"kind": "lecture",
@@ -874,6 +935,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "58-problem-set-1",
 		"num": 58,
+		"lessonNum": 7,
 		"label": "58 Problem Set 1",
 		"variant": "paper",
 		"kind": "lecture",
@@ -887,6 +949,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "59-problem-set-2",
 		"num": 59,
+		"lessonNum": 8,
 		"label": "59 Problem Set 2",
 		"variant": "paper",
 		"kind": "lecture",
@@ -900,6 +963,7 @@ export const slides: Slide[] = [
 	{
 		"slug": "60-close",
 		"num": 60,
+		"lessonNum": 0,
 		"label": "60 Close",
 		"variant": "navy",
 		"kind": "close",

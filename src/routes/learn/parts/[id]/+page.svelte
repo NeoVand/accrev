@@ -11,8 +11,8 @@
 	const altTitle = $derived(i18n.lang === 'fa' ? part.title : part.titleFa);
 	const blurb = $derived(i18n.lang === 'fa' ? part.blurbFa : part.blurb);
 
-	// Group: section divider first, then concept slides, then back-link to next part.
-	const dividerSlide = $derived(slides.find((s) => s.kind === 'divider'));
+	// The part page already serves as the section opener; the divider slide
+	// would be a redundant entry, so list only the lecture slides.
 	const contentSlides = $derived(slides.filter((s) => s.kind !== 'divider'));
 </script>
 
@@ -46,11 +46,6 @@
 		<h1 class="part-hero-title">{title}</h1>
 		<p class="part-hero-alt">{altTitle}</p>
 		<p class="part-hero-blurb">{blurb}</p>
-		<div class="part-hero-meta">
-			<span>{part.range}</span>
-			<span class="dot">·</span>
-			<span>{t('learn_slides_in_part', slides.length)}</span>
-		</div>
 	</header>
 
 	<div class="flex flex-col gap-2">
@@ -58,11 +53,6 @@
 		<ul
 			class="flex flex-col gap-0.5 rounded-[var(--radius-card)] border border-hairline bg-bg-elevated p-1.5"
 		>
-			{#if dividerSlide}
-				<li>
-					<SlideListItem slide={dividerSlide} />
-				</li>
-			{/if}
 			{#each contentSlides as s (s.slug)}
 				<li>
 					<SlideListItem slide={s} />
@@ -147,20 +137,5 @@
 		line-height: 1.6;
 		color: var(--ink-muted);
 		margin: 6px 0 0 0;
-	}
-
-	.part-hero-meta {
-		display: flex;
-		gap: 8px;
-		align-items: center;
-		margin-top: 10px;
-		font-family: ui-monospace, 'SF Mono', monospace;
-		font-size: 10px;
-		letter-spacing: 0.18em;
-		text-transform: uppercase;
-		color: var(--ink-faint);
-	}
-	.part-hero-meta .dot {
-		opacity: 0.5;
 	}
 </style>

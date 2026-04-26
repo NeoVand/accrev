@@ -1,14 +1,13 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { i18n, t } from '$lib/state/i18n.svelte';
-	import { slidesByPart, type Part } from '../slides.generated';
+	import { type Part } from '../slides.generated';
 
 	interface Props {
 		part: Part;
 	}
 
 	const { part }: Props = $props();
-	const count = $derived(slidesByPart[part.id]?.length ?? 0);
 	const title = $derived(i18n.lang === 'fa' ? part.titleFa : part.title);
 	const altTitle = $derived(i18n.lang === 'fa' ? part.title : part.titleFa);
 	const blurb = $derived(i18n.lang === 'fa' ? part.blurbFa : part.blurb);
@@ -27,10 +26,6 @@
 			<span class="alt">{altTitle}</span>
 		</div>
 		<p class="part-card-blurb">{blurb}</p>
-		<div class="part-card-foot">
-			<span class="part-card-range">{part.range}</span>
-			<span class="part-card-count">{t('learn_slides_in_part', count)}</span>
-		</div>
 	</div>
 </a>
 
@@ -142,17 +137,5 @@
 		line-height: 1.5;
 		color: var(--ink-muted);
 		margin: 0;
-	}
-
-	.part-card-foot {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		font-family: ui-monospace, 'SF Mono', monospace;
-		font-size: 10px;
-		letter-spacing: 0.14em;
-		text-transform: uppercase;
-		color: var(--ink-faint);
-		margin-top: 4px;
 	}
 </style>

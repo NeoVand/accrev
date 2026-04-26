@@ -39,7 +39,6 @@ const parts = [
 		titleFa: 'پایه‌ها',
 		blurb: 'One equation, five account types, a chart of accounts, and a two-sided ledger.',
 		blurbFa: 'یک معادله، پنج نوع حساب، فهرست حساب‌ها، و دفتر دوطرفه.',
-		range: '§05–10',
 		dividerLabel: '04 Section I'
 	},
 	{
@@ -49,7 +48,6 @@ const parts = [
 		titleFa: 'چرخهٔ حسابداری',
 		blurb: 'Journals, ledgers, trial balance, adjusting & closing entries.',
 		blurbFa: 'دفاتر روزنامه و کل، تراز آزمایشی، ثبت‌های اصلاحی و اختتامی.',
-		range: '§12–19',
 		dividerLabel: '11 Section II'
 	},
 	{
@@ -59,7 +57,6 @@ const parts = [
 		titleFa: 'زمان‌بندی و شناسایی',
 		blurb: 'Accrual basis, five-step revenue model, matching, deferrals.',
 		blurbFa: 'مبنای تعهدی، مدل پنج‌مرحله‌ای درآمد، تطابق، انتقالی‌ها.',
-		range: '§21–24',
 		dividerLabel: '20 Section III'
 	},
 	{
@@ -69,7 +66,6 @@ const parts = [
 		titleFa: 'صورت‌های مالی',
 		blurb: 'BS, IS, CFS (indirect), interconnection, end-to-end mini case.',
 		blurbFa: 'ترازنامه، صورت سود و زیان، صورت جریان وجوه نقد و مثال یکپارچه.',
-		range: '§26–32',
 		dividerLabel: '25 Section IV'
 	},
 	{
@@ -79,7 +75,6 @@ const parts = [
 		titleFa: 'انتخاب‌های اندازه‌گیری',
 		blurb: 'Depreciation methods, inventory methods, bad debt allowance.',
 		blurbFa: 'روش‌های استهلاک، روش‌های موجودی، ذخیرهٔ مطالبات مشکوک‌الوصول.',
-		range: '§34–39',
 		dividerLabel: '33 Section V'
 	},
 	{
@@ -89,7 +84,6 @@ const parts = [
 		titleFa: 'تحلیل',
 		blurb: 'Liquidity, solvency, profitability, efficiency, DuPont decomposition.',
 		blurbFa: 'نقدینگی، توان پرداخت بدهی، سودآوری، کارایی، تجزیهٔ دوپون.',
-		range: '§41–45',
 		dividerLabel: '40 Section VI'
 	},
 	{
@@ -99,7 +93,6 @@ const parts = [
 		titleFa: 'چارچوب‌ها',
 		blurb: 'GAAP vs IFRS, the revenue standard, leases on the balance sheet.',
 		blurbFa: 'مقایسهٔ GAAP و IFRS، استاندارد درآمد، اجاره‌ها در ترازنامه.',
-		range: '§47–49',
 		dividerLabel: '46 Section VII'
 	},
 	{
@@ -109,7 +102,6 @@ const parts = [
 		titleFa: 'جمع‌بندی',
 		blurb: 'Annual report end-to-end, two full problem sets with solutions.',
 		blurbFa: 'مرور یک گزارش سالانهٔ کامل، همراه با دو مجموعهٔ تمرین.',
-		range: '§51–60',
 		dividerLabel: '51 Capstone Divider'
 	}
 ];
@@ -387,6 +379,36 @@ function mobilize(html) {
 	return out;
 }
 
+// First pass: build raw slides without lessonNum so we can compute per-part
+// lecture indices in a second pass.
+const slidesPre = raw.map((s, i) => {
+	const num = i + 1;
+	return {
+		num,
+		label: s.label,
+		variant: s.variant,
+		kind: classifyKind(num, s.label),
+		partId: partForNum(num)
+	};
+});
+
+// Per-part lecture numbering: lessons inside a part are numbered 1..N in
+// order. Dividers and front/back matter stay at 0 — they're part-page or
+// deck-level artefacts, not numbered lessons.
+const lessonNumByNum = new Map();
+const lessonCountByPart = new Map();
+const lessonCounters = new Map();
+for (const s of slidesPre) {
+	if (s.kind === 'lecture') {
+		const next = (lessonCounters.get(s.partId) ?? 0) + 1;
+		lessonCounters.set(s.partId, next);
+		lessonNumByNum.set(s.num, next);
+		lessonCountByPart.set(s.partId, next);
+	} else {
+		lessonNumByNum.set(s.num, 0);
+	}
+}
+
 const slides = raw.map((s, i) => {
 	const num = i + 1;
 	const inner = s.inner;
@@ -417,6 +439,7 @@ const slides = raw.map((s, i) => {
 	return {
 		slug: slugify(s.label),
 		num,
+		lessonNum: lessonNumByNum.get(num) ?? 0,
 		label: s.label,
 		variant: s.variant,
 		kind: classifyKind(num, s.label),
@@ -454,7 +477,10 @@ export type PartId =
 
 export interface Slide {
 \tslug: string;
+\t/** Global 1-based slide index across the deck. Used for prev/next ordering. */
 \tnum: number;
+\t/** 1-based index within the part's lecture slides; 0 for non-lecture (dividers, frontmatter, glossary, close). */
+\tlessonNum: number;
 \tlabel: string;
 \tvariant: SlideVariant;
 \tkind: SlideKind;
@@ -473,7 +499,8 @@ export interface Part {
 \ttitleFa: string;
 \tblurb: string;
 \tblurbFa: string;
-\trange: string;
+\t/** Number of numbered lecture slides in this part (excludes the divider). */
+\tlessonCount: number;
 \tdividerSlug: string;
 }
 
@@ -485,7 +512,7 @@ export const parts: Part[] = ${JSON.stringify(
 		titleFa: p.titleFa,
 		blurb: p.blurb,
 		blurbFa: p.blurbFa,
-		range: p.range,
+		lessonCount: lessonCountByPart.get(p.id) ?? 0,
 		dividerSlug: slugify(p.dividerLabel)
 	})),
 	null,

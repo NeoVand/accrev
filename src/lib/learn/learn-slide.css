@@ -313,6 +313,52 @@
 	grid-template-columns: 1fr !important;
 }
 
+/* ─── Decorative "stat cards" — restore framing the build stripped ───
+   The original deck composed many slides as a grid of small cards
+   (mono number + serif term + Farsi gloss + description). The
+   mobilize step strips inline backgrounds and padding because they
+   were tuned for a 1200px dark canvas; these rules give the cards
+   back a soft, page-appropriate frame so the structure reads on
+   phone. We target the specific "grid-of-flex-columns" pattern so
+   non-card flex children (e.g. lecture-grid columns) are unaffected. */
+.learn-slide [style*='display:grid'] > [style*='flex-direction:column'],
+.learn-slide [style*='display:grid'] > [style*='flex-direction: column'],
+.learn-slide [style*='display: grid'] > [style*='flex-direction:column'],
+.learn-slide [style*='display: grid'] > [style*='flex-direction: column'] {
+	padding: 12px 14px !important;
+	border: 1px solid var(--hairline);
+	border-radius: 12px;
+	background: var(--bg-elevated);
+	gap: 4px !important;
+}
+/* Restore breathing room between stacked cards (the inline `gap:8px`
+   is honored by the grid, but smaller `gap:0px` slides need help). */
+.learn-slide [style*='display:grid']:has(> [style*='flex-direction:column']),
+.learn-slide [style*='display: grid']:has(> [style*='flex-direction: column']) {
+	gap: 10px !important;
+}
+/* Inside a card, the FA gloss is the small label that sits between
+   the EN term and its description. Push the description to the bottom
+   with a soft top margin so the three layers read top-down cleanly. */
+.learn-slide [style*='display:grid'] > [style*='flex-direction:column'] > *,
+.learn-slide [style*='display: grid'] > [style*='flex-direction: column'] > * {
+	max-width: 100%;
+}
+/* Dark variant cards (cover/divider/close) — translucent surface so
+   the card lifts off the tinted background instead of flattening to
+   the page color. */
+.learn-slide.is-navy [style*='display:grid'] > [style*='flex-direction:column'],
+.learn-slide.is-navy [style*='display: grid'] > [style*='flex-direction: column'],
+.learn-slide.is-tan [style*='display:grid'] > [style*='flex-direction:column'],
+.learn-slide.is-tan [style*='display: grid'] > [style*='flex-direction: column'],
+.learn-slide.is-sage [style*='display:grid'] > [style*='flex-direction:column'],
+.learn-slide.is-sage [style*='display: grid'] > [style*='flex-direction: column'],
+.learn-slide.is-ink [style*='display:grid'] > [style*='flex-direction:column'],
+.learn-slide.is-ink [style*='display: grid'] > [style*='flex-direction: column'] {
+	background: rgba(245, 242, 236, 0.06);
+	border-color: rgba(245, 242, 236, 0.14);
+}
+
 /* Real accountant tables: a monospace wrapper that contains its own
    grid rows (journal entries, transaction lists). Add hairlines top &
    bottom for tabular structure. Standalone formulas in mono font (no
