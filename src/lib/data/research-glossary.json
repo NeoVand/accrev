@@ -6448,7 +6448,7 @@
       "definition": "An irrevocable trust into which the grantor transfers appreciating assets in exchange for the right to receive a fixed annuity for a term. Any growth above the IRS Section 7520 hurdle rate passes to remainder beneficiaries (typically children) gift-tax-free. 'Zeroed-out' GRATs minimize gift tax. Risk: grantor must outlive the term."
     },
     "fa": {
-      "term": "GRAT (تراست انواوتی نگه‌داشته‌شده توسط واگذارنده)",
+      "term": "GRAT (تراست مستمری نگه‌داشته‌شده توسط واگذارنده)",
       "definition": "تراست غیرقابل فسخی که واگذارنده دارایی‌های در حال رشد را به آن منتقل می‌کند و در ازای آن مستمری ثابتی برای مدت معین دریافت می‌کند. هرگونه رشد بیش از نرخ آستانهٔ IRS (ماده 7520) بدون مالیات هدیه به ذی‌نفعان باقیمانده (معمولاً فرزندان) منتقل می‌شود. GRATهای «صفرشده» مالیات هدیه را به حداقل می‌رسانند. ریسک: واگذارنده باید از مدت زنده بماند."
     },
     "cpaSection": "TCP",

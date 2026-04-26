@@ -3,7 +3,7 @@ import { db } from './db';
 
 const SEED_VERSION_KEY = 'accrev:seed-version';
 /** Bump this number when the glossary content changes to replay the upsert. */
-const SEED_VERSION = 3;
+const SEED_VERSION = 4;
 
 export async function seedIfNeeded(): Promise<void> {
 	const stored = Number(localStorage.getItem(SEED_VERSION_KEY) ?? '0');
