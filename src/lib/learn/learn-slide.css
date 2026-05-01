@@ -566,3 +566,59 @@
 	background: rgba(245, 242, 236, 0.06);
 	color: rgba(245, 242, 236, 0.78);
 }
+
+/* ─── Inline word-lookup links (subtle dotted underline) ──────────── */
+
+.learn-slide .word-lookup {
+	display: inline;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
+	cursor: pointer;
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	text-decoration-color: color-mix(in oklab, var(--accent) 45%, transparent);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 2px;
+	transition:
+		text-decoration-color 160ms ease,
+		color 160ms ease,
+		background-color 160ms ease;
+	-webkit-tap-highlight-color: transparent;
+}
+.learn-slide .word-lookup:hover {
+	color: var(--accent);
+	text-decoration-color: var(--accent);
+	text-decoration-style: solid;
+}
+.learn-slide .word-lookup:focus-visible {
+	outline: 2px solid color-mix(in oklab, var(--accent) 60%, transparent);
+	outline-offset: 2px;
+	border-radius: 3px;
+}
+/* Don't compete with explicitly-styled spans inside the slide
+   (e.g. <strong> already in accent color). Let those win. */
+.learn-slide strong .word-lookup,
+.learn-slide em .word-lookup {
+	color: inherit;
+}
+
+/* On dark variants, soften the underline color a touch so it doesn't
+   look harsh against cream text. */
+.learn-slide.is-navy .word-lookup,
+.learn-slide.is-tan .word-lookup,
+.learn-slide.is-sage .word-lookup,
+.learn-slide.is-ink .word-lookup {
+	text-decoration-color: rgba(245, 242, 236, 0.4);
+}
+.learn-slide.is-navy .word-lookup:hover,
+.learn-slide.is-tan .word-lookup:hover,
+.learn-slide.is-sage .word-lookup:hover,
+.learn-slide.is-ink .word-lookup:hover {
+	color: #faf4e8;
+	text-decoration-color: #faf4e8;
+}

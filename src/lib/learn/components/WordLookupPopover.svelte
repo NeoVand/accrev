@@ -13,7 +13,7 @@
 	};
 
 	const { hit, anchor, onclose }: Props = $props();
-	const term = $derived(hit.term);
+	const entry = $derived(hit.entry);
 	const lemmaNote = $derived(
 		hit.matchedAs !== hit.original.toLowerCase() ? hit.matchedAs : null
 	);
@@ -31,28 +31,27 @@
 		const w = rect.width;
 		const h = rect.height;
 
-		// Prefer below the selection; flip up if not enough room.
 		let top = anchor.bottom + arrowH;
-		let placement: 'below' | 'above' = 'below';
 		if (top + h + padding > vh && anchor.top > h + arrowH + padding) {
 			top = anchor.top - h - arrowH;
-			placement = 'above';
 		}
 
-		// Center horizontally on the selection, clamp to viewport.
 		const anchorCx = anchor.left + anchor.width / 2;
 		let left = anchorCx - w / 2;
 		left = Math.max(padding, Math.min(left, vw - w - padding));
 
-		style = `top: ${top + window.scrollY}px; left: ${left + window.scrollX}px; --placement: ${placement};`;
+		style = `top: ${top + window.scrollY}px; left: ${left + window.scrollX}px;`;
 	}
 
 	onMount(async () => {
 		await tick();
+		// Two-pass position: first to put the popover in the document so its
+		// bounding rect is real, then again on the next frame in case the
+		// initial render produced a stale measurement.
 		position();
-		const onScroll = () => onclose();
+		const raf = requestAnimationFrame(() => position());
+
 		const onResize = () => position();
-		window.addEventListener('scroll', onScroll, { passive: true, capture: true });
 		window.addEventListener('resize', onResize);
 
 		const onKey = (e: KeyboardEvent) => {
@@ -60,17 +59,20 @@
 		};
 		window.addEventListener('keydown', onKey);
 
+		// Click-outside dismissal — but only on a real pointer event that
+		// originates outside the popover. Scrolling does NOT close: the
+		// popover is positioned in document coordinates so it travels with
+		// the page, and the user's only reliable way to dismiss is the
+		// × button (or Esc).
 		const onPointer = (e: PointerEvent) => {
 			if (popoverEl && !popoverEl.contains(e.target as Node)) onclose();
 		};
-		// Defer adding the dismiss listener until after the current event loop —
-		// otherwise the same dblclick that opened the popover would close it.
 		const handle = setTimeout(() => {
 			window.addEventListener('pointerdown', onPointer);
 		}, 0);
 
 		return () => {
-			window.removeEventListener('scroll', onScroll, true);
+			cancelAnimationFrame(raf);
 			window.removeEventListener('resize', onResize);
 			window.removeEventListener('keydown', onKey);
 			window.removeEventListener('pointerdown', onPointer);
@@ -84,19 +86,19 @@
 	class="word-popover"
 	style={style}
 	role="dialog"
-	aria-label={term.en.term}
+	aria-label={entry.enTerm}
 	dir="ltr"
 	in:fly={{ y: 4, duration: 140 }}
 >
 	<div class="word-pop-head">
 		<div class="word-pop-term">
-			<span class="word-pop-en" dir="ltr">{term.en.term}</span>
-			{#if term.en.acronym && term.en.acronym !== term.en.term}
-				<span class="word-pop-acro" dir="ltr">{term.en.acronym}</span>
+			<span class="word-pop-en" dir="ltr">{entry.enTerm}</span>
+			{#if entry.enAcronym && entry.enAcronym !== entry.enTerm}
+				<span class="word-pop-acro" dir="ltr">{entry.enAcronym}</span>
 			{/if}
 		</div>
 		<div class="word-pop-actions">
-			<PronounceButton text={term.en.term} class="word-pop-speaker" />
+			<PronounceButton text={entry.enTerm} class="word-pop-speaker" />
 			<button type="button" class="word-pop-close" onclick={onclose} aria-label={t('close')} title={t('close')}>
 				<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
 					<path d="M6 6l12 12M6 18L18 6" />
@@ -109,33 +111,35 @@
 		<p class="word-pop-lemma" dir="ltr">{t('lookup_root_form', lemmaNote)}</p>
 	{/if}
 
-	{#if term.en.expansion}
-		<p class="word-pop-expansion" dir="ltr">{term.en.expansion}</p>
+	{#if entry.enExpansion}
+		<p class="word-pop-expansion" dir="ltr">{entry.enExpansion}</p>
 	{/if}
 
-	<p class="word-pop-en-def" dir="ltr">{term.en.definition}</p>
+	<p class="word-pop-en-def" dir="ltr">{entry.enDefinition}</p>
 
-	{#if term.fa.term || term.fa.definition}
+	{#if entry.faTerm || entry.faDefinition}
 		<div class="word-pop-fa">
-			{#if term.fa.term}
-				<p class="word-pop-fa-term" dir="rtl">{term.fa.term}</p>
+			{#if entry.faTerm}
+				<p class="word-pop-fa-term" dir="rtl">{entry.faTerm}</p>
 			{/if}
-			{#if term.fa.definition}
-				<p class="word-pop-fa-def" dir="rtl">{term.fa.definition}</p>
+			{#if entry.faDefinition}
+				<p class="word-pop-fa-def" dir="rtl">{entry.faDefinition}</p>
 			{/if}
 		</div>
 	{/if}
 
-	<a
-		class="word-pop-link"
-		href={resolve(`/word/${term.slug}` as never)}
-		dir={i18n.lang === 'fa' ? 'rtl' : 'ltr'}
-	>
-		{t('lookup_open_card')}
-		<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-			<path d="M9 6l6 6-6 6" />
-		</svg>
-	</a>
+	{#if entry.source === 'glossary' && entry.slug}
+		<a
+			class="word-pop-link"
+			href={resolve(`/word/${entry.slug}` as never)}
+			dir={i18n.lang === 'fa' ? 'rtl' : 'ltr'}
+		>
+			{t('lookup_open_card')}
+			<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+				<path d="M9 6l6 6-6 6" />
+			</svg>
+		</a>
+	{/if}
 </div>
 
 <style>

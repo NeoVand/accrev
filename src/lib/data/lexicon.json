@@ -1,0 +1,927 @@
+{
+  "equity": {
+    "term": "Equity",
+    "definition": "The owners' residual claim on a company's assets after subtracting liabilities. Equity = Assets − Liabilities.",
+    "fa": { "term": "حقوق صاحبان سهام", "definition": "ادعای باقی‌ماندهٔ مالکان از دارایی‌های شرکت پس از کسر بدهی‌ها. حقوق صاحبان سهام = دارایی‌ها − بدهی‌ها." }
+  },
+  "resource": {
+    "term": "Resource",
+    "definition": "Anything controlled by the business that can produce future economic benefit — cash, inventory, equipment, receivables.",
+    "fa": { "term": "منبع", "definition": "هر چیزی که شرکت کنترل می‌کند و می‌تواند منفعت اقتصادی آینده ایجاد کند — نقد، موجودی، تجهیزات، مطالبات." }
+  },
+  "ledger": {
+    "term": "Ledger",
+    "definition": "The collection of all accounts where transactions are posted and balances accumulate. The general ledger is the master record of every account.",
+    "fa": { "term": "دفتر کل", "definition": "مجموعهٔ همهٔ حساب‌ها که معاملات در آن ثبت و مانده‌ها انباشته می‌شود. دفتر کل، سند مرجع همهٔ حساب‌هاست." }
+  },
+  "balance": {
+    "term": "Balance",
+    "definition": "The amount currently in an account, after netting all increases and decreases. Also: the act of making total debits equal total credits.",
+    "fa": { "term": "مانده", "definition": "مبلغ فعلی یک حساب پس از خالص‌سازی همهٔ افزایش‌ها و کاهش‌ها. همچنین به‌معنای تراز کردن — برابر شدن جمع بدهکار و بستانکار." }
+  },
+  "income": {
+    "term": "Income",
+    "definition": "Earnings — the difference between revenue earned and expenses incurred over a period. Also called profit or net income.",
+    "fa": { "term": "درآمد / سود", "definition": "تفاوت بین درآمد کسب‌شده و هزینه‌های واقع‌شده در یک دوره. به آن سود یا سود خالص هم می‌گویند." }
+  },
+  "statement": {
+    "term": "Statement",
+    "definition": "A formal financial report — the income statement, balance sheet, and cash flow statement are the three main statements.",
+    "fa": { "term": "صورت مالی", "definition": "گزارش مالی رسمی — صورت سود و زیان، ترازنامه، و صورت جریان وجوه نقد سه صورت اصلی هستند." }
+  },
+  "cash": {
+    "term": "Cash",
+    "definition": "Money the business holds — physical currency plus bank deposits available immediately. The most liquid asset.",
+    "fa": { "term": "وجه نقد", "definition": "پولی که شرکت در اختیار دارد — اسکناس و سپردهٔ بانکی که فوراً قابل برداشت است. نقدشونده‌ترین دارایی." }
+  },
+  "inventory": {
+    "term": "Inventory",
+    "definition": "Goods the company holds to sell, or raw materials and work-in-progress that will become saleable goods. An asset on the balance sheet.",
+    "fa": { "term": "موجودی کالا", "definition": "کالاهای موجود برای فروش، یا مواد خام و کار در جریان ساخت که در نهایت قابل فروش خواهند بود. در ترازنامه به‌عنوان دارایی ثبت می‌شود." }
+  },
+  "net": {
+    "term": "Net",
+    "definition": "After deductions — net income is revenue minus expenses; net assets is assets minus liabilities. The 'final' figure after subtraction.",
+    "fa": { "term": "خالص", "definition": "پس از کسر شدن — سود خالص = درآمد منهای هزینه‌ها؛ دارایی خالص = دارایی‌ها منهای بدهی‌ها. عدد «نهایی» پس از تفریق." }
+  },
+  "total": {
+    "term": "Total",
+    "definition": "The sum of values in a column or category — total assets, total revenue, total expenses.",
+    "fa": { "term": "جمع کل", "definition": "حاصل جمع مقادیر یک ستون یا دسته — جمع کل دارایی‌ها، جمع کل درآمدها، جمع کل هزینه‌ها." }
+  },
+  "pitfall": {
+    "term": "Pitfall",
+    "definition": "A common mistake or misconception. The deck flags pitfalls so you can avoid them.",
+    "fa": { "term": "خطای متداول", "definition": "اشتباه یا تصور نادرستی که اغلب رخ می‌دهد. این کتاب چنین خطاهایی را علامت می‌زند تا از آن‌ها پرهیز کنی." }
+  },
+  "operating": {
+    "term": "Operating",
+    "definition": "Related to the core business activities — operating revenue, operating expenses, operating cash flow. Distinct from financing or investing activity.",
+    "fa": { "term": "عملیاتی", "definition": "مربوط به فعالیت اصلی کسب‌وکار — درآمد عملیاتی، هزینهٔ عملیاتی، جریان نقد عملیاتی. متفاوت از فعالیت‌های تأمین مالی یا سرمایه‌گذاری." }
+  },
+  "entry": {
+    "term": "Entry",
+    "definition": "A single recorded transaction in the journal, with a debit and a credit. Each entry must balance.",
+    "fa": { "term": "ثبت", "definition": "یک معاملهٔ ثبت‌شده در دفتر روزنامه با یک طرف بدهکار و یک طرف بستانکار. هر ثبت باید تراز باشد." }
+  },
+  "step": {
+    "term": "Step",
+    "definition": "One stage in a multi-stage process — the five-step revenue model has five steps you walk through in order.",
+    "fa": { "term": "مرحله / گام", "definition": "یکی از مراحل یک فرآیند چندمرحله‌ای — مدل پنج‌مرحله‌ای شناسایی درآمد، پنج گام دارد که به ترتیب طی می‌شود." }
+  },
+  "sale": {
+    "term": "Sale",
+    "definition": "A transfer of goods or services to a customer for payment. The basis of revenue recognition.",
+    "fa": { "term": "فروش", "definition": "انتقال کالا یا خدمت به مشتری در ازای پرداخت. مبنای شناسایی درآمد." }
+  },
+  "earning": {
+    "term": "Earnings",
+    "definition": "Profit. The income left after all expenses, taxes, and interest are subtracted from revenue.",
+    "fa": { "term": "سود / عایدی", "definition": "سود — آنچه از درآمد پس از کسر همهٔ هزینه‌ها، مالیات و بهره باقی می‌ماند." }
+  },
+  "earnings": {
+    "term": "Earnings",
+    "definition": "Profit. The income left after all expenses, taxes, and interest are subtracted from revenue.",
+    "fa": { "term": "سود / عایدی", "definition": "سود — آنچه از درآمد پس از کسر همهٔ هزینه‌ها، مالیات و بهره باقی می‌ماند." }
+  },
+  "dividend": {
+    "term": "Dividend",
+    "definition": "A cash payment from the company to shareholders, distributed from retained earnings. Reduces equity but is not an expense.",
+    "fa": { "term": "سود سهام", "definition": "پرداخت نقدی شرکت به سهام‌داران از محل سود انباشته. حقوق صاحبان سهام را کاهش می‌دهد اما هزینه محسوب نمی‌شود." }
+  },
+  "debt": {
+    "term": "Debt",
+    "definition": "Money the company owes — bank loans, bonds, notes payable. A liability that must be repaid.",
+    "fa": { "term": "بدهی", "definition": "مبالغی که شرکت بدهکار است — وام بانکی، اوراق قرضه، اسناد پرداختنی. تعهدی که باید بازپرداخت شود." }
+  },
+  "credit": {
+    "term": "Credit",
+    "definition": "The right side of a journal entry. Credits increase liabilities, equity, and revenue; they decrease assets and expenses.",
+    "fa": { "term": "بستانکار", "definition": "سمت راست (یا ستون چپ) ثبت در دفتر روزنامه. بستانکار، بدهی، حقوق صاحبان سهام و درآمد را افزایش می‌دهد و دارایی و هزینه را کاهش." }
+  },
+  "debit": {
+    "term": "Debit",
+    "definition": "The left side of a journal entry. Debits increase assets and expenses; they decrease liabilities, equity, and revenue.",
+    "fa": { "term": "بدهکار", "definition": "سمت چپ (یا ستون راست) ثبت در دفتر روزنامه. بدهکار، دارایی و هزینه را افزایش می‌دهد و بدهی، حقوق صاحبان سهام و درآمد را کاهش." }
+  },
+  "cost": {
+    "term": "Cost",
+    "definition": "What was paid (or owed) to acquire something. Costs become expenses when consumed or sold.",
+    "fa": { "term": "بهای تمام‌شده / هزینه", "definition": "آنچه برای کسب چیزی پرداخت یا تعهد شده. وقتی مصرف یا فروخته شود، به هزینه تبدیل می‌شود." }
+  },
+  "profit": {
+    "term": "Profit",
+    "definition": "Revenue minus the costs of producing it. Gross profit subtracts cost of goods sold; net profit subtracts all expenses.",
+    "fa": { "term": "سود", "definition": "درآمد منهای هزینه‌های ایجاد آن. سود ناخالص = درآمد منهای بهای تمام‌شدهٔ کالای فروش‌رفته؛ سود خالص = درآمد منهای همهٔ هزینه‌ها." }
+  },
+  "retained": {
+    "term": "Retained earnings",
+    "definition": "Cumulative profits the company has kept (not paid out as dividends). A component of equity that grows over time.",
+    "fa": { "term": "سود انباشته", "definition": "مجموع سودهایی که شرکت نگه داشته و به‌صورت سود سهام پرداخت نکرده. جزئی از حقوق صاحبان سهام که در طول زمان رشد می‌کند." }
+  },
+  "note": {
+    "term": "Note",
+    "definition": "A written promise to pay — notes payable are short- or long-term debts evidenced by a note. Also: footnotes to financial statements.",
+    "fa": { "term": "سند", "definition": "تعهد کتبی پرداخت — اسناد پرداختنی، بدهی‌های کوتاه‌مدت یا بلندمدتی هستند که با سند مستند می‌شوند. همچنین به‌معنای یادداشت همراه صورت‌های مالی." }
+  },
+  "payable": {
+    "term": "Payable",
+    "definition": "Owed by the company to others — accounts payable, notes payable, taxes payable. A liability awaiting payment.",
+    "fa": { "term": "پرداختنی", "definition": "مبلغی که شرکت به دیگران بدهکار است — حساب‌های پرداختنی، اسناد پرداختنی، مالیات پرداختنی. بدهی در انتظار پرداخت." }
+  },
+  "equipment": {
+    "term": "Equipment",
+    "definition": "Long-lived physical assets used to run the business — machinery, computers, vehicles. Depreciated over their useful life.",
+    "fa": { "term": "تجهیزات", "definition": "دارایی‌های فیزیکی بلندمدت که برای ادارهٔ کسب‌وکار استفاده می‌شوند — ماشین‌آلات، رایانه، خودرو. در طول عمر مفید استهلاک می‌گیرند." }
+  },
+  "lease": {
+    "term": "Lease",
+    "definition": "A contract to use an asset (building, equipment, vehicle) for a period in exchange for payments. Recognized on the balance sheet under modern standards.",
+    "fa": { "term": "اجاره / قرارداد اجاره", "definition": "قرارداد استفاده از یک دارایی (ساختمان، تجهیزات، خودرو) در یک دوره در ازای پرداخت. در استانداردهای مدرن در ترازنامه شناسایی می‌شود." }
+  },
+  "book": {
+    "term": "Books",
+    "definition": "The company's accounting records — collectively, the journals, ledgers, and statements. 'On the books' means recorded.",
+    "fa": { "term": "دفاتر / دفاتر حسابداری", "definition": "اسناد و سوابق حسابداری شرکت — مجموعاً دفاتر روزنامه، کل، و صورت‌های مالی. «در دفاتر» یعنی ثبت‌شده." }
+  },
+  "margin": {
+    "term": "Margin",
+    "definition": "Profit as a percentage of revenue. Gross margin = (Revenue − COGS) / Revenue. Higher is generally better.",
+    "fa": { "term": "حاشیه", "definition": "سود به‌صورت درصدی از درآمد. حاشیهٔ ناخالص = (درآمد − بهای تمام‌شدهٔ کالای فروش‌رفته) / درآمد. معمولاً هرچه بالاتر، بهتر." }
+  },
+  "company": {
+    "term": "Company",
+    "definition": "A business entity. In accounting, the company is the unit whose finances are tracked separately from owners.",
+    "fa": { "term": "شرکت", "definition": "یک نهاد تجاری. در حسابداری، شرکت واحدی است که امور مالی آن جدا از مالکان دنبال می‌شود." }
+  },
+  "wage": {
+    "term": "Wages",
+    "definition": "Pay to workers, typically calculated by hour or task. Wage expense reduces income; wages payable is a liability until paid.",
+    "fa": { "term": "دستمزد", "definition": "پرداخت به کارگران، معمولاً ساعتی یا کاری. هزینهٔ دستمزد سود را کاهش می‌دهد؛ دستمزد پرداختنی تا زمان پرداخت یک بدهی است." }
+  },
+  "wages": {
+    "term": "Wages",
+    "definition": "Pay to workers, typically calculated by hour or task. Wage expense reduces income; wages payable is a liability until paid.",
+    "fa": { "term": "دستمزد", "definition": "پرداخت به کارگران، معمولاً ساعتی یا کاری. هزینهٔ دستمزد سود را کاهش می‌دهد؛ دستمزد پرداختنی تا زمان پرداخت یک بدهی است." }
+  },
+  "current": {
+    "term": "Current",
+    "definition": "Due within one year. Current assets convert to cash within 12 months; current liabilities must be paid within 12 months.",
+    "fa": { "term": "جاری", "definition": "موعدش طی یک سال است. دارایی‌های جاری ظرف ۱۲ ماه به نقد تبدیل می‌شوند؛ بدهی‌های جاری باید ظرف ۱۲ ماه پرداخت شوند." }
+  },
+  "prepaid": {
+    "term": "Prepaid",
+    "definition": "Paid in advance — prepaid rent, prepaid insurance. An asset until consumed, then expensed.",
+    "fa": { "term": "پیش‌پرداخت‌شده", "definition": "از پیش پرداخت‌شده — اجارهٔ پیش‌پرداخت، بیمهٔ پیش‌پرداخت. تا زمان مصرف یک دارایی است و سپس به هزینه تبدیل می‌شود." }
+  },
+  "gross": {
+    "term": "Gross",
+    "definition": "Before deductions. Gross revenue is total sales; gross profit is revenue minus direct costs but before operating expenses.",
+    "fa": { "term": "ناخالص", "definition": "پیش از کسر شدن. درآمد ناخالص یعنی کل فروش؛ سود ناخالص یعنی درآمد منهای هزینه‌های مستقیم اما پیش از هزینه‌های عملیاتی." }
+  },
+  "month": {
+    "term": "Month",
+    "definition": "Calendar month. Many accruals and adjustments are recognized monthly so the income statement reflects each period accurately.",
+    "fa": { "term": "ماه", "definition": "ماه تقویمی. بسیاری از تعهدی‌ها و ثبت‌های اصلاحی ماهانه شناسایی می‌شوند تا صورت سود و زیان هر دوره را دقیق نشان دهد." }
+  },
+  "side": {
+    "term": "Side",
+    "definition": "Either the debit (left) or credit (right) of an account. Every transaction touches two sides — that's why bookkeeping is double-entry.",
+    "fa": { "term": "طرف", "definition": "یا طرف بدهکار (چپ) یا طرف بستانکار (راست) یک حساب. هر معامله دو طرف دارد — به همین دلیل دفترداری دوطرفه است." }
+  },
+  "ratio": {
+    "term": "Ratio",
+    "definition": "A relationship between two numbers, usually a division. Financial ratios — current ratio, debt-to-equity — turn statements into comparisons.",
+    "fa": { "term": "نسبت", "definition": "رابطه بین دو عدد، معمولاً به‌صورت تقسیم. نسبت‌های مالی — نسبت جاری، نسبت بدهی به حقوق صاحبان سهام — صورت‌ها را قابل مقایسه می‌کنند." }
+  },
+  "flow": {
+    "term": "Flow",
+    "definition": "Movement of money over time. Cash flow tracks money in and out across operating, investing, and financing activities.",
+    "fa": { "term": "جریان", "definition": "حرکت پول در طول زمان. جریان وجوه نقد ورود و خروج پول را در فعالیت‌های عملیاتی، سرمایه‌گذاری، و تأمین مالی دنبال می‌کند." }
+  },
+  "paid": {
+    "term": "Paid",
+    "definition": "Cash has actually left the business. Paid is different from incurred — you can incur an expense in March and pay in April.",
+    "fa": { "term": "پرداخت‌شده", "definition": "پول واقعاً از شرکت خارج شده. پرداخت‌شده با واقع‌شده فرق دارد — ممکن است هزینه‌ای در فروردین واقع شود اما در اردیبهشت پرداخت گردد." }
+  },
+  "period": {
+    "term": "Period",
+    "definition": "An accounting timeframe — a month, quarter, or year. The income statement and cash flow statement cover a period; the balance sheet captures a moment.",
+    "fa": { "term": "دوره", "definition": "بازهٔ زمانی حسابداری — یک ماه، فصل یا سال. صورت سود و زیان و صورت جریان وجوه نقد یک دوره را پوشش می‌دهند؛ ترازنامه یک لحظه را." }
+  },
+  "accrued": {
+    "term": "Accrued",
+    "definition": "Already incurred but not yet paid (or earned but not yet received). Accrued expenses and accrued revenue appear on the balance sheet at period end.",
+    "fa": { "term": "تعهدشده / تحقق‌یافته", "definition": "واقع‌شده اما هنوز پرداخت‌نشده (یا کسب‌شده اما هنوز دریافت‌نشده). هزینه‌های تعهدی و درآمدهای تحقق‌یافته در ترازنامهٔ پایان دوره ظاهر می‌شوند." }
+  },
+  "accrue": {
+    "term": "Accrue",
+    "definition": "To recognize an expense or revenue when it happens economically, not when cash moves. The basis of accrual accounting.",
+    "fa": { "term": "تعهدی شناسایی کردن", "definition": "شناسایی هزینه یا درآمد در زمان وقوع اقتصادی، نه در زمان جابه‌جایی نقد. اساس حسابداری تعهدی." }
+  },
+  "accrual": {
+    "term": "Accrual",
+    "definition": "Recognition of an expense or revenue before cash settles. Accrual accounting matches revenue to the period it was earned.",
+    "fa": { "term": "تعهدی", "definition": "شناسایی هزینه یا درآمد پیش از تسویهٔ نقدی. حسابداری تعهدی، درآمد را با دوره‌ای که در آن کسب شده تطابق می‌دهد." }
+  },
+  "sheet": {
+    "term": "Sheet",
+    "definition": "Short for balance sheet — the snapshot of assets, liabilities, and equity at a moment in time.",
+    "fa": { "term": "صورت / ترازنامه", "definition": "کوتاه‌شدهٔ «balance sheet» — ترازنامه؛ تصویری لحظه‌ای از دارایی‌ها، بدهی‌ها و حقوق صاحبان سهام." }
+  },
+  "capital": {
+    "term": "Capital",
+    "definition": "Money invested in the business. Contributed capital is what owners put in; working capital is current assets minus current liabilities.",
+    "fa": { "term": "سرمایه", "definition": "وجوه سرمایه‌گذاری‌شده در کسب‌وکار. سرمایهٔ آورده، آنچه مالکان آورده‌اند؛ سرمایه در گردش = دارایی‌های جاری منهای بدهی‌های جاری." }
+  },
+  "receivable": {
+    "term": "Receivable",
+    "definition": "Money owed to the company by customers — accounts receivable. An asset that should turn into cash within payment terms.",
+    "fa": { "term": "دریافتنی", "definition": "مبلغی که مشتریان به شرکت بدهکارند — حساب‌های دریافتنی. دارایی‌ای که باید طبق شرایط پرداخت به نقد تبدیل شود." }
+  },
+  "rate": {
+    "term": "Rate",
+    "definition": "A ratio expressed per unit of time or input — interest rate, tax rate, depreciation rate.",
+    "fa": { "term": "نرخ", "definition": "نسبتی که برحسب واحد زمان یا ورودی بیان می‌شود — نرخ بهره، نرخ مالیات، نرخ استهلاک." }
+  },
+  "method": {
+    "term": "Method",
+    "definition": "A specific way of measuring something — depreciation method, inventory method. Choices that follow GAAP but differ in their numbers.",
+    "fa": { "term": "روش", "definition": "شیوهٔ خاص اندازه‌گیری — روش استهلاک، روش موجودی. انتخاب‌هایی که با GAAP سازگارند اما اعدادشان فرق می‌کند." }
+  },
+  "common": {
+    "term": "Common",
+    "definition": "Common stock is the standard ownership share — voting rights, dividend after preferred holders, last in line on liquidation.",
+    "fa": { "term": "عادی", "definition": "سهام عادی، سهم متعارف مالکیت — حق رأی دارد، سود سهام بعد از سهام ممتاز، در انحلال آخرین در صف." }
+  },
+  "stock": {
+    "term": "Stock",
+    "definition": "An ownership share in a corporation. Issuing stock raises equity; buying back stock reduces it.",
+    "fa": { "term": "سهام", "definition": "سهم مالکیت در یک شرکت سهامی. انتشار سهام، حقوق صاحبان سهام را افزایش می‌دهد و بازخرید آن کاهش." }
+  },
+  "increase": {
+    "term": "Increase",
+    "definition": "To go up. In bookkeeping, every account has a 'normal' side that increases the balance — debit for assets, credit for liabilities.",
+    "fa": { "term": "افزایش", "definition": "بالا رفتن. در دفترداری، هر حساب یک طرف «عادی» دارد که مانده را زیاد می‌کند — بدهکار برای دارایی، بستانکار برای بدهی." }
+  },
+  "interest": {
+    "term": "Interest",
+    "definition": "The cost of borrowing money — what a lender charges. Interest expense reduces income; interest revenue increases it.",
+    "fa": { "term": "بهره", "definition": "هزینهٔ قرض گرفتن پول — آنچه قرض‌دهنده دریافت می‌کند. هزینهٔ بهره سود را کم می‌کند و درآمد بهره آن را زیاد." }
+  },
+  "accounting": {
+    "term": "Accounting",
+    "definition": "The system of recording, classifying, and reporting a business's financial transactions.",
+    "fa": { "term": "حسابداری", "definition": "نظام ثبت، طبقه‌بندی، و گزارش‌دهی معاملات مالی یک کسب‌وکار." }
+  },
+  "earned": {
+    "term": "Earned",
+    "definition": "Revenue is earned when the company has delivered the goods or services — regardless of whether cash has been received.",
+    "fa": { "term": "کسب‌شده", "definition": "درآمد زمانی کسب می‌شود که شرکت کالا یا خدمت را تحویل داده باشد — صرف‌نظر از اینکه پول دریافت شده یا نه." }
+  },
+  "firm": {
+    "term": "Firm",
+    "definition": "Another word for company or business entity, common in corporate-finance contexts.",
+    "fa": { "term": "بنگاه", "definition": "واژهٔ دیگری برای شرکت یا واحد تجاری، رایج در بحث‌های مالی شرکتی." }
+  },
+  "customer": {
+    "term": "Customer",
+    "definition": "The buyer of the company's goods or services. Revenue is earned from a customer; receivables represent customers who haven't paid yet.",
+    "fa": { "term": "مشتری", "definition": "خریدار کالا یا خدمت شرکت. درآمد از مشتری به‌دست می‌آید؛ مطالبات نمایندهٔ مشتریانی هستند که هنوز پول نداده‌اند." }
+  },
+  "tax": {
+    "term": "Tax",
+    "definition": "Money paid to the government — income tax, sales tax, payroll tax. An expense that reduces net income.",
+    "fa": { "term": "مالیات", "definition": "پولی که به دولت پرداخت می‌شود — مالیات بر درآمد، بر فروش، بر حقوق. هزینه‌ای که سود خالص را کاهش می‌دهد." }
+  },
+  "financing": {
+    "term": "Financing",
+    "definition": "Activities that change how the business is funded — issuing debt or stock, paying dividends, repaying loans. One section of the cash flow statement.",
+    "fa": { "term": "تأمین مالی", "definition": "فعالیت‌هایی که نحوهٔ تأمین مالی کسب‌وکار را تغییر می‌دهند — انتشار بدهی یا سهام، پرداخت سود سهام، بازپرداخت وام. یک بخش از صورت جریان وجوه نقد." }
+  },
+  "investing": {
+    "term": "Investing",
+    "definition": "Buying or selling long-lived assets — equipment, buildings, securities. The middle section of the cash flow statement.",
+    "fa": { "term": "سرمایه‌گذاری", "definition": "خرید یا فروش دارایی‌های بلندمدت — تجهیزات، ساختمان، اوراق بهادار. بخش میانی صورت جریان وجوه نقد." }
+  },
+  "transaction": {
+    "term": "Transaction",
+    "definition": "An economic event recorded in the books — a sale, a purchase, a payment, a loan. Each transaction has a debit and a credit.",
+    "fa": { "term": "معامله", "definition": "رویداد اقتصادی ثبت‌شده در دفاتر — فروش، خرید، پرداخت، وام. هر معامله یک طرف بدهکار و یک طرف بستانکار دارد." }
+  },
+  "rent": {
+    "term": "Rent",
+    "definition": "Payment for use of property, typically office space or equipment. Rent expense reduces income each period it covers.",
+    "fa": { "term": "اجاره", "definition": "پرداخت برای استفاده از ملک، معمولاً فضای اداری یا تجهیزات. هزینهٔ اجاره در هر دوره‌ای که آن را پوشش می‌دهد، سود را کم می‌کند." }
+  },
+  "summary": {
+    "term": "Summary",
+    "definition": "A condensed version that captures the key points. Each part of the deck ends with a summary.",
+    "fa": { "term": "خلاصه", "definition": "نسخهٔ فشرده که نکات کلیدی را در بر می‌گیرد. هر بخش این کتاب با یک خلاصه تمام می‌شود." }
+  },
+  "salvage": {
+    "term": "Salvage value",
+    "definition": "The estimated amount the company expects to recover at the end of an asset's useful life. Subtracted before computing depreciation.",
+    "fa": { "term": "ارزش اسقاط", "definition": "مبلغ تخمینی که انتظار می‌رود در پایان عمر مفید دارایی بازیافت شود. پیش از محاسبهٔ استهلاک از بهای تمام‌شده کسر می‌شود." }
+  },
+  "leverage": {
+    "term": "Leverage",
+    "definition": "Use of debt to amplify returns. High leverage magnifies both gains and losses; ratios like debt-to-equity measure it.",
+    "fa": { "term": "اهرم مالی", "definition": "استفاده از بدهی برای بزرگ‌نمایی بازده. اهرم بالا، هم سود و هم زیان را تشدید می‌کند؛ نسبت‌هایی مثل بدهی به حقوق صاحبان سهام آن را اندازه می‌گیرند." }
+  },
+  "ledg": {
+    "term": "Ledger",
+    "definition": "The collection of all accounts where transactions are posted and balances accumulate. The general ledger is the master record.",
+    "fa": { "term": "دفتر کل", "definition": "مجموعهٔ همهٔ حساب‌ها که معاملات در آن ثبت و مانده‌ها انباشته می‌شود. دفتر کل، سند مرجع همهٔ حساب‌هاست." }
+  },
+  "business": {
+    "term": "Business",
+    "definition": "A commercial enterprise — the activity of producing or selling goods and services for profit.",
+    "fa": { "term": "کسب‌وکار", "definition": "یک بنگاه تجاری — فعالیت تولید یا فروش کالا و خدمات برای سود." }
+  },
+  "ending": {
+    "term": "Ending",
+    "definition": "Closing — ending balance is the amount in an account at the end of a period, after all the period's activity is recorded.",
+    "fa": { "term": "پایانی", "definition": "اختتامی — ماندهٔ پایانی یعنی مبلغ یک حساب در انتهای دوره، پس از ثبت همهٔ فعالیت‌های آن دوره." }
+  },
+  "example": {
+    "term": "Example",
+    "definition": "A worked illustration with concrete numbers. Each lecture slide includes an example so the rule isn't just abstract.",
+    "fa": { "term": "مثال", "definition": "یک نمونهٔ حل‌شده با اعداد واقعی. هر اسلاید درس مثالی دارد تا قاعده انتزاعی نماند." }
+  },
+  "journal": {
+    "term": "Journal",
+    "definition": "The chronological log of every transaction with its debit and credit. Posted from there to the ledger.",
+    "fa": { "term": "دفتر روزنامه", "definition": "گزارش زمانی همهٔ معاملات با طرف‌های بدهکار و بستانکار. از این دفتر به دفتر کل منتقل می‌شود." }
+  },
+  "matter": {
+    "term": "Matters",
+    "definition": "Is significant. The 'why it matters' callout on each slide explains why the concept actually shows up in real-world accounting.",
+    "fa": { "term": "اهمیت دارد", "definition": "مهم است. کادر «چرا اهمیت دارد» در هر اسلاید توضیح می‌دهد چرا این مفهوم واقعاً در حسابداری دنیای واقعی به کار می‌آید." }
+  },
+  "value": {
+    "term": "Value",
+    "definition": "What something is worth. Book value is the carrying amount on the balance sheet; fair value is what it would sell for.",
+    "fa": { "term": "ارزش", "definition": "آنچه چیزی می‌ارزد. ارزش دفتری، مبلغ ثبت‌شده در ترازنامه است؛ ارزش منصفانه، آنچه در فروش به‌دست می‌آید." }
+  },
+  "trial": {
+    "term": "Trial balance",
+    "definition": "A working-paper that lists every ledger account and its balance. Used to check that total debits equal total credits before preparing statements.",
+    "fa": { "term": "تراز آزمایشی", "definition": "کاربرگی که همهٔ حساب‌های دفتر کل و مانده‌هایشان را فهرست می‌کند. برای بررسی برابری جمع بدهکار با جمع بستانکار، پیش از تهیهٔ صورت‌های مالی." }
+  },
+  "adjusting": {
+    "term": "Adjusting entry",
+    "definition": "An entry made at period end to recognize accruals, deferrals, or estimates that the routine bookkeeping missed.",
+    "fa": { "term": "ثبت اصلاحی", "definition": "ثبتی که در پایان دوره برای شناسایی تعهدی‌ها، انتقالی‌ها یا برآوردهایی که در دفترداری روزمره از قلم افتاده، انجام می‌شود." }
+  },
+  "matching": {
+    "term": "Matching principle",
+    "definition": "The rule that expenses are recorded in the same period as the revenues they helped produce. The reason accruals exist.",
+    "fa": { "term": "اصل تطابق", "definition": "قاعده‌ای که می‌گوید هزینه‌ها در همان دوره‌ای ثبت شوند که درآمد مرتبط با آن‌ها شناسایی شده. علت وجودی حسابداری تعهدی." }
+  },
+  "match": {
+    "term": "Match",
+    "definition": "Pair an expense with the revenue it produced, in the same accounting period. Core idea behind accrual accounting.",
+    "fa": { "term": "تطابق دادن", "definition": "هم‌نشین کردن هزینه با درآمدی که ایجاد کرده، در یک دورهٔ حسابداری. ایدهٔ اصلی حسابداری تعهدی." }
+  },
+  "long-term": {
+    "term": "Long-term",
+    "definition": "Beyond one year. Long-term assets and liabilities aren't expected to convert to cash or come due within 12 months.",
+    "fa": { "term": "بلندمدت", "definition": "بیش از یک سال. دارایی‌ها و بدهی‌های بلندمدت در ۱۲ ماه آینده به نقد تبدیل یا سررسید نمی‌شوند." }
+  },
+  "insurance": {
+    "term": "Insurance",
+    "definition": "A contract that protects against loss. Insurance prepaid for future months sits on the balance sheet until consumed.",
+    "fa": { "term": "بیمه", "definition": "قراردادی که در برابر زیان محافظت می‌کند. بیمهٔ پیش‌پرداخت برای ماه‌های آینده تا زمان مصرف در ترازنامه می‌ماند." }
+  },
+  "price": {
+    "term": "Price",
+    "definition": "The amount charged for a unit. Selling price minus cost is unit margin; price decisions drive revenue.",
+    "fa": { "term": "قیمت", "definition": "مبلغی که برای هر واحد دریافت می‌شود. قیمت فروش منهای بهای تمام‌شده، حاشیهٔ هر واحد است؛ تصمیمات قیمتی، درآمد را شکل می‌دهند." }
+  },
+  "risk": {
+    "term": "Risk",
+    "definition": "The chance that actual outcomes differ from expected. Financial statements don't measure risk directly but analysis reveals it through ratios and trends.",
+    "fa": { "term": "ریسک", "definition": "احتمال انحراف نتایج واقعی از انتظار. صورت‌های مالی ریسک را مستقیم اندازه نمی‌گیرند اما تحلیل، آن را از طریق نسبت‌ها و روندها آشکار می‌کند." }
+  },
+  "allowance": {
+    "term": "Allowance",
+    "definition": "A reserve set aside against expected losses — most often, allowance for doubtful accounts (uncollectible receivables).",
+    "fa": { "term": "ذخیره", "definition": "ذخیره‌ای که در برابر زیان‌های پیش‌بینی‌شده کنار گذاشته می‌شود — رایج‌ترین، ذخیرهٔ مطالبات مشکوک‌الوصول." }
+  },
+  "supplier": {
+    "term": "Supplier",
+    "definition": "A vendor that provides goods or services to the company. Amounts owed to suppliers become accounts payable.",
+    "fa": { "term": "تأمین‌کننده", "definition": "فروشنده‌ای که کالا یا خدمت به شرکت تأمین می‌کند. مبالغ بدهکاری به تأمین‌کنندگان به حساب‌های پرداختنی تبدیل می‌شود." }
+  },
+  "estimate": {
+    "term": "Estimate",
+    "definition": "A reasoned guess at a number that can't be measured exactly — useful life, salvage value, bad-debt rate. Required by accrual accounting.",
+    "fa": { "term": "برآورد", "definition": "حدسی مستدل از عددی که دقیق قابل اندازه‌گیری نیست — عمر مفید، ارزش اسقاط، نرخ مطالبات سوخت‌شدنی. لازمهٔ حسابداری تعهدی." }
+  },
+  "growth": {
+    "term": "Growth",
+    "definition": "Increase over time, usually in revenue, earnings, or assets. Tracked year-over-year and quarter-over-quarter.",
+    "fa": { "term": "رشد", "definition": "افزایش در طول زمان، معمولاً در درآمد، سود یا دارایی. سال‌به‌سال و فصل‌به‌فصل دنبال می‌شود." }
+  },
+  "closing": {
+    "term": "Closing entry",
+    "definition": "An entry at year end that zeros out revenue, expense, and dividend accounts and rolls their net into retained earnings.",
+    "fa": { "term": "ثبت اختتامی", "definition": "ثبتی در پایان سال که حساب‌های درآمد، هزینه و سود سهام را صفر می‌کند و خالص آن‌ها را به سود انباشته منتقل می‌سازد." }
+  },
+  "indirect": {
+    "term": "Indirect method",
+    "definition": "The cash flow statement format that starts from net income and adjusts for non-cash items and working capital changes. The format most companies use.",
+    "fa": { "term": "روش غیرمستقیم", "definition": "قالب صورت جریان وجوه نقد که از سود خالص شروع می‌کند و اقلام غیرنقدی و تغییرات سرمایه در گردش را تعدیل می‌کند. قالبی که اکثر شرکت‌ها استفاده می‌کنند." }
+  },
+  "owner": {
+    "term": "Owner",
+    "definition": "A person or entity holding equity in the business. In a corporation, owners are shareholders.",
+    "fa": { "term": "مالک", "definition": "شخص یا نهادی که در کسب‌وکار حقوق صاحبان سهام دارد. در شرکت سهامی، مالکان همان سهام‌داران‌اند." }
+  },
+  "bank": {
+    "term": "Bank",
+    "definition": "A financial institution where the company keeps deposits and from which it borrows. Bank balance contributes to cash on the balance sheet.",
+    "fa": { "term": "بانک", "definition": "نهاد مالی که شرکت در آن سپرده نگه می‌دارد و از آن قرض می‌گیرد. ماندهٔ بانکی به وجه نقد در ترازنامه افزوده می‌شود." }
+  },
+  "operation": {
+    "term": "Operations",
+    "definition": "The day-to-day running of the business — producing, selling, collecting. Cash from operations is the lifeblood of any company.",
+    "fa": { "term": "عملیات", "definition": "ادارهٔ روزمرهٔ کسب‌وکار — تولید، فروش، وصول. وجه نقد حاصل از عملیات شریان حیاتی هر شرکتی است." }
+  },
+  "unearned": {
+    "term": "Unearned revenue",
+    "definition": "Cash received before the goods or service is delivered. A liability — the company still owes the work.",
+    "fa": { "term": "درآمد پیش‌دریافت", "definition": "نقدی که پیش از تحویل کالا یا خدمت دریافت شده. یک بدهی است — شرکت هنوز کار را بدهکار است." }
+  },
+  "contract": {
+    "term": "Contract",
+    "definition": "An agreement that creates obligations between parties. Modern revenue recognition starts by identifying the contract.",
+    "fa": { "term": "قرارداد", "definition": "توافقی که میان طرفین تعهد ایجاد می‌کند. شناسایی درآمد در استاندارد جدید با شناسایی قرارداد آغاز می‌شود." }
+  },
+  "recognized": {
+    "term": "Recognized",
+    "definition": "Recorded in the financial statements. Recognition is the act of putting an item on the books, separate from when cash moves.",
+    "fa": { "term": "شناسایی‌شده", "definition": "ثبت‌شده در صورت‌های مالی. شناسایی یعنی وارد کردن یک قلم در دفاتر، جدا از زمان جابه‌جایی نقد." }
+  },
+  "obligation": {
+    "term": "Obligation",
+    "definition": "Something the company is legally or contractually required to do — pay money, deliver a product, perform a service. The basis of every liability.",
+    "fa": { "term": "تعهد", "definition": "آنچه شرکت طبق قانون یا قرارداد ملزم به انجام آن است — پرداخت پول، تحویل کالا، انجام خدمت. اساس هر بدهی." }
+  },
+  "useful": {
+    "term": "Useful life",
+    "definition": "The expected number of years an asset will be productive. Used to spread depreciation over the right number of periods.",
+    "fa": { "term": "عمر مفید", "definition": "تعداد سال‌هایی که انتظار می‌رود یک دارایی مولد باشد. برای تقسیم استهلاک به دوره‌های صحیح استفاده می‌شود." }
+  },
+  "wholesale": {
+    "term": "Wholesale",
+    "definition": "Selling in bulk to retailers, at lower per-unit prices than consumer pricing. Distinct from retail.",
+    "fa": { "term": "عمده‌فروشی", "definition": "فروش حجمی به خرده‌فروشان با قیمت هر واحد کمتر از قیمت مصرف‌کننده. جدا از خرده‌فروشی." }
+  },
+  "report": {
+    "term": "Report",
+    "definition": "A document presenting financial information. Annual report = the full yearly disclosure including the four statements and footnotes.",
+    "fa": { "term": "گزارش", "definition": "سندی که اطلاعات مالی را ارائه می‌کند. گزارش سالانه = افشای کامل سالانه شامل چهار صورت مالی و یادداشت‌ها." }
+  },
+  "annual": {
+    "term": "Annual",
+    "definition": "Yearly. The annual report covers a full fiscal year and includes the audited statements.",
+    "fa": { "term": "سالانه", "definition": "یک‌ساله. گزارش سالانه یک سال مالی کامل را پوشش می‌دهد و شامل صورت‌های حسابرسی‌شده است." }
+  },
+  "service": {
+    "term": "Service",
+    "definition": "Work performed for a customer — consulting, software-as-a-service, repairs. Recognized as revenue as it is delivered.",
+    "fa": { "term": "خدمت", "definition": "کاری که برای مشتری انجام می‌شود — مشاوره، نرم‌افزار به‌عنوان خدمت، تعمیر. به‌محض ارائه به‌عنوان درآمد شناسایی می‌شود." }
+  },
+  "transfer": {
+    "term": "Transfer",
+    "definition": "Move value or control from one party to another. Revenue is recognized when control transfers, not when the contract is signed.",
+    "fa": { "term": "انتقال", "definition": "جابه‌جایی ارزش یا کنترل از یک طرف به طرف دیگر. درآمد زمانی شناسایی می‌شود که کنترل منتقل شود، نه وقتی قرارداد امضا می‌شود." }
+  },
+  "purchase": {
+    "term": "Purchase",
+    "definition": "Acquisition of an asset or service in exchange for cash or a payable. Inventory purchases increase the inventory account.",
+    "fa": { "term": "خرید", "definition": "تحصیل دارایی یا خدمت در ازای نقد یا تعهد پرداخت. خرید موجودی، حساب موجودی را افزایش می‌دهد." }
+  },
+  "incurred": {
+    "term": "Incurred",
+    "definition": "An expense has been incurred when the company has consumed the resource — regardless of whether cash has been paid.",
+    "fa": { "term": "واقع‌شده", "definition": "هزینه زمانی واقع می‌شود که شرکت منبع را مصرف کرده باشد — صرف‌نظر از اینکه پولش پرداخت شده یا نه." }
+  },
+  "policy": {
+    "term": "Policy",
+    "definition": "An accounting choice the company applies consistently — depreciation method, inventory method, revenue recognition timing.",
+    "fa": { "term": "رویه", "definition": "انتخاب حسابداری که شرکت به‌طور یکسان اعمال می‌کند — روش استهلاک، روش موجودی، زمان شناسایی درآمد." }
+  },
+  "payment": {
+    "term": "Payment",
+    "definition": "Cash settlement of an obligation. A payment reduces both cash and the corresponding liability.",
+    "fa": { "term": "پرداخت", "definition": "تسویهٔ نقدی یک تعهد. پرداخت، هم وجه نقد و هم بدهی متناظر را کاهش می‌دهد." }
+  },
+  "principle": {
+    "term": "Principle",
+    "definition": "A foundational rule guiding accounting practice — matching, conservatism, consistency, full disclosure.",
+    "fa": { "term": "اصل", "definition": "قاعدهٔ بنیادین که رویهٔ حسابداری را راهنمایی می‌کند — تطابق، احتیاط، ثبات رویه، افشای کامل." }
+  },
+  "judgment": {
+    "term": "Judgment",
+    "definition": "Reasoned decision by management on items GAAP can't pin down exactly — useful lives, allowances, contingencies.",
+    "fa": { "term": "قضاوت", "definition": "تصمیم مستدل مدیریت دربارهٔ اقلامی که GAAP نمی‌تواند دقیق تعیین کند — عمر مفید، ذخیره‌ها، احتمالات." }
+  },
+  "performance": {
+    "term": "Performance obligation",
+    "definition": "A promise in a contract to deliver a distinct good or service. The five-step revenue model identifies and allocates revenue to each one.",
+    "fa": { "term": "تعهد عملکردی", "definition": "وعده‌ای در یک قرارداد برای تحویل کالا یا خدمت متمایز. مدل پنج‌مرحله‌ای، درآمد را به هر تعهد عملکردی تخصیص می‌دهد." }
+  },
+  "selling": {
+    "term": "Selling",
+    "definition": "Activities that move products to customers — sales staff, advertising, store rent. Reported as selling expense on the income statement.",
+    "fa": { "term": "فروش / عملیات فروش", "definition": "فعالیت‌هایی که محصول را به مشتری می‌رسانند — کارکنان فروش، تبلیغات، اجارهٔ فروشگاه. به‌عنوان هزینهٔ فروش در صورت سود و زیان گزارش می‌شوند." }
+  },
+  "sold": {
+    "term": "Sold",
+    "definition": "Cost of goods sold (COGS) is the direct cost of items the company has sold during the period.",
+    "fa": { "term": "فروخته‌شده", "definition": "بهای تمام‌شدهٔ کالای فروخته‌شده، هزینهٔ مستقیم اقلامی است که شرکت در یک دوره فروخته." }
+  },
+  "concept": {
+    "term": "Concept",
+    "definition": "An idea or principle. Each lecture slide is a single concept — definition, mechanics, example.",
+    "fa": { "term": "مفهوم", "definition": "یک ایده یا اصل. هر اسلاید درس روی یک مفهوم تمرکز دارد — تعریف، مکانیک، مثال." }
+  },
+  "chart": {
+    "term": "Chart of accounts",
+    "definition": "The list of every account the company uses, organized by type — assets, liabilities, equity, revenue, expense.",
+    "fa": { "term": "فهرست حساب‌ها", "definition": "فهرست همهٔ حساب‌هایی که شرکت استفاده می‌کند، سازمان‌یافته بر اساس نوع — دارایی، بدهی، حقوق صاحبان سهام، درآمد، هزینه." }
+  },
+  "timing": {
+    "term": "Timing",
+    "definition": "When something is recorded, as opposed to when cash moves. Most accounting tricky-bits are timing decisions.",
+    "fa": { "term": "زمان‌بندی", "definition": "اینکه یک قلم چه زمانی ثبت می‌شود، در مقابل زمان جابه‌جایی نقد. بیشتر نکات ظریف حسابداری، تصمیمات زمان‌بندی هستند." }
+  },
+  "deferral": {
+    "term": "Deferral",
+    "definition": "Cash has moved but the income statement hasn't recognized it yet — prepaid expense (paid early), unearned revenue (received early).",
+    "fa": { "term": "انتقالی / تعویق", "definition": "نقد جابه‌جا شده اما صورت سود و زیان هنوز آن را شناسایی نکرده — پیش‌پرداخت هزینه (زود پرداخته)، درآمد پیش‌دریافت (زود دریافت‌شده)." }
+  },
+  "deferred": {
+    "term": "Deferred",
+    "definition": "Pushed to a later period. Deferred revenue is unearned (cash in, work owed); deferred tax arises from timing differences with the tax code.",
+    "fa": { "term": "معوق / تعویق‌یافته", "definition": "به دوره‌ای بعدتر منتقل‌شده. درآمد معوق یعنی پیش‌دریافت (نقد آمده، کار بدهی)؛ مالیات معوق از تفاوت زمان‌بندی با قانون مالیات ناشی می‌شود." }
+  },
+  "case": {
+    "term": "Case",
+    "definition": "A worked-through example with realistic numbers. The capstone slides walk a complete annual case study.",
+    "fa": { "term": "مطالعهٔ موردی", "definition": "مثالی که با اعداد واقع‌گرایانه کامل حل می‌شود. اسلایدهای جمع‌بندی یک مطالعهٔ موردی سالانهٔ کامل را گام‌به‌گام طی می‌کنند." }
+  },
+  "profitability": {
+    "term": "Profitability",
+    "definition": "How efficiently a company turns revenue into profit. Measured by margins (gross, operating, net) and returns (ROA, ROE).",
+    "fa": { "term": "سودآوری", "definition": "اینکه شرکت چقدر کارآمد درآمد را به سود تبدیل می‌کند. با حاشیه‌ها (ناخالص، عملیاتی، خالص) و بازده‌ها (ROA, ROE) سنجیده می‌شود." }
+  },
+  "control": {
+    "term": "Control",
+    "definition": "The ability to direct an asset's use and obtain its benefits. Recognition often hinges on whether control has transferred.",
+    "fa": { "term": "کنترل", "definition": "توانایی هدایت استفاده از یک دارایی و کسب منافع آن. شناسایی اغلب به این بستگی دارد که آیا کنترل منتقل شده یا نه." }
+  },
+  "identity": {
+    "term": "Identity",
+    "definition": "An equation that holds always, not just on average. The accounting equation (Assets = Liabilities + Equity) is an identity.",
+    "fa": { "term": "اتحاد", "definition": "معادله‌ای که همیشه برقرار است، نه فقط به‌طور میانگین. معادلهٔ حسابداری (دارایی = بدهی + حقوق صاحبان سهام) یک اتحاد است." }
+  },
+  "loan": {
+    "term": "Loan",
+    "definition": "Borrowed money repayable with interest. Loans payable are liabilities; loan principal repayment is a financing-cash-flow outflow.",
+    "fa": { "term": "وام", "definition": "پولی که قرض گرفته می‌شود و باید با بهره بازپرداخت شود. وام‌های پرداختنی بدهی هستند؛ بازپرداخت اصل وام، خروج وجه نقد از فعالیت تأمین مالی است." }
+  },
+  "permanent": {
+    "term": "Permanent account",
+    "definition": "Asset, liability, and equity accounts — they carry their balances forward year to year. Not closed at period end.",
+    "fa": { "term": "حساب دائمی", "definition": "حساب‌های دارایی، بدهی و حقوق صاحبان سهام — مانده‌شان از سالی به سال دیگر منتقل می‌شود. در پایان دوره بسته نمی‌شوند." }
+  },
+  "temporary": {
+    "term": "Temporary account",
+    "definition": "Revenue, expense, and dividend accounts — closed to retained earnings at year end so they restart at zero.",
+    "fa": { "term": "حساب موقت", "definition": "حساب‌های درآمد، هزینه و سود سهام — در پایان سال به سود انباشته بسته می‌شوند تا از صفر شروع کنند." }
+  },
+  "future": {
+    "term": "Future",
+    "definition": "Yet to come. Future economic benefit is the test for whether something qualifies as an asset.",
+    "fa": { "term": "آینده", "definition": "آنچه هنوز نیامده. منفعت اقتصادی آینده آزمونی است برای اینکه چیزی واجد شرایط دارایی باشد یا نه." }
+  },
+  "financial": {
+    "term": "Financial",
+    "definition": "Relating to money and how it's tracked. Financial statements are the formal money-side reports.",
+    "fa": { "term": "مالی", "definition": "مربوط به پول و نحوهٔ ردیابی آن. صورت‌های مالی، گزارش‌های رسمی جنبهٔ پولی کسب‌وکار هستند." }
+  },
+  "retail": {
+    "term": "Retail",
+    "definition": "Selling directly to end consumers, usually one unit at a time. Distinct from wholesale (bulk, to resellers).",
+    "fa": { "term": "خرده‌فروشی", "definition": "فروش مستقیم به مصرف‌کنندهٔ نهایی، معمولاً واحد به واحد. متفاوت از عمده‌فروشی (حجمی، به بازفروشان)." }
+  },
+  "fixed": {
+    "term": "Fixed asset",
+    "definition": "A long-lived tangible asset used in operations — buildings, machinery, vehicles. Same idea as PP&E.",
+    "fa": { "term": "دارایی ثابت", "definition": "دارایی فیزیکی بلندمدت که در عملیات استفاده می‌شود — ساختمان، ماشین‌آلات، خودرو. همان مفهوم اموال، ماشین‌آلات و تجهیزات (PP&E)." }
+  },
+  "narrative": {
+    "term": "Narrative",
+    "definition": "The story the numbers tell — what the trends, ratios, and footnotes together say about how the business is doing.",
+    "fa": { "term": "روایت", "definition": "داستانی که اعداد می‌گویند — اینکه روندها، نسبت‌ها و یادداشت‌ها روی هم چه چیزی دربارهٔ وضعیت کسب‌وکار آشکار می‌کنند." }
+  },
+  "consumed": {
+    "term": "Consumed",
+    "definition": "Used up. When a prepaid asset is consumed, its cost moves from the balance sheet to the income statement as an expense.",
+    "fa": { "term": "مصرف‌شده", "definition": "تمام‌شده. وقتی دارایی پیش‌پرداخت مصرف شود، بهای آن از ترازنامه به صورت سود و زیان به‌عنوان هزینه منتقل می‌شود." }
+  },
+  "auditor": {
+    "term": "Auditor",
+    "definition": "An independent professional who examines the financial statements and issues an opinion on whether they fairly present the company's position.",
+    "fa": { "term": "حسابرس", "definition": "متخصص مستقلی که صورت‌های مالی را بررسی می‌کند و دربارهٔ منصفانه بودن ارائهٔ وضعیت شرکت اظهار نظر می‌کند." }
+  },
+  "discount": {
+    "term": "Discount",
+    "definition": "A reduction from the list price. Sales discounts reduce revenue; trade discounts adjust the price before invoicing.",
+    "fa": { "term": "تخفیف", "definition": "کاهش از قیمت فهرست. تخفیف فروش، درآمد را کم می‌کند؛ تخفیف تجاری پیش از صدور فاکتور بر قیمت اعمال می‌شود." }
+  },
+  "healthy": {
+    "term": "Healthy",
+    "definition": "Financially strong — adequate cash, manageable debt, stable margins. Not a single number; comes from looking at many ratios together.",
+    "fa": { "term": "سالم", "definition": "از نظر مالی قوی — نقد کافی، بدهی قابل مدیریت، حاشیهٔ پایدار. یک عدد واحد نیست؛ از نگاه ترکیبی به چند نسبت به‌دست می‌آید." }
+  },
+  "non-cash": {
+    "term": "Non-cash",
+    "definition": "Items that affect the income statement but don't move cash — depreciation, amortization, stock-based compensation. Added back in the cash flow indirect method.",
+    "fa": { "term": "غیرنقدی", "definition": "اقلامی که بر صورت سود و زیان اثر می‌گذارند اما نقد را جابه‌جا نمی‌کنند — استهلاک، کاهش بهای دارایی نامشهود، پاداش مبتنی بر سهام. در روش غیرمستقیم جریان نقد دوباره افزوده می‌شوند." }
+  },
+  "reinvested": {
+    "term": "Reinvested",
+    "definition": "Profits kept in the business rather than paid out as dividends. Becomes retained earnings and funds future growth.",
+    "fa": { "term": "دوباره‌سرمایه‌گذاری‌شده", "definition": "سودهایی که در کسب‌وکار نگه‌داری می‌شوند به‌جای آنکه به‌صورت سود سهام پرداخت شوند. به سود انباشته تبدیل می‌شوند و رشد آینده را تأمین می‌کنند." }
+  },
+  "schedule": {
+    "term": "Schedule",
+    "definition": "A supporting calculation table — depreciation schedule, debt schedule. Backs up a single line on the main statements.",
+    "fa": { "term": "جدول کمکی", "definition": "جدول محاسباتی پشتیبان — جدول استهلاک، جدول بدهی. پشت یک خط از صورت‌های اصلی را توضیح می‌دهد." }
+  },
+  "industry": {
+    "term": "Industry",
+    "definition": "A group of companies in the same line of business. Ratios are most useful when compared to industry peers.",
+    "fa": { "term": "صنعت", "definition": "گروهی از شرکت‌ها در یک حوزهٔ کاری. نسبت‌ها زمانی بیشترین معنا را دارند که با همتایان صنعت مقایسه شوند." }
+  },
+  "concentration": {
+    "term": "Concentration",
+    "definition": "Heavy reliance on a single customer, product, or supplier. A risk factor that footnotes typically disclose.",
+    "fa": { "term": "تمرکز", "definition": "اتکای زیاد به یک مشتری، محصول، یا تأمین‌کنندهٔ واحد. عاملی ریسکی که معمولاً در یادداشت‌های توضیحی افشا می‌شود." }
+  },
+  "cycle": {
+    "term": "Accounting cycle",
+    "definition": "The repeating process: record transactions → post to ledger → trial balance → adjust → statements → close. Done every period.",
+    "fa": { "term": "چرخهٔ حسابداری", "definition": "فرآیند تکراری: ثبت معاملات ← انتقال به دفتر کل ← تراز آزمایشی ← اصلاح ← تهیهٔ صورت‌ها ← اختتامیه. در هر دوره تکرار می‌شود." }
+  },
+  "recognition": {
+    "term": "Recognition",
+    "definition": "The act of recording a transaction in the books. Revenue recognition rules say when revenue is recorded; expense recognition follows matching.",
+    "fa": { "term": "شناسایی", "definition": "ثبت یک معامله در دفاتر. قواعد شناسایی درآمد می‌گویند درآمد چه زمانی ثبت می‌شود؛ شناسایی هزینه از اصل تطابق پیروی می‌کند." }
+  },
+  "model": {
+    "term": "Model",
+    "definition": "A structured way of thinking — the five-step revenue model, the DuPont model. A scaffold for working through a problem.",
+    "fa": { "term": "مدل", "definition": "روشی ساخت‌یافته برای فکر کردن — مدل پنج‌مرحله‌ای درآمد، مدل دوپون. داربستی برای حل گام‌به‌گام مسئله." }
+  },
+  "analysi": {
+    "term": "Analysis",
+    "definition": "Breaking down the financials into ratios, trends, and decompositions to understand performance and risk.",
+    "fa": { "term": "تحلیل", "definition": "تجزیهٔ صورت‌های مالی به نسبت‌ها، روندها و تجزیه‌ها برای فهم عملکرد و ریسک." }
+  },
+  "analysis": {
+    "term": "Analysis",
+    "definition": "Breaking down the financials into ratios, trends, and decompositions to understand performance and risk.",
+    "fa": { "term": "تحلیل", "definition": "تجزیهٔ صورت‌های مالی به نسبت‌ها، روندها و تجزیه‌ها برای فهم عملکرد و ریسک." }
+  },
+  "convention": {
+    "term": "Convention",
+    "definition": "A widely-accepted accounting practice that isn't strictly required but is consistently followed — e.g., reporting in thousands.",
+    "fa": { "term": "قرارداد / عرف", "definition": "یک رویهٔ حسابداری به‌طور گسترده پذیرفته‌شده که الزامی نیست اما به‌طور یکسان رعایت می‌شود — مثلاً گزارش‌دهی به هزار." }
+  },
+  "average": {
+    "term": "Average",
+    "definition": "The arithmetic mean. Many ratios use averages of opening and closing balances to better represent the period.",
+    "fa": { "term": "میانگین", "definition": "میانگین حسابی. بسیاری از نسبت‌ها از میانگین مانده‌های ابتدا و انتهای دوره استفاده می‌کنند تا دوره را بهتر نمایان کنند." }
+  },
+  "bookkeeping": {
+    "term": "Bookkeeping",
+    "definition": "Recording the day-to-day transactions in journals and ledgers. The mechanical layer beneath accounting.",
+    "fa": { "term": "دفترداری", "definition": "ثبت معاملات روزمره در دفاتر روزنامه و کل. لایهٔ مکانیکی که زیربنای حسابداری است." }
+  },
+  "mechanical": {
+    "term": "Mechanical",
+    "definition": "Following clear rules without judgment. Bookkeeping is largely mechanical; reporting requires judgment.",
+    "fa": { "term": "مکانیکی", "definition": "پیروی از قواعد روشن بدون نیاز به قضاوت. دفترداری عمدتاً مکانیکی است؛ گزارشگری نیاز به قضاوت دارد." }
+  },
+  "test": {
+    "term": "Test",
+    "definition": "A check that an accounting rule or balance still holds — the trial balance is one; the equation balancing is another.",
+    "fa": { "term": "آزمون", "definition": "بررسی اینکه یک قاعده یا مانده هنوز برقرار است — تراز آزمایشی یکی است؛ برقراری معادلهٔ حسابداری دیگری." }
+  },
+  "money": {
+    "term": "Money",
+    "definition": "Currency or its electronic equivalent. Cash and cash equivalents are the line on the balance sheet that captures it.",
+    "fa": { "term": "پول", "definition": "اسکناس یا معادل الکترونیکی آن. وجه نقد و معادل آن، خطی در ترازنامه است که این مفهوم را در بر می‌گیرد." }
+  },
+  "minus": {
+    "term": "Minus",
+    "definition": "Subtract. Many accounting calculations are subtractions: revenue minus cost is profit; assets minus liabilities is equity.",
+    "fa": { "term": "منهای", "definition": "تفریق. بسیاری از محاسبات حسابداری تفریق هستند: درآمد منهای هزینه، سود است؛ دارایی منهای بدهی، حقوق صاحبان سهام." }
+  },
+  "source": {
+    "term": "Source",
+    "definition": "Where money came from. Liabilities and equity are the two possible sources of financing for the assets a company controls.",
+    "fa": { "term": "منبع تأمین", "definition": "اینکه پول از کجا آمده. بدهی و حقوق صاحبان سهام، دو منبع ممکن برای تأمین مالی دارایی‌های یک شرکت‌اند." }
+  },
+  "diverge": {
+    "term": "Diverge",
+    "definition": "Move apart. Net income and operating cash often diverge in a single period because of accruals and non-cash items.",
+    "fa": { "term": "واگرا شدن", "definition": "از هم دور شدن. سود خالص و جریان نقد عملیاتی در یک دوره اغلب به‌خاطر تعهدی‌ها و اقلام غیرنقدی واگرا می‌شوند." }
+  },
+  "evenly": {
+    "term": "Evenly",
+    "definition": "Spread the same amount each period. Straight-line depreciation allocates cost evenly over useful life.",
+    "fa": { "term": "یکنواخت", "definition": "هر دوره به‌اندازهٔ مساوی تقسیم می‌شود. استهلاک خط مستقیم بهای تمام‌شده را یکنواخت در طول عمر مفید تخصیص می‌دهد." }
+  },
+  "coverage": {
+    "term": "Coverage",
+    "definition": "How well earnings or cash flow cover obligations. Interest coverage = EBIT / interest; tells you the cushion.",
+    "fa": { "term": "پوشش", "definition": "اینکه سود یا جریان نقد چقدر می‌تواند تعهدات را پوشش دهد. پوشش بهره = EBIT / بهره؛ مارجین امنیت را نشان می‌دهد." }
+  },
+  "share": {
+    "term": "Share",
+    "definition": "A unit of ownership in a corporation. Earnings per share (EPS) divides net income by share count.",
+    "fa": { "term": "سهم", "definition": "واحد مالکیت در یک شرکت سهامی. سود هر سهم (EPS) سود خالص را بر تعداد سهام تقسیم می‌کند." }
+  },
+  "track": {
+    "term": "Track",
+    "definition": "Follow over time. The company tracks every account's balance; analysts track ratios across years.",
+    "fa": { "term": "ردیابی کردن", "definition": "دنبال کردن در طول زمان. شرکت ماندهٔ هر حساب را ردیابی می‌کند؛ تحلیل‌گران نسبت‌ها را در طول سال‌ها." }
+  },
+  "economic": {
+    "term": "Economic",
+    "definition": "Relating to value and resources, not just legal form. Accounting strives to capture economic substance over legal form.",
+    "fa": { "term": "اقتصادی", "definition": "مربوط به ارزش و منابع، نه صرفاً شکل حقوقی. حسابداری تلاش می‌کند جوهرهٔ اقتصادی را بر شکل حقوقی ارجح کند." }
+  },
+  "machinery": {
+    "term": "Machinery",
+    "definition": "Manufacturing or operating equipment. A long-lived asset on the balance sheet, depreciated over its useful life.",
+    "fa": { "term": "ماشین‌آلات", "definition": "تجهیزات تولیدی یا عملیاتی. دارایی بلندمدت در ترازنامه که در طول عمر مفید استهلاک می‌گیرد." }
+  },
+  "commission": {
+    "term": "Commission",
+    "definition": "Pay tied to sales — typically a percentage of revenue. Reported as a selling expense on the income statement.",
+    "fa": { "term": "کمیسیون", "definition": "حقوق گره‌خورده به فروش — معمولاً درصدی از درآمد. به‌عنوان هزینهٔ فروش در صورت سود و زیان گزارش می‌شود." }
+  },
+  "pre-tax": {
+    "term": "Pre-tax",
+    "definition": "Before income taxes are subtracted. Pre-tax income is on the income statement just above the tax line.",
+    "fa": { "term": "پیش از مالیات", "definition": "قبل از کسر مالیات بر درآمد. سود پیش از مالیات در صورت سود و زیان درست بالای خط مالیات قرار دارد." }
+  },
+  "practice": {
+    "term": "Practice",
+    "definition": "Established way of doing accounting in real life — sometimes more nuanced than textbook rules. Reflects professional judgment.",
+    "fa": { "term": "رویه / عمل", "definition": "روشی جاافتاده در حسابداری واقعی — گاهی ظریف‌تر از قواعد کتاب. منعکس‌کنندهٔ قضاوت حرفه‌ای." }
+  },
+  "loss": {
+    "term": "Loss",
+    "definition": "Negative profit. When expenses exceed revenue, the company reports a loss for the period.",
+    "fa": { "term": "زیان", "definition": "سود منفی. وقتی هزینه‌ها بیش از درآمد باشند، شرکت برای آن دوره زیان گزارش می‌کند." }
+  },
+  "straight-line": {
+    "term": "Straight-line",
+    "definition": "The depreciation method that allocates equal amounts each period over an asset's useful life. The simplest approach.",
+    "fa": { "term": "خط مستقیم", "definition": "روش استهلاکی که در هر دوره مبلغ یکسانی را در طول عمر مفید دارایی تخصیص می‌دهد. ساده‌ترین رویکرد." }
+  },
+  "beginning": {
+    "term": "Beginning",
+    "definition": "The opening balance — the amount in an account at the start of a period, before any of that period's activity.",
+    "fa": { "term": "ابتدای دوره", "definition": "ماندهٔ افتتاحیه — مبلغ یک حساب در ابتدای دوره، پیش از هرگونه فعالیت آن دوره." }
+  },
+  "wac": {
+    "term": "WAC",
+    "definition": "Weighted-average cost — an inventory method that values cost of sales at the rolling average unit cost rather than FIFO/LIFO.",
+    "fa": { "term": "میانگین موزون", "definition": "روش موجودی که بهای فروش را بر اساس میانگین متحرک قیمت هر واحد ارزش‌گذاری می‌کند، نه FIFO یا LIFO." }
+  },
+  "turnover": {
+    "term": "Turnover",
+    "definition": "How fast an asset cycles through. Inventory turnover = COGS / average inventory; receivables turnover = revenue / average receivables.",
+    "fa": { "term": "گردش", "definition": "اینکه یک دارایی چقدر سریع چرخه می‌خورد. گردش موجودی = بهای تمام‌شدهٔ فروش / میانگین موجودی؛ گردش مطالبات = درآمد / میانگین مطالبات." }
+  },
+  "right-of-use": {
+    "term": "Right-of-use asset",
+    "definition": "The asset created on the balance sheet when a company recognizes a lease. Represents the contractual right to use the leased item.",
+    "fa": { "term": "دارایی حق استفاده", "definition": "دارایی‌ای که هنگام شناسایی اجاره در ترازنامه ایجاد می‌شود. نمایندهٔ حق قراردادی استفاده از مورد اجاره است." }
+  },
+  "yoy": {
+    "term": "YoY",
+    "definition": "Year over year — comparing a metric this year to the same metric last year. Standard time comparison in financial analysis.",
+    "fa": { "term": "سال‌به‌سال", "definition": "مقایسهٔ یک شاخص در امسال با همان شاخص در سال گذشته. مقایسهٔ زمانی استاندارد در تحلیل مالی." }
+  },
+  "ccc": {
+    "term": "CCC",
+    "definition": "Cash conversion cycle — days inventory + days receivables − days payables. How long cash is tied up before coming back.",
+    "fa": { "term": "چرخهٔ تبدیل نقد", "definition": "روزهای موجودی + روزهای مطالبات − روزهای پرداختنی. مدتی که نقد گیر می‌افتد پیش از بازگشت." }
+  },
+  "dpo": {
+    "term": "DPO",
+    "definition": "Days payable outstanding — average days the company takes to pay suppliers. Higher DPO conserves cash.",
+    "fa": { "term": "روزهای پرداخت معوق", "definition": "میانگین روزهایی که شرکت برای پرداخت به تأمین‌کنندگان می‌گیرد. DPO بالاتر، نقد بیشتری نگه می‌دارد." }
+  },
+  "build-out": {
+    "term": "Build-out",
+    "definition": "Capital improvements to a leased space — partitions, fixtures, finishes paid by the tenant. Capitalized and depreciated over the lease.",
+    "fa": { "term": "بازسازی فضای اجاره‌ای", "definition": "بهسازی‌های سرمایه‌ای فضای اجاره‌ای — پارتیشن، تجهیزات و پرداخت توسط مستأجر. سرمایه‌ای می‌شود و در طول اجاره استهلاک می‌گیرد." }
+  },
+  "commitment": {
+    "term": "Commitment",
+    "definition": "An obligation to spend in the future, not yet a recorded liability. Usually disclosed in footnotes (e.g., lease commitments).",
+    "fa": { "term": "تعهد آتی", "definition": "تعهد به مخارج در آینده، که هنوز به‌عنوان بدهی ثبت نشده. معمولاً در یادداشت‌های توضیحی افشا می‌شود (مثلاً تعهدات اجاره)." }
+  },
+  "factor": {
+    "term": "Factor",
+    "definition": "A driver of a number. Higher revenue could come from price factors, volume factors, or mix factors — analysis isolates each.",
+    "fa": { "term": "عامل", "definition": "محرک یک عدد. درآمد بالاتر می‌تواند از عامل قیمت، عامل حجم، یا عامل ترکیب محصول باشد — تحلیل هرکدام را جدا می‌کند." }
+  },
+  "audit": {
+    "term": "Audit",
+    "definition": "The independent examination of financial statements by a CPA firm. Result is an opinion on whether the statements are fairly presented.",
+    "fa": { "term": "حسابرسی", "definition": "بررسی مستقل صورت‌های مالی توسط یک مؤسسهٔ حسابداری. نتیجه، اظهار نظری دربارهٔ منصفانه بودن ارائهٔ صورت‌هاست." }
+  },
+  "invoice": {
+    "term": "Invoice",
+    "definition": "The bill issued to a customer. Issuing an invoice usually triggers revenue recognition and creates an account receivable.",
+    "fa": { "term": "فاکتور / صورت‌حساب", "definition": "صورت‌حسابی که برای مشتری صادر می‌شود. صدور فاکتور معمولاً موجب شناسایی درآمد و ایجاد حساب دریافتنی می‌شود." }
+  },
+  "receipt": {
+    "term": "Receipt",
+    "definition": "Cash received. A cash receipt clears the receivable and increases cash on the balance sheet.",
+    "fa": { "term": "دریافت / رسید", "definition": "نقد دریافت‌شده. یک دریافت نقدی، مطالبه را تسویه می‌کند و وجه نقد در ترازنامه را افزایش می‌دهد." }
+  },
+  "contra": {
+    "term": "Contra account",
+    "definition": "An account that subtracts from a related account — accumulated depreciation against the asset, allowance for doubtful accounts against receivables.",
+    "fa": { "term": "حساب کاهنده", "definition": "حسابی که از حساب مرتبط کم می‌شود — استهلاک انباشته در برابر دارایی، ذخیرهٔ مطالبات مشکوک‌الوصول در برابر دریافتنی‌ها." }
+  },
+  "positive": {
+    "term": "Positive",
+    "definition": "Greater than zero. Positive cash flow from operations is what a healthy business produces.",
+    "fa": { "term": "مثبت", "definition": "بزرگ‌تر از صفر. جریان نقد عملیاتی مثبت، چیزی است که یک کسب‌وکار سالم تولید می‌کند." }
+  },
+  "negative": {
+    "term": "Negative",
+    "definition": "Less than zero. Negative net income means a loss; negative cash flow can mean either growth investment or trouble.",
+    "fa": { "term": "منفی", "definition": "کمتر از صفر. سود خالص منفی یعنی زیان؛ جریان نقد منفی می‌تواند هم نشانهٔ سرمایه‌گذاری برای رشد باشد و هم هشدار." }
+  },
+  "income-statement": {
+    "term": "Income statement",
+    "definition": "The financial statement that shows revenue, expenses, and resulting net income (or loss) for a period.",
+    "fa": { "term": "صورت سود و زیان", "definition": "صورت مالی‌ای که درآمد، هزینه و سود خالص (یا زیان) یک دوره را نشان می‌دهد." }
+  },
+  "balance-sheet": {
+    "term": "Balance sheet",
+    "definition": "The financial statement showing assets, liabilities, and equity at a single point in time. A snapshot, not a flow.",
+    "fa": { "term": "ترازنامه", "definition": "صورت مالی‌ای که دارایی، بدهی و حقوق صاحبان سهام را در یک نقطه از زمان نشان می‌دهد. یک تصویر لحظه‌ای، نه یک جریان." }
+  },
+  "period-end": {
+    "term": "Period-end",
+    "definition": "The last day of an accounting period. Adjusting entries and closing entries happen at period-end.",
+    "fa": { "term": "پایان دوره", "definition": "آخرین روز یک دورهٔ حسابداری. ثبت‌های اصلاحی و اختتامی در پایان دوره انجام می‌شوند." }
+  },
+  "year-end": {
+    "term": "Year-end",
+    "definition": "The last day of the fiscal year — the close that produces the annual report and audited statements.",
+    "fa": { "term": "پایان سال", "definition": "آخرین روز سال مالی — اختتامیه‌ای که گزارش سالانه و صورت‌های حسابرسی‌شده را تولید می‌کند." }
+  },
+  "cfo": {
+    "term": "CFO",
+    "definition": "Chief Financial Officer — the executive responsible for the company's finances, including its accounting, treasury, and investor relations.",
+    "fa": { "term": "مدیر مالی", "definition": "بالاترین مقام مالی — مدیری که مسئول امور مالی شرکت است، شامل حسابداری، خزانه‌داری، و روابط با سرمایه‌گذاران." }
+  },
+  "dupont": {
+    "term": "DuPont",
+    "definition": "An analysis framework that decomposes return on equity into margin × turnover × leverage, exposing what really drives returns.",
+    "fa": { "term": "تجزیهٔ دوپون", "definition": "چارچوبی تحلیلی که بازده حقوق صاحبان سهام را به حاشیه × گردش × اهرم تجزیه می‌کند و آشکار می‌سازد چه چیزی واقعاً بازده را می‌سازد." }
+  },
+  "standard": {
+    "term": "Standard",
+    "definition": "An accounting rule issued by a standard-setter (FASB for US GAAP, IASB for IFRS). Companies must follow standards in their reporting.",
+    "fa": { "term": "استاندارد", "definition": "قاعده‌ای حسابداری که توسط مرجع استانداردگذار صادر می‌شود (FASB برای GAAP آمریکا، IASB برای IFRS). شرکت‌ها باید در گزارشگری از آن پیروی کنند." }
+  },
+  "transferring": {
+    "term": "Transferring",
+    "definition": "Moving — typically an asset or control of one. Revenue is recognized when control of the good or service is transferred to the customer.",
+    "fa": { "term": "انتقال دادن", "definition": "جابه‌جا کردن — معمولاً یک دارایی یا کنترل آن. درآمد زمانی شناسایی می‌شود که کنترل کالا یا خدمت به مشتری منتقل شود." }
+  },
+  "ledg": {
+    "term": "Ledger",
+    "definition": "The collection of all accounts where transactions are posted and balances accumulate. The general ledger is the master record of every account.",
+    "fa": { "term": "دفتر کل", "definition": "مجموعهٔ همهٔ حساب‌ها که معاملات در آن ثبت و مانده‌ها انباشته می‌شود. دفتر کل، سند مرجع همهٔ حساب‌هاست." }
+  }
+}

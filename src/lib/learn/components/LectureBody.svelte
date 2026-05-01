@@ -2,7 +2,8 @@
 	import { t } from '$lib/state/i18n.svelte';
 	import PronounceButton from '$lib/components/PronounceButton.svelte';
 	import { injectSpeakers } from '../inject-speakers';
-	import { lookupWord, type LookupHit } from '$lib/data/lookup';
+	import { wireWordLookup } from '../wire-word-lookup';
+	import type { LookupHit } from '$lib/data/lookup';
 	import WordLookupPopover from './WordLookupPopover.svelte';
 	import type { Slide } from '../slides.generated';
 
@@ -31,23 +32,7 @@
 		activePopover = null;
 	}
 
-	function onSlideDblClick(e: MouseEvent) {
-		const sel = window.getSelection();
-		const raw = sel?.toString() ?? '';
-		// Reject empty / multi-word selections quickly.
-		if (!raw || /\s/.test(raw.trim())) return;
-		const hit = lookupWord(raw);
-		if (!hit) return;
-		// Anchor: bounding rect of the selection (falls back to the click point).
-		let anchor: DOMRect;
-		if (sel && sel.rangeCount > 0) {
-			anchor = sel.getRangeAt(0).getBoundingClientRect();
-			if (!anchor || (anchor.width === 0 && anchor.height === 0)) {
-				anchor = new DOMRect(e.clientX, e.clientY, 0, 0);
-			}
-		} else {
-			anchor = new DOMRect(e.clientX, e.clientY, 0, 0);
-		}
+	function openPopover(hit: LookupHit, anchor: DOMRect) {
 		activePopover = { hit, anchor };
 	}
 </script>
@@ -62,7 +47,7 @@
 <div
 	class="learn-slide {variantClass}"
 	use:injectSpeakers={{ label: hearLabel }}
-	ondblclick={onSlideDblClick}
+	use:wireWordLookup={{ onTap: openPopover }}
 >
 	{@html slide.body}
 </div>
