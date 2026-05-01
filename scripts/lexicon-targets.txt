@@ -1,0 +1,1232 @@
+# Lexicon targets — 1230 unique lemmas, sorted by frequency.
+# Each line: <lemma> <count> [most-common-surface-form]
+cash	116
+income	64
+net	43
+balance	36
+inventory	36
+statement	34
+year	34
+total	33
+pitfall	31
+operating	30
+entry	29
+equity	29
+sale	26  # appears as: sales
+earning	24  # appears as: earnings
+step	24
+dividend	23  # appears as: dividends
+debt	22
+cost	21
+profit	21
+part	20
+retained	20
+credit	19
+note	19  # appears as: notes
+payable	19
+equipment	19
+lease	18  # appears as: leases
+book	18  # appears as: books
+margin	18
+first	17
+company	17
+wage	17  # appears as: wages
+current	17
+prepaid	16
+gross	16
+month	16  # appears as: months
+dec	16
+side	15
+debit	15
+ratio	15
+flow	15
+paid	15
+period	15
+accrued	15
+ranger	15
+accrual	14
+sheet	14
+capital	14
+receivable	14
+rate	14
+method	13
+common	13
+stock	13
+increase	13
+interest	13
+accounting	12
+matter	12  # appears as: matters
+earned	12
+firm	12  # appears as: firms
+customer	12
+jan	12
+tax	12
+financing	12
+ledger	11
+business	11
+ending	11
+example	10
+journal	10
+transaction	10
+rent	10
+december	10
+summary	10
+coffee	10
+investing	10
+salvage	10
+unit	10  # appears as: units
+leverage	10
+time	9
+basi	9  # appears as: basis
+full	9
+read	9
+now	9
+pay	9
+section	9
+equation	8
+slide	8  # appears as: slides
+trial	8
+adjusting	8
+matching	8
+last	8
+long-term	8
+use	8
+value	8
+day	8  # appears as: days
+tie	8  # appears as: ties
+later	8
+insurance	8
+price	8
+line	8
+risk	8
+start	7  # appears as: starts
+allowance	7
+don't	7
+right	7
+end	7
+error	7
+rule	7  # appears as: rules
+show	7
+used	7
+move	7
+top	7
+point	7
+life	7
+supplier	7
+working	7
+estimate	7
+ccc	7
+caf	7
+growth	7
+closing	6
+indirect	6
+choice	6  # appears as: choices
+number	6
+term	6  # appears as: terms
+owner	6  # appears as: owners
+wrong	6
+bank	6
+lower	6
+single	6
+operation	6  # appears as: operations
+unearned	6
+tell	6
+contract	6
+january	6
+recognized	6
+close	6
+less	6
+obligation	6  # appears as: obligations
+useful	6
+change	6  # appears as: changes
+mean	6  # appears as: means
+wholesale	6
+farsi	5
+worked	5
+end-to-end	5
+type	5
+bad	5
+dupont	5
+standard	5
+annual	5
+report	5
+everything	5
+worth	5
+left	5
+hold	5  # appears as: holds
+year-end	5
+service	5
+benefit	5
+small	5
+pattern	5
+good	5  # appears as: goods
+negative	5
+sit	5  # appears as: sits
+transfer	5
+check	5
+adjustment	5
+purchase	5
+software	5
+event	5
+incurred	5
+new	5
+policy	5  # appears as: policies
+payment	5
+principle	5  # appears as: principles
+next	5
+judgment	5
+performance	5
+selling	5
+sold	5
+higher	5
+real	5
+deck	4
+concept	4
+make	4
+carry	4
+english	4
+callout	4
+chart	4
+timing	4
+deferral	4  # appears as: deferrals
+case	4
+profitability	4
+problem	4
+set	4  # appears as: sets
+layer	4  # appears as: layers
+mechanic	4  # appears as: mechanics
+idea	4
+follow	4
+control	4
+exactly	4
+owe	4  # appears as: owes
+identity	4
+loan	4
+directly	4
+never	4
+permanent	4
+temporary	4
+zero	4
+look	4
+future	4
+acc	4
+return	4  # appears as: returns
+financial	4
+period-end	4
+doesn't	4
+retail	4
+fixed	4
+narrative	4
+equal	4
+deferred	4
+consumed	4
+hit	4  # appears as: hits
+balance-sheet	4
+different	4
+february	4
+subscription	4  # appears as: subscriptions
+utility	4  # appears as: utilities
+auditor	4  # appears as: auditors
+activity	4  # appears as: activities
+recorded	4
+discount	4  # appears as: discounts
+ended	4
+healthy	4
+cfo	4
+non-cash	4
+grew	4
+schedule	4
+buy	4
+avg	4
+reinvested	4
+industry	4
+dpo	4
+concentration	4
+question	3
+made	3
+better	3
+equivalent	3  # appears as: equivalents
+hard	3
+cycle	3
+iii	3
+recognition	3
+model	3
+analysi	3  # appears as: analysis
+solution	3  # appears as: solutions
+column	3
+vocabulary	3
+fine	3
+either	3
+convention	3
+usage	3
+you'll	3
+else	3
+become	3  # appears as: becomes
+source	3
+average	3
+bookkeeping	3
+mechanical	3
+test	3
+money	3
+came	3
+goe	3  # appears as: goes
+begin	3
+thing	3
+minus	3
+forward	3
+live	3
+we'll	3
+like	3
+list	3  # appears as: lists
+signal	3  # appears as: signals
+contra	3
+positive	3
+match	3
+audit	3
+back	3
+identify	3
+invoice	3
+receipt	3
+usually	3
+date	3
+purchased	3
+one-line	3
+above	3
+long	3
+forgetting	3
+alway	3  # appears as: always
+bottom	3
+clean	3
+received	3
+billed	3
+collected	3
+moved	3
+income-statement	3
+diverge	3
+evenly	3
+get	3  # appears as: gets
+coverage	3
+share	3
+identical	3
+anything	3
+work	3
+even	3
+flag	3
+leave	3  # appears as: leaves
+way	3  # appears as: ways
+they're	3
+track	3
+economic	3
+machinery	3
+clear	3
+standalone	3
+sell	3
+commission	3
+pre-tax	3
+strip	3  # appears as: strips
+very	3
+paying	3
+growing	3
+practice	3
+collect	3
+actual	3
+loss	3  # appears as: losses
+roastery	3
+roaster	3
+feb	3
+bean	3  # appears as: beans
+exp	3
+straight-line	3
+beginning	3
+applied	3
+wac	3
+quick	3
+drop	3  # appears as: drops
+often	3
+remove	3  # appears as: removes
+big	3
+great	3
+turnover	3
+nearly	3
+right-of-use	3
+yoy	3
+factor	3  # appears as: factors
+commitment	3  # appears as: commitments
+build-out	3  # appears as: build-outs
+necessary	2
+built	2
+second	2
+parallel	2
+explanation	2  # appears as: explanations
+plus	2
+earn	2  # appears as: earns
+five-step	2
+mini	2
+efficiency	2
+decomposition	2
+vii	2
+framework	2  # appears as: frameworks
+viii	2
+capstone	2
+anchor	2
+boxed	2
+skipping	2
+main	2
+translation	2
+actually	2
+mistake	2
+avoid	2
+name	2  # appears as: names
+us-gaap	2
+delta	2  # appears as: deltas
+memorize	2
+whole	2
+master	2
+rest	2
+sequence	2
+resource	2
+financed	2
+something	2
+amount	2
+missing	2
+contributed	2
+split	2  # appears as: splits
+running	2
+prior	2
+bridge	2
+reduce	2
+appear	2
+generate	2
+another	2
+typical	2
+numbering	2
+salary	2  # appears as: salaries
+digit	2
+instantly	2
+land	2  # appears as: lands
+contra-asset	2
+subtracted	2
+abbreviated	2
+depend	2  # appears as: depends
+entirely	2
+credited	2
+power	2  # appears as: powers
+mnemonic	2
+opposite	2
+happen	2
+record	2
+general	2
+order	2
+contaminate	2  # appears as: contaminates
+unadjusted	2
+reason	2
+compound	2
+supply	2  # appears as: supplies
+while	2
+subsidiary	2
+prove	2  # appears as: proves
+wasn't	2
+convert	2
+ask	2
+waiting	2
+structural	2
+one-year	2
+converted	2
+created	2
+week	2
+settle	2  # appears as: settles
+cover	2  # appears as: covers
+effect	2
+aren't	2
+simple	2
+matche	2  # appears as: matches
+required	2
+need	2  # appears as: needs
+exist	2  # appears as: exists
+sign	2
+mar	2
+distinct	2
+variable	2
+bundled	2
+support	2
+license	2  # appears as: licenses
+building	2
+spread	2
+rev	2
+claim	2
+reconciliation	2
+build	2
+liquid	2
+non-current	2
+admin	2
+subtotal	2
+opinion	2
+buyback	2  # appears as: buybacks
+story	2
+you're	2
+cfi	2
+cff	2
+add-back	2  # appears as: add-backs
+produce	2
+dominate	2  # appears as: dominates
+didn't	2
+reconcile	2
+arithmetic	2
+free	2
+investment	2
+green	2
+happened	2
+notice	2
+stop	2  # appears as: stops
+machine	2
+prospectively	2
+accum	2
+ddb	2
+capped	2
+wear	2
+fastest	2
+vehicle	2  # appears as: vehicles
+front-loaded	2
+floor	2
+expected	2
+scale	2  # appears as: scales
+reflect	2  # appears as: reflects
+rising	2
+reserve	2
+using	2
+analyst	2  # appears as: analysts
+compare	2
+rose	2
+biggest	2
+inv	2
+write-off	2
+specific	2
+doubtful	2
+past	2
+front	2
+approach	2
+aging	2
+faster	2
+high	2
+young	2
+reading	2
+debt-to-equity	2
+funded	2
+comfortable	2
+run	2
+saa	2  # appears as: saas
+conversion	2
+improvement	2
+cross-check	2
+dso	2
+dio	2
+tied	2
+cut	2
+dollar	2
+base	2
+high-leverage	2
+convergence	2
+generally	2
+permitted	2
+write-down	2  # appears as: write-downs
+reversible	2
+development	2
+revaluation	2
+capitalized	2
+persist	2
+difference	2
+issued	2
+remaining	2
+longer	2
+incremental	2
+borrowing	2
+similar	2
+fiscal	2
+roasting	2
+legal	2
+supply-chain	2
+slower	2
+leasehold	2
+ocf	2
+quality	2
+partly	2
+quarter	2  # appears as: quarters
+can't	2
+yr	2  # appears as: yrs
+subsequent	2
+review	1
+bilingual	1
+dedication	1
+ellie	1
+asked	1
+thorough	1
+refresher	1
+paired	1
+self-paced	1
+divider	1
+keep	1
+foundation	1  # appears as: foundations
+interconnection	1
+measurement	1
+self-contained	1
+lecture	1
+page	1
+finish	1
+pass	1
+argument	1
+body	1
+definition	1
+primary	1
+persian	1
+word-for-word	1
+phrased	1
+naturally	1
+numeric	1
+student	1  # appears as: students
+stylized	1
+round	1
+figure	1  # appears as: figures
+meant	1
+re-doable	1
+paper	1
+flagged	1
+bracketed	1
+try	1
+re-derive	1
+skip	1
+ahead	1
+understanding	1
+two-sided	1
+application	1
+much	1
+say	1  # appears as: says
+possible	1
+people	1
+third	1
+true	1
+verifiable	1
+precisely	1
+memorizing	1
+framing	1
+contribute	1  # appears as: contributes
+take	1
+picture	1
+expand	1
+kept	1
+itself	1
+treating	1
+first-time	1
+founder	1
+incur	1  # appears as: incurs
+bond	1  # appears as: bonds
+inflow	1  # appears as: inflows
+reset	1
+see	1
+trust	1
+substance	1
+indexed	1
+leading	1
+code	1
+whether	1
+bigger	1
+dozen	1  # appears as: dozens
+scheme	1
+law	1
+type-by-leading-digit	1
+near-universal	1
+offset	1  # appears as: offsets
+accumulated	1
+give	1
+contra-revenue	1
+latin	1
+debere	1
+credere	1
+entrust	1
+mental	1
+trap	1
+simply	1
+direction	1  # appears as: directions
+incoming	1
+outgoing	1
+meaning	1
+touch	1
+everyday-banking	1
+association	1
+confusion	1
+perspective	1
+deposit	1
+golden	1
+double-entry	1
+year-old	1
+luca	1
+pacioli	1
+quietly	1
+modern	1
+dead	1
+clic	1
+ividend	1  # appears as: ividends
+xpense	1  # appears as: xpenses
+sset	1  # appears as: ssets
+redit	1
+iability	1  # appears as: iabilities
+ncome	1
+apital	1
+decrease	1
+normal	1
+negative-balance	1
+overdraft	1
+normally	1
+showing	1
+row	1
+repeat	1
+envelope	1
+journalize	1
+post	1
+unadj	1
+adj	1
+re-check	1
+adjust	1  # appears as: adjusts
+temp	1
+post-closing	1
+tan	1
+bookkeeper	1
+controller	1
+month-	1
+quarter-	1
+tempting	1
+anyway	1
+isolate	1  # appears as: isolates
+fix	1
+anatomy	1
+flush	1
+indented	1
+explaining	1
+participate	1
+hand-kept	1
+description	1
+trail	1
+write	1
+chronological	1
+sorted	1
+touche	1  # appears as: touches
+shorthand	1
+sample	1
+posted	1
+proof	1
+arithmetically	1
+omitted	1
+correctly-balanced	1
+booked	1
+twice	1
+sufficient	1
+transposing	1
+instead	1
+stay	1  # appears as: stays
+unbalanced	1
+multiple	1
+divisibility	1
+knowing	1
+debugging	1
+shortcut	1
+cash-based	1
+sort	1
+cleanly	1
+delivered	1
+settled	1
+remember	1
+reclassified	1
+hasn't	1
+create	1
+happening	1
+conceptually	1
+month-end	1
+one-twelfth	1
+monthly	1
+fair	1
+action	1
+upfront	1
+consume	1
+arc	1
+performed	1
+belong	1  # appears as: belongs
+cash-vs-accrual	1
+put	1  # appears as: puts
+done	1
+represent	1  # appears as: represents
+shape	1
+taxe	1  # appears as: taxes
+understate	1  # appears as: understates
+overstating	1
+moment	1
+prepared	1
+zeroed	1
+fresh	1
+four-step	1
+transient	1
+holding	1
+distribution	1
+gotcha	1
+open	1
+enter	1  # appears as: enters
+distort	1  # appears as: distorts
+compliant	1
+allowed	1
+sole	1
+proprietor	1  # appears as: proprietors
+individual	1
+taxpayer	1  # appears as: taxpayers
+filer	1  # appears as: filers
+entity	1
+consequence	1
+separate	1
+handled	1
+accrual-based	1
+shrinking	1
+timeline	1  # appears as: timelines
+deliver	1
+march	1
+separately	1
+enforceable	1
+approved	1
+promised	1
+determine	1
+refund	1  # appears as: refunds
+allocate	1
+recognize	1
+satisfied	1
+laptop	1
+include	1  # appears as: includes
+plan	1
+delivery	1
+bill-and-hold	1
+gift-card	1
+breakage	1
+hosting	1
+hinge	1
+helped	1
+flavour	1  # appears as: flavours
+cause	1
+matched	1
+generated	1
+clearest	1
+systematic	1
+allocation	1
+immediate	1
+identifiable	1
+ad	1  # appears as: ads
+pretend	1
+forbid	1  # appears as: forbids
+arbitrage	1
+cheque	1
+axe	1  # appears as: axes
+collapse	1  # appears as: collapses
+cell	1  # appears as: cells
+snapshot	1
+movie	1
+connect	1
+walk	1
+instant	1
+ordered	1
+controlled	1
+present	1
+outsider	1  # appears as: outsiders
+residual	1
+cut-off	1
+reader	1
+spot	1
+die	1  # appears as: dies
+product	1
+core	1
+day-to-day	1
+payroll	1
+important	1
+buying	1
+acquisition	1  # appears as: acquisitions
+security	1  # appears as: securities
+structure	1
+creditor	1  # appears as: creditors
+kind	1
+looking	1
+far	1
+revealing	1
+mature	1
+heavy	1
+distressed	1
+recompute	1
+subtract	1
+add	1
+place	1  # appears as: places
+head	1  # appears as: heads
+working-capital	1
+most-tested	1
+introductory	1
+fail	1
+fraud	1
+catch	1
+easiest	1
+break	1
+non-operating	1
+gain	1  # appears as: gains
+reversed	1
+reappear	1
+carefully	1
+summarized	1
+predictable	1
+defensible	1
+easy	1
+office	1
+intangible	1  # appears as: intangibles
+revision	1  # appears as: revisions
+accounted	1
+restatement	1
+val	1
+fall	1
+obsolete	1
+early	1
+computer	1  # appears as: computers
+certain	1
+decline	1
+formula	1
+act	1  # appears as: acts
+calculation	1
+beg	1
+final	1
+preserve	1
+process	1
+rather	1
+production	1
+mileage	1
+mineral	1
+extraction	1
+called	1
+original	1
+restate	1
+revise	1
+total-unit	1  # appears as: total-units
+impair	1
+clearly	1
+impaired	1
+uop	1
+oldest	1
+recent	1
+newest	1
+old	1
+prohibit	1  # appears as: prohibits
+weighted	1
+smooth	1  # appears as: smooths
+fluctuation	1  # appears as: fluctuations
+widely	1
+physical	1
+wildly	1
+bill	1
+purely	1
+assumption	1
+disclosed	1
+consistently	1
+disclose	1
+non-u	1
+peer	1  # appears as: peers
+fact	1  # appears as: facts
+available	1
+avail	1
+inflation	1
+hand	1  # appears as: hands
+lowest	1
+middle	1
+design	1
+alone	1
+know	1
+won't	1
+historically	1
+percentage	1
+confirmed	1
+uncollectible	1
+already	1
+reserved	1
+realizable	1
+acct	1  # appears as: accts
+expect	1
+direct	1
+writing	1
+delay	1  # appears as: delays
+violating	1
+fixe	1  # appears as: fixes
+booking	1
+precise	1
+translate	1
+raw	1
+comparison	1  # appears as: comparisons
+family	1  # appears as: families
+potential	1
+short-term	1
+stress	1
+exclude	1  # appears as: excludes
+stricter	1
+target	1
+conservative	1
+pure	1
+over-capitalized	1
+startup	1
+trio	1
+numerator	1
+together	1
+propping	1
+idle	1
+nothing	1
+returning	1
+shareholder	1  # appears as: shareholders
+mix	1
+debt-to-asset	1  # appears as: debt-to-assets
+many	1
+trade-off	1
+cheaper	1
+tax-deductible	1
+amplify	1  # appears as: amplifies
+default	1
+nature	1
+low	1
+alarming	1
+regulated	1
+product-level	1
+core-business	1
+bottom-line	1
+deployed	1
+cascade	1
+leaking	1
+mechanically	1
+lift	1
+harder	1
+game	1
+collecting	1
+operator	1  # appears as: operators
+push	1
+isn't	1
+warehouse	1
+freed	1
+productive	1
+sound	1  # appears as: sounds
+amazon	1
+walmart	1
+bargaining	1
+stretch	1
+losing	1
+changing	1
+generating	1
+taking	1
+diagnostic	1
+reveal	1  # appears as: reveals
+got	1
+high-margin	1
+low-leverage	1
+versus	1
+low-margin	1
+rulebook	1  # appears as: rulebooks
+topic	1  # appears as: topics
+united	1
+state	1  # appears as: states
+accepted	1
+rules-based	1
+extensive	1
+bright	1
+expensed	1
+world	1
+international	1
+reporting	1
+principles-based	1
+prohibited	1
+criteria	1
+met	1
+system	1  # appears as: systems
+studied	1
+adoption	1
+cross-listed	1
+abroad	1
+foreign	1
+listed	1
+file	1
+caricature	1
+latitude	1
+preparer	1
+regulator	1
+rare	1
+global	1
+effective	1
+unify	1
+worldwide	1
+changed	1
+unified	1
+industry-specific	1
+explicit	1
+treatment	1
+rebate	1  # appears as: rebates
+bonuse	1  # appears as: bonuses
+mandatory	1
+disclosure	1
+disaggregated	1
+affected	1
+telecom	1
+construction	1
+entertainment	1
+royalty	1  # appears as: royalties
+deal	1  # appears as: deals
+bundle	1  # appears as: bundles
+perpetual	1
+training	1
+piece	1
+allocated	1
+item	1  # appears as: items
+inception	1
+lessee	1  # appears as: lessee's
+they'd	1
+borrow	1
+noticeably	1
+remain	1  # appears as: remains
+flat	1
+finance	1
+pre-	1
+off-balance-sheet	1
+airline	1  # appears as: airlines
+retailer	1  # appears as: retailers
+restaurant	1  # appears as: restaurants
+saw	1
+reported	1
+jump	1
+overnight	1
+forty-nine	1
+fictional	1
+realistic	1
+small-chain	1
+specialty	1
+based	1
+portland	1
+founded	1
+location	1  # appears as: locations
+employee	1  # appears as: employees
+calendar	1
+heuristic	1
+classic	1
+profile	1
+thin	1
+traded	1
+highlight	1  # appears as: highlights
+compete	1  # appears as: competes
+management	1  # appears as: management's
+discussion	1
+breakdown	1  # appears as: breakdowns
+themselve	1  # appears as: themselves
+independent	1
+unqualified	1
+want	1
+governance	1
+exhibit	1  # appears as: exhibits
+director	1  # appears as: directors
+executive	1
+comp	1
+seasoned	1
+mostly	1
+boilerplate	1
+glossed	1
+dense	1
+prose	1
+added	1
+concern	1
+dependency	1
+regulatory	1
+exposure	1
+scanning	1
+diff	1
+occupancy	1
+marketing	1
+fast	1
+expanded	1
+tripled	1
+gap	1
+downturn	1
+magnified	1
+magnify	1  # appears as: magnifies
+riskier	1
+finished	1
+sub	1  # appears as: subs
+portion	1
+strongly	1
+ample	1
+cushion	1
+jumped	1
+store	1
+low-return	1
+project	1  # appears as: projects
+justify	1  # appears as: justifies
+retention	1
+proceed	1  # appears as: proceeds
+repayment	1
+issuance	1
+hallmark	1
+invested	1
+consistent	1
+expansion	1
+several	1
+textbook	1
+earnings-quality	1
+red	1
+essentially	1
+stockpiling	1
+hiding	1
+professional	1  # appears as: professionals
+significant	1
+point-in-time	1
+over-time	1
+space	1  # appears as: spaces
+weighted-avg	1
+undiscounted	1
+disaggregation	1
+green-coffee	1
+signed	1
+additional	1
+reflected	1
+material	1
+routinely	1
+contain	1
+information	1
+thesi	1  # appears as: thesis
+single-point-of-failure	1
+signing	1
+property	1
+apr	1
+staff	1
+sum	1  # appears as: sums
+perfectly	1
+valid	1
+compute	1
+interpretation	1
+liab	1
+bonus	1
+decompose	1
+multiplier	1
+lever	1
+drive	1  # appears as: drives
+contributor	1
+sweat	1  # appears as: sweats
+modest	1
+mid-pack	1
+len	1  # appears as: lens
+sery	1  # appears as: series
+visible	1
+fit	1  # appears as: fits
+weighted-average	1
+carrying	1
+supported	1
+continue	1
+refresh	1
+starbuck	1  # appears as: starbucks
+dutch	1
+bro	1  # appears as: bros
+weekly	1
+weygandt	1
+kimmel	1
+kieso	1
+intermediate	1
+kpi	1
+watch	1
+needle	1
+welcome	1
+profession	1
