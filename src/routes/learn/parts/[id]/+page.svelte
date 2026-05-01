@@ -2,6 +2,7 @@
 	import { resolve } from '$app/paths';
 	import { fly } from 'svelte/transition';
 	import { i18n, t } from '$lib/state/i18n.svelte';
+	import { learnRead } from '$lib/state/learn-read.svelte';
 	import SlideListItem from '$lib/learn/components/SlideListItem.svelte';
 
 	const { data } = $props();
@@ -14,6 +15,11 @@
 	// The part page already serves as the section opener; the divider slide
 	// would be a redundant entry, so list only the lecture slides.
 	const contentSlides = $derived(slides.filter((s) => s.kind !== 'divider'));
+
+	const trackableSlugs = $derived(contentSlides.map((s) => s.slug));
+	const totalReadable = $derived(trackableSlugs.length);
+	const readCount = $derived(learnRead.countIn(trackableSlugs));
+	const readPct = $derived(totalReadable === 0 ? 0 : (readCount / totalReadable) * 100);
 </script>
 
 <svelte:head>
@@ -46,6 +52,18 @@
 		<h1 class="part-hero-title">{title}</h1>
 		<p class="part-hero-alt">{altTitle}</p>
 		<p class="part-hero-blurb">{blurb}</p>
+
+		{#if totalReadable > 0}
+			<div class="part-progress" aria-label={t('learn_progress_label')}>
+				<div class="part-progress-row">
+					<span class="part-progress-label">{t('learn_progress_label')}</span>
+					<span class="part-progress-count">{t('learn_read_progress', readCount, totalReadable)}</span>
+				</div>
+				<div class="part-progress-bar" role="progressbar" aria-valuenow={readCount} aria-valuemin={0} aria-valuemax={totalReadable}>
+					<div class="part-progress-fill" style="width: {readPct}%"></div>
+				</div>
+			</div>
+		{/if}
 	</header>
 
 	<div class="flex flex-col gap-2">
@@ -137,5 +155,46 @@
 		line-height: 1.6;
 		color: var(--ink-muted);
 		margin: 6px 0 0 0;
+	}
+
+	.part-progress {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		margin-top: 12px;
+		padding-top: 12px;
+		border-top: 1px solid color-mix(in oklab, var(--hairline) 60%, transparent);
+	}
+	.part-progress-row {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 8px;
+	}
+	.part-progress-label {
+		font-family: ui-monospace, 'SF Mono', monospace;
+		font-size: 9.5px;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--ink-muted);
+	}
+	.part-progress-count {
+		font-size: 12px;
+		color: var(--ink-muted);
+	}
+	:global([lang='fa']) .part-progress-count {
+		font-family: var(--font-persian);
+	}
+	.part-progress-bar {
+		height: 4px;
+		border-radius: 999px;
+		background: color-mix(in oklab, var(--ink) 6%, transparent);
+		overflow: hidden;
+	}
+	.part-progress-fill {
+		height: 100%;
+		border-radius: 999px;
+		background: var(--accent);
+		transition: width 280ms ease;
 	}
 </style>

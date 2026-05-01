@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { i18n, t } from '$lib/state/i18n.svelte';
-	import { type Part } from '../slides.generated';
+	import { learnRead } from '$lib/state/learn-read.svelte';
+	import { slidesByPart, type Part } from '../slides.generated';
 
 	interface Props {
 		part: Part;
@@ -11,6 +12,15 @@
 	const title = $derived(i18n.lang === 'fa' ? part.titleFa : part.title);
 	const altTitle = $derived(i18n.lang === 'fa' ? part.title : part.titleFa);
 	const blurb = $derived(i18n.lang === 'fa' ? part.blurbFa : part.blurb);
+
+	// Mirrors the part page: count read across the part's lecture slides
+	// (anything that isn't a divider).
+	const trackableSlugs = $derived(
+		(slidesByPart[part.id] ?? []).filter((s) => s.kind !== 'divider').map((s) => s.slug)
+	);
+	const totalReadable = $derived(trackableSlugs.length);
+	const readCount = $derived(learnRead.countIn(trackableSlugs));
+	const allRead = $derived(totalReadable > 0 && readCount === totalReadable);
 </script>
 
 <a
@@ -20,7 +30,19 @@
 >
 	<div class="part-card-roman" aria-hidden="true">{part.roman}</div>
 	<div class="part-card-body">
-		<div class="part-card-eyebrow">{t('learn_part_label', part.roman)}</div>
+		<div class="part-card-eyebrow">
+			<span>{t('learn_part_label', part.roman)}</span>
+			{#if totalReadable > 0}
+				<span class="part-card-progress" class:is-complete={allRead} aria-label={t('learn_read_progress', readCount, totalReadable)}>
+					{#if allRead}
+						<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M5 12.5l4 4 10-10" />
+						</svg>
+					{/if}
+					<span dir="ltr">{readCount}/{totalReadable}</span>
+				</span>
+			{/if}
+		</div>
 		<div class="part-card-title">
 			<span class="primary">{title}</span>
 			<span class="alt">{altTitle}</span>
@@ -75,11 +97,35 @@
 	}
 
 	.part-card-eyebrow {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		flex-wrap: wrap;
 		font-family: ui-monospace, 'SF Mono', monospace;
 		font-size: 9.5px;
 		letter-spacing: 0.2em;
 		text-transform: uppercase;
 		color: var(--ink-muted);
+	}
+
+	.part-card-progress {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		padding: 2px 7px;
+		border-radius: 999px;
+		border: 1px solid var(--hairline);
+		background: color-mix(in oklab, var(--ink) 4%, transparent);
+		color: var(--ink-muted);
+		font-size: 9.5px;
+		letter-spacing: 0.06em;
+		text-transform: none;
+		font-variant-numeric: tabular-nums;
+	}
+	.part-card-progress.is-complete {
+		background: color-mix(in oklab, var(--accent) 14%, transparent);
+		border-color: color-mix(in oklab, var(--accent) 50%, var(--hairline));
+		color: var(--accent);
 	}
 
 	.part-card-title {

@@ -5,6 +5,7 @@
 	import SlideShell from '$lib/learn/components/SlideShell.svelte';
 	import LectureBody from '$lib/learn/components/LectureBody.svelte';
 	import SlideListItem from '$lib/learn/components/SlideListItem.svelte';
+	import MarkAsRead from '$lib/learn/components/MarkAsRead.svelte';
 	import '$lib/learn/learn-slide.css';
 
 	const { data } = $props();
@@ -16,6 +17,12 @@
 	// Full-bleed cover / dividers / close keep the variant tint card.
 	const framed = $derived(
 		slide.kind === 'cover' || slide.kind === 'divider' || slide.kind === 'close'
+	);
+
+	// Cover/divider/close are decorative full-bleed pages without "content"
+	// to read — skip the mark-as-read affordance there.
+	const showMarkAsRead = $derived(
+		slide.kind !== 'cover' && slide.kind !== 'divider' && slide.kind !== 'close'
 	);
 </script>
 
@@ -47,6 +54,10 @@
 		<SlideShell {slide} {part}>
 			<LectureBody {slide} {framed} />
 		</SlideShell>
+
+		{#if showMarkAsRead}
+			<MarkAsRead slug={slide.slug} />
+		{/if}
 
 		{#if slide.kind === 'divider' && partSlides && partSlides.length > 0}
 			<div class="part-toc">

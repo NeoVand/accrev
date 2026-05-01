@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { learnRead } from '$lib/state/learn-read.svelte';
+	import { t } from '$lib/state/i18n.svelte';
 	import type { Slide } from '../slides.generated';
 
 	interface Props {
@@ -8,6 +10,12 @@
 	}
 
 	const { slide, highlight = '' }: Props = $props();
+
+	// Cover/divider/close pages aren't markable, so don't surface read-state for them.
+	const trackable = $derived(
+		slide.kind !== 'cover' && slide.kind !== 'divider' && slide.kind !== 'close'
+	);
+	const isRead = $derived(trackable && learnRead.has(slide.slug));
 
 	function escapeRe(s: string) {
 		return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -26,24 +34,23 @@
 	);
 </script>
 
-<a href={resolve(`/learn/${slide.slug}` as never)} class="slide-link" dir="ltr">
+<a
+	href={resolve(`/learn/${slide.slug}` as never)}
+	class="slide-link"
+	class:is-read={isRead}
+	dir="ltr"
+>
 	<span class="slide-link-num" aria-hidden="true">{numLabel}</span>
 	<span class="slide-link-title" dir="ltr">
 		{#if titleHTML}{@html titleHTML}{:else}{slide.title}{/if}
 	</span>
-	<svg
-		viewBox="0 0 24 24"
-		width="12"
-		height="12"
-		fill="none"
-		stroke="currentColor"
-		stroke-width="1.8"
-		stroke-linecap="round"
-		aria-hidden="true"
-		class="slide-link-chev"
-	>
-		<path d="M9 6l6 6-6 6" />
-	</svg>
+	{#if isRead}
+		<span class="slide-link-read" aria-label={t('learn_marked_read')} title={t('learn_marked_read')}>
+			<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<path d="M5 12.5l4 4 10-10" />
+			</svg>
+		</span>
+	{/if}
 </a>
 
 <style>
@@ -51,7 +58,7 @@
 		display: grid;
 		grid-template-columns: 28px 1fr auto;
 		gap: 10px;
-		align-items: baseline;
+		align-items: center;
 		padding: 8px 10px;
 		border-radius: 8px;
 		text-decoration: none;
@@ -60,6 +67,21 @@
 		transition:
 			background-color 180ms ease,
 			color 180ms ease;
+	}
+	.slide-link.is-read .slide-link-title {
+		color: var(--ink-muted);
+	}
+
+	.slide-link-read {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 16px;
+		height: 16px;
+		border-radius: 999px;
+		background: color-mix(in oklab, var(--accent) 90%, transparent);
+		color: var(--bg);
+		flex: none;
 	}
 	.slide-link:hover {
 		background: color-mix(in oklab, var(--accent) 8%, transparent);
@@ -96,24 +118,5 @@
 		color: var(--ink);
 		border-radius: 2px;
 		padding: 0 2px;
-	}
-
-	.slide-link-chev {
-		flex: none;
-		color: var(--ink-faint);
-		transform: translateX(0);
-		transition:
-			transform 180ms ease,
-			color 180ms ease;
-	}
-	.slide-link:hover .slide-link-chev {
-		color: var(--accent);
-		transform: translateX(2px);
-	}
-	:global([dir='rtl']) .slide-link-chev {
-		transform: scaleX(-1);
-	}
-	:global([dir='rtl']) .slide-link:hover .slide-link-chev {
-		transform: scaleX(-1) translateX(2px);
 	}
 </style>
