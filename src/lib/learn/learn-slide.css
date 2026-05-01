@@ -103,6 +103,12 @@
 	color: var(--ink);
 	margin: 4px 0 0 0;
 }
+.learn-slide .col-en h3 {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
 .learn-slide .col-fa h3 {
 	font-family: var(--font-persian);
 	font-weight: 700;
@@ -501,4 +507,62 @@
 .learn-slide.is-ink .col-en p,
 .learn-slide.is-ink .col-fa p {
 	color: rgba(241, 230, 217, 0.86);
+}
+
+/* ─── Inline read-aloud speaker buttons ─────────────────────────── */
+
+.learn-slide .inline-speaker {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 22px;
+	height: 22px;
+	min-width: 22px;
+	padding: 0;
+	margin: 0 0 0 4px;
+	border-radius: 999px;
+	border: 1px solid var(--hairline);
+	background: color-mix(in oklab, var(--ink) 4%, transparent);
+	color: var(--ink-muted);
+	cursor: pointer;
+	vertical-align: middle;
+	flex: none;
+	transition:
+		background-color 160ms ease,
+		border-color 160ms ease,
+		color 160ms ease;
+}
+.learn-slide .inline-speaker:hover {
+	border-color: color-mix(in oklab, var(--accent) 50%, var(--hairline));
+	background: color-mix(in oklab, var(--accent) 10%, var(--bg-elevated));
+	color: var(--accent);
+}
+.learn-slide .inline-speaker[data-speaking='1'] {
+	border-color: color-mix(in oklab, var(--accent) 60%, var(--hairline));
+	background: color-mix(in oklab, var(--accent) 18%, transparent);
+	color: var(--accent);
+}
+
+/* For paragraph-kind speakers (prepended to .body / .body-lg / .subtitle),
+   nudge the icon slightly down so it sits on the text baseline. */
+.learn-slide p.body > .inline-speaker,
+.learn-slide p.body-lg > .inline-speaker,
+.learn-slide p.subtitle > .inline-speaker {
+	margin: -2px 6px 0 0;
+}
+
+/* Section-kind speakers live inside the h3 — already aligned via h3 flex. */
+.learn-slide .col-en h3 > .inline-speaker {
+	margin: 0;
+}
+
+/* On the dark variant slides (cover/divider/close), hairlines are barely
+   visible — bump contrast on speaker icons so they're not lost. */
+.learn-slide.is-navy .inline-speaker,
+.learn-slide.is-tan .inline-speaker,
+.learn-slide.is-sage .inline-speaker,
+.learn-slide.is-ink .inline-speaker {
+	border-color: rgba(245, 242, 236, 0.22);
+	background: rgba(245, 242, 236, 0.06);
+	color: rgba(245, 242, 236, 0.78);
 }
