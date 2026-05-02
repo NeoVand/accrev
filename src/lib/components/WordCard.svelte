@@ -14,6 +14,10 @@
 		showOpenLink?: boolean;
 		/** Show the "I memorized this / forget" toggle. */
 		showMemorize?: boolean;
+		/** Hide the English title row (the parent — e.g. the glossary row —
+		    already shows it; we don't want to repeat it inside the expanded
+		    body). The pronounce button moves into the body instead. */
+		hideEnTitle?: boolean;
 		/** Optional close button rendered in the header (popover only). */
 		onclose?: () => void;
 	};
@@ -23,6 +27,7 @@
 		lemmaNote = null,
 		showOpenLink = true,
 		showMemorize = true,
+		hideEnTitle = false,
 		onclose
 	}: Props = $props();
 
@@ -35,30 +40,40 @@
 </script>
 
 <div class="wc-root" dir="ltr">
-	<div class="wc-head">
-		<div class="wc-term">
-			<span class="wc-en" dir="ltr">{entry.enTerm}</span>
-			{#if entry.enAcronym && entry.enAcronym !== entry.enTerm}
-				<span class="wc-acro" dir="ltr">{entry.enAcronym}</span>
-			{/if}
+	{#if !hideEnTitle}
+		<div class="wc-head">
+			<div class="wc-term">
+				<span class="wc-en" dir="ltr">{entry.enTerm}</span>
+				{#if entry.enAcronym && entry.enAcronym !== entry.enTerm}
+					<span class="wc-acro" dir="ltr">{entry.enAcronym}</span>
+				{/if}
+			</div>
+			<div class="wc-actions">
+				<PronounceButton text={entry.enTerm} class="wc-speaker" />
+				{#if onclose}
+					<button
+						type="button"
+						class="wc-close"
+						onclick={onclose}
+						aria-label={t('close')}
+						title={t('close')}
+					>
+						<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+							<path d="M6 6l12 12M6 18L18 6" />
+						</svg>
+					</button>
+				{/if}
+			</div>
 		</div>
-		<div class="wc-actions">
+	{:else}
+		<!-- Pronounce button still visible when the parent owns the title.
+		     Slides into the body, aligned to the trailing edge so it doesn't
+		     compete with the row header above. -->
+		<div class="wc-inline-speaker">
 			<PronounceButton text={entry.enTerm} class="wc-speaker" />
-			{#if onclose}
-				<button
-					type="button"
-					class="wc-close"
-					onclick={onclose}
-					aria-label={t('close')}
-					title={t('close')}
-				>
-					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-						<path d="M6 6l12 12M6 18L18 6" />
-					</svg>
-				</button>
-			{/if}
+			<span class="wc-inline-speaker-label">{t('hear_pronunciation')}</span>
 		</div>
-	</div>
+	{/if}
 
 	{#if lemmaNote}
 		<p class="wc-lemma" dir="ltr">{t('lookup_root_form', lemmaNote)}</p>
@@ -73,10 +88,7 @@
 	{#if entry.faTerm || entry.faDefinition}
 		<div class="wc-fa">
 			{#if entry.faTerm}
-				<div class="wc-fa-term-row">
-					<p class="wc-fa-term" dir="rtl">{entry.faTerm}</p>
-					<PronounceButton text={entry.faTerm} lang="fa-IR" class="wc-speaker wc-speaker-fa" />
-				</div>
+				<p class="wc-fa-term" dir="rtl">{entry.faTerm}</p>
 			{/if}
 			{#if entry.faDefinition}
 				<p class="wc-fa-def" dir="rtl">{entry.faDefinition}</p>
@@ -86,7 +98,7 @@
 
 	{#if entry.enExample}
 		<div class="wc-example">
-			<span class="wc-example-label">{isFa ? t('glossary_example') : t('glossary_example')}</span>
+			<span class="wc-example-label">{t('glossary_example')}</span>
 			<p dir="ltr">{entry.enExample}</p>
 		</div>
 	{/if}
@@ -179,8 +191,24 @@
 		width: 26px !important;
 		height: 26px !important;
 	}
-	:global(.wc-speaker-fa) {
-		color: var(--gold);
+
+	.wc-inline-speaker {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		padding: 4px 10px 4px 4px;
+		border-radius: 999px;
+		border: 1px solid var(--hairline);
+		background: var(--bg-elevated);
+		color: var(--ink-muted);
+		margin: 0 0 8px 0;
+	}
+	.wc-inline-speaker-label {
+		font-family: ui-monospace, 'SF Mono', monospace;
+		font-size: 9.5px;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: var(--ink-muted);
 	}
 	.wc-close {
 		display: inline-flex;
@@ -226,13 +254,6 @@
 		padding-top: 8px;
 		border-top: 1px solid color-mix(in oklab, var(--hairline) 70%, transparent);
 		margin-bottom: 6px;
-	}
-	.wc-fa-term-row {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 6px;
-		direction: rtl;
 	}
 	.wc-fa-term {
 		font-family: var(--font-persian);

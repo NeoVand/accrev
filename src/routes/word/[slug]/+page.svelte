@@ -59,12 +59,9 @@
 			<span class="inline-flex items-center"><PronounceButton text={term.en.term} /></span>
 		</div>
 		{#if term.fa.term}
-			<div class="flex items-center gap-2" dir="rtl">
-				<p class="font-persian text-[18px] leading-[1.4] text-gold" dir="rtl">
-					{term.fa.term}
-				</p>
-				<span class="inline-flex items-center"><PronounceButton text={term.fa.term} lang="fa-IR" /></span>
-			</div>
+			<p class="font-persian text-[18px] leading-[1.4] text-gold" dir="rtl">
+				{term.fa.term}
+			</p>
 		{/if}
 		{#if term.en.expansion}
 			<p class="mt-1 text-[12.5px] italic text-ink-muted" dir="ltr">{term.en.expansion}</p>

@@ -122,9 +122,6 @@
 							{#if entry.enAcronym && entry.enAcronym !== entry.enTerm}
 								<span class="g-row-acro" dir="ltr">{entry.enAcronym}</span>
 							{/if}
-							{#if entry.faTerm}
-								<span class="g-row-fa" dir="rtl">{entry.faTerm}</span>
-							{/if}
 							<span class="g-row-caret" aria-hidden="true">
 								<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
 									<path d="M6 9l6 6 6-6" />
@@ -133,7 +130,7 @@
 						</button>
 						{#if open}
 							<div class="g-row-body" in:fly={{ y: -2, duration: 160 }}>
-								<WordCard {entry} />
+								<WordCard {entry} hideEnTitle />
 							</div>
 						{/if}
 					</li>
@@ -175,9 +172,6 @@
 							{#if entry.enAcronym && entry.enAcronym !== entry.enTerm}
 								<span class="g-row-acro" dir="ltr">{entry.enAcronym}</span>
 							{/if}
-							{#if entry.faTerm}
-								<span class="g-row-fa" dir="rtl">{entry.faTerm}</span>
-							{/if}
 							<span class="g-row-caret" aria-hidden="true">
 								<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
 									<path d="M6 9l6 6 6-6" />
@@ -186,7 +180,7 @@
 						</button>
 						{#if open}
 							<div class="g-row-body" in:fly={{ y: -2, duration: 160 }}>
-								<WordCard {entry} />
+								<WordCard {entry} hideEnTitle />
 							</div>
 						{/if}
 					</li>
@@ -314,7 +308,7 @@
 	.g-row-head {
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: 10px;
 		width: 100%;
 		padding: 10px 12px;
 		border: 0;
@@ -323,6 +317,7 @@
 		text-align: left;
 		cursor: pointer;
 		font: inherit;
+		min-width: 0;
 	}
 
 	.g-row-mem-mark {
@@ -341,12 +336,13 @@
 		font-family: var(--font-serif);
 		font-weight: 500;
 		font-size: 15px;
-		line-height: 1.2;
+		line-height: 1.25;
 		color: var(--ink);
+		flex: 1;
 		min-width: 0;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
+		/* Long terms wrap onto a second line instead of being clipped — the
+		   glossary's whole point is making the word legible. */
+		overflow-wrap: anywhere;
 	}
 	.g-row-acro {
 		font-family: ui-monospace, 'SF Mono', monospace;
@@ -355,20 +351,6 @@
 		color: var(--ink-faint);
 		text-transform: uppercase;
 		flex: none;
-	}
-	.g-row-fa {
-		font-family: var(--font-persian);
-		font-size: 13px;
-		color: var(--gold);
-		direction: rtl;
-		unicode-bidi: isolate;
-		margin-inline-start: auto;
-		text-align: end;
-		flex: none;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		max-width: 50%;
 	}
 	.g-row-caret {
 		display: inline-flex;
