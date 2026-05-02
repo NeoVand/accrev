@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { wipeEverything } from '$lib/db';
 	import { t } from '$lib/state/i18n.svelte';
 	import { theme } from '$lib/state/theme.svelte';
@@ -14,7 +15,7 @@
 		busy = true;
 		await wipeEverything();
 		// Hard reload so every store + Dexie connection re-initializes cold.
-		window.location.href = '/';
+		window.location.href = `${base}/`;
 	}
 
 	function cancelReset() {
