@@ -1,9 +1,12 @@
 <script lang="ts">
+	import { onMount, onDestroy } from 'svelte';
 	import { resolve } from '$app/paths';
 	import { i18n, t } from '$lib/state/i18n.svelte';
 	import PronounceButton from './PronounceButton.svelte';
+	import WordLookupPopover from '$lib/learn/components/WordLookupPopover.svelte';
+	import { wireWordLookup } from '$lib/learn/wire-word-lookup';
 	import { memorized } from '$lib/state/memorized.svelte';
-	import type { LookupEntry } from '$lib/data/lookup';
+	import type { LookupEntry, LookupHit } from '$lib/data/lookup';
 
 	type Props = {
 		entry: LookupEntry;
@@ -16,8 +19,12 @@
 		showMemorize?: boolean;
 		/** Hide the English title row (the parent — e.g. the glossary row —
 		    already shows it; we don't want to repeat it inside the expanded
-		    body). The pronounce button moves into the body instead. */
+		    body). */
 		hideEnTitle?: boolean;
+		/** Underline lookup-able words inside the English definition and let
+		    them open another popover. Off by default — turning it on inside
+		    the popover itself would create infinite recursion. */
+		enableWordLookup?: boolean;
 		/** Optional close button rendered in the header (popover only). */
 		onclose?: () => void;
 	};
@@ -28,6 +35,7 @@
 		showOpenLink = true,
 		showMemorize = true,
 		hideEnTitle = false,
+		enableWordLookup = false,
 		onclose
 	}: Props = $props();
 
@@ -37,6 +45,25 @@
 	function toggle() {
 		memorized.toggle(entry.key);
 	}
+
+	// Inline lookup → nested popover (only when enableWordLookup is true).
+	let defEl = $state<HTMLDivElement | undefined>();
+	let innerPopover = $state<{ hit: LookupHit; anchor: DOMRect } | null>(null);
+	let cleanup: (() => void) | undefined;
+
+	onMount(() => {
+		if (!enableWordLookup || !defEl) return;
+		const handle = wireWordLookup(defEl, {
+			onTap: (hit, anchor) => (innerPopover = { hit, anchor })
+		});
+		cleanup = handle?.destroy;
+	});
+
+	onDestroy(() => cleanup?.());
+
+	function closeInnerPopover() {
+		innerPopover = null;
+	}
 </script>
 
 <div class="wc-root" dir="ltr">
@@ -44,34 +71,28 @@
 		<div class="wc-head">
 			<div class="wc-term">
 				<span class="wc-en" dir="ltr">{entry.enTerm}</span>
+				<PronounceButton
+					text={entry.enTerm}
+					label={t('read_aloud_term')}
+					class="wc-speaker-mini"
+				/>
 				{#if entry.enAcronym && entry.enAcronym !== entry.enTerm}
 					<span class="wc-acro" dir="ltr">{entry.enAcronym}</span>
 				{/if}
 			</div>
-			<div class="wc-actions">
-				<PronounceButton text={entry.enTerm} class="wc-speaker" />
-				{#if onclose}
-					<button
-						type="button"
-						class="wc-close"
-						onclick={onclose}
-						aria-label={t('close')}
-						title={t('close')}
-					>
-						<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-							<path d="M6 6l12 12M6 18L18 6" />
-						</svg>
-					</button>
-				{/if}
-			</div>
-		</div>
-	{:else}
-		<!-- Pronounce button still visible when the parent owns the title.
-		     Slides into the body, aligned to the trailing edge so it doesn't
-		     compete with the row header above. -->
-		<div class="wc-inline-speaker">
-			<PronounceButton text={entry.enTerm} class="wc-speaker" />
-			<span class="wc-inline-speaker-label">{t('hear_pronunciation')}</span>
+			{#if onclose}
+				<button
+					type="button"
+					class="wc-close"
+					onclick={onclose}
+					aria-label={t('close')}
+					title={t('close')}
+				>
+					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+						<path d="M6 6l12 12M6 18L18 6" />
+					</svg>
+				</button>
+			{/if}
 		</div>
 	{/if}
 
@@ -83,7 +104,14 @@
 		<p class="wc-expansion" dir="ltr">{entry.enExpansion}</p>
 	{/if}
 
-	<p class="wc-en-def" dir="ltr">{entry.enDefinition}</p>
+	<div class="wc-en-def-row" dir="ltr">
+		<div class="wc-en-def-text" dir="ltr" bind:this={defEl}>{entry.enDefinition}</div>
+		<PronounceButton
+			text={`${entry.enTerm}. ${entry.enDefinition}`}
+			label={t('read_aloud_def')}
+			class="wc-speaker-mini wc-speaker-def"
+		/>
+	</div>
 
 	{#if entry.faTerm || entry.faDefinition}
 		<div class="wc-fa">
@@ -144,6 +172,14 @@
 	</div>
 </div>
 
+{#if innerPopover}
+	<WordLookupPopover
+		hit={innerPopover.hit}
+		anchor={innerPopover.anchor}
+		onclose={closeInnerPopover}
+	/>
+{/if}
+
 <style>
 	.wc-root {
 		font-family: var(--font-sans);
@@ -191,24 +227,35 @@
 		width: 26px !important;
 		height: 26px !important;
 	}
+	/* Tiny inline speaker — sits next to the term (in the header) and next to
+	   the definition (in the body). Keeps the actions discoverable without
+	   stealing space from the content. */
+	:global(.wc-speaker-mini) {
+		width: 22px !important;
+		height: 22px !important;
+		flex: none;
+	}
+	:global(.wc-speaker-mini svg) {
+		width: 13px !important;
+		height: 13px !important;
+	}
+	:global(.wc-speaker-def) {
+		align-self: flex-start;
+		margin-top: -2px;
+	}
 
-	.wc-inline-speaker {
-		display: inline-flex;
-		align-items: center;
-		gap: 6px;
-		padding: 4px 10px 4px 4px;
-		border-radius: 999px;
-		border: 1px solid var(--hairline);
-		background: var(--bg-elevated);
-		color: var(--ink-muted);
+	.wc-en-def-row {
+		display: flex;
+		align-items: flex-start;
+		gap: 4px;
 		margin: 0 0 8px 0;
 	}
-	.wc-inline-speaker-label {
-		font-family: ui-monospace, 'SF Mono', monospace;
-		font-size: 9.5px;
-		letter-spacing: 0.18em;
-		text-transform: uppercase;
-		color: var(--ink-muted);
+	.wc-en-def-text {
+		flex: 1;
+		font-size: 13px;
+		line-height: 1.55;
+		color: var(--ink);
+		min-width: 0;
 	}
 	.wc-close {
 		display: inline-flex;
@@ -243,12 +290,6 @@
 		margin: 0 0 6px 0;
 	}
 
-	.wc-en-def {
-		font-size: 13px;
-		line-height: 1.55;
-		color: var(--ink);
-		margin: 0 0 8px 0;
-	}
 
 	.wc-fa {
 		padding-top: 8px;

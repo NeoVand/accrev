@@ -1,10 +1,14 @@
 <script lang="ts">
+	import { onMount, onDestroy } from 'svelte';
 	import { resolve } from '$app/paths';
 	import { fly } from 'svelte/transition';
 	import { i18n, t } from '$lib/state/i18n.svelte';
 	import SlideListItem from '$lib/learn/components/SlideListItem.svelte';
 	import PronounceButton from '$lib/components/PronounceButton.svelte';
+	import WordLookupPopover from '$lib/learn/components/WordLookupPopover.svelte';
+	import { wireWordLookup } from '$lib/learn/wire-word-lookup';
 	import { memorized } from '$lib/state/memorized.svelte';
+	import type { LookupHit } from '$lib/data/lookup';
 
 	const { data } = $props();
 	const { term, related } = $derived(data);
@@ -16,6 +20,26 @@
 	function toggleMemorized() {
 		memorized.toggle(memKey);
 	}
+
+	// Underline lookup-able words inside the English definition + example,
+	// and open the same popover the slides use when one is tapped.
+	let defEl = $state<HTMLDivElement | undefined>();
+	let exEl = $state<HTMLDivElement | undefined>();
+	let popover = $state<{ hit: LookupHit; anchor: DOMRect } | null>(null);
+	let cleanups: Array<() => void> = [];
+
+	onMount(() => {
+		const onTap = (hit: LookupHit, anchor: DOMRect) => (popover = { hit, anchor });
+		if (defEl) {
+			const h = wireWordLookup(defEl, { onTap });
+			if (h?.destroy) cleanups.push(h.destroy);
+		}
+		if (exEl) {
+			const h = wireWordLookup(exEl, { onTap });
+			if (h?.destroy) cleanups.push(h.destroy);
+		}
+	});
+	onDestroy(() => cleanups.forEach((c) => c()));
 </script>
 
 <svelte:head>
@@ -71,8 +95,15 @@
 	<!-- Definition -->
 	<div class="flex flex-col gap-3">
 		<div class="flex flex-col gap-1.5">
-			<p class="eyebrow">{isFa ? 'تعریف' : 'definition'}</p>
-			<p class="text-[14.5px] leading-[1.6] text-ink" dir="ltr">{term.en.definition}</p>
+			<div class="flex items-baseline justify-between gap-2">
+				<p class="eyebrow">{isFa ? 'تعریف' : 'definition'}</p>
+				<PronounceButton
+					text={`${term.en.term}. ${term.en.definition}`}
+					label={t('read_aloud_def')}
+					class="word-def-speaker"
+				/>
+			</div>
+			<div class="text-[14.5px] leading-[1.6] text-ink" dir="ltr" bind:this={defEl}>{term.en.definition}</div>
 			{#if term.fa.definition}
 				<p class="font-persian text-[14px] leading-[1.85] text-ink-muted" dir="rtl">
 					{term.fa.definition}
@@ -83,7 +114,7 @@
 		{#if term.en.example}
 			<div class="example-card">
 				<span class="example-label">{isFa ? 'مثال' : 'example'}</span>
-				<p dir="ltr">{term.en.example}</p>
+				<div dir="ltr" bind:this={exEl}>{term.en.example}</div>
 			</div>
 		{/if}
 	</div>
@@ -112,6 +143,14 @@
 			<span>{isMemorized ? t('glossary_forget_btn') : t('glossary_memorize_btn')}</span>
 		</button>
 	</div>
+
+	{#if popover}
+		<WordLookupPopover
+			hit={popover.hit}
+			anchor={popover.anchor}
+			onclose={() => (popover = null)}
+		/>
+	{/if}
 
 	<!-- See in context -->
 	{#if related && related.length > 0}
@@ -159,6 +198,11 @@
 	}
 	.example-card p {
 		margin: 0;
+	}
+	:global(.word-def-speaker) {
+		width: 24px !important;
+		height: 24px !important;
+		flex: none;
 	}
 
 	.word-mem-btn {

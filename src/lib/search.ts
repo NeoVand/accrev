@@ -136,7 +136,9 @@ export function searchEverything(
 				enDefinition: term.en.definition,
 				enExample: term.en.example,
 				faTerm: term.fa.term,
-				faDefinition: term.fa.definition ?? ''
+				faDefinition: term.fa.definition ?? '',
+				cpaSection: term.cpaSection,
+				topic: term.topic
 			},
 			matched: q,
 			snippet: snippet(term.en.definition, q)

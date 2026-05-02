@@ -4,7 +4,10 @@
 	import { i18n, t } from '$lib/state/i18n.svelte';
 	import { memorized } from '$lib/state/memorized.svelte';
 	import WordCard from '$lib/components/WordCard.svelte';
+	import PronounceButton from '$lib/components/PronounceButton.svelte';
 	import type { LookupEntry } from '$lib/data/lookup';
+
+	type ViewMode = 'az' | 'section' | 'topic';
 
 	const { data } = $props();
 	const entries = $derived<LookupEntry[]>(data.entries);
@@ -12,6 +15,7 @@
 
 	let query = $state('');
 	let openKey = $state<string | null>(null);
+	let viewMode = $state<ViewMode>('az');
 
 	function normalize(s: string) {
 		return (s || '').toLowerCase().normalize('NFKD');
@@ -34,6 +38,72 @@
 	const memorizedCount = $derived(
 		entries.reduce((n, e) => n + (memorized.has(e.key) ? 1 : 0), 0)
 	);
+
+	// CPA-section ordering for the "By section" view (so groups render in the
+	// natural exam order, not alphabetically).
+	const SECTION_ORDER = [
+		'Foundational',
+		'FAR',
+		'AUD',
+		'REG',
+		'BAR',
+		'ISC',
+		'TCP'
+	] as const;
+
+	function groupKey(e: LookupEntry, mode: ViewMode): string {
+		if (mode === 'section') {
+			if (e.source === 'lexicon') return t('glossary_group_common');
+			return e.cpaSection || t('glossary_group_other');
+		}
+		if (mode === 'topic') {
+			if (e.source === 'lexicon') return t('glossary_group_common');
+			return e.topic || t('glossary_group_other');
+		}
+		// A–Z
+		const ch = (e.enTerm[0] || '#').toUpperCase();
+		if (/[A-Z]/.test(ch)) return ch;
+		return '#';
+	}
+
+	function groupOrder(name: string, mode: ViewMode): number {
+		if (mode === 'section') {
+			const i = SECTION_ORDER.indexOf(name as (typeof SECTION_ORDER)[number]);
+			if (i >= 0) return i;
+			if (name === t('glossary_group_common')) return 100;
+			return 200;
+		}
+		if (mode === 'topic') {
+			if (name === t('glossary_group_common')) return 100;
+			return 0; // alphabetical fallback handled below
+		}
+		// A–Z: '#' goes last, then natural alphabetical
+		if (name === '#') return 999;
+		return name.charCodeAt(0);
+	}
+
+	type Group = { name: string; entries: LookupEntry[] };
+
+	function groupEntries(list: LookupEntry[], mode: ViewMode): Group[] {
+		const groups = new Map<string, LookupEntry[]>();
+		for (const e of list) {
+			const k = groupKey(e, mode);
+			const arr = groups.get(k);
+			if (arr) arr.push(e);
+			else groups.set(k, [e]);
+		}
+		const out: Group[] = [...groups.entries()].map(([name, entries]) => ({ name, entries }));
+		out.sort((a, b) => {
+			const oa = groupOrder(a.name, mode);
+			const ob = groupOrder(b.name, mode);
+			if (oa !== ob) return oa - ob;
+			return a.name.localeCompare(b.name, 'en');
+		});
+		return out;
+	}
+
+	const toMemorizeGroups = $derived(groupEntries(toMemorize, viewMode));
+	const memorizedGroups = $derived(groupEntries(memorizedList, viewMode));
 
 	function toggleOpen(key: string) {
 		openKey = openKey === key ? null : key;
@@ -94,6 +164,40 @@
 		{/if}
 	</label>
 
+	<!-- View mode tabs -->
+	<div class="g-tabs" role="tablist" aria-label="View mode">
+		<button
+			type="button"
+			class="g-tab"
+			class:is-on={viewMode === 'az'}
+			role="tab"
+			aria-selected={viewMode === 'az'}
+			onclick={() => (viewMode = 'az')}
+		>
+			{t('glossary_view_az')}
+		</button>
+		<button
+			type="button"
+			class="g-tab"
+			class:is-on={viewMode === 'section'}
+			role="tab"
+			aria-selected={viewMode === 'section'}
+			onclick={() => (viewMode = 'section')}
+		>
+			{t('glossary_view_section')}
+		</button>
+		<button
+			type="button"
+			class="g-tab"
+			class:is-on={viewMode === 'topic'}
+			role="tab"
+			aria-selected={viewMode === 'topic'}
+			onclick={() => (viewMode = 'topic')}
+		>
+			{t('glossary_view_topic')}
+		</button>
+	</div>
+
 	<!-- To memorize -->
 	<section class="g-section">
 		<div class="g-section-head">
@@ -103,39 +207,52 @@
 
 		{#if toMemorize.length === 0}
 			<p class="g-empty">
-				{query
-					? t('glossary_no_results')
-					: t('glossary_empty_to_memorize')}
+				{query ? t('glossary_no_results') : t('glossary_empty_to_memorize')}
 			</p>
 		{:else}
-			<ul class="g-list">
-				{#each toMemorize as entry (entry.key)}
-					{@const open = openKey === entry.key}
-					<li class="g-row" class:is-open={open}>
-						<button
-							type="button"
-							class="g-row-head"
-							aria-expanded={open}
-							onclick={() => toggleOpen(entry.key)}
-						>
-							<span class="g-row-en" dir="ltr">{entry.enTerm}</span>
-							{#if entry.enAcronym && entry.enAcronym !== entry.enTerm}
-								<span class="g-row-acro" dir="ltr">{entry.enAcronym}</span>
-							{/if}
-							<span class="g-row-caret" aria-hidden="true">
-								<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M6 9l6 6 6-6" />
-								</svg>
-							</span>
-						</button>
-						{#if open}
-							<div class="g-row-body" in:fly={{ y: -2, duration: 160 }}>
-								<WordCard {entry} hideEnTitle />
+			{#each toMemorizeGroups as group (group.name)}
+				{#if viewMode !== 'az' || toMemorizeGroups.length > 1}
+					<div class="g-group-head">
+						<span class="g-group-name">{group.name}</span>
+						<span class="g-group-count">{group.entries.length}</span>
+					</div>
+				{/if}
+				<ul class="g-list">
+					{#each group.entries as entry (entry.key)}
+						{@const open = openKey === entry.key}
+						<li class="g-row" class:is-open={open}>
+							<div class="g-row-head">
+								<button
+									type="button"
+									class="g-row-toggle"
+									aria-expanded={open}
+									onclick={() => toggleOpen(entry.key)}
+								>
+									<span class="g-row-en" dir="ltr">{entry.enTerm}</span>
+									{#if entry.enAcronym && entry.enAcronym !== entry.enTerm}
+										<span class="g-row-acro" dir="ltr">{entry.enAcronym}</span>
+									{/if}
+									<span class="g-row-caret" aria-hidden="true">
+										<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M6 9l6 6 6-6" />
+										</svg>
+									</span>
+								</button>
+								<PronounceButton
+									text={entry.enTerm}
+									label={t('read_aloud_term')}
+									class="g-row-speaker"
+								/>
 							</div>
-						{/if}
-					</li>
-				{/each}
-			</ul>
+							{#if open}
+								<div class="g-row-body" in:fly={{ y: -2, duration: 160 }}>
+									<WordCard {entry} hideEnTitle enableWordLookup />
+								</div>
+							{/if}
+						</li>
+					{/each}
+				</ul>
+			{/each}
 		{/if}
 	</section>
 
@@ -148,44 +265,57 @@
 
 		{#if memorizedList.length === 0}
 			<p class="g-empty">
-				{query
-					? t('glossary_no_results')
-					: t('glossary_empty_memorized')}
+				{query ? t('glossary_no_results') : t('glossary_empty_memorized')}
 			</p>
 		{:else}
-			<ul class="g-list">
-				{#each memorizedList as entry (entry.key)}
-					{@const open = openKey === entry.key}
-					<li class="g-row is-mem" class:is-open={open}>
-						<button
-							type="button"
-							class="g-row-head"
-							aria-expanded={open}
-							onclick={() => toggleOpen(entry.key)}
-						>
-							<span class="g-row-mem-mark" aria-hidden="true">
-								<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M5 12.5l4 4 10-10" />
-								</svg>
-							</span>
-							<span class="g-row-en" dir="ltr">{entry.enTerm}</span>
-							{#if entry.enAcronym && entry.enAcronym !== entry.enTerm}
-								<span class="g-row-acro" dir="ltr">{entry.enAcronym}</span>
-							{/if}
-							<span class="g-row-caret" aria-hidden="true">
-								<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M6 9l6 6 6-6" />
-								</svg>
-							</span>
-						</button>
-						{#if open}
-							<div class="g-row-body" in:fly={{ y: -2, duration: 160 }}>
-								<WordCard {entry} hideEnTitle />
+			{#each memorizedGroups as group (group.name)}
+				{#if viewMode !== 'az' || memorizedGroups.length > 1}
+					<div class="g-group-head">
+						<span class="g-group-name">{group.name}</span>
+						<span class="g-group-count">{group.entries.length}</span>
+					</div>
+				{/if}
+				<ul class="g-list">
+					{#each group.entries as entry (entry.key)}
+						{@const open = openKey === entry.key}
+						<li class="g-row is-mem" class:is-open={open}>
+							<div class="g-row-head">
+								<button
+									type="button"
+									class="g-row-toggle"
+									aria-expanded={open}
+									onclick={() => toggleOpen(entry.key)}
+								>
+									<span class="g-row-mem-mark" aria-hidden="true">
+										<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M5 12.5l4 4 10-10" />
+										</svg>
+									</span>
+									<span class="g-row-en" dir="ltr">{entry.enTerm}</span>
+									{#if entry.enAcronym && entry.enAcronym !== entry.enTerm}
+										<span class="g-row-acro" dir="ltr">{entry.enAcronym}</span>
+									{/if}
+									<span class="g-row-caret" aria-hidden="true">
+										<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M6 9l6 6 6-6" />
+										</svg>
+									</span>
+								</button>
+								<PronounceButton
+									text={entry.enTerm}
+									label={t('read_aloud_term')}
+									class="g-row-speaker"
+								/>
 							</div>
-						{/if}
-					</li>
-				{/each}
-			</ul>
+							{#if open}
+								<div class="g-row-body" in:fly={{ y: -2, duration: 160 }}>
+									<WordCard {entry} hideEnTitle enableWordLookup />
+								</div>
+							{/if}
+						</li>
+					{/each}
+				</ul>
+			{/each}
 		{/if}
 	</section>
 </section>
@@ -236,6 +366,50 @@
 		color: var(--ink-muted);
 	}
 
+	/* View mode tabs — segmented control. */
+	.g-tabs {
+		display: inline-flex;
+		gap: 4px;
+		padding: 3px;
+		border-radius: 999px;
+		border: 1px solid var(--hairline);
+		background: var(--bg-elevated);
+		align-self: flex-start;
+		max-width: 100%;
+		flex-wrap: wrap;
+	}
+	.g-tab {
+		appearance: none;
+		border: 0;
+		background: transparent;
+		color: var(--ink-muted);
+		font: inherit;
+		font-size: 11px;
+		letter-spacing: 0.06em;
+		padding: 6px 12px;
+		border-radius: 999px;
+		cursor: pointer;
+		text-transform: uppercase;
+		font-weight: 600;
+		transition:
+			background-color 160ms ease,
+			color 160ms ease;
+	}
+	.g-tab:hover {
+		color: var(--ink);
+	}
+	.g-tab.is-on {
+		background: var(--ink);
+		color: var(--bg);
+	}
+	:global([lang='fa']) .g-tab {
+		font-family: var(--font-persian);
+		text-transform: none;
+		letter-spacing: 0;
+		font-size: 12px;
+		font-weight: 700;
+	}
+
 	.g-section {
 		display: flex;
 		flex-direction: column;
@@ -259,6 +433,38 @@
 	.g-section-count {
 		font-family: ui-monospace, 'SF Mono', monospace;
 		font-size: 10px;
+		color: var(--ink-faint);
+	}
+
+	/* Group heading inside a section (used in non-A–Z views, and as A–Z
+	   letter dividers when there's more than one letter visible). */
+	.g-group-head {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		padding: 10px 6px 4px 6px;
+		border-top: 1px dashed color-mix(in oklab, var(--hairline) 80%, transparent);
+		margin-top: 6px;
+	}
+	.g-group-head:first-child {
+		border-top: 0;
+		margin-top: 0;
+		padding-top: 4px;
+	}
+	.g-group-name {
+		font-family: var(--font-serif);
+		font-size: 13px;
+		font-weight: 500;
+		color: var(--accent);
+		letter-spacing: -0.005em;
+	}
+	:global([lang='fa']) .g-group-name {
+		font-family: var(--font-persian);
+		font-weight: 600;
+	}
+	.g-group-count {
+		font-family: ui-monospace, 'SF Mono', monospace;
+		font-size: 9.5px;
 		color: var(--ink-faint);
 	}
 
@@ -305,19 +511,32 @@
 		background: color-mix(in oklab, var(--accent) 10%, var(--bg-elevated));
 	}
 
+	/* Row header is a flex container holding the toggle button (with title
+	   + caret) AND a separate, always-visible pronounce button as a sibling.
+	   Splitting them avoids a button-inside-button. */
 	.g-row-head {
 		display: flex;
 		align-items: center;
+		gap: 6px;
+		padding: 4px 8px 4px 4px;
+		min-width: 0;
+	}
+	.g-row-toggle {
+		display: flex;
+		align-items: center;
 		gap: 10px;
-		width: 100%;
-		padding: 10px 12px;
+		flex: 1;
+		min-width: 0;
+		padding: 8px 8px;
 		border: 0;
 		background: transparent;
 		color: inherit;
 		text-align: left;
 		cursor: pointer;
 		font: inherit;
-		min-width: 0;
+	}
+	:global(.g-row-speaker) {
+		flex: none;
 	}
 
 	.g-row-mem-mark {
@@ -340,8 +559,6 @@
 		color: var(--ink);
 		flex: 1;
 		min-width: 0;
-		/* Long terms wrap onto a second line instead of being clipped — the
-		   glossary's whole point is making the word legible. */
 		overflow-wrap: anywhere;
 	}
 	.g-row-acro {

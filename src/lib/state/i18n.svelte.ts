@@ -211,8 +211,7 @@ const en = {
 	// Glossary
 	glossary: 'glossary',
 	glossary_title: 'Bilingual glossary',
-	glossary_sub: (n: number) =>
-		`${n} accounting words — tap a card to see the translation, hear the pronunciation, and mark it learned.`,
+	glossary_sub: (n: number) => `${n} words, paired in English and Farsi.`,
 	glossary_open: 'open glossary',
 	glossary_search_placeholder: 'Search a word…',
 	glossary_to_memorize: 'to memorize',
@@ -227,6 +226,13 @@ const en = {
 	glossary_back: 'back',
 	glossary_definition: 'definition',
 	glossary_example: 'example',
+	glossary_view_az: 'A–Z',
+	glossary_view_section: 'by section',
+	glossary_view_topic: 'by topic',
+	glossary_group_common: 'Common Vocabulary',
+	glossary_group_other: 'Other',
+	read_aloud_term: 'read the word',
+	read_aloud_def: 'read the definition',
 	hero_glossary_eyebrow: 'memorize · learn',
 	hero_glossary_title: 'Glossary'
 } as const satisfies Record<string, MsgValue>;
@@ -424,8 +430,7 @@ const fa: Record<MessageKey, MsgValue> = {
 	// Glossary
 	glossary: 'واژه‌نامه',
 	glossary_title: 'واژه‌نامهٔ دوزبانه',
-	glossary_sub: (n: number) =>
-		`${n} واژۀ حسابداری — روی هر کارت بزن تا ترجمه و تلفظ رو ببینی و علامت بزنی که یاد گرفتی.`,
+	glossary_sub: (n: number) => `${n} واژه، انگلیسی و فارسی، کنار هم.`,
 	glossary_open: 'باز کردن واژه‌نامه',
 	glossary_search_placeholder: 'جست‌وجوی واژه…',
 	glossary_to_memorize: 'برای حفظ کردن',
@@ -440,6 +445,13 @@ const fa: Record<MessageKey, MsgValue> = {
 	glossary_back: 'بازگشت',
 	glossary_definition: 'تعریف',
 	glossary_example: 'مثال',
+	glossary_view_az: 'الفبایی',
+	glossary_view_section: 'بر اساس بخش',
+	glossary_view_topic: 'بر اساس موضوع',
+	glossary_group_common: 'واژگان عمومی',
+	glossary_group_other: 'سایر',
+	read_aloud_term: 'خواندن واژه',
+	read_aloud_def: 'خواندن تعریف',
 	hero_glossary_eyebrow: 'حفظ · یادگیری',
 	hero_glossary_title: 'واژه‌نامه'
 };

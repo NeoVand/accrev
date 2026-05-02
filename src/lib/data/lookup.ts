@@ -31,6 +31,11 @@ export interface LookupEntry {
 	enExample?: string;
 	faTerm: string;
 	faDefinition: string;
+	/** Glossary-only metadata used by the /glossary page's grouping views.
+	    Lexicon entries don't carry these (they're general English vocab from
+	    the review book and have no exam-section affiliation). */
+	cpaSection?: string;
+	topic?: string;
 }
 
 export type LookupHit = { entry: LookupEntry; matchedAs: string; original: string };
@@ -55,7 +60,9 @@ function fromGlossary(t: Term): LookupEntry {
 		enDefinition: t.en.definition,
 		enExample: t.en.example,
 		faTerm: t.fa.term,
-		faDefinition: t.fa.definition ?? ''
+		faDefinition: t.fa.definition ?? '',
+		cpaSection: t.cpaSection,
+		topic: t.topic
 	};
 }
 

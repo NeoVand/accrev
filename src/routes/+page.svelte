@@ -9,7 +9,6 @@
 	import { i18n, t } from '$lib/state/i18n.svelte';
 	import { slides as learnSlides } from '$lib/learn';
 	import { allLookupEntries } from '$lib/data/lookup';
-	import { memorized } from '$lib/state/memorized.svelte';
 	import type { CpaSection } from '$lib/types';
 
 	type DeckMeta = { key: CpaSection; titleKey: string; subKey: string };
@@ -73,9 +72,6 @@
 
 	const learnSlideCount = learnSlides.length;
 	const glossaryTotal = allLookupEntries().length;
-	const glossaryMemorized = $derived(
-		allLookupEntries().reduce((n, e) => n + (memorized.has(e.key) ? 1 : 0), 0)
-	);
 </script>
 
 <section class="flex flex-col gap-3 pt-3 pb-6">
@@ -105,7 +101,7 @@
 			style:top="14px"
 			style:right={isFa ? 'auto' : '14px'}
 			style:left={isFa ? '14px' : 'auto'}
-		>Aa</span>
+		>G</span>
 
 		<div class="flex flex-col gap-2">
 			<p class="eyebrow text-accent">{t('hero_glossary_eyebrow')}</p>
@@ -115,18 +111,6 @@
 			<p class="text-[12.5px] leading-[1.55] text-ink-muted">
 				{t('glossary_sub', glossaryTotal)}
 			</p>
-
-			<div class="mt-1.5 flex items-center gap-2">
-				<div class="h-[3px] flex-1 overflow-hidden rounded-full bg-hairline/60">
-					<div
-						class="h-full rounded-full bg-accent transition-[width] duration-500"
-						style:width="{glossaryTotal === 0 ? 0 : (glossaryMemorized / glossaryTotal) * 100}%"
-					></div>
-				</div>
-				<span class="font-mono text-[10.5px] tracking-wider text-ink-muted tabular-nums">
-					{glossaryMemorized}/{glossaryTotal}
-				</span>
-			</div>
 		</div>
 
 		<div class="hero-cta hero-cta-glossary">
@@ -440,11 +424,12 @@
 		color: color-mix(in oklab, var(--accent) 22%, transparent);
 	}
 	.hero-glyph-glossary {
-		font-size: 52px;
-		font-weight: 300;
+		font-size: 72px;
+		font-weight: 400;
 		font-style: italic;
-		letter-spacing: -0.02em;
-		color: color-mix(in oklab, var(--accent) 26%, transparent);
+		letter-spacing: -0.04em;
+		color: color-mix(in oklab, var(--accent) 28%, transparent);
+		line-height: 0.85;
 	}
 
 	.hero > div,
