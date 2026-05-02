@@ -19,11 +19,16 @@ export interface LookupEntry {
 	source: 'glossary' | 'lexicon';
 	/** Slug for routing (glossary only — empty for lexicon). */
 	slug: string;
+	/** Stable lowercase key — same one used as the index lookup. Used as the
+	    persistence key for the "memorized" set so glossary and lexicon entries
+	    can share a single namespace. */
+	key: string;
 	/** Canonical English term (display headword). */
 	enTerm: string;
 	enAcronym?: string;
 	enExpansion?: string;
 	enDefinition: string;
+	enExample?: string;
 	faTerm: string;
 	faDefinition: string;
 }
@@ -43,10 +48,12 @@ function fromGlossary(t: Term): LookupEntry {
 	return {
 		source: 'glossary',
 		slug: t.slug,
+		key: (t.en.term || t.slug).toLowerCase().trim(),
 		enTerm: t.en.term,
 		enAcronym: t.en.acronym,
 		enExpansion: t.en.expansion,
 		enDefinition: t.en.definition,
+		enExample: t.en.example,
 		faTerm: t.fa.term,
 		faDefinition: t.fa.definition ?? ''
 	};
@@ -56,6 +63,7 @@ function fromLexicon(key: string, entry: LexiconRecord[string]): LookupEntry {
 	return {
 		source: 'lexicon',
 		slug: '',
+		key: (entry.term || key).toLowerCase().trim(),
 		enTerm: entry.term,
 		enDefinition: entry.definition,
 		faTerm: entry.fa.term,
@@ -164,4 +172,26 @@ export function isLookupCandidate(raw: string): boolean {
 	if (raw.length < 2) return false;
 	if (!TOKEN_RE.test(raw)) return false;
 	return lookupWord(raw) !== null;
+}
+
+/** All entries (glossary + lexicon), de-duplicated by `key`, sorted by enTerm. */
+let _allEntries: LookupEntry[] | null = null;
+export function allLookupEntries(): LookupEntry[] {
+	if (_allEntries) return _allEntries;
+	const seen = new Set<string>();
+	const out: LookupEntry[] = [];
+	for (const e of exactIndex.values()) {
+		if (seen.has(e.key)) continue;
+		seen.add(e.key);
+		out.push(e);
+	}
+	out.sort((a, b) => a.enTerm.localeCompare(b.enTerm, 'en', { sensitivity: 'base' }));
+	_allEntries = out;
+	return out;
+}
+
+/** Look up an entry by its persistence key (lowercase term). */
+export function entryByKey(key: string): LookupEntry | null {
+	const k = key.toLowerCase().trim();
+	return exactIndex.get(k) ?? null;
 }

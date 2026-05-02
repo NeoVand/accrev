@@ -2,7 +2,8 @@
 	import { resolve } from '$app/paths';
 	import { i18n, t } from '$lib/state/i18n.svelte';
 	import { learnRead } from '$lib/state/learn-read.svelte';
-	import { slidesByPart, type Part } from '../slides.generated';
+	import { slidesByPart } from '../_data';
+	import type { Part } from '../slides.generated';
 
 	interface Props {
 		part: Part;

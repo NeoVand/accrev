@@ -3,11 +3,19 @@
 	import { fly } from 'svelte/transition';
 	import { i18n, t } from '$lib/state/i18n.svelte';
 	import SlideListItem from '$lib/learn/components/SlideListItem.svelte';
+	import PronounceButton from '$lib/components/PronounceButton.svelte';
+	import { memorized } from '$lib/state/memorized.svelte';
 
 	const { data } = $props();
 	const { term, related } = $derived(data);
 
 	const isFa = $derived(i18n.lang === 'fa');
+	const memKey = $derived((term.en.term || term.slug).toLowerCase().trim());
+	const isMemorized = $derived(memorized.has(memKey));
+
+	function toggleMemorized() {
+		memorized.toggle(memKey);
+	}
 </script>
 
 <svelte:head>
@@ -48,11 +56,15 @@
 					{term.en.acronym}
 				</span>
 			{/if}
+			<span class="inline-flex items-center"><PronounceButton text={term.en.term} /></span>
 		</div>
 		{#if term.fa.term}
-			<p class="font-persian text-[18px] leading-[1.4] text-gold" dir="rtl">
-				{term.fa.term}
-			</p>
+			<div class="flex items-center gap-2" dir="rtl">
+				<p class="font-persian text-[18px] leading-[1.4] text-gold" dir="rtl">
+					{term.fa.term}
+				</p>
+				<span class="inline-flex items-center"><PronounceButton text={term.fa.term} lang="fa-IR" /></span>
+			</div>
 		{/if}
 		{#if term.en.expansion}
 			<p class="mt-1 text-[12.5px] italic text-ink-muted" dir="ltr">{term.en.expansion}</p>
@@ -79,14 +91,29 @@
 		{/if}
 	</div>
 
-	<!-- Action: study this card -->
+	<!-- Memorized toggle (replaces "study this set" — the user can still
+	     reach the deck from the bottom nav or the home flashcards card). -->
 	<div class="flex gap-2">
-		<a
-			href={`${resolve('/study')}?run=1${term.cpaSection ? `&cpa=${term.cpaSection}` : ''}`}
-			class="flex-1 rounded-full bg-ink py-2.5 text-center text-[11.5px] tracking-[0.18em] text-bg uppercase hover:bg-accent"
+		<button
+			type="button"
+			class="word-mem-btn"
+			class:is-on={isMemorized}
+			aria-pressed={isMemorized}
+			onclick={toggleMemorized}
 		>
-			{isFa ? 'مطالعه' : 'study this set'}
-		</a>
+			<span class="word-mem-check" aria-hidden="true">
+				{#if isMemorized}
+					<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M5 12.5l4 4 10-10" />
+					</svg>
+				{:else}
+					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+						<circle cx="12" cy="12" r="8" />
+					</svg>
+				{/if}
+			</span>
+			<span>{isMemorized ? t('glossary_forget_btn') : t('glossary_memorize_btn')}</span>
+		</button>
 	</div>
 
 	<!-- See in context -->
@@ -135,5 +162,57 @@
 	}
 	.example-card p {
 		margin: 0;
+	}
+
+	.word-mem-btn {
+		flex: 1;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 9px;
+		padding: 11px 16px 11px 14px;
+		border-radius: 999px;
+		border: 1px solid var(--hairline);
+		background: var(--bg-elevated);
+		color: var(--ink-muted);
+		font-size: 12.5px;
+		letter-spacing: 0.02em;
+		line-height: 1;
+		cursor: pointer;
+		font-family: inherit;
+		transition:
+			background-color 180ms ease,
+			border-color 180ms ease,
+			color 180ms ease,
+			transform 120ms ease;
+	}
+	.word-mem-btn:hover {
+		border-color: color-mix(in oklab, var(--gold) 60%, var(--hairline));
+		background: color-mix(in oklab, var(--gold) 6%, var(--bg-elevated));
+		color: var(--ink);
+	}
+	.word-mem-btn:active {
+		transform: scale(0.98);
+	}
+	.word-mem-btn.is-on {
+		border-color: color-mix(in oklab, var(--accent) 55%, var(--hairline));
+		background: color-mix(in oklab, var(--accent) 12%, var(--bg-elevated));
+		color: var(--accent);
+	}
+	.word-mem-btn.is-on:hover {
+		background: color-mix(in oklab, var(--accent) 18%, var(--bg-elevated));
+	}
+	.word-mem-check {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 18px;
+		height: 18px;
+		border-radius: 999px;
+		color: currentColor;
+	}
+	.word-mem-btn.is-on .word-mem-check {
+		background: color-mix(in oklab, var(--accent) 90%, transparent);
+		color: var(--bg);
 	}
 </style>

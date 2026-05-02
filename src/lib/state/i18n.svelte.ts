@@ -206,7 +206,29 @@ const en = {
 	reset_confirm_title: 'Wipe everything?',
 	reset_confirm_body: 'You’ll be back at the welcome screen with no progress.',
 	reset_confirm_yes: 'yes, wipe everything',
-	reset_cancel: 'cancel'
+	reset_cancel: 'cancel',
+
+	// Glossary
+	glossary: 'glossary',
+	glossary_title: 'Bilingual glossary',
+	glossary_sub: (n: number) =>
+		`${n} accounting words — tap a card to see the translation, hear the pronunciation, and mark it learned.`,
+	glossary_open: 'open glossary',
+	glossary_search_placeholder: 'Search a word…',
+	glossary_to_memorize: 'to memorize',
+	glossary_memorized: 'memorized',
+	glossary_empty_to_memorize: 'Nothing left to memorize. Beautiful work.',
+	glossary_empty_memorized: 'No memorized words yet — tap “I memorized this” on a card to start your pile.',
+	glossary_memorize_btn: 'I memorized this',
+	glossary_forget_btn: 'still learning',
+	glossary_count: (memorized: number, total: number) =>
+		`${memorized} of ${total} memorized`,
+	glossary_no_results: 'No words match that.',
+	glossary_back: 'back',
+	glossary_definition: 'definition',
+	glossary_example: 'example',
+	hero_glossary_eyebrow: 'memorize · learn',
+	hero_glossary_title: 'Glossary'
 } as const satisfies Record<string, MsgValue>;
 
 type MessageKey = keyof typeof en;
@@ -397,7 +419,29 @@ const fa: Record<MessageKey, MsgValue> = {
 	reset_confirm_title: 'همه چیز پاک بشه؟',
 	reset_confirm_body: 'به صفحۀ خوشامدگویی بدون هیچ پیشرفتی برمی‌گردی.',
 	reset_confirm_yes: 'بله، همه چیز رو پاک کن',
-	reset_cancel: 'لغو'
+	reset_cancel: 'لغو',
+
+	// Glossary
+	glossary: 'واژه‌نامه',
+	glossary_title: 'واژه‌نامهٔ دوزبانه',
+	glossary_sub: (n: number) =>
+		`${n} واژۀ حسابداری — روی هر کارت بزن تا ترجمه و تلفظ رو ببینی و علامت بزنی که یاد گرفتی.`,
+	glossary_open: 'باز کردن واژه‌نامه',
+	glossary_search_placeholder: 'جست‌وجوی واژه…',
+	glossary_to_memorize: 'برای حفظ کردن',
+	glossary_memorized: 'حفظ شد',
+	glossary_empty_to_memorize: 'دیگه چیزی برای حفظ کردن نمونده. عالی!',
+	glossary_empty_memorized: 'هنوز هیچ واژه‌ای حفظ نشده — روی «حفظ کردم» بزن تا اینجا اضافه بشه.',
+	glossary_memorize_btn: 'حفظ کردم',
+	glossary_forget_btn: 'هنوز یاد می‌گیرم',
+	glossary_count: (memorizedN: number, total: number) =>
+		`${memorizedN} از ${total} حفظ شده`,
+	glossary_no_results: 'چیزی پیدا نشد.',
+	glossary_back: 'بازگشت',
+	glossary_definition: 'تعریف',
+	glossary_example: 'مثال',
+	hero_glossary_eyebrow: 'حفظ · یادگیری',
+	hero_glossary_title: 'واژه‌نامه'
 };
 
 const all: Record<Lang, Record<MessageKey, MsgValue>> = { en, fa };

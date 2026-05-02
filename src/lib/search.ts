@@ -8,7 +8,9 @@
  */
 
 import { glossary } from './data/glossary';
-import { slides as learnSlides, type Slide } from './learn/slides.generated';
+import { slides as learnSlides } from './learn/_data';
+import { allLookupEntries, type LookupEntry } from './data/lookup';
+import type { Slide } from './learn/slides.generated';
 import type { Term } from './types';
 
 export type AnyHitKind = 'term' | 'slide';
@@ -16,7 +18,12 @@ export type AnyHitKind = 'term' | 'slide';
 export interface TermHit {
 	kind: 'term';
 	score: number;
-	term: Term;
+	/** Glossary term (when this entry has a /word/[slug] page). Optional so
+	    the same hit shape can carry a lexicon-only entry, which has no slug. */
+	term?: Term;
+	/** Always set — the unified shape used by the popover, the modal, and the
+	    glossary page. Lexicon entries surface only via this field. */
+	entry: LookupEntry;
 	matched: string;
 	snippet: string;
 }
@@ -83,8 +90,9 @@ export function searchEverything(
 	const max = opts.max ?? 24;
 	const maxPerKind = opts.maxPerKind ?? 12;
 
-	// ─── Terms ──────────────────────────────────────────────────────
+	// ─── Terms (glossary + lexicon, unified) ────────────────────────
 	const termHits: TermHit[] = [];
+	const termHitKeys = new Set<string>();
 	for (const term of glossary) {
 		const enTerm = normalize(term.en.term);
 		const faTerm = normalize(term.fa.term);
@@ -112,12 +120,58 @@ export function searchEverything(
 		if (termsList.length > 1 && allHit) score += 4;
 		if (score === 0) continue;
 
+		const key = (term.en.term || term.slug).toLowerCase().trim();
+		termHitKeys.add(key);
 		termHits.push({
 			kind: 'term',
 			score,
 			term,
+			entry: {
+				source: 'glossary',
+				slug: term.slug,
+				key,
+				enTerm: term.en.term,
+				enAcronym: term.en.acronym,
+				enExpansion: term.en.expansion,
+				enDefinition: term.en.definition,
+				enExample: term.en.example,
+				faTerm: term.fa.term,
+				faDefinition: term.fa.definition ?? ''
+			},
 			matched: q,
 			snippet: snippet(term.en.definition, q)
+		});
+	}
+
+	// Lexicon entries (no /word page) — surface them too, lower base score
+	// so glossary entries still dominate when both match.
+	for (const entry of allLookupEntries()) {
+		if (entry.source !== 'lexicon') continue;
+		if (termHitKeys.has(entry.key)) continue;
+		const enTerm = normalize(entry.enTerm);
+		const faTerm = normalize(entry.faTerm);
+		const enDef = normalize(entry.enDefinition || '');
+		const faDef = normalize(entry.faDefinition || '');
+
+		let score = 0;
+		let allHit = true;
+		for (const t of termsList) {
+			let s = 0;
+			if (enTerm.startsWith(t) || faTerm.startsWith(t)) s = Math.max(s, 22);
+			else if (enTerm.includes(t) || faTerm.includes(t)) s = Math.max(s, 14);
+			if (enDef.includes(t) || faDef.includes(t)) s = Math.max(s, 4);
+			if (s === 0) allHit = false;
+			score += s;
+		}
+		if (termsList.length > 1 && allHit) score += 3;
+		if (score === 0) continue;
+
+		termHits.push({
+			kind: 'term',
+			score,
+			entry,
+			matched: q,
+			snippet: snippet(entry.enDefinition, q)
 		});
 	}
 	termHits.sort((a, b) => b.score - a.score);

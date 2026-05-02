@@ -8,6 +8,8 @@
 	import { seedIfNeeded } from '$lib/seed';
 	import { i18n, t } from '$lib/state/i18n.svelte';
 	import { slides as learnSlides } from '$lib/learn';
+	import { allLookupEntries } from '$lib/data/lookup';
+	import { memorized } from '$lib/state/memorized.svelte';
 	import type { CpaSection } from '$lib/types';
 
 	type DeckMeta = { key: CpaSection; titleKey: string; subKey: string };
@@ -70,6 +72,10 @@
 	const foundationalContinuing = $derived(foundational.studied > 0);
 
 	const learnSlideCount = learnSlides.length;
+	const glossaryTotal = allLookupEntries().length;
+	const glossaryMemorized = $derived(
+		allLookupEntries().reduce((n, e) => n + (memorized.has(e.key) ? 1 : 0), 0)
+	);
 </script>
 
 <section class="flex flex-col gap-3 pt-3 pb-6">
@@ -85,6 +91,62 @@
 	<div in:fly={{ y: 6, duration: 320, delay: 40 }}>
 		<UnifiedSearch />
 	</div>
+
+	<!-- GLOSSARY — bilingual word reference -->
+	<a
+		href={resolve('/glossary')}
+		in:fly={{ y: 16, duration: 420, delay: 80 }}
+		class="hero hero-glossary group"
+	>
+		<div class="hero-wash hero-wash-glossary"></div>
+		<span
+			aria-hidden="true"
+			class="hero-glyph hero-glyph-glossary"
+			style:top="14px"
+			style:right={isFa ? 'auto' : '14px'}
+			style:left={isFa ? '14px' : 'auto'}
+		>Aa</span>
+
+		<div class="flex flex-col gap-2">
+			<p class="eyebrow text-accent">{t('hero_glossary_eyebrow')}</p>
+			<p class="font-display text-[24px] leading-[1.1] font-medium text-ink">
+				{t('hero_glossary_title')}<span class="text-accent">.</span>
+			</p>
+			<p class="text-[12.5px] leading-[1.55] text-ink-muted">
+				{t('glossary_sub', glossaryTotal)}
+			</p>
+
+			<div class="mt-1.5 flex items-center gap-2">
+				<div class="h-[3px] flex-1 overflow-hidden rounded-full bg-hairline/60">
+					<div
+						class="h-full rounded-full bg-accent transition-[width] duration-500"
+						style:width="{glossaryTotal === 0 ? 0 : (glossaryMemorized / glossaryTotal) * 100}%"
+					></div>
+				</div>
+				<span class="font-mono text-[10.5px] tracking-wider text-ink-muted tabular-nums">
+					{glossaryMemorized}/{glossaryTotal}
+				</span>
+			</div>
+		</div>
+
+		<div class="hero-cta hero-cta-glossary">
+			<svg
+				viewBox="0 0 24 24"
+				width="16"
+				height="16"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="1.7"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+			>
+				<path d="M4 5h12a3 3 0 0 1 3 3v11a1 1 0 0 1-1 1H7a3 3 0 0 1-3-3z" />
+				<path d="M4 17a3 3 0 0 1 3-3h12" />
+			</svg>
+			<span>{t('glossary_open')}</span>
+		</div>
+	</a>
 
 	<!-- Recall pill (only if there's a pile) -->
 	{#if loaded && lapsedCount > 0}
@@ -303,6 +365,12 @@
 			var(--shadow-card-hover),
 			0 24px 60px -28px color-mix(in oklab, var(--accent) 50%, transparent);
 	}
+	.hero-glossary:hover {
+		box-shadow:
+			var(--card-highlight),
+			var(--shadow-card-hover),
+			0 24px 60px -28px color-mix(in oklab, var(--accent) 50%, transparent);
+	}
 
 	.hero-wash {
 		position: absolute;
@@ -336,6 +404,19 @@
 				transparent 60%
 			);
 	}
+	.hero-wash-glossary {
+		background:
+			radial-gradient(
+				ellipse 65% 55% at 100% 0%,
+				color-mix(in oklab, var(--accent) 22%, transparent) 0%,
+				transparent 60%
+			),
+			radial-gradient(
+				ellipse 55% 55% at 0% 100%,
+				color-mix(in oklab, var(--gold) 18%, transparent) 0%,
+				transparent 60%
+			);
+	}
 
 	.hero-glyph {
 		position: absolute;
@@ -357,6 +438,13 @@
 		font-size: 64px;
 		font-weight: 400;
 		color: color-mix(in oklab, var(--accent) 22%, transparent);
+	}
+	.hero-glyph-glossary {
+		font-size: 52px;
+		font-weight: 300;
+		font-style: italic;
+		letter-spacing: -0.02em;
+		color: color-mix(in oklab, var(--accent) 26%, transparent);
 	}
 
 	.hero > div,
@@ -429,6 +517,26 @@
 				color-mix(in oklab, var(--accent) 88%, white) 0%,
 				var(--accent) 60%,
 				color-mix(in oklab, var(--accent) 92%, black) 100%
+			);
+		color: var(--bg);
+	}
+	.hero-cta-glossary {
+		background:
+			linear-gradient(
+				180deg,
+				color-mix(in oklab, var(--accent) 88%, white) 0%,
+				var(--accent) 60%,
+				color-mix(in oklab, var(--accent) 92%, black) 100%
+			);
+		color: var(--bg);
+	}
+	.hero:hover .hero-cta-glossary,
+	.hero:focus-visible .hero-cta-glossary {
+		background:
+			linear-gradient(
+				180deg,
+				color-mix(in oklab, var(--ink) 92%, white) 0%,
+				var(--ink) 100%
 			);
 		color: var(--bg);
 	}

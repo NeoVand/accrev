@@ -2,7 +2,8 @@
 	import { resolve } from '$app/paths';
 	import { fly, fade } from 'svelte/transition';
 	import { i18n, t } from '$lib/state/i18n.svelte';
-	import { searchEverything, type AnyHit, type SlideHit, type TermHit } from '$lib/search';
+	import { searchEverything, type AnyHit } from '$lib/search';
+	import { memorized } from '$lib/state/memorized.svelte';
 
 	interface Props {
 		/** Optional: hide the dropdown chrome and let the parent show results inline. */
@@ -36,8 +37,13 @@
 
 	function hitHref(hit: AnyHit): string {
 		if (hit.kind === 'slide') return resolve(`/learn/${hit.slide.slug}` as never);
-		return resolve(`/word/${hit.term.slug}` as never);
+		// Glossary terms have a slug → /word/[slug]; lexicon entries don't,
+		// so we route them to the glossary page (which lists every entry).
+		const e = hit.entry;
+		if (e.source === 'glossary' && e.slug) return resolve(`/word/${e.slug}` as never);
+		return resolve('/glossary');
 	}
+
 
 	function onKey(e: KeyboardEvent) {
 		if (!open) return;
@@ -162,26 +168,40 @@
 							</span>
 							<span class="us-count">{results.terms.length}</span>
 						</div>
-						{#each results.terms as hit, i (hit.term.slug)}
+						{#each results.terms as hit, i (hit.entry.key)}
 							{@const idx = i}
+							{@const e = hit.entry}
+							{@const isMem = memorized.has(e.key)}
 							<a
 								href={hitHref(hit)}
 								class="us-row us-row-term"
 								class:active={active === idx}
+								class:is-mem={isMem}
 								onmouseenter={() => (active = idx)}
 								role="option"
 								aria-selected={active === idx}
 							>
 								<span class="us-row-main">
-									<span class="us-row-title" dir="ltr">{@html highlight(hit.term.en.term, query)}</span>
-									{#if hit.term.en.acronym}
-										<span class="us-row-acro" dir="ltr">{hit.term.en.acronym}</span>
+									<span class="us-row-title" dir="ltr">{@html highlight(e.enTerm, query)}</span>
+									{#if e.enAcronym}
+										<span class="us-row-acro" dir="ltr">{e.enAcronym}</span>
 									{/if}
-									{#if hit.term.fa.term}
-										<span class="us-row-fa" dir="rtl">{hit.term.fa.term}</span>
+									{#if e.faTerm}
+										<span class="us-row-fa" dir="rtl">{e.faTerm}</span>
+									{/if}
+									{#if isMem}
+										<span
+											class="us-row-mem-mark"
+											aria-label={t('glossary_memorized')}
+											title={t('glossary_memorized')}
+										>
+											<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+												<path d="M5 12.5l4 4 10-10" />
+											</svg>
+										</span>
 									{/if}
 								</span>
-								<span class="us-row-sub" dir="ltr">{hit.term.en.definition}</span>
+								<span class="us-row-sub" dir="ltr">{e.enDefinition}</span>
 							</a>
 						{/each}
 					</div>
@@ -472,6 +492,21 @@
 		margin-inline-start: auto;
 		text-align: end;
 		flex: none;
+	}
+	.us-row-mem-mark {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 16px;
+		height: 16px;
+		border-radius: 999px;
+		background: color-mix(in oklab, var(--accent) 90%, transparent);
+		color: var(--bg);
+		flex: none;
+		margin-inline-start: 4px;
+	}
+	.us-row-term.is-mem .us-row-title {
+		color: var(--ink-muted);
 	}
 	.us-row-sub {
 		font-size: 12px;

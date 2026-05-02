@@ -4,16 +4,15 @@
 	import { i18n, t } from '$lib/state/i18n.svelte';
 	import { learnRead } from '$lib/state/learn-read.svelte';
 	import SlideListItem from '$lib/learn/components/SlideListItem.svelte';
+	import SlideNav from '$lib/learn/components/SlideNav.svelte';
 
 	const { data } = $props();
-	const { part, slides } = data;
+	const { part, slides, blurbEn, blurbFa, prev, next } = $derived(data);
 
 	const title = $derived(i18n.lang === 'fa' ? part.titleFa : part.title);
 	const altTitle = $derived(i18n.lang === 'fa' ? part.title : part.titleFa);
 	const blurb = $derived(i18n.lang === 'fa' ? part.blurbFa : part.blurb);
 
-	// The part page already serves as the section opener; the divider slide
-	// would be a redundant entry, so list only the lecture slides.
 	const contentSlides = $derived(slides.filter((s) => s.kind !== 'divider'));
 
 	const trackableSlugs = $derived(contentSlides.map((s) => s.slug));
@@ -48,18 +47,33 @@
 
 	<header class="part-hero">
 		<div class="part-hero-roman" aria-hidden="true">{part.roman}</div>
-		<div class="part-hero-eyebrow">{t('learn_part_label', part.roman)}</div>
 		<h1 class="part-hero-title">{title}</h1>
 		<p class="part-hero-alt">{altTitle}</p>
-		<p class="part-hero-blurb">{blurb}</p>
+
+		{#if blurbEn}
+			<p class="part-hero-blurb" dir="ltr">{@html blurbEn}</p>
+		{:else}
+			<p class="part-hero-blurb">{blurb}</p>
+		{/if}
+		{#if blurbFa}
+			<p class="part-hero-blurb is-fa" dir="rtl">{@html blurbFa}</p>
+		{/if}
 
 		{#if totalReadable > 0}
 			<div class="part-progress" aria-label={t('learn_progress_label')}>
 				<div class="part-progress-row">
 					<span class="part-progress-label">{t('learn_progress_label')}</span>
-					<span class="part-progress-count">{t('learn_read_progress', readCount, totalReadable)}</span>
+					<span class="part-progress-count"
+						>{t('learn_read_progress', readCount, totalReadable)}</span
+					>
 				</div>
-				<div class="part-progress-bar" role="progressbar" aria-valuenow={readCount} aria-valuemin={0} aria-valuemax={totalReadable}>
+				<div
+					class="part-progress-bar"
+					role="progressbar"
+					aria-valuenow={readCount}
+					aria-valuemin={0}
+					aria-valuemax={totalReadable}
+				>
 					<div class="part-progress-fill" style="width: {readPct}%"></div>
 				</div>
 			</div>
@@ -78,6 +92,8 @@
 			{/each}
 		</ul>
 	</div>
+
+	<SlideNav {prev} {next} />
 </section>
 
 <style>
@@ -85,16 +101,18 @@
 		transform: scaleX(-1);
 	}
 
+	/* Match the index part-card surface — flat bg-elevated, hairline border —
+	   so navigating from the index to a part feels like the same family of
+	   surfaces. The previous variant-tint treatment (navy / tan) is what made
+	   parts look like two different pages; this keeps everything one. */
 	.part-hero {
 		display: flex;
 		flex-direction: column;
 		gap: 6px;
 		padding: 22px 18px 24px 18px;
 		border-radius: var(--radius-card);
-		background:
-			linear-gradient(160deg, color-mix(in oklab, var(--gold) 16%, var(--bg-elevated)) 0%, var(--bg-elevated) 60%),
-			var(--bg-elevated);
 		border: 1px solid var(--hairline);
+		background: var(--bg-elevated);
 		position: relative;
 		overflow: hidden;
 	}
@@ -109,14 +127,6 @@
 		font-feature-settings: 'lnum';
 		opacity: 0.92;
 		margin-bottom: 4px;
-	}
-
-	.part-hero-eyebrow {
-		font-family: ui-monospace, 'SF Mono', monospace;
-		font-size: 10.5px;
-		letter-spacing: 0.22em;
-		text-transform: uppercase;
-		color: var(--ink-muted);
 	}
 
 	.part-hero-title {
@@ -156,14 +166,16 @@
 		color: var(--ink-muted);
 		margin: 6px 0 0 0;
 	}
+	.part-hero-blurb.is-fa {
+		font-family: var(--font-persian);
+		line-height: 1.85;
+	}
 
 	.part-progress {
 		display: flex;
 		flex-direction: column;
 		gap: 6px;
-		margin-top: 12px;
-		padding-top: 12px;
-		border-top: 1px solid color-mix(in oklab, var(--hairline) 60%, transparent);
+		margin-top: 16px;
 	}
 	.part-progress-row {
 		display: flex;

@@ -1,4 +1,5 @@
-import { slides, type Slide } from './slides.generated';
+import { slides } from './_data';
+import type { Slide } from './slides.generated';
 
 export interface SearchHit {
 	slide: Slide;
@@ -38,6 +39,9 @@ export function searchSlides(query: string, max = 24): SearchHit[] {
 
 	const hits: SearchHit[] = [];
 	for (const slide of slides) {
+		// Section-divider URLs redirect to the part page now — they're not
+		// destinations of their own, so don't surface them as search hits.
+		if (slide.kind === 'divider') continue;
 		const title = normalize(slide.title);
 		const eyebrowEn = normalize(slide.eyebrowEn);
 		const eyebrowFa = normalize(slide.eyebrowFa);
