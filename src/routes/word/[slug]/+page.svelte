@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { resolve } from '$app/paths';
+	import { afterNavigate } from '$app/navigation';
 	import { fly } from 'svelte/transition';
 	import { i18n, t } from '$lib/state/i18n.svelte';
 	import SlideListItem from '$lib/learn/components/SlideListItem.svelte';
@@ -19,6 +20,21 @@
 
 	function toggleMemorized() {
 		memorized.toggle(memKey);
+	}
+
+	// Track whether we arrived here via in-app navigation. If so, the back
+	// link should pop history (preserving scroll/snapshot state on the
+	// previous page); otherwise — cold load, share link, refresh — fall back
+	// to home so we still have somewhere sensible to go.
+	let hasInAppHistory = $state(false);
+	afterNavigate(({ from, type }) => {
+		if (from && type !== 'enter') hasInAppHistory = true;
+	});
+
+	function goBack(e: MouseEvent) {
+		if (!hasInAppHistory) return; // let the <a href="/"> behave normally
+		e.preventDefault();
+		history.back();
 	}
 
 	// Underline lookup-able words inside the English definition + example,
@@ -49,6 +65,7 @@
 <section class="flex flex-col gap-4 pt-2 pb-3" in:fly={{ y: 6, duration: 220 }}>
 	<a
 		href={resolve('/')}
+		onclick={goBack}
 		class="back-link inline-flex items-center gap-1.5 self-start text-[11.5px] tracking-[0.14em] text-ink-muted uppercase hover:text-accent"
 	>
 		<svg

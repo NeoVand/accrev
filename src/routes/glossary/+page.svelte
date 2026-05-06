@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { tick } from 'svelte';
 	import { resolve } from '$app/paths';
 	import { fly } from 'svelte/transition';
 	import { i18n, t } from '$lib/state/i18n.svelte';
@@ -16,6 +17,41 @@
 	let query = $state('');
 	let openKey = $state<string | null>(null);
 	let viewMode = $state<ViewMode>('az');
+
+	// Preserve view state across navigation. The popover's "go to full card"
+	// link sends the user to /word/[slug]; when they hit "back" we want them
+	// to land on the same row, in the same view mode, with the same scroll.
+	// SvelteKit calls capture() right before navigating away and restore()
+	// when this entry is re-shown via history.
+	type SnapshotState = {
+		query: string;
+		viewMode: ViewMode;
+		openKey: string | null;
+		scroll: number;
+	};
+
+	export const snapshot: import('./$types').Snapshot<SnapshotState> = {
+		capture: () => ({
+			query,
+			viewMode,
+			openKey,
+			scroll: document.querySelector('main')?.scrollTop ?? 0
+		}),
+		restore: (s) => {
+			query = s.query;
+			viewMode = s.viewMode;
+			openKey = s.openKey;
+			// Wait for the row body to render (so its height is part of the
+			// scroll container) before restoring scrollTop, otherwise the
+			// browser will clamp our value to a too-short scrollHeight.
+			tick().then(() => {
+				requestAnimationFrame(() => {
+					const main = document.querySelector('main');
+					if (main) main.scrollTop = s.scroll;
+				});
+			});
+		}
+	};
 
 	function normalize(s: string) {
 		return (s || '').toLowerCase().normalize('NFKD');
