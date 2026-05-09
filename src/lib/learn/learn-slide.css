@@ -168,8 +168,9 @@
 /* ─── Pitfall + example callouts: borderless, side-bar accent only ── */
 
 .learn-slide .pitfall {
+	position: relative;
 	margin: 8px 0 4px 0;
-	padding: 2px 0 2px 12px;
+	padding: 2px 30px 2px 12px;
 	border-left: 2px solid var(--gold);
 	background: transparent;
 	font-size: 12.5px;
@@ -198,13 +199,24 @@
 }
 
 .learn-slide .example {
+	position: relative;
 	margin: 8px 0 4px 0;
-	padding: 2px 0 2px 12px;
+	padding: 2px 30px 2px 12px;
 	border-left: 2px solid var(--accent);
 	background: transparent;
 	font-size: 12.5px;
 	line-height: 1.6;
 	color: var(--ink);
+}
+
+/* Inline speaker for callouts: anchored top-right inside the padded gutter
+   we reserved on the right edge so it never overlaps the body text. */
+.learn-slide .example > .inline-speaker,
+.learn-slide .pitfall > .inline-speaker {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
 }
 .learn-slide .example .label {
 	color: var(--accent);

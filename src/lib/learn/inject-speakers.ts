@@ -11,11 +11,19 @@ const STOP_ICON = `<svg viewBox="0 0 24 24" width="14" height="14" fill="current
  */
 const ENGLISH_HEADING_SELECTOR = '.col-en h3';
 const TOP_LEVEL_PARAGRAPH_SELECTOR = ':scope > p.body, :scope > p.body-lg, :scope > p.subtitle';
+/** Example / pitfall callouts. We pick them up everywhere in the slide and
+    skip the Persian-column ones at injection time (a `.col-fa` ancestor check
+    is more robust than a "not inside col-fa" CSS selector for nested cases). */
+const CALLOUT_SELECTOR = '.example, .pitfall';
 
-/** Strip Persian-bearing nodes from a clone, then return the trimmed text. */
+/** Strip Persian-bearing nodes from a clone, then return the trimmed text.
+    Also strips `.label` so callout heading text ("EXAMPLE · مثال") isn't read
+    aloud — only the body sentence is. */
 function extractEnglishText(el: HTMLElement): string {
 	const clone = el.cloneNode(true) as HTMLElement;
-	clone.querySelectorAll('.col-fa, .farsi-block, .farsi, .term-fa, .inline-speaker').forEach((n) => n.remove());
+	clone
+		.querySelectorAll('.col-fa, .farsi-block, .farsi, .term-fa, .label, .inline-speaker')
+		.forEach((n) => n.remove());
 	return (clone.textContent ?? '').replace(/\s+/g, ' ').trim();
 }
 
@@ -90,6 +98,19 @@ export function injectSpeakers(node: HTMLElement, options: Options) {
 			const btn = makeSpeakerButton(opts.label);
 			btn.dataset.kind = 'section';
 			h.appendChild(btn);
+		}
+
+		// Example / pitfall callouts. The same callout exists in both English
+		// and Persian columns (with localized body text); we only want the
+		// English ones — Persian-column callouts get filtered by ancestor.
+		for (const c of node.querySelectorAll<HTMLElement>(CALLOUT_SELECTOR)) {
+			if (c.closest('.col-fa, .farsi-block, .farsi')) continue;
+			if (c.querySelector(':scope > .inline-speaker')) continue;
+			const text = extractEnglishText(c);
+			if (!text) continue;
+			const btn = makeSpeakerButton(opts.label);
+			btn.dataset.kind = 'callout';
+			c.appendChild(btn);
 		}
 	}
 
