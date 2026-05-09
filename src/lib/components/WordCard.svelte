@@ -157,7 +157,7 @@
 			</button>
 		{/if}
 
-		{#if showOpenLink && entry.source === 'glossary' && entry.slug}
+		{#if showOpenLink && entry.slug}
 			<a
 				class="wc-link"
 				href={resolve(`/word/${entry.slug}` as never)}

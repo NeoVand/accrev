@@ -12,14 +12,13 @@
 	import type { LookupHit } from '$lib/data/lookup';
 
 	const { data } = $props();
-	const { term, related } = $derived(data);
+	const { entry, related } = $derived(data);
 
 	const isFa = $derived(i18n.lang === 'fa');
-	const memKey = $derived((term.en.term || term.slug).toLowerCase().trim());
-	const isMemorized = $derived(memorized.has(memKey));
+	const isMemorized = $derived(memorized.has(entry.key));
 
 	function toggleMemorized() {
-		memorized.toggle(memKey);
+		memorized.toggle(entry.key);
 	}
 
 	// Track whether we arrived here via in-app navigation. If so, the back
@@ -59,7 +58,7 @@
 </script>
 
 <svelte:head>
-	<title>{term.en.term} · accrev</title>
+	<title>{entry.enTerm} · accrev</title>
 </svelte:head>
 
 <section class="flex flex-col gap-4 pt-2 pb-3" in:fly={{ y: 6, duration: 220 }}>
@@ -90,22 +89,22 @@
 				class="font-display text-[34px] leading-[1.04] font-medium tracking-tight text-ink"
 				dir="ltr"
 			>
-				{term.en.term}
+				{entry.enTerm}
 			</h1>
-			{#if term.en.acronym}
+			{#if entry.enAcronym}
 				<span class="font-mono text-[12px] tracking-[0.08em] text-ink-faint" dir="ltr">
-					{term.en.acronym}
+					{entry.enAcronym}
 				</span>
 			{/if}
-			<span class="inline-flex items-center"><PronounceButton text={term.en.term} /></span>
+			<span class="inline-flex items-center"><PronounceButton text={entry.enTerm} /></span>
 		</div>
-		{#if term.fa.term}
+		{#if entry.faTerm}
 			<p class="font-persian text-[18px] leading-[1.4] text-gold" dir="rtl">
-				{term.fa.term}
+				{entry.faTerm}
 			</p>
 		{/if}
-		{#if term.en.expansion}
-			<p class="mt-1 text-[12.5px] italic text-ink-muted" dir="ltr">{term.en.expansion}</p>
+		{#if entry.enExpansion}
+			<p class="mt-1 text-[12.5px] italic text-ink-muted" dir="ltr">{entry.enExpansion}</p>
 		{/if}
 	</header>
 
@@ -115,23 +114,23 @@
 			<div class="flex items-baseline justify-between gap-2">
 				<p class="eyebrow">{isFa ? 'تعریف' : 'definition'}</p>
 				<PronounceButton
-					text={`${term.en.term}. ${term.en.definition}`}
+					text={`${entry.enTerm}. ${entry.enDefinition}`}
 					label={t('read_aloud_def')}
 					class="word-def-speaker"
 				/>
 			</div>
-			<div class="text-[14.5px] leading-[1.6] text-ink" dir="ltr" bind:this={defEl}>{term.en.definition}</div>
-			{#if term.fa.definition}
+			<div class="text-[14.5px] leading-[1.6] text-ink" dir="ltr" bind:this={defEl}>{entry.enDefinition}</div>
+			{#if entry.faDefinition}
 				<p class="font-persian text-[14px] leading-[1.85] text-ink-muted" dir="rtl">
-					{term.fa.definition}
+					{entry.faDefinition}
 				</p>
 			{/if}
 		</div>
 
-		{#if term.en.example}
+		{#if entry.enExample}
 			<div class="example-card">
 				<span class="example-label">{isFa ? 'مثال' : 'example'}</span>
-				<div dir="ltr" bind:this={exEl}>{term.en.example}</div>
+				<div dir="ltr" bind:this={exEl}>{entry.enExample}</div>
 			</div>
 		{/if}
 	</div>

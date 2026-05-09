@@ -50,6 +50,10 @@
 		if (top + h + padding > vh && anchor.top > h + arrowH + padding) {
 			top = anchor.top - h - arrowH;
 		}
+		// Last-resort clamp: if the popover is taller than the viewport
+		// (or anchor sits too close to either edge), keep it on screen
+		// rather than letting the head/foot drift past it.
+		top = Math.max(padding, Math.min(top, vh - h - padding));
 
 		const anchorCx = anchor.left + anchor.width / 2;
 		let left = anchorCx - w / 2;
@@ -65,6 +69,14 @@
 		// initial render produced a stale measurement.
 		position();
 		const raf = requestAnimationFrame(() => position());
+
+		// Watch the popover for size changes — fonts settling, the in:fly
+		// transition completing, async pronounce buttons mounting, etc. all
+		// change the natural shrink-to-fit width after our first pass, and
+		// without re-clamping the popover ends up flush against (or past)
+		// the viewport edge.
+		const ro = new ResizeObserver(() => position());
+		ro.observe(popoverEl);
 
 		const onResize = () => position();
 		window.addEventListener('resize', onResize);
@@ -96,6 +108,7 @@
 
 		return () => {
 			cancelAnimationFrame(raf);
+			ro.disconnect();
 			window.removeEventListener('resize', onResize);
 			window.removeEventListener('keydown', onKey);
 			window.removeEventListener('pointerdown', onPointer);

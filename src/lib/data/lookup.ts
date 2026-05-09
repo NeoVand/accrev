@@ -4,7 +4,8 @@
  *      formal CPA terms that also have a /word/[slug] page.
  *   2. The review-book lexicon (lexicon.json, ~250 entries) — common
  *      accounting vocabulary that appears in slides but isn't a full
- *      glossary entry. No /word page.
+ *      glossary entry. Each gets a slugified key so it can also have a
+ *      /word/[slug] page (slimmer — no example, expansion, or section).
  *
  * Both are normalized to a single `LookupEntry` shape so the popover and
  * the underline-injector can treat them uniformly.
@@ -15,9 +16,11 @@ import lexiconRaw from './lexicon.json';
 import type { Term } from '../types';
 
 export interface LookupEntry {
-	/** Source corpus. `glossary` entries get a /word/[slug] link; `lexicon` entries don't. */
+	/** Source corpus. Both kinds get a /word/[slug] page; the lexicon page is
+	    slimmer because lexicon entries don't carry example/expansion/section. */
 	source: 'glossary' | 'lexicon';
-	/** Slug for routing (glossary only — empty for lexicon). */
+	/** Slug for routing. Always set — kebab-case from the term for lexicon
+	    entries, the curated `t.slug` for glossary entries. */
 	slug: string;
 	/** Stable lowercase key — same one used as the index lookup. Used as the
 	    persistence key for the "memorized" set so glossary and lexicon entries
@@ -66,10 +69,19 @@ function fromGlossary(t: Term): LookupEntry {
 	};
 }
 
-function fromLexicon(key: string, entry: LexiconRecord[string]): LookupEntry {
+function slugifyTerm(s: string): string {
+	return s
+		.toLowerCase()
+		.trim()
+		.replace(/['’]/g, '')
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/^-+|-+$/g, '');
+}
+
+function fromLexicon(key: string, entry: LexiconRecord[string], slug: string): LookupEntry {
 	return {
 		source: 'lexicon',
-		slug: '',
+		slug,
 		key: (entry.term || key).toLowerCase().trim(),
 		enTerm: entry.term,
 		enDefinition: entry.definition,
@@ -79,21 +91,33 @@ function fromLexicon(key: string, entry: LexiconRecord[string]): LookupEntry {
 }
 
 const exactIndex = new Map<string, LookupEntry>();
+/** All slugs that resolve to a /word/[slug] page, mapped to their entry. Built
+    alongside `exactIndex` so the route loader can resolve a slug without
+    re-walking both corpora at request time. */
+const slugIndex = new Map<string, LookupEntry>();
 
 // Glossary first (so its slugged entries take precedence over lexicon).
 for (const t of glossary) {
+	const entry = fromGlossary(t);
 	const en = t.en.term?.toLowerCase().trim();
-	if (en) exactIndex.set(en, fromGlossary(t));
+	if (en) exactIndex.set(en, entry);
 	const acro = t.en.acronym?.toLowerCase().trim();
-	if (acro && !exactIndex.has(acro)) exactIndex.set(acro, fromGlossary(t));
+	if (acro && !exactIndex.has(acro)) exactIndex.set(acro, entry);
+	if (entry.slug) slugIndex.set(entry.slug, entry);
 }
 
-// Lexicon fills in the gaps.
+// Lexicon fills in the gaps. Each entry gets a slugified term as its route
+// slug; if that slug is already taken by a glossary entry, the lexicon record
+// keeps the slug empty (the glossary entry is canonical for that URL).
 const lexicon = lexiconRaw as LexiconRecord;
 for (const [key, value] of Object.entries(lexicon)) {
 	const k = key.toLowerCase().trim();
 	if (!k || exactIndex.has(k)) continue;
-	exactIndex.set(k, fromLexicon(key, value));
+	const slug = slugifyTerm(value.term || key);
+	const safeSlug = slug && !slugIndex.has(slug) ? slug : '';
+	const entry = fromLexicon(key, value, safeSlug);
+	exactIndex.set(k, entry);
+	if (safeSlug) slugIndex.set(safeSlug, entry);
 }
 
 function stripPossessive(w: string): string {
@@ -201,4 +225,16 @@ export function allLookupEntries(): LookupEntry[] {
 export function entryByKey(key: string): LookupEntry | null {
 	const k = key.toLowerCase().trim();
 	return exactIndex.get(k) ?? null;
+}
+
+/** Look up an entry by its route slug. Used by /word/[slug] to resolve both
+    glossary and lexicon entries from a single index. */
+export function entryBySlug(slug: string): LookupEntry | null {
+	return slugIndex.get(slug) ?? null;
+}
+
+/** All entries that have a /word/[slug] page (glossary + lexicon). Used by
+    the route's `entries()` callback to enumerate prerender targets. */
+export function allEntriesWithSlug(): LookupEntry[] {
+	return Array.from(slugIndex.values());
 }

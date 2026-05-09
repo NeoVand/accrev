@@ -220,7 +220,22 @@ export function searchEverything(
 
 /** Find slides that mention a given term (used by /word/[slug] context view). */
 export function slidesMentioningTerm(term: Term, max = 8): Slide[] {
-	const queries = [term.en.term, term.en.acronym, term.fa.term].filter(Boolean) as string[];
+	return slidesMatching(
+		[term.en.term, term.en.acronym, term.fa.term].filter(Boolean) as string[],
+		max
+	);
+}
+
+/** Same as `slidesMentioningTerm`, but takes the unified LookupEntry shape so
+    the /word/[slug] route can serve both glossary and lexicon entries. */
+export function slidesMentioningEntry(entry: LookupEntry, max = 8): Slide[] {
+	return slidesMatching(
+		[entry.enTerm, entry.enAcronym, entry.faTerm].filter(Boolean) as string[],
+		max
+	);
+}
+
+function slidesMatching(queries: string[], max: number): Slide[] {
 	if (queries.length === 0) return [];
 	const seen = new Set<string>();
 	const out: { slide: Slide; score: number }[] = [];
