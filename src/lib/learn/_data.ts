@@ -408,6 +408,123 @@ const deferralsAccrualsBody = `<p class="subtitle" style="margin-top:14px; max-w
 const deferralsAccrualsPlain =
 	'Deferrals and accruals are the four basic ways accounting separates cash timing from economic timing. The question is not just did cash move? The better question is: has the revenue been earned, or has the expense been incurred? پیش‌دریافت/پیش‌پرداخت و معوق‌ها چهار الگوی اصلی‌اند که حسابداری با آن‌ها زمان جابه‌جایی وجه نقد را از زمان وقوع اقتصادی جدا می‌کند. سؤال فقط این نیست که آیا پول جابه‌جا شده؟ سؤال بهتر این است: آیا درآمد کسب شده، یا هزینه ایجاد شده است؟ The map Every pattern comes from two choices: cash can come before or after the accounting event; the event can be on the revenue side or the expense side. If cash happens first, the first entry parks something on the balance sheet. If the economic event happens first, the adjusting entry creates a receivable or payable because cash has not caught up yet. Shortcut Cash first = wait on the balance sheet. Cash later = record income statement now, collect or pay later. نقشه ذهنی هر الگو از دو انتخاب ساخته می‌شود: وجه نقد می‌تواند قبل یا بعد از رویداد حسابداری جابه‌جا شود؛ خود رویداد هم می‌تواند در سمت درآمد یا سمت هزینه باشد. اگر وجه نقد اول جابه‌جا شود، ثبت اول چیزی را موقتاً در ترازنامه نگه می‌دارد. اگر رویداد اقتصادی اول رخ دهد، ثبت اصلاحی یک دریافتنی یا پرداختنی ایجاد می‌کند، چون وجه نقد هنوز به رویداد نرسیده است. میان‌بر وجه ابتدا = انتظار در ترازنامه. وجه بعداً = اثر صورت سود و زیان را اکنون ثبت کن، دریافت یا پرداخت نقدی را بعداً انجام بده. 1. Deferred Revenue پیش‌دریافت درآمد Cash now, revenue later. The customer pays before you deliver. Until you do the work, you owe the customer goods or services, so the first entry creates a liability. وجه اکنون، درآمد بعداً. مشتری قبل از ارائه کالا یا خدمت پول می‌دهد. تا وقتی کار را انجام نداده‌اید، به مشتری کالا یا خدمت بدهکارید؛ بنابراین ثبت اول یک بدهی ایجاد می‌کند. Example: customer pays $1,200 for a 12-month subscription. At receipt: Dr Cash 1,200 / Cr Unearned Revenue 1,200. Each month: Dr Unearned Revenue 100 / Cr Revenue 100. 2. Prepaid Expense هزینه پیش‌پرداخت Cash now, expense later. You pay before using the benefit. Until the benefit is consumed, it is an asset, not an expense. وجه اکنون، هزینه بعداً. قبل از مصرف فایده پول می‌دهید. تا زمانی که فایده مصرف نشده، آن مبلغ دارایی است، نه هزینه. Example: company pays $12,000 for one year of insurance. At payment: Dr Prepaid Insurance 12,000 / Cr Cash 12,000. Each month: Dr Insurance Expense 1,000 / Cr Prepaid Insurance 1,000. 3. Accrued Revenue درآمد تحقق‌یافته وصول‌نشده Revenue now, cash later. You have already earned the revenue, but the customer has not paid yet. The adjustment records revenue and creates a receivable. درآمد اکنون، وجه بعداً. درآمد را کسب کرده‌اید، اما مشتری هنوز پرداخت نکرده است. ثبت اصلاحی درآمد را ثبت می‌کند و یک حساب دریافتنی می‌سازد. Example: consulting work worth $800 is completed before billing. When earned: Dr Accounts Receivable 800 / Cr Revenue 800. When collected: Dr Cash 800 / Cr Accounts Receivable 800. 4. Accrued Expense هزینه ایجادشده پرداخت‌نشده Expense now, cash later. You have used the benefit or employees have worked, but you have not paid yet. The adjustment records the expense and creates a payable. هزینه اکنون، وجه بعداً. فایده را مصرف کرده‌اید یا کارکنان کار کرده‌اند، اما هنوز پرداخت نکرده‌اید. ثبت اصلاحی هزینه را ثبت می‌کند و یک پرداختنی می‌سازد. Example: employees earn $3,000 of wages before payday. When incurred: Dr Wage Expense 3,000 / Cr Wages Payable 3,000. When paid: Dr Wages Payable 3,000 / Cr Cash 3,000. How to choose the entry Cash received before earning? Deferred revenue: liability first, revenue later. Cash paid before using? Prepaid expense: asset first, expense later. Earned before cash? Accrued revenue: revenue plus receivable. Incurred before cash? Accrued expense: expense plus payable. Pattern Adjusting entries usually pair one income-statement account with one balance-sheet account. Revenue pairs with receivable or unearned revenue; expense pairs with prepaid asset or payable. چطور ثبت درست را انتخاب کنیم وجه قبل از کسب درآمد دریافت شده؟ پیش‌دریافت درآمد: اول بدهی، بعد درآمد. وجه قبل از مصرف فایده پرداخت شده؟ هزینه پیش‌پرداخت: اول دارایی، بعد هزینه. درآمد قبل از دریافت وجه کسب شده؟ درآمد معوق/تحقق‌یافته: درآمد همراه دریافتنی. هزینه قبل از پرداخت وجه ایجاد شده؟ هزینه معوق: هزینه همراه پرداختنی. الگو ثبت‌های اصلاحی معمولاً یک حساب صورت سود و زیان را با یک حساب ترازنامه جفت می‌کنند. درآمد با دریافتنی یا پیش‌دریافت جفت می‌شود؛ هزینه با دارایی پیش‌پرداخت یا پرداختنی.';
 
+const balanceSheetBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">The balance sheet is a <strong>snapshot</strong>: it shows what the company owns, what it owes, and what belongs to the owners at one exact date. It does not show a whole month or year of activity; it freezes the company at a single moment.</p>
+
+	<div class="farsi-block" style="margin-top:12px; max-width:none;">
+		ترازنامه یک <strong>عکس لحظه‌ای</strong> است: در یک تاریخ مشخص نشان می‌دهد شرکت چه چیزهایی دارد، چه بدهی‌هایی دارد، و چه مقدار متعلق به مالکان است. ترازنامه فعالیت کل ماه یا سال را نشان نمی‌دهد؛ فقط وضعیت شرکت را در یک لحظه ثابت می‌کند.
+	</div>
+
+	<div class="lecture-grid" style="margin-top:16px;">
+		<div class="col-en">
+			<h3>Big idea</h3>
+			<p>Every balance sheet is built on one equation: <strong>Assets = Liabilities + Equity</strong>. The left side shows resources controlled by the company. The right side explains who has a claim on those resources: creditors first, owners second.</p>
+			<p>This is why a balance sheet must balance. It is not a coincidence or a formatting rule; it is the logic of ownership and financing.</p>
+			<div class="example"><span class="label">Memory hook</span>Assets are the stuff. Liabilities and equity explain who paid for the stuff.</div>
+		</div>
+		<div class="col-fa">
+			<h3>ایدهٔ اصلی</h3>
+			<p>هر ترازنامه روی یک معادله ساخته می‌شود: <strong>دارایی‌ها = بدهی‌ها + حقوق مالکان</strong>. سمت چپ منابع تحت کنترل شرکت را نشان می‌دهد. سمت راست توضیح می‌دهد چه کسانی روی آن منابع ادعا دارند: اول طلبکاران، بعد مالکان.</p>
+			<p>به همین دلیل ترازنامه باید تراز باشد. این موضوع تصادفی یا صرفاً قاعدهٔ ظاهری نیست؛ منطق مالکیت و تأمین مالی است.</p>
+			<div class="example"><span class="label">یادسپار</span>دارایی‌ها «چیزهایی» هستند که شرکت دارد. بدهی و حقوق مالکان توضیح می‌دهند چه کسی هزینهٔ آن چیزها را تأمین کرده است.</div>
+		</div>
+	</div>
+
+	<div style="margin-top:18px;">
+		<div style="font-family:'Fraunces',serif; font-size:17px; color:var(--navy); text-align:center;">Ranger Coffee Co. · Balance Sheet</div>
+		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; text-align:center; color:var(--ink-soft);">As of Dec 31, 2025</div>
+		<div style="display:grid; grid-template-columns: 1fr 92px; gap:4px 12px; font-family:'JetBrains Mono',monospace; font-size:14px; line-height:1.55; margin-top:12px;">
+			<div style="grid-column:1/3; font-family:'Inter',sans-serif; font-weight:700; color:var(--navy); font-size:13px; letter-spacing:0.15em; margin-top:4px;">ASSETS</div>
+			<span>Cash</span><span style="text-align:right;">24,000</span>
+			<span>Accounts Receivable</span><span style="text-align:right;">18,500</span>
+			<span>Inventory</span><span style="text-align:right;">32,000</span>
+			<span>Prepaid Insurance</span><span style="text-align:right;">2,000</span>
+			<span style="color:var(--ink-soft);">Current assets</span><span style="text-align:right; color:var(--navy); font-weight:600;">76,500</span>
+			<span>Equipment</span><span style="text-align:right;">60,000</span>
+			<span style="color:var(--ink-soft);">Less: Acc. Depreciation</span><span style="text-align:right;">(12,000)</span>
+			<span style="font-weight:700; color:var(--navy);">Total Assets</span><span style="text-align:right; font-weight:700; color:var(--navy);">124,500</span>
+
+			<div style="grid-column:1/3; font-family:'Inter',sans-serif; font-weight:700; color:var(--navy); font-size:13px; letter-spacing:0.15em; margin-top:12px;">LIABILITIES</div>
+			<span>Accounts Payable</span><span style="text-align:right;">9,500</span>
+			<span>Accrued Wages</span><span style="text-align:right;">3,000</span>
+			<span>Long-term Debt</span><span style="text-align:right;">40,000</span>
+			<span style="font-weight:600;">Total Liabilities</span><span style="text-align:right; font-weight:600;">52,500</span>
+
+			<div style="grid-column:1/3; font-family:'Inter',sans-serif; font-weight:700; color:var(--navy); font-size:13px; letter-spacing:0.15em; margin-top:12px;">EQUITY</div>
+			<span>Common Stock</span><span style="text-align:right;">40,000</span>
+			<span>Retained Earnings</span><span style="text-align:right;">32,000</span>
+			<span style="font-weight:600;">Total Equity</span><span style="text-align:right; font-weight:600;">72,000</span>
+			<span style="font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:6px;">Total L + E</span><span style="text-align:right; font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:6px;">124,500</span>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>The three sections</h3>
+			<ul>
+				<li><strong>Assets:</strong> resources the company controls and expects to benefit from, like cash, receivables, inventory, and equipment.</li>
+				<li><strong>Liabilities:</strong> obligations the company must settle, like payables, wages owed, loans, taxes payable, and unearned revenue.</li>
+				<li><strong>Equity:</strong> the owners' residual claim after liabilities. It includes contributed capital and retained earnings.</li>
+			</ul>
+			<div class="example"><span class="label">Equation check</span>Ranger has $124,500 of assets. Creditors claim $52,500. Owners claim the remaining $72,000. Together: $52,500 + $72,000 = $124,500.</div>
+		</div>
+		<div class="col-fa">
+			<h3>سه بخش اصلی</h3>
+			<ul>
+				<li><strong>دارایی‌ها:</strong> منابعی که شرکت کنترل می‌کند و انتظار دارد از آن‌ها منفعت بگیرد، مثل وجه نقد، دریافتنی‌ها، موجودی کالا و تجهیزات.</li>
+				<li><strong>بدهی‌ها:</strong> تعهداتی که شرکت باید تسویه کند، مثل پرداختنی‌ها، دستمزدهای پرداخت‌نشده، وام، مالیات پرداختنی و درآمد پیش‌دریافت.</li>
+				<li><strong>حقوق مالکان:</strong> ادعای باقی‌ماندهٔ مالکان پس از بدهی‌ها. شامل سرمایهٔ پرداخت‌شده و سود انباشته است.</li>
+			</ul>
+			<div class="example"><span class="label">کنترل معادله</span>دارایی‌های Ranger برابر ۱۲۴٬۵۰۰ دلار است. طلبکاران ۵۲٬۵۰۰ دلار ادعا دارند. مالکان باقی‌مانده یعنی ۷۲٬۰۰۰ دلار را ادعا می‌کنند. جمع آن‌ها: ۵۲٬۵۰۰ + ۷۲٬۰۰۰ = ۱۲۴٬۵۰۰.</div>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Current vs. non-current</h3>
+			<p>Balance sheets usually order assets by <strong>liquidity</strong>: how quickly they are expected to turn into cash. They order liabilities by how soon they must be paid.</p>
+			<ul>
+				<li><strong>Current assets:</strong> cash or expected to become cash/useful within about one year.</li>
+				<li><strong>Non-current assets:</strong> long-term resources, like equipment and buildings.</li>
+				<li><strong>Current liabilities:</strong> obligations due within about one year.</li>
+				<li><strong>Non-current liabilities:</strong> obligations due later, like long-term debt.</li>
+			</ul>
+		</div>
+		<div class="col-fa">
+			<h3>جاری در برابر غیرجاری</h3>
+			<p>ترازنامه معمولاً دارایی‌ها را بر اساس <strong>نقدشوندگی</strong> مرتب می‌کند: یعنی چقدر سریع انتظار داریم به وجه نقد تبدیل شوند. بدهی‌ها نیز بر اساس زمان سررسید مرتب می‌شوند.</p>
+			<ul>
+				<li><strong>دارایی جاری:</strong> وجه نقد یا چیزی که انتظار می‌رود ظرف حدود یک سال نقد یا مصرف شود.</li>
+				<li><strong>دارایی غیرجاری:</strong> منابع بلندمدت، مثل تجهیزات و ساختمان.</li>
+				<li><strong>بدهی جاری:</strong> تعهدی که ظرف حدود یک سال سررسید می‌شود.</li>
+				<li><strong>بدهی غیرجاری:</strong> تعهدی با سررسید بلندمدت، مثل وام بلندمدت.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>How to read it quickly</h3>
+			<ul>
+				<li><strong>Can short-term assets cover short-term bills?</strong> Compare current assets to current liabilities.</li>
+				<li><strong>How much is financed by creditors?</strong> Look at liabilities relative to assets and equity.</li>
+				<li><strong>What does the company depend on?</strong> Inventory-heavy, equipment-heavy, and cash-heavy companies have very different risk profiles.</li>
+			</ul>
+			<div class="pitfall"><span class="label">Common mistake</span>The balance sheet is not the company's market value. Many assets are recorded at historical cost, and internally generated value like brand strength often does not appear directly.</div>
+		</div>
+		<div class="col-fa">
+			<h3>روش سریع خواندن ترازنامه</h3>
+			<ul>
+				<li><strong>آیا دارایی‌های کوتاه‌مدت هزینه‌ها و بدهی‌های کوتاه‌مدت را پوشش می‌دهند؟</strong> دارایی‌های جاری را با بدهی‌های جاری مقایسه کنید.</li>
+				<li><strong>چه مقدار از شرکت با پول طلبکاران تأمین شده؟</strong> بدهی‌ها را نسبت به دارایی‌ها و حقوق مالکان ببینید.</li>
+				<li><strong>شرکت به چه چیزی وابسته است؟</strong> شرکت موجودی‌محور، تجهیزات‌محور و نقدمحور ریسک‌های متفاوتی دارند.</li>
+			</ul>
+			<div class="pitfall"><span class="label">اشتباه رایج</span>ترازنامه ارزش بازار شرکت نیست. بسیاری از دارایی‌ها با بهای تاریخی ثبت می‌شوند و ارزش‌های ایجادشده در داخل شرکت، مثل قدرت برند، معمولاً مستقیماً در ترازنامه دیده نمی‌شوند.</div>
+		</div>
+	</div>`;
+
+const balanceSheetPlain =
+	'The balance sheet is a snapshot: it shows what the company owns, what it owes, and what belongs to the owners at one exact date. It does not show a whole month or year of activity; it freezes the company at a single moment. ترازنامه یک عکس لحظه‌ای است: در یک تاریخ مشخص نشان می‌دهد شرکت چه چیزهایی دارد، چه بدهی‌هایی دارد، و چه مقدار متعلق به مالکان است. ترازنامه فعالیت کل ماه یا سال را نشان نمی‌دهد؛ فقط وضعیت شرکت را در یک لحظه ثابت می‌کند. Big idea Every balance sheet is built on one equation: Assets = Liabilities + Equity. The left side shows resources controlled by the company. The right side explains who has a claim on those resources: creditors first, owners second. This is why a balance sheet must balance. It is the logic of ownership and financing. ایده اصلی هر ترازنامه روی یک معادله ساخته می‌شود: دارایی‌ها = بدهی‌ها + حقوق مالکان. سمت چپ منابع تحت کنترل شرکت را نشان می‌دهد. سمت راست توضیح می‌دهد چه کسانی روی آن منابع ادعا دارند: اول طلبکاران، بعد مالکان. Ranger Coffee balance sheet: total assets 124,500, liabilities 52,500, equity 72,000. The equation balances because 52,500 plus 72,000 equals 124,500. ترازنامه Ranger: کل دارایی‌ها ۱۲۴٬۵۰۰، بدهی‌ها ۵۲٬۵۰۰، حقوق مالکان ۷۲٬۰۰۰. معادله تراز است چون ۵۲٬۵۰۰ به علاوه ۷۲٬۰۰۰ برابر ۱۲۴٬۵۰۰ است. The three sections Assets are resources the company controls and expects to benefit from. Liabilities are obligations the company must settle. Equity is the owners residual claim after liabilities. سه بخش اصلی دارایی‌ها منابعی هستند که شرکت کنترل می‌کند و انتظار منفعت دارد. بدهی‌ها تعهداتی هستند که شرکت باید تسویه کند. حقوق مالکان ادعای باقی‌مانده مالکان پس از بدهی‌هاست. Current vs non-current Balance sheets order assets by liquidity and liabilities by due date. Current means cash, used, collected, or paid within about one year. Non-current means longer-term. جاری در برابر غیرجاری ترازنامه دارایی‌ها را بر اساس نقدشوندگی و بدهی‌ها را بر اساس سررسید مرتب می‌کند. جاری یعنی ظرف حدود یک سال نقد، مصرف، وصول یا پرداخت می‌شود. غیرجاری یعنی بلندمدت‌تر. How to read it quickly Compare current assets to current liabilities, look at how much is financed by creditors, and notice whether the company is inventory-heavy, equipment-heavy, or cash-heavy. Common mistake The balance sheet is not the company market value. Many assets are recorded at historical cost, and internally generated value like brand strength often does not appear directly. روش سریع خواندن ترازنامه دارایی‌های جاری را با بدهی‌های جاری مقایسه کنید، ببینید چه مقدار با پول طلبکاران تأمین شده، و توجه کنید شرکت موجودی‌محور، تجهیزات‌محور یا نقدمحور است. اشتباه رایج ترازنامه ارزش بازار شرکت نیست. بسیاری از دارایی‌ها با بهای تاریخی ثبت می‌شوند و ارزش‌های داخلی مثل قدرت برند معمولاً مستقیماً دیده نمی‌شوند.';
+
 const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'21-cash-vs-accrual': {
 		body: cashVsAccrualBody,
@@ -424,6 +541,10 @@ const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'24-deferrals-accruals': {
 		body: deferralsAccrualsBody,
 		plain: deferralsAccrualsPlain
+	},
+	'26-balance-sheet': {
+		body: balanceSheetBody,
+		plain: balanceSheetPlain
 	}
 };
 
