@@ -20,13 +20,20 @@ npx sv@0.15.1 create --template minimal --types ts --add prettier eslint playwri
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've created a project and installed dependencies with `npm install`, start a development server:
 
 ```sh
 npm run dev
 
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
+```
+
+Playwright's browser download is separate from dependency installation so `npm install` stays fast and reliable. Install Chromium only when you need to run end-to-end tests:
+
+```sh
+npm run setup:browsers
+npm run test:e2e
 ```
 
 ## Building
