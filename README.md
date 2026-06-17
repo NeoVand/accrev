@@ -1,5 +1,18 @@
 # accrev
 
+<p>
+  <img alt="SvelteKit" src="https://img.shields.io/badge/SvelteKit-2.57-ff3e00?style=for-the-badge&logo=svelte&logoColor=white">
+  <img alt="Svelte 5" src="https://img.shields.io/badge/Svelte-5.55-ff3e00?style=for-the-badge&logo=svelte&logoColor=white">
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-6.0-3178c6?style=for-the-badge&logo=typescript&logoColor=white">
+  <img alt="Vite" src="https://img.shields.io/badge/Vite-8.0-646cff?style=for-the-badge&logo=vite&logoColor=white">
+  <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-4.2-06b6d4?style=for-the-badge&logo=tailwindcss&logoColor=white">
+  <img alt="Dexie" src="https://img.shields.io/badge/Dexie-IndexedDB-8a5cf6?style=for-the-badge">
+  <img alt="Paraglide" src="https://img.shields.io/badge/Paraglide-i18n-111827?style=for-the-badge">
+  <img alt="Playwright" src="https://img.shields.io/badge/Playwright-e2e-2ead33?style=for-the-badge&logo=playwright&logoColor=white">
+</p>
+
+![accrev app screenshots](assets/repository-banner.png)
+
 accrev is a mobile-first SvelteKit study app for accounting review. It combines a bilingual English/Farsi glossary, a guided 60-slide learning deck, flashcard practice, FSRS spaced repetition, recall review, and local progress tracking.
 
 The app is built as a mostly static SvelteKit site. Learning content ships with the bundle, while each user's study history stays in their browser through IndexedDB.
