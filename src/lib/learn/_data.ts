@@ -14,6 +14,126 @@ import {
 	type Slide
 } from './slides.generated';
 
+const accountingEquationBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">The accounting equation is the first rule of the whole system: <strong>Assets = Liabilities + Equity</strong>. It says every resource a company controls must have been financed by someone: either creditors or owners.</p>
+
+	<div class="farsi-block" style="margin-top:12px; max-width:none;">
+		معادلهٔ حسابداری اولین قاعدهٔ کل سیستم است: <strong>دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام</strong>. یعنی هر منبعی که شرکت در اختیار دارد، حتماً از جایی تأمین مالی شده است: یا از طرف طلبکاران، یا از طرف مالکان.
+	</div>
+
+	<div style="margin:18px 0 18px 0; display:grid; grid-template-columns: 1fr; gap:10px; text-align:center;">
+		<div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px 22px; font-family:'Fraunces',serif; font-size:24px; font-weight:400;">
+			<div>
+				<div style="color:var(--navy);">Assets</div>
+				<div style="font-family:'Vazirmatn',sans-serif; font-size:17px; font-weight:500; color:var(--tan-deep); margin-top:4px;">دارایی‌ها</div>
+			</div>
+			<div style="color:var(--tan); font-weight:300; font-size:25px;">=</div>
+			<div>
+				<div style="color:var(--navy);">Liabilities</div>
+				<div style="font-family:'Vazirmatn',sans-serif; font-size:17px; font-weight:500; color:var(--tan-deep); margin-top:4px;">بدهی‌ها</div>
+			</div>
+			<div style="color:var(--tan); font-weight:300; font-size:25px;">+</div>
+			<div>
+				<div style="color:var(--navy);">Equity</div>
+				<div style="font-family:'Vazirmatn',sans-serif; font-size:17px; font-weight:500; color:var(--tan-deep); margin-top:4px;">حقوق صاحبان سهام</div>
+			</div>
+		</div>
+		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft); letter-spacing:0.08em;">what the company has = claims against what the company has</div>
+		<div style="font-family:'Vazirmatn',sans-serif; direction:rtl; font-size:13px; color:var(--ink-soft);">آنچه شرکت دارد = ادعاها نسبت به آنچه شرکت دارد</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:16px;">
+		<div class="col-en">
+			<h3>Big idea</h3>
+			<p>The left side shows <strong>resources</strong>: cash, inventory, equipment, receivables, buildings, software, and other things the business controls and expects to benefit from.</p>
+			<p>The right side shows <strong>claims</strong> on those resources. Creditors have claims called liabilities. Owners have the residual claim called equity. There is no third source.</p>
+			<div class="example"><span class="label">Memory hook</span>Assets show where value sits. Liabilities and equity show who has a claim on that value.</div>
+		</div>
+		<div class="col-fa">
+			<h3>ایدهٔ اصلی</h3>
+			<p>سمت چپ <strong>منابع</strong> را نشان می‌دهد: وجه نقد، موجودی کالا، تجهیزات، حساب‌های دریافتنی، ساختمان، نرم‌افزار و چیزهای دیگری که کسب‌وکار کنترل می‌کند و انتظار منفعت از آن‌ها دارد.</p>
+			<p>سمت راست <strong>ادعاها</strong> نسبت به آن منابع را نشان می‌دهد. طلبکاران ادعایی به نام بدهی دارند. مالکان ادعای باقی‌مانده‌ای به نام حقوق صاحبان سهام دارند. محل سومی وجود ندارد.</p>
+			<div class="example"><span class="label">یادسپار</span>دارایی‌ها نشان می‌دهند ارزش کجا نشسته است. بدهی‌ها و حقوق صاحبان سهام نشان می‌دهند چه کسی روی آن ارزش ادعا دارد.</div>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>What each part means</h3>
+			<ul>
+				<li><strong>Assets:</strong> economic resources controlled by the company. They are useful because they can create future benefit.</li>
+				<li><strong>Liabilities:</strong> obligations to outsiders. The company must pay cash, deliver goods, provide services, or otherwise settle them later.</li>
+				<li><strong>Equity:</strong> the owners' claim after liabilities. In plain language: what would be left for owners if assets were used to pay debts.</li>
+			</ul>
+		</div>
+		<div class="col-fa">
+			<h3>معنای هر بخش</h3>
+			<ul>
+				<li><strong>دارایی‌ها:</strong> منابع اقتصادی تحت کنترل شرکت. ارزشمندند چون می‌توانند در آینده منفعت ایجاد کنند.</li>
+				<li><strong>بدهی‌ها:</strong> تعهدات شرکت به افراد یا نهادهای بیرونی. شرکت باید بعداً وجه پرداخت کند، کالا تحویل دهد، خدمت ارائه کند، یا به شکل دیگری تسویه کند.</li>
+				<li><strong>حقوق صاحبان سهام:</strong> ادعای مالکان پس از بدهی‌ها. به زبان ساده: چیزی که اگر دارایی‌ها برای پرداخت بدهی‌ها استفاده شوند، برای مالکان باقی می‌ماند.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div style="margin-top:18px;">
+		<div style="font-family:'Fraunces',serif; font-size:18px; color:var(--navy); text-align:center;">Two simple transactions</div>
+		<div style="display:grid; grid-template-columns: 1fr 92px 92px 92px; gap:6px 10px; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.55; margin-top:12px;">
+			<span style="font-weight:700; color:var(--navy);">Transaction</span><span style="font-weight:700; color:var(--navy); text-align:right;">Assets</span><span style="font-weight:700; color:var(--navy); text-align:right;">Liabilities</span><span style="font-weight:700; color:var(--navy); text-align:right;">Equity</span>
+			<span>Owner invests cash</span><span style="text-align:right;">+50,000</span><span style="text-align:right;">0</span><span style="text-align:right;">+50,000</span>
+			<span>Bank loan received</span><span style="text-align:right;">+20,000</span><span style="text-align:right;">+20,000</span><span style="text-align:right;">0</span>
+			<span style="border-top:1px solid var(--hairline); padding-top:6px; font-weight:700; color:var(--navy);">Ending balance</span><span style="border-top:1px solid var(--hairline); padding-top:6px; text-align:right; font-weight:700; color:var(--navy);">70,000</span><span style="border-top:1px solid var(--hairline); padding-top:6px; text-align:right; font-weight:700; color:var(--navy);">20,000</span><span style="border-top:1px solid var(--hairline); padding-top:6px; text-align:right; font-weight:700; color:var(--navy);">50,000</span>
+		</div>
+		<p style="margin-top:10px; font-size:14px; line-height:1.7;"><strong>Check:</strong> 70,000 = 20,000 + 50,000. The equation still balances because each transaction changed both sides in a connected way.</p>
+		<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;"><strong>کنترل:</strong> ۷۰٬۰۰۰ = ۲۰٬۰۰۰ + ۵۰٬۰۰۰. معادله هنوز تراز است، چون هر معامله دو طرف را به شکلی مرتبط تغییر داده است.</p>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>How transactions keep it balanced</h3>
+			<p>A transaction can affect the equation in different ways, but the total must always stay equal.</p>
+			<ul>
+				<li><strong>Buy equipment with cash:</strong> one asset goes up, another asset goes down. Total assets stay the same.</li>
+				<li><strong>Buy inventory on credit:</strong> assets go up and liabilities go up by the same amount.</li>
+				<li><strong>Earn revenue in cash:</strong> assets go up and equity eventually goes up through retained earnings.</li>
+				<li><strong>Pay a bill:</strong> assets go down and liabilities go down by the same amount.</li>
+			</ul>
+		</div>
+		<div class="col-fa">
+			<h3>معاملات چگونه تعادل را حفظ می‌کنند</h3>
+			<p>یک معامله می‌تواند معادله را به شکل‌های مختلف تغییر دهد، اما جمع دو طرف همیشه باید برابر بماند.</p>
+			<ul>
+				<li><strong>خرید تجهیزات با وجه نقد:</strong> یک دارایی افزایش می‌یابد و دارایی دیگری کاهش می‌یابد. جمع دارایی‌ها تغییر نمی‌کند.</li>
+				<li><strong>خرید موجودی به صورت نسیه:</strong> دارایی‌ها افزایش می‌یابند و بدهی‌ها به همان مبلغ افزایش می‌یابند.</li>
+				<li><strong>کسب درآمد نقدی:</strong> دارایی‌ها افزایش می‌یابند و حقوق صاحبان سهام در نهایت از طریق سود انباشته افزایش می‌یابد.</li>
+				<li><strong>پرداخت یک بدهی:</strong> دارایی‌ها کاهش می‌یابند و بدهی‌ها به همان مبلغ کاهش می‌یابند.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>How to use it as a self-check</h3>
+			<ul>
+				<li><strong>First ask:</strong> what asset changed?</li>
+				<li><strong>Then ask:</strong> was it funded by a liability, by owners, or by earnings?</li>
+				<li><strong>Finally ask:</strong> does Assets = Liabilities + Equity after the entry?</li>
+			</ul>
+			<div class="pitfall"><span class="label">Common mistake</span>Do not think equity means cash in the owner's pocket. Equity is a claim inside the accounting records. The company may have high equity and very little cash if its value is tied up in inventory, equipment, or receivables.</div>
+		</div>
+		<div class="col-fa">
+			<h3>روش استفاده به‌عنوان کنترل سریع</h3>
+			<ul>
+				<li><strong>اول بپرسید:</strong> کدام دارایی تغییر کرد؟</li>
+				<li><strong>بعد بپرسید:</strong> این تغییر از بدهی تأمین شد، از مالکان، یا از سودآوری؟</li>
+				<li><strong>در پایان بپرسید:</strong> آیا پس از ثبت، دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام است؟</li>
+			</ul>
+			<div class="pitfall"><span class="label">اشتباه رایج</span>حقوق صاحبان سهام را با پول نقد در جیب مالک یکی ندانید. حقوق صاحبان سهام یک ادعا در سوابق حسابداری است. ممکن است شرکت حقوق صاحبان سهام بالایی داشته باشد اما وجه نقد کمی، چون ارزش آن در موجودی، تجهیزات یا دریافتنی‌ها گیر کرده است.</div>
+		</div>
+	</div>`;
+
+const accountingEquationPlain =
+	'The accounting equation is the first rule of the whole system: Assets = Liabilities + Equity. It says every resource a company controls must have been financed by someone: either creditors or owners. معادله حسابداری اولین قاعده کل سیستم است: دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام. یعنی هر منبعی که شرکت در اختیار دارد، حتماً از جایی تأمین مالی شده است: یا از طرف طلبکاران، یا از طرف مالکان. Assets = Liabilities + Equity. What the company has = claims against what the company has. آنچه شرکت دارد = ادعاها نسبت به آنچه شرکت دارد. Big idea The left side shows resources: cash, inventory, equipment, receivables, buildings, software, and other things the business controls and expects to benefit from. The right side shows claims on those resources. Creditors have claims called liabilities. Owners have the residual claim called equity. There is no third source. ایده اصلی سمت چپ منابع را نشان می‌دهد: وجه نقد، موجودی کالا، تجهیزات، حساب‌های دریافتنی، ساختمان، نرم‌افزار و چیزهای دیگری که کسب‌وکار کنترل می‌کند و انتظار منفعت از آن‌ها دارد. سمت راست ادعاها نسبت به آن منابع را نشان می‌دهد. طلبکاران ادعایی به نام بدهی دارند. مالکان ادعای باقی‌مانده‌ای به نام حقوق صاحبان سهام دارند. What each part means Assets are economic resources controlled by the company. Liabilities are obligations to outsiders. Equity is the owners claim after liabilities. معنای هر بخش دارایی‌ها منابع اقتصادی تحت کنترل شرکت هستند. بدهی‌ها تعهدات شرکت به افراد یا نهادهای بیرونی هستند. حقوق صاحبان سهام ادعای مالکان پس از بدهی‌هاست. Two simple transactions: owner invests 50,000 cash, so assets increase 50,000 and equity increases 50,000. Bank loan received 20,000, so assets increase 20,000 and liabilities increase 20,000. Ending balance: assets 70,000, liabilities 20,000, equity 50,000. Check: 70,000 = 20,000 + 50,000. دو معامله ساده: مالک ۵۰٬۰۰۰ وجه نقد سرمایه‌گذاری می‌کند، پس دارایی‌ها ۵۰٬۰۰۰ افزایش می‌یابد و حقوق صاحبان سهام ۵۰٬۰۰۰ افزایش می‌یابد. وام بانکی ۲۰٬۰۰۰ دریافت می‌شود، پس دارایی‌ها ۲۰٬۰۰۰ و بدهی‌ها ۲۰٬۰۰۰ افزایش می‌یابند. مانده پایان: دارایی‌ها ۷۰٬۰۰۰، بدهی‌ها ۲۰٬۰۰۰، حقوق صاحبان سهام ۵۰٬۰۰۰. کنترل: ۷۰٬۰۰۰ = ۲۰٬۰۰۰ + ۵۰٬۰۰۰. How transactions keep it balanced Buy equipment with cash: one asset up, another asset down. Buy inventory on credit: assets up and liabilities up. Earn revenue in cash: assets up and equity eventually up through retained earnings. Pay a bill: assets down and liabilities down. معاملات چگونه تعادل را حفظ می‌کنند خرید تجهیزات با وجه نقد: یک دارایی بالا و دارایی دیگر پایین. خرید موجودی نسیه: دارایی‌ها بالا و بدهی‌ها بالا. کسب درآمد نقدی: دارایی‌ها بالا و حقوق صاحبان سهام در نهایت از طریق سود انباشته بالا. پرداخت بدهی: دارایی‌ها پایین و بدهی‌ها پایین. How to use it as a self-check First ask what asset changed. Then ask whether it was funded by a liability, by owners, or by earnings. Finally ask whether Assets = Liabilities + Equity after the entry. Common mistake Equity is not cash in the owner pocket. Equity is a claim inside the accounting records. روش کنترل سریع اول بپرسید کدام دارایی تغییر کرد. بعد بپرسید این تغییر از بدهی تأمین شد، از مالکان، یا از سودآوری. در پایان بپرسید آیا پس از ثبت دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام است. اشتباه رایج حقوق صاحبان سهام پول نقد در جیب مالک نیست. حقوق صاحبان سهام یک ادعا در سوابق حسابداری است.';
+
 const cashVsAccrualBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">Cash basis and accrual basis answer the same question in two different ways: <strong>which period should show this revenue or expense?</strong> Cash basis follows the money. Accrual basis follows the economic activity.</p>
 
 	<div class="farsi-block" style="margin-top:12px; max-width:none;">
@@ -525,7 +645,115 @@ const balanceSheetBody = `<p class="subtitle" style="margin-top:14px; max-width:
 const balanceSheetPlain =
 	'The balance sheet is a snapshot: it shows what the company owns, what it owes, and what belongs to the owners at one exact date. It does not show a whole month or year of activity; it freezes the company at a single moment. ترازنامه یک عکس لحظه‌ای است: در یک تاریخ مشخص نشان می‌دهد شرکت چه چیزهایی دارد، چه بدهی‌هایی دارد، و چه مقدار متعلق به مالکان است. ترازنامه فعالیت کل ماه یا سال را نشان نمی‌دهد؛ فقط وضعیت شرکت را در یک لحظه ثابت می‌کند. Big idea Every balance sheet is built on one equation: Assets = Liabilities + Equity. The left side shows resources controlled by the company. The right side explains who has a claim on those resources: creditors first, owners second. This is why a balance sheet must balance. It is the logic of ownership and financing. ایده اصلی هر ترازنامه روی یک معادله ساخته می‌شود: دارایی‌ها = بدهی‌ها + حقوق مالکان. سمت چپ منابع تحت کنترل شرکت را نشان می‌دهد. سمت راست توضیح می‌دهد چه کسانی روی آن منابع ادعا دارند: اول طلبکاران، بعد مالکان. Ranger Coffee balance sheet: total assets 124,500, liabilities 52,500, equity 72,000. The equation balances because 52,500 plus 72,000 equals 124,500. ترازنامه Ranger: کل دارایی‌ها ۱۲۴٬۵۰۰، بدهی‌ها ۵۲٬۵۰۰، حقوق مالکان ۷۲٬۰۰۰. معادله تراز است چون ۵۲٬۵۰۰ به علاوه ۷۲٬۰۰۰ برابر ۱۲۴٬۵۰۰ است. The three sections Assets are resources the company controls and expects to benefit from. Liabilities are obligations the company must settle. Equity is the owners residual claim after liabilities. سه بخش اصلی دارایی‌ها منابعی هستند که شرکت کنترل می‌کند و انتظار منفعت دارد. بدهی‌ها تعهداتی هستند که شرکت باید تسویه کند. حقوق مالکان ادعای باقی‌مانده مالکان پس از بدهی‌هاست. Current vs non-current Balance sheets order assets by liquidity and liabilities by due date. Current means cash, used, collected, or paid within about one year. Non-current means longer-term. جاری در برابر غیرجاری ترازنامه دارایی‌ها را بر اساس نقدشوندگی و بدهی‌ها را بر اساس سررسید مرتب می‌کند. جاری یعنی ظرف حدود یک سال نقد، مصرف، وصول یا پرداخت می‌شود. غیرجاری یعنی بلندمدت‌تر. How to read it quickly Compare current assets to current liabilities, look at how much is financed by creditors, and notice whether the company is inventory-heavy, equipment-heavy, or cash-heavy. Common mistake The balance sheet is not the company market value. Many assets are recorded at historical cost, and internally generated value like brand strength often does not appear directly. روش سریع خواندن ترازنامه دارایی‌های جاری را با بدهی‌های جاری مقایسه کنید، ببینید چه مقدار با پول طلبکاران تأمین شده، و توجه کنید شرکت موجودی‌محور، تجهیزات‌محور یا نقدمحور است. اشتباه رایج ترازنامه ارزش بازار شرکت نیست. بسیاری از دارایی‌ها با بهای تاریخی ثبت می‌شوند و ارزش‌های داخلی مثل قدرت برند معمولاً مستقیماً دیده نمی‌شوند.';
 
+const incomeStatementBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">The income statement is the <strong>movie</strong> of a period. It does not freeze one date like the balance sheet. It shows what the company earned, what it spent to earn it, and what profit was left over during a month, quarter, or year.</p>
+
+	<div class="farsi-block" style="margin-top:12px; max-width:none;">
+		صورت سود و زیان <strong>فیلم یک دوره</strong> است. مثل ترازنامه یک تاریخ را ثابت نمی‌کند؛ نشان می‌دهد شرکت طی یک ماه، فصل یا سال چه درآمدی کسب کرده، برای کسب آن چه هزینه‌هایی داشته، و در پایان چه سودی باقی مانده است.
+	</div>
+
+	<div class="lecture-grid" style="margin-top:16px;">
+		<div class="col-en">
+			<h3>Big idea</h3>
+			<p>The income statement answers: <strong>Was the company profitable during this period?</strong> It starts with revenue, subtracts layers of cost, and ends with net income.</p>
+			<p>Those layers matter. A company can sell a lot and still struggle if product costs are too high, operating costs are too heavy, or interest and taxes consume the remaining profit.</p>
+			<div class="example"><span class="label">Memory hook</span>Revenue is the top line. Net income is the bottom line. Everything between them explains where the money went.</div>
+		</div>
+		<div class="col-fa">
+			<h3>ایدهٔ اصلی</h3>
+			<p>صورت سود و زیان پاسخ می‌دهد: <strong>آیا شرکت در این دوره سودآور بوده است؟</strong> از درآمد شروع می‌کند، لایه‌های هزینه را کم می‌کند، و به سود خالص می‌رسد.</p>
+			<p>این لایه‌ها مهم‌اند. ممکن است شرکت فروش زیادی داشته باشد اما اگر بهای محصول بالا باشد، هزینه‌های عملیاتی سنگین باشد، یا بهره و مالیات سود باقی‌مانده را مصرف کند، نتیجه ضعیف شود.</p>
+			<div class="example"><span class="label">یادسپار</span>درآمد خط بالاست. سود خالص خط پایین است. هرچه بین آن‌هاست توضیح می‌دهد پول کجا رفته است.</div>
+		</div>
+	</div>
+
+	<div style="margin-top:18px;">
+		<div style="font-family:'Fraunces',serif; font-size:17px; color:var(--navy); text-align:center;">Ranger Coffee Co. · Income Statement</div>
+		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; text-align:center; color:var(--ink-soft);">Year Ended Dec 31, 2025</div>
+		<div style="display:grid; grid-template-columns: 1fr 96px; gap:5px 12px; font-family:'JetBrains Mono',monospace; font-size:14px; line-height:1.55; margin-top:12px;">
+			<span>Revenue</span><span style="text-align:right;">245,000</span>
+			<span>Cost of Goods Sold</span><span style="text-align:right;">(142,000)</span>
+			<span style="font-weight:600; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">Gross Profit</span><span style="text-align:right; font-weight:600; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">103,000</span>
+			<span style="margin-top:6px;">Selling &amp; Admin</span><span style="text-align:right; margin-top:6px;">(48,000)</span>
+			<span>Depreciation</span><span style="text-align:right;">(8,000)</span>
+			<span style="font-weight:600; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">Operating Income</span><span style="text-align:right; font-weight:600; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">47,000</span>
+			<span style="margin-top:6px;">Interest Expense</span><span style="text-align:right; margin-top:6px;">(3,200)</span>
+			<span style="font-weight:600; border-top:1px solid var(--hairline); padding-top:5px;">Pre-tax Income</span><span style="text-align:right; font-weight:600; border-top:1px solid var(--hairline); padding-top:5px;">43,800</span>
+			<span>Income Tax (25%)</span><span style="text-align:right;">(10,950)</span>
+			<span style="font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:6px;">Net Income</span><span style="text-align:right; font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:6px;">32,850</span>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>The flow from top to bottom</h3>
+			<ul>
+				<li><strong>Revenue:</strong> the value of goods or services earned from customers during the period.</li>
+				<li><strong>COGS:</strong> the direct cost of the products sold. For Ranger, these are the coffee beans and production costs tied to sales.</li>
+				<li><strong>Operating expenses:</strong> costs of running the business, such as rent, wages, administration, selling costs, and depreciation.</li>
+				<li><strong>Interest and tax:</strong> financing cost and government claim after operations.</li>
+			</ul>
+		</div>
+		<div class="col-fa">
+			<h3>جریان از بالا به پایین</h3>
+			<ul>
+				<li><strong>درآمد:</strong> ارزش کالا یا خدماتی که در طول دوره از مشتریان کسب شده است.</li>
+				<li><strong>بهای تمام‌شده کالای فروش‌رفته:</strong> هزینهٔ مستقیم محصولاتی که فروخته شده‌اند. برای Ranger یعنی دانه‌های قهوه و هزینه‌های تولید مربوط به فروش.</li>
+				<li><strong>هزینه‌های عملیاتی:</strong> هزینه‌های ادارهٔ کسب‌وکار، مثل اجاره، دستمزد، اداری، فروش و استهلاک.</li>
+				<li><strong>بهره و مالیات:</strong> هزینهٔ تأمین مالی و سهم دولت پس از عملیات.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>The three key subtotals</h3>
+			<ul>
+				<li><strong>Gross Profit = Revenue - COGS.</strong> This shows whether the product or service itself has room to make money.</li>
+				<li><strong>Operating Income = Gross Profit - operating expenses.</strong> This shows profit from the core business before financing and tax.</li>
+				<li><strong>Net Income = profit after all expenses.</strong> This is the bottom line that flows into retained earnings.</li>
+			</ul>
+			<div class="example"><span class="label">Ranger readout</span>Ranger starts with $245,000 of revenue and ends with $32,850 of net income. Its net profit margin is about 13.4% ($32,850 / $245,000).</div>
+		</div>
+		<div class="col-fa">
+			<h3>سه سطح مهم سود</h3>
+			<ul>
+				<li><strong>سود ناخالص = درآمد - بهای تمام‌شده.</strong> نشان می‌دهد خود محصول یا خدمت چقدر ظرفیت سودآوری دارد.</li>
+				<li><strong>سود عملیاتی = سود ناخالص - هزینه‌های عملیاتی.</strong> سود کسب‌وکار اصلی را قبل از تأمین مالی و مالیات نشان می‌دهد.</li>
+				<li><strong>سود خالص = سود پس از همهٔ هزینه‌ها.</strong> خط پایانی است که به سود انباشته منتقل می‌شود.</li>
+			</ul>
+			<div class="example"><span class="label">خوانش Ranger</span>Ranger با ۲۴۵٬۰۰۰ دلار درآمد شروع می‌کند و به ۳۲٬۸۵۰ دلار سود خالص می‌رسد. حاشیه سود خالص آن حدود ۱۳٫۴٪ است (۳۲٬۸۵۰ / ۲۴۵٬۰۰۰).</div>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>How to read it quickly</h3>
+			<ul>
+				<li><strong>Start with gross profit:</strong> is the company making enough on what it sells?</li>
+				<li><strong>Then check operating income:</strong> are overhead and operating costs under control?</li>
+				<li><strong>Then compare net income to cash flow:</strong> profit is not the same as cash collected.</li>
+			</ul>
+			<div class="pitfall"><span class="label">Common mistake</span>Net income is not pure cash. It includes accruals, estimates, depreciation, inventory assumptions, and unpaid receivables. Always pair it with the cash flow statement.</div>
+		</div>
+		<div class="col-fa">
+			<h3>روش سریع خواندن صورت سود و زیان</h3>
+			<ul>
+				<li><strong>از سود ناخالص شروع کنید:</strong> آیا شرکت از چیزی که می‌فروشد به اندازهٔ کافی سود می‌سازد؟</li>
+				<li><strong>بعد سود عملیاتی را بررسی کنید:</strong> آیا هزینه‌های سربار و عملیاتی کنترل شده‌اند؟</li>
+				<li><strong>بعد سود خالص را با جریان نقد مقایسه کنید:</strong> سود با وجه نقد وصول‌شده یکی نیست.</li>
+			</ul>
+			<div class="pitfall"><span class="label">اشتباه رایج</span>سود خالص وجه نقد خالص نیست. شامل اقلام تعهدی، برآوردها، استهلاک، فرض‌های موجودی و دریافتنی‌های وصول‌نشده است. همیشه آن را کنار صورت جریان وجوه نقد بخوانید.</div>
+		</div>
+	</div>`;
+
+const incomeStatementPlain =
+	'The income statement is the movie of a period. It does not freeze one date like the balance sheet. It shows what the company earned, what it spent to earn it, and what profit was left over during a month, quarter, or year. صورت سود و زیان فیلم یک دوره است. مثل ترازنامه یک تاریخ را ثابت نمی‌کند؛ نشان می‌دهد شرکت طی یک ماه، فصل یا سال چه درآمدی کسب کرده، برای کسب آن چه هزینه‌هایی داشته، و در پایان چه سودی باقی مانده است. Big idea The income statement answers: Was the company profitable during this period? It starts with revenue, subtracts layers of cost, and ends with net income. Revenue is the top line. Net income is the bottom line. Everything between them explains where the money went. ایده اصلی صورت سود و زیان پاسخ می‌دهد: آیا شرکت در این دوره سودآور بوده است؟ از درآمد شروع می‌کند، لایه‌های هزینه را کم می‌کند، و به سود خالص می‌رسد. درآمد خط بالاست. سود خالص خط پایین است. هرچه بین آن‌هاست توضیح می‌دهد پول کجا رفته است. Ranger Coffee income statement: revenue 245,000, COGS 142,000, gross profit 103,000, operating income 47,000, pre-tax income 43,800, tax 10,950, net income 32,850. صورت سود و زیان Ranger: درآمد ۲۴۵٬۰۰۰، بهای تمام‌شده ۱۴۲٬۰۰۰، سود ناخالص ۱۰۳٬۰۰۰، سود عملیاتی ۴۷٬۰۰۰، سود قبل از مالیات ۴۳٬۸۰۰، مالیات ۱۰٬۹۵۰، سود خالص ۳۲٬۸۵۰. The flow from top to bottom Revenue is earned from customers. COGS is the direct cost of products sold. Operating expenses are costs of running the business. Interest and tax come after operations. جریان از بالا به پایین درآمد از مشتریان کسب می‌شود. بهای تمام‌شده هزینه مستقیم محصولات فروخته‌شده است. هزینه‌های عملیاتی هزینه‌های اداره کسب‌وکار هستند. بهره و مالیات پس از عملیات می‌آیند. Three key subtotals: Gross Profit = Revenue - COGS. Operating Income = Gross Profit - operating expenses. Net Income = profit after all expenses. سه سطح مهم سود: سود ناخالص = درآمد - بهای تمام‌شده. سود عملیاتی = سود ناخالص - هزینه‌های عملیاتی. سود خالص = سود پس از همه هزینه‌ها. How to read it quickly Start with gross profit, then check operating income, then compare net income to cash flow. Common mistake Net income is not pure cash. It includes accruals, estimates, depreciation, inventory assumptions, and unpaid receivables. روش سریع خواندن صورت سود و زیان از سود ناخالص شروع کنید، بعد سود عملیاتی را بررسی کنید، سپس سود خالص را با جریان نقد مقایسه کنید. اشتباه رایج سود خالص وجه نقد خالص نیست. شامل اقلام تعهدی، برآوردها، استهلاک، فرض‌های موجودی و دریافتنی‌های وصول‌نشده است.';
+
 const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
+	'05-equation': {
+		body: accountingEquationBody,
+		plain: accountingEquationPlain
+	},
 	'21-cash-vs-accrual': {
 		body: cashVsAccrualBody,
 		plain: cashVsAccrualPlain
@@ -545,6 +773,10 @@ const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'26-balance-sheet': {
 		body: balanceSheetBody,
 		plain: balanceSheetPlain
+	},
+	'27-income-statement': {
+		body: incomeStatementBody,
+		plain: incomeStatementPlain
 	}
 };
 
