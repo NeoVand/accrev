@@ -793,62 +793,6 @@ const cashFlowStatementBody = `<p class="subtitle" style="margin-top:14px; max-w
 		</div>
 	</div>
 
-	<div style="margin-top:18px;">
-		<div style="font-family:'Fraunces',serif; font-size:17px; color:var(--navy); text-align:center;">Cash Flow Statement · Indirect Method</div>
-		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; text-align:center; color:var(--ink-soft);">Year Ended Dec 31, 2025</div>
-		<div style="display:grid; grid-template-columns: 1fr 98px; gap:5px 12px; font-family:'JetBrains Mono',monospace; font-size:14px; line-height:1.55; margin-top:12px;">
-			<div style="grid-column:1/3; font-family:'Inter',sans-serif; font-weight:700; color:var(--navy); font-size:12px; letter-spacing:0.16em;">OPERATING ACTIVITIES</div>
-			<span>Net Income</span><span style="text-align:right;">32,850</span>
-			<span style="color:var(--ink-soft);">+ Depreciation</span><span style="text-align:right;">8,000</span>
-			<span style="color:var(--ink-soft);">- Increase in Accounts Receivable</span><span style="text-align:right;">(4,500)</span>
-			<span style="color:var(--ink-soft);">- Increase in Inventory</span><span style="text-align:right;">(6,000)</span>
-			<span style="color:var(--ink-soft);">+ Increase in Accounts Payable</span><span style="text-align:right;">2,000</span>
-			<span style="color:var(--ink-soft);">+ Increase in Accrued Wages</span><span style="text-align:right;">1,200</span>
-			<span style="font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">Cash from Operating</span><span style="text-align:right; font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">33,550</span>
-			<div style="grid-column:1/3; font-family:'Inter',sans-serif; font-weight:700; color:var(--tan-deep); font-size:12px; letter-spacing:0.16em; margin-top:8px;">INVESTING ACTIVITIES</div>
-			<span>Purchase of Equipment</span><span style="text-align:right;">(20,000)</span>
-			<span>Business acquisition</span><span style="text-align:right;">(12,000)</span>
-			<span style="font-weight:700; color:var(--tan-deep); border-top:1px solid var(--hairline); padding-top:5px;">Cash from Investing</span><span style="text-align:right; font-weight:700; color:var(--tan-deep); border-top:1px solid var(--hairline); padding-top:5px;">(32,000)</span>
-			<div style="grid-column:1/3; font-family:'Inter',sans-serif; font-weight:700; color:var(--navy); font-size:12px; letter-spacing:0.16em; margin-top:8px;">FINANCING ACTIVITIES</div>
-			<span>Proceeds from Debt</span><span style="text-align:right;">25,000</span>
-			<span>Repayment of Debt</span><span style="text-align:right;">(10,000)</span>
-			<span>Dividends Paid</span><span style="text-align:right;">(5,000)</span>
-			<span style="font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">Cash from Financing</span><span style="text-align:right; font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">10,000</span>
-			<span style="font-weight:700; border-top:1px solid var(--hairline); padding-top:7px;">Net Change in Cash</span><span style="text-align:right; font-weight:700; border-top:1px solid var(--hairline); padding-top:7px;">11,550</span>
-			<span>Cash, beginning</span><span style="text-align:right;">15,450</span>
-			<span style="font-weight:700; color:var(--navy);">Cash, ending</span><span style="text-align:right; font-weight:700; color:var(--navy);">27,000</span>
-		</div>
-	</div>
-
-	<div class="lecture-grid" style="margin-top:18px;">
-		<div class="col-en">
-			<h3>Hard words, translated</h3>
-			<ul>
-				<li><strong>Acquisition:</strong> buying another company, a business line, or a major asset. فارسی: <strong>تحصیل، خرید شرکت، یا تملک</strong>.</li>
-				<li><strong>CapEx / capital expenditures:</strong> cash spent on long-term assets like equipment, stores, buildings, or software. فارسی: <strong>مخارج سرمایه‌ای</strong>.</li>
-				<li><strong>Securities:</strong> financial investments such as stocks or bonds. فارسی: <strong>اوراق بهادار</strong>.</li>
-				<li><strong>Proceeds:</strong> cash received from issuing debt or stock, or from selling an asset. فارسی: <strong>وجوه دریافتی یا عواید حاصل از انتشار/فروش</strong>.</li>
-				<li><strong>Repayment:</strong> paying back borrowed money. فارسی: <strong>بازپرداخت بدهی</strong>.</li>
-				<li><strong>Buyback:</strong> the company buys back its own shares. فارسی: <strong>بازخرید سهام</strong>.</li>
-				<li><strong>CFO:</strong> in a cash-flow formula, CFO means <strong>Cash Flow from Operations</strong>, not Chief Financial Officer. فارسی: <strong>جریان نقد عملیاتی</strong>، نه مدیر مالی.</li>
-				<li><strong>CFI / CFF:</strong> CFI means Cash Flow from Investing; CFF means Cash Flow from Financing. فارسی: <strong>جریان نقد سرمایه‌گذاری</strong> و <strong>جریان نقد تأمین مالی</strong>.</li>
-			</ul>
-		</div>
-		<div class="col-fa">
-			<h3>واژگان دشوار با ترجمه</h3>
-			<ul>
-				<li><strong>Acquisition / تحصیل یا تملک:</strong> یعنی خرید یک شرکت دیگر، یک بخش از کسب‌وکار، یا یک دارایی مهم. مثلاً اگر Ranger یک کافهٔ کوچک را بخرد، این یک acquisition است.</li>
-				<li><strong>CapEx / مخارج سرمایه‌ای:</strong> پولی که برای دارایی‌های بلندمدت خرج می‌شود؛ مثل تجهیزات، ساختمان، شعبهٔ جدید یا نرم‌افزار.</li>
-				<li><strong>Securities / اوراق بهادار:</strong> سرمایه‌گذاری‌های مالی مثل سهام و اوراق قرضه.</li>
-				<li><strong>Proceeds / وجوه دریافتی:</strong> پولی که از گرفتن وام، انتشار سهام یا فروش دارایی وارد شرکت می‌شود.</li>
-				<li><strong>Repayment / بازپرداخت:</strong> پس دادن پولی که قبلاً قرض گرفته شده است.</li>
-				<li><strong>Buyback / بازخرید سهام:</strong> وقتی شرکت سهام خودش را از بازار یا سهامداران می‌خرد.</li>
-				<li><strong>CFO / جریان نقد عملیاتی:</strong> در فرمول صورت جریان وجوه نقد، CFO یعنی Cash Flow from Operations یا جریان نقد عملیاتی؛ اینجا به معنی Chief Financial Officer یا مدیر مالی نیست.</li>
-				<li><strong>CFI و CFF:</strong> CFI یعنی جریان نقد سرمایه‌گذاری و CFF یعنی جریان نقد تأمین مالی.</li>
-			</ul>
-		</div>
-	</div>
-
 	<div class="lecture-grid" style="margin-top:18px;">
 		<div class="col-en">
 			<h3>Reading the pattern</h3>
@@ -882,7 +826,127 @@ const cashFlowStatementBody = `<p class="subtitle" style="margin-top:14px; max-w
 	</div>`;
 
 const cashFlowStatementPlain =
-	'The cash flow statement explains where cash actually came from and where it actually went. It sorts cash into three buckets: operating, investing, and financing. صورت جریان وجوه نقد توضیح می‌دهد وجه نقد واقعاً از کجا آمد و کجا رفت. این صورت، جریان نقد را در سه سبد دسته‌بندی می‌کند: عملیاتی، سرمایه‌گذاری و تأمین مالی. Operating activities are cash from the core business: collections from customers, payments to suppliers, payroll, rent, tax, and interest. فعالیت‌های عملیاتی یعنی وجه نقد از کسب‌وکار اصلی: وصول از مشتریان، پرداخت به تأمین‌کنندگان، حقوق و دستمزد، اجاره، مالیات و بهره. Investing activities are cash used for long-term assets: equipment, buildings, securities, or another business. فعالیت‌های سرمایه‌گذاری یعنی وجه نقد برای دارایی‌های بلندمدت: تجهیزات، ساختمان، اوراق بهادار یا یک کسب‌وکار دیگر. Financing activities are cash from owners and creditors: borrowing, repaying debt, issuing stock, dividends, or buybacks. فعالیت‌های تأمین مالی یعنی وجه نقد از مالکان و طلبکاران: گرفتن وام، بازپرداخت بدهی، انتشار سهام، پرداخت سود سهام یا بازخرید سهام. Big idea Profit and cash are different. The income statement uses accrual accounting, while the cash flow statement shows cash movement. ایده اصلی سود و وجه نقد یکی نیستند. صورت سود و زیان از حسابداری تعهدی استفاده می‌کند، اما صورت جریان وجوه نقد حرکت واقعی وجه نقد را نشان می‌دهد. Example cash flow statement: net income 32,850, depreciation 8,000, increase in accounts receivable 4,500, increase in inventory 6,000, increase in accounts payable 2,000, increase in accrued wages 1,200, cash from operating 33,550, purchase of equipment 20,000, business acquisition 12,000, cash from investing negative 32,000, proceeds from debt 25,000, repayment of debt 10,000, dividends paid 5,000, cash from financing 10,000, net change in cash 11,550. مثال صورت جریان وجوه نقد: سود خالص ۳۲٬۸۵۰، استهلاک ۸٬۰۰۰، افزایش حساب‌های دریافتنی ۴٬۵۰۰، افزایش موجودی ۶٬۰۰۰، افزایش حساب‌های پرداختنی ۲٬۰۰۰، افزایش دستمزدهای معوق ۱٬۲۰۰، جریان نقد عملیاتی ۳۳٬۵۵۰، خرید تجهیزات ۲۰٬۰۰۰، تحصیل یا خرید کسب‌وکار ۱۲٬۰۰۰، جریان نقد سرمایه‌گذاری منفی ۳۲٬۰۰۰، وجوه دریافتی از بدهی ۲۵٬۰۰۰، بازپرداخت بدهی ۱۰٬۰۰۰، سود سهام پرداختی ۵٬۰۰۰، جریان نقد تأمین مالی ۱۰٬۰۰۰، تغییر خالص وجه نقد ۱۱٬۵۵۰. Hard words: acquisition means تحصیل، خرید شرکت، یا تملک. CapEx means مخارج سرمایه‌ای. Securities means اوراق بهادار. Proceeds means وجوه دریافتی یا عواید حاصل از انتشار/فروش. Repayment means بازپرداخت بدهی. Buyback means بازخرید سهام. CFO in a cash-flow formula means cash flow from operations, or جریان نقد عملیاتی, not Chief Financial Officer. CFI means cash flow from investing and CFF means cash flow from financing. Pattern: mature company usually has positive operating, negative investing, negative financing. Growth company often has positive operating, negative investing, positive financing. Distressed company may have negative operating, positive investing from selling assets, and positive financing. الگو: شرکت بالغ معمولاً عملیاتی مثبت، سرمایه‌گذاری منفی و تأمین مالی منفی دارد. شرکت در حال رشد اغلب عملیاتی مثبت، سرمایه‌گذاری منفی و تأمین مالی مثبت دارد. شرکت بحرانی ممکن است عملیاتی منفی، سرمایه‌گذاری مثبت از فروش دارایی و تأمین مالی مثبت داشته باشد. Identity: cash from operating CFO plus cash from investing CFI plus cash from financing CFF equals the change in cash on the balance sheet. رابطه اصلی: جریان نقد عملیاتی CFO به علاوه جریان نقد سرمایه‌گذاری CFI به علاوه جریان نقد تأمین مالی CFF برابر است با تغییر وجه نقد در ترازنامه. در این فرمول CFO یعنی جریان نقد عملیاتی، نه مدیر مالی. Common mistake: negative investing cash flow is not always bad. اشتباه رایج: منفی بودن جریان نقد سرمایه‌گذاری همیشه بد نیست.';
+	'The cash flow statement explains where cash actually came from and where it actually went. It sorts cash into three buckets: operating, investing, and financing. صورت جریان وجوه نقد توضیح می‌دهد وجه نقد واقعاً از کجا آمد و کجا رفت. این صورت، جریان نقد را در سه سبد دسته‌بندی می‌کند: عملیاتی، سرمایه‌گذاری و تأمین مالی. Operating activities are cash from the core business: collections from customers, payments to suppliers, payroll, rent, tax, and interest. فعالیت‌های عملیاتی یعنی وجه نقد از کسب‌وکار اصلی: وصول از مشتریان، پرداخت به تأمین‌کنندگان، حقوق و دستمزد، اجاره، مالیات و بهره. Investing activities are cash used for long-term assets: equipment, buildings, securities, or another business. فعالیت‌های سرمایه‌گذاری یعنی وجه نقد برای دارایی‌های بلندمدت: تجهیزات، ساختمان، اوراق بهادار یا یک کسب‌وکار دیگر. Financing activities are cash from owners and creditors: borrowing, repaying debt, issuing stock, dividends, or buybacks. فعالیت‌های تأمین مالی یعنی وجه نقد از مالکان و طلبکاران: گرفتن وام، بازپرداخت بدهی، انتشار سهام، پرداخت سود سهام یا بازخرید سهام. Big idea Profit and cash are different. The income statement uses accrual accounting, while the cash flow statement shows cash movement. ایده اصلی سود و وجه نقد یکی نیستند. صورت سود و زیان از حسابداری تعهدی استفاده می‌کند، اما صورت جریان وجوه نقد حرکت واقعی وجه نقد را نشان می‌دهد. Pattern: mature company usually has positive operating, negative investing, negative financing. Growth company often has positive operating, negative investing, positive financing. Distressed company may have negative operating, positive investing from selling assets, and positive financing. الگو: شرکت بالغ معمولاً عملیاتی مثبت، سرمایه‌گذاری منفی و تأمین مالی منفی دارد. شرکت در حال رشد اغلب عملیاتی مثبت، سرمایه‌گذاری منفی و تأمین مالی مثبت دارد. شرکت بحرانی ممکن است عملیاتی منفی، سرمایه‌گذاری مثبت از فروش دارایی و تأمین مالی مثبت داشته باشد. Identity: cash from operating CFO plus cash from investing CFI plus cash from financing CFF equals the change in cash on the balance sheet. رابطه اصلی: جریان نقد عملیاتی CFO به علاوه جریان نقد سرمایه‌گذاری CFI به علاوه جریان نقد تأمین مالی CFF برابر است با تغییر وجه نقد در ترازنامه. در این فرمول CFO یعنی جریان نقد عملیاتی، نه مدیر مالی. Common mistake: negative investing cash flow is not always bad. اشتباه رایج: منفی بودن جریان نقد سرمایه‌گذاری همیشه بد نیست.';
+
+const indirectMethodBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">The indirect method starts with <strong>net income</strong> and converts it into <strong>cash from operating activities</strong>. It is a reconciliation: profit is the starting point, and then we remove timing differences until we reach cash.</p>
+
+	<div class="farsi-block" style="margin-top:12px; max-width:none;">
+		روش غیرمستقیم از <strong>سود خالص</strong> شروع می‌کند و آن را به <strong>جریان نقد عملیاتی</strong> تبدیل می‌کند. این روش یک آشتی دادن است: سود نقطهٔ شروع است، سپس تفاوت‌های زمانی حذف می‌شوند تا به وجه نقد برسیم.
+	</div>
+
+	<div class="lecture-grid" style="margin-top:16px;">
+		<div class="col-en">
+			<h3>Big idea</h3>
+			<p>Net income is not cash because accrual accounting records revenue when earned and expenses when incurred. Some revenue has not been collected yet, some expenses have not been paid yet, and some expenses, like depreciation, never use cash in the current period.</p>
+			<p>The indirect method keeps the income statement as the anchor, then uses balance sheet changes to explain why operating cash is different from net income.</p>
+			<div class="example"><span class="label">Memory hook</span>Start with profit. Add back non-cash costs. Adjust working capital. Arrive at operating cash.</div>
+		</div>
+		<div class="col-fa">
+			<h3>ایدهٔ اصلی</h3>
+			<p>سود خالص وجه نقد نیست، چون حسابداری تعهدی درآمد را هنگام کسب‌شدن و هزینه را هنگام ایجادشدن ثبت می‌کند. بخشی از درآمد هنوز وصول نشده، بخشی از هزینه هنوز پرداخت نشده، و بعضی هزینه‌ها مثل استهلاک در دورهٔ جاری اصلاً وجه نقد مصرف نمی‌کنند.</p>
+			<p>روش غیرمستقیم صورت سود و زیان را نقطهٔ اتکا قرار می‌دهد، سپس با تغییرات ترازنامه توضیح می‌دهد چرا وجه نقد عملیاتی با سود خالص فرق دارد.</p>
+			<div class="example"><span class="label">یادسپار</span>از سود شروع کن. هزینه‌های غیرنقدی را اضافه کن. سرمایه در گردش را تعدیل کن. به وجه نقد عملیاتی برس.</div>
+		</div>
+	</div>
+
+	<div style="margin-top:18px;">
+		<div style="font-family:'Fraunces',serif; font-size:17px; color:var(--navy); text-align:center;">Cash Flow Statement · Indirect Method</div>
+		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; text-align:center; color:var(--ink-soft);">Year Ended Dec 31, 2025</div>
+		<div style="display:grid; grid-template-columns: 1fr 98px; gap:5px 12px; font-family:'JetBrains Mono',monospace; font-size:14px; line-height:1.55; margin-top:12px;">
+			<div style="grid-column:1/3; font-family:'Inter',sans-serif; font-weight:700; color:var(--navy); font-size:12px; letter-spacing:0.16em;">OPERATING ACTIVITIES</div>
+			<span>Net Income</span><span style="text-align:right;">32,850</span>
+			<span style="color:var(--ink-soft);">+ Depreciation</span><span style="text-align:right;">8,000</span>
+			<span style="color:var(--ink-soft);">- Increase in Accounts Receivable</span><span style="text-align:right;">(4,500)</span>
+			<span style="color:var(--ink-soft);">- Increase in Inventory</span><span style="text-align:right;">(6,000)</span>
+			<span style="color:var(--ink-soft);">+ Increase in Accounts Payable</span><span style="text-align:right;">2,000</span>
+			<span style="color:var(--ink-soft);">+ Increase in Accrued Wages</span><span style="text-align:right;">1,200</span>
+			<span style="font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">Cash from Operating</span><span style="text-align:right; font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">33,550</span>
+			<div style="grid-column:1/3; font-family:'Inter',sans-serif; font-weight:700; color:var(--tan-deep); font-size:12px; letter-spacing:0.16em; margin-top:8px;">INVESTING ACTIVITIES</div>
+			<span>Purchase of Equipment</span><span style="text-align:right;">(20,000)</span>
+			<span style="font-weight:700; color:var(--tan-deep); border-top:1px solid var(--hairline); padding-top:5px;">Cash from Investing</span><span style="text-align:right; font-weight:700; color:var(--tan-deep); border-top:1px solid var(--hairline); padding-top:5px;">(20,000)</span>
+			<div style="grid-column:1/3; font-family:'Inter',sans-serif; font-weight:700; color:var(--navy); font-size:12px; letter-spacing:0.16em; margin-top:8px;">FINANCING ACTIVITIES</div>
+			<span>Dividends Paid</span><span style="text-align:right;">(5,000)</span>
+			<span style="font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">Cash from Financing</span><span style="text-align:right; font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">(5,000)</span>
+			<span style="font-weight:700; border-top:1px solid var(--hairline); padding-top:7px;">Net Change in Cash</span><span style="text-align:right; font-weight:700; border-top:1px solid var(--hairline); padding-top:7px;">8,550</span>
+			<span>Cash, beginning</span><span style="text-align:right;">15,450</span>
+			<span style="font-weight:700; color:var(--navy);">Cash, ending</span><span style="text-align:right; font-weight:700; color:var(--navy);">24,000</span>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Step 1 · Net income</h3>
+			<p>Start with <strong>$32,850</strong>, the bottom line from the income statement. It is useful, but it is still accrual profit.</p>
+			<h3>Step 2 · Non-cash add-back</h3>
+			<p>Depreciation reduced net income, but no cash left when depreciation was recorded. Add back <strong>$8,000</strong>.</p>
+		</div>
+		<div class="col-fa">
+			<h3>گام ۱ · سود خالص</h3>
+			<p>از <strong>۳۲٬۸۵۰ دلار</strong> شروع کنید؛ یعنی خط پایانی صورت سود و زیان. این عدد مفید است، اما هنوز سود تعهدی است.</p>
+			<h3>گام ۲ · برگشت قلم غیرنقدی</h3>
+			<p>استهلاک سود خالص را کاهش داده، اما هنگام ثبت استهلاک وجه نقدی خارج نشده است. پس <strong>۸٬۰۰۰ دلار</strong> را اضافه می‌کنیم.</p>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Step 3 · Working capital</h3>
+			<ul>
+				<li><strong>Accounts receivable up:</strong> revenue was recorded before cash was collected, so subtract <strong>$4,500</strong>.</li>
+				<li><strong>Inventory up:</strong> cash was tied up in goods not yet sold, so subtract <strong>$6,000</strong>.</li>
+				<li><strong>Accounts payable up:</strong> the company delayed cash payment, so add <strong>$2,000</strong>.</li>
+				<li><strong>Accrued wages up:</strong> wage expense was recorded but not paid yet, so add <strong>$1,200</strong>.</li>
+			</ul>
+		</div>
+		<div class="col-fa">
+			<h3>گام ۳ · سرمایه در گردش</h3>
+			<ul>
+				<li><strong>افزایش دریافتنی‌ها:</strong> درآمد ثبت شده اما وجه هنوز وصول نشده، پس <strong>۴٬۵۰۰ دلار</strong> کسر می‌شود.</li>
+				<li><strong>افزایش موجودی:</strong> وجه نقد در کالاهای فروش‌نرفته گیر کرده، پس <strong>۶٬۰۰۰ دلار</strong> کسر می‌شود.</li>
+				<li><strong>افزایش پرداختنی‌ها:</strong> شرکت پرداخت نقدی را عقب انداخته، پس <strong>۲٬۰۰۰ دلار</strong> اضافه می‌شود.</li>
+				<li><strong>افزایش دستمزدهای معوق:</strong> هزینهٔ دستمزد ثبت شده اما هنوز پرداخت نشده، پس <strong>۱٬۲۰۰ دلار</strong> اضافه می‌شود.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Working capital rule</h3>
+			<ul>
+				<li><strong>Current asset increases:</strong> subtract from operating cash flow.</li>
+				<li><strong>Current asset decreases:</strong> add to operating cash flow.</li>
+				<li><strong>Current liability increases:</strong> add to operating cash flow.</li>
+				<li><strong>Current liability decreases:</strong> subtract from operating cash flow.</li>
+			</ul>
+			<div class="pitfall"><span class="label">Common mistake</span>Do not memorize the sign without the cash story. More receivables means customers owe more cash, so cash is lower than revenue. More payables means cash has not been paid yet, so cash is higher than expense.</div>
+		</div>
+		<div class="col-fa">
+			<h3>قاعدهٔ سرمایه در گردش</h3>
+			<ul>
+				<li><strong>افزایش دارایی جاری:</strong> از جریان نقد عملیاتی کسر می‌شود.</li>
+				<li><strong>کاهش دارایی جاری:</strong> به جریان نقد عملیاتی اضافه می‌شود.</li>
+				<li><strong>افزایش بدهی جاری:</strong> به جریان نقد عملیاتی اضافه می‌شود.</li>
+				<li><strong>کاهش بدهی جاری:</strong> از جریان نقد عملیاتی کسر می‌شود.</li>
+			</ul>
+			<div class="pitfall"><span class="label">اشتباه رایج</span>علامت را بدون داستان نقدی حفظ نکنید. دریافتنی بیشتر یعنی مشتریان هنوز پول بیشتری بدهکارند، پس وجه نقد کمتر از درآمد است. پرداختنی بیشتر یعنی وجه هنوز پرداخت نشده، پس وجه نقد بیشتر از هزینه است.</div>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Final check</h3>
+			<p>Operating cash is <strong>$33,550</strong>. Investing cash is <strong>($20,000)</strong> for equipment, and financing cash is <strong>($5,000)</strong> for dividends. Net cash increases by <strong>$8,550</strong>, so beginning cash of $15,450 becomes ending cash of <strong>$24,000</strong>.</p>
+			<div class="example"><span class="label">Formula</span>CFO 33,550 + CFI (20,000) + CFF (5,000) = net cash increase 8,550. Here CFO means cash flow from operations.</div>
+		</div>
+		<div class="col-fa">
+			<h3>کنترل نهایی</h3>
+			<p>جریان نقد عملیاتی <strong>۳۳٬۵۵۰ دلار</strong> است. جریان نقد سرمایه‌گذاری بابت تجهیزات <strong>(۲۰٬۰۰۰ دلار)</strong> و جریان نقد تأمین مالی بابت سود سهام <strong>(۵٬۰۰۰ دلار)</strong> است. وجه نقد خالص <strong>۸٬۵۵۰ دلار</strong> افزایش می‌یابد، پس وجه نقد ابتدای دوره ۱۵٬۴۵۰ به وجه نقد پایان دوره <strong>۲۴٬۰۰۰ دلار</strong> می‌رسد.</p>
+			<div class="example"><span class="label">فرمول</span>CFO ۳۳٬۵۵۰ + CFI (۲۰٬۰۰۰) + CFF (۵٬۰۰۰) = افزایش خالص وجه نقد ۸٬۵۵۰. در اینجا CFO یعنی جریان نقد عملیاتی.</div>
+		</div>
+	</div>`;
+
+const indirectMethodPlain =
+	'The indirect method starts with net income and converts it into cash from operating activities. روش غیرمستقیم از سود خالص شروع می‌کند و آن را به جریان نقد عملیاتی تبدیل می‌کند. Big idea Net income is not cash because accrual accounting records revenue when earned and expenses when incurred. ایده اصلی سود خالص وجه نقد نیست، چون حسابداری تعهدی درآمد را هنگام کسب‌شدن و هزینه را هنگام ایجادشدن ثبت می‌کند. Start with net income 32,850. Add back depreciation 8,000 because it is non-cash. Subtract increase in accounts receivable 4,500. Subtract increase in inventory 6,000. Add increase in accounts payable 2,000. Add increase in accrued wages 1,200. Cash from operating is 33,550. از سود خالص ۳۲٬۸۵۰ شروع کنید. استهلاک ۸٬۰۰۰ را اضافه کنید چون غیرنقدی است. افزایش دریافتنی‌ها ۴٬۵۰۰ را کسر کنید. افزایش موجودی ۶٬۰۰۰ را کسر کنید. افزایش پرداختنی‌ها ۲٬۰۰۰ را اضافه کنید. افزایش دستمزدهای معوق ۱٬۲۰۰ را اضافه کنید. جریان نقد عملیاتی ۳۳٬۵۵۰ است. Purchase of equipment is investing cash flow negative 20,000. Dividends paid are financing cash flow negative 5,000. Net change in cash is 8,550, so beginning cash 15,450 becomes ending cash 24,000. خرید تجهیزات جریان نقد سرمایه‌گذاری منفی ۲۰٬۰۰۰ است. سود سهام پرداختی جریان نقد تأمین مالی منفی ۵٬۰۰۰ است. تغییر خالص وجه نقد ۸٬۵۵۰ است، پس وجه نقد ابتدای دوره ۱۵٬۴۵۰ به وجه نقد پایان دوره ۲۴٬۰۰۰ می‌رسد. Working capital rule: current asset increase subtract, current asset decrease add, current liability increase add, current liability decrease subtract. قاعده سرمایه در گردش: افزایش دارایی جاری کسر، کاهش دارایی جاری اضافه، افزایش بدهی جاری اضافه، کاهش بدهی جاری کسر. CFO 33,550 plus CFI negative 20,000 plus CFF negative 5,000 equals net cash increase 8,550. Here CFO means cash flow from operations. در اینجا CFO یعنی جریان نقد عملیاتی.';
 
 const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'05-equation': {
@@ -916,6 +980,10 @@ const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'28-cfs-structure': {
 		body: cashFlowStatementBody,
 		plain: cashFlowStatementPlain
+	},
+	'29-cfs-indirect': {
+		body: indirectMethodBody,
+		plain: indirectMethodPlain
 	}
 };
 

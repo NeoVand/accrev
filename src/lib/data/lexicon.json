@@ -1024,10 +1024,60 @@
     "definition": "The last day of the fiscal year — the close that produces the annual report and audited statements.",
     "fa": { "term": "پایان سال", "definition": "آخرین روز سال مالی — اختتامیه‌ای که گزارش سالانه و صورت‌های حسابرسی‌شده را تولید می‌کند." }
   },
+  "acquisition": {
+    "term": "Acquisition",
+    "definition": "Buying another company, business line, or major asset; reported in investing activities when cash is paid.",
+    "fa": { "term": "تحصیل / تملک", "definition": "خرید یک شرکت دیگر، یک بخش از کسب‌وکار، یا یک دارایی مهم؛ اگر بابت آن وجه نقد پرداخت شود، در بخش فعالیت‌های سرمایه‌گذاری گزارش می‌شود." }
+  },
+  "capex": {
+    "term": "CapEx",
+    "definition": "Capital expenditures — cash spent on long-term assets such as equipment, buildings, stores, or software.",
+    "fa": { "term": "مخارج سرمایه‌ای", "definition": "وجه نقدی که برای دارایی‌های بلندمدت مثل تجهیزات، ساختمان، شعبه یا نرم‌افزار خرج می‌شود." }
+  },
+  "securities": {
+    "term": "Securities",
+    "definition": "Financial investments such as stocks, bonds, or other tradable investment instruments.",
+    "fa": { "term": "اوراق بهادار", "definition": "سرمایه‌گذاری‌های مالی مانند سهام، اوراق قرضه یا سایر ابزارهای سرمایه‌گذاری قابل معامله." }
+  },
+  "proceeds": {
+    "term": "Proceeds",
+    "definition": "Cash received from issuing debt or stock, or from selling an asset.",
+    "fa": { "term": "وجوه دریافتی", "definition": "پولی که از گرفتن وام، انتشار سهام یا فروش دارایی وارد شرکت می‌شود." }
+  },
+  "borrow": {
+    "term": "Borrow",
+    "definition": "To receive money that must be paid back later; borrowing creates a liability and is usually a financing cash inflow.",
+    "fa": { "term": "قرض گرفتن / وام گرفتن", "definition": "دریافت پولی که باید بعداً بازپرداخت شود؛ وام گرفتن بدهی ایجاد می‌کند و معمولاً ورود وجه نقد در بخش تأمین مالی است." }
+  },
+  "issue": {
+    "term": "Issue",
+    "definition": "To sell new debt or equity securities to investors; issuing stock or debt is usually a financing activity.",
+    "fa": { "term": "منتشر کردن", "definition": "فروش اوراق بدهی یا سهام جدید به سرمایه‌گذاران؛ انتشار سهام یا بدهی معمولاً فعالیت تأمین مالی است." }
+  },
+  "repay": {
+    "term": "Repay",
+    "definition": "To pay back borrowed money; debt repayments are usually financing cash outflows.",
+    "fa": { "term": "بازپرداخت کردن", "definition": "پس دادن پولی که قبلاً قرض گرفته شده است؛ بازپرداخت بدهی معمولاً خروج وجه نقد در بخش تأمین مالی است." }
+  },
+  "buyback": {
+    "term": "Buyback",
+    "definition": "A company's purchase of its own shares, usually shown as a financing cash outflow.",
+    "fa": { "term": "بازخرید سهام", "definition": "وقتی شرکت سهام خودش را از بازار یا سهامداران می‌خرد؛ معمولاً خروج وجه نقد در بخش تأمین مالی است." }
+  },
   "cfo": {
     "term": "CFO",
     "definition": "In cash-flow formulas, CFO means Cash Flow from Operations — cash generated or used by the core business. In job-title contexts, CFO can also mean Chief Financial Officer.",
     "fa": { "term": "جریان نقد عملیاتی", "definition": "در فرمول‌های صورت جریان وجوه نقد، CFO یعنی جریان نقد عملیاتی، یعنی وجه نقد ایجادشده یا مصرف‌شده توسط کسب‌وکار اصلی. در متن‌های مربوط به سمت‌های مدیریتی، CFO می‌تواند به معنی مدیر مالی هم باشد." }
+  },
+  "cfi": {
+    "term": "CFI",
+    "definition": "Cash Flow from Investing — cash spent on or received from long-term assets and investments.",
+    "fa": { "term": "جریان نقد سرمایه‌گذاری", "definition": "وجه نقد پرداختی یا دریافتی بابت دارایی‌های بلندمدت و سرمایه‌گذاری‌ها." }
+  },
+  "cff": {
+    "term": "CFF",
+    "definition": "Cash Flow from Financing — cash flows with lenders and owners, such as debt, stock, dividends, and buybacks.",
+    "fa": { "term": "جریان نقد تأمین مالی", "definition": "جریان‌های نقدی مربوط به وام‌دهندگان و مالکان، مثل بدهی، سهام، سود سهام و بازخرید سهام." }
   },
   "dupont": {
     "term": "DuPont",
