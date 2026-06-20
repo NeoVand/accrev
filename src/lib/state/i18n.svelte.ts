@@ -262,7 +262,22 @@ const en = {
 	iv_answered_label: 'answered',
 	iv_again: 'interview again',
 	iv_empty: 'No questions here yet.',
-	iv_sources_label: 'sources'
+	iv_sources_label: 'sources',
+
+	// Interview — book part panel
+	iv_part_panel_title: 'Practice in a mock interview',
+	iv_practice_all: 'practice all',
+	iv_practice: 'practice',
+
+	// Interview — Progress page
+	iv_progress_title: 'Interview readiness',
+	iv_by_level: 'by level',
+	iv_focus_next: 'focus next',
+	iv_focus_hint: 'Questions you marked Forgot or Hard — tap to practice.',
+	iv_all_caught_up: 'Nothing flagged — nicely done.',
+	iv_confidence: 'self-rating breakdown',
+	iv_recent_interviews: 'recent interviews',
+	iv_no_progress: 'No interview practice yet — start one.'
 } as const satisfies Record<string, MsgValue>;
 
 type MessageKey = keyof typeof en;
@@ -508,7 +523,22 @@ const fa: Record<MessageKey, MsgValue> = {
 	iv_answered_label: 'پاسخ‌داده',
 	iv_again: 'یک‌بار دیگه',
 	iv_empty: 'هنوز پرسشی اینجا نیست.',
-	iv_sources_label: 'منابع'
+	iv_sources_label: 'منابع',
+
+	// Interview — book part panel
+	iv_part_panel_title: 'تمرین در مصاحبهٔ آزمایشی',
+	iv_practice_all: 'تمرین همه',
+	iv_practice: 'تمرین',
+
+	// Interview — Progress page
+	iv_progress_title: 'آمادگی مصاحبه',
+	iv_by_level: 'بر اساس سطح',
+	iv_focus_next: 'تمرکز بعدی',
+	iv_focus_hint: 'پرسش‌هایی که «یادم رفت» یا «سخت» زدی — برای تمرین بزن.',
+	iv_all_caught_up: 'چیزی برای مرور نیست — آفرین.',
+	iv_confidence: 'ریز خودارزیابی',
+	iv_recent_interviews: 'مصاحبه‌های اخیر',
+	iv_no_progress: 'هنوز تمرین مصاحبه‌ای نداشتی — شروع کن.'
 };
 
 const all: Record<Lang, Record<MessageKey, MsgValue>> = { en, fa };

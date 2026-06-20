@@ -1,0 +1,1346 @@
+[
+{
+"slug": "identify-and-correct-errors",
+"level": 1,
+"topic": "accounting-changes-errors",
+"q_en": "What steps do you take to identify and correct accounting errors?",
+"q_fa": "برای شناسایی و اصلاح اشتباهات حسابداری چه گام‌هایی برمی‌دارید؟"
+},
+{
+"slug": "accounting-cycle",
+"level": 1,
+"topic": "accounting-cycle",
+"q_en": "What is the accounting cycle and what are its main steps?",
+"q_fa": "چرخهٔ حسابداری چیست و مراحل اصلی آن کدام‌اند؟"
+},
+{
+"slug": "accounting-equation",
+"level": 1,
+"topic": "accounting-equation",
+"q_en": "What is the accounting equation, and what does each component represent?",
+"q_fa": "معادلهٔ حسابداری چیست و هر یک از اجزای آن نشان‌دهندهٔ چیست؟"
+},
+{
+"slug": "asset-liability-equity-difference",
+"level": 1,
+"topic": "accounting-equation",
+"q_en": "What is the difference between an asset, a liability, and equity?",
+"q_fa": "تفاوت میان دارایی، بدهی و حقوق صاحبان سهام چیست؟"
+},
+{
+"slug": "ar-vs-ap",
+"level": 1,
+"topic": "accounts-receivable",
+"q_en": "What is the difference between accounts receivable and accounts payable, and why is each important to manage?",
+"q_fa": "تفاوت میان حساب‌های دریافتنی و حساب‌های پرداختنی چیست و چرا مدیریت هر یک اهمیت دارد؟"
+},
+{
+"slug": "cash-vs-accrual-accounting",
+"level": 1,
+"topic": "accrual-vs-cash",
+"q_en": "What is the difference between cash-basis and accrual-basis accounting, and why do larger companies prefer accrual?",
+"q_fa": "تفاوت میان حسابداری نقدی و حسابداری تعهدی چیست و چرا شرکت‌های بزرگ‌تر حسابداری تعهدی را ترجیح می‌دهند؟"
+},
+{
+"slug": "accrual-vs-deferral",
+"level": 1,
+"topic": "accrual-vs-deferral",
+"q_en": "What is the difference between an accrual and a deferral?",
+"q_fa": "تفاوت میان شناسایی تعهدی (accrual) و انتقالی/تعویق (deferral) چیست؟"
+},
+{
+"slug": "deferred-revenue-vs-accrued-expense",
+"level": 1,
+"topic": "accrual-vs-deferral",
+"q_en": "Both unearned (deferred) revenue and accrued expenses are liabilities. Explain the conceptual difference and how each is settled, with journal entries for initial recording and subsequent recognition.",
+"q_fa": "هم درآمد پیش‌دریافتی (تحقق‌نیافته) و هم هزینه‌های تحقق‌یافتهٔ پرداخت‌نشده، بدهی محسوب می‌شوند. تفاوت مفهومی آن‌ها و نحوهٔ تسویهٔ هر یک را توضیح دهید و ثبت‌های روزنامهٔ مربوط به ثبت اولیه و شناسایی بعدی را بیاورید."
+},
+{
+"slug": "prepaid-vs-accrued-expense",
+"level": 1,
+"topic": "accrual-vs-deferral",
+"q_en": "What is the difference between a prepaid expense and an accrued expense?",
+"q_fa": "تفاوت میان پیش‌پرداخت هزینه و هزینهٔ تحقق‌یافتهٔ پرداخت‌نشده چیست؟"
+},
+{
+"slug": "accrued-expense",
+"level": 1,
+"topic": "accrued-expense",
+"q_en": "What is an accrued expense?",
+"q_fa": "هزینهٔ تحقق‌یافتهٔ پرداخت‌نشده چیست؟"
+},
+{
+"slug": "accrued-expense-vs-ap",
+"level": 1,
+"topic": "accrued-expense",
+"q_en": "What is the difference between an accrued expense and accounts payable?",
+"q_fa": "تفاوت میان هزینهٔ تحقق‌یافتهٔ پرداخت‌نشده و حساب‌های پرداختنی چیست؟"
+},
+{
+"slug": "adjusting-entries",
+"level": 1,
+"topic": "adjusting-entries",
+"q_en": "What are adjusting entries and their purpose at period-end? List the main categories with examples of deferrals and accruals.",
+"q_fa": "ثبت‌های اصلاحی چیستند و هدف آن‌ها در پایان دوره چیست؟ دسته‌های اصلی را به همراه نمونه‌هایی از اقلام انتقالی (تعویق) و تعهدی فهرست کنید."
+},
+{
+"slug": "why-cash-not-in-adjusting-entries",
+"level": 1,
+"topic": "adjusting-entries",
+"q_en": "Why is cash never part of a normal adjusting entry?",
+"q_fa": "چرا وجه نقد هیچ‌گاه بخشی از یک ثبت اصلاحی عادی نیست؟"
+},
+{
+"slug": "depreciation-vs-amortization",
+"level": 1,
+"topic": "amortization",
+"q_en": "What is the difference between depreciation and amortization, and when do you capitalize versus expense a purchase?",
+"q_fa": "تفاوت میان استهلاک دارایی‌های مشهود و استهلاک دارایی‌های نامشهود چیست، و چه زمانی یک خرید را سرمایه‌ای می‌کنید در برابر هزینه‌ای کردن آن؟"
+},
+{
+"slug": "balance-sheet-shows",
+"level": 1,
+"topic": "balance-sheet",
+"q_en": "What does the balance sheet show?",
+"q_fa": "ترازنامه چه چیزی را نشان می‌دهد؟"
+},
+{
+"slug": "walk-through-balance-sheet",
+"level": 1,
+"topic": "balance-sheet",
+"q_en": "Walk me through the balance sheet.",
+"q_fa": "ترازنامه را برایم تشریح کنید."
+},
+{
+"slug": "why-balance-sheet-balances",
+"level": 1,
+"topic": "balance-sheet",
+"q_en": "Why does the balance sheet always balance?",
+"q_fa": "چرا ترازنامه همیشه تراز می‌شود؟"
+},
+{
+"slug": "cash-flow-statement-shows",
+"level": 1,
+"topic": "cash-flow-statement",
+"q_en": "What does the statement of cash flows show?",
+"q_fa": "صورت جریان‌های نقدی چه چیزی را نشان می‌دهد؟"
+},
+{
+"slug": "walk-through-cash-flow-statement",
+"level": 1,
+"topic": "cash-flow-statement",
+"q_en": "Walk me through the cash flow statement.",
+"q_fa": "صورت جریان‌های نقدی را برایم توضیح بده."
+},
+{
+"slug": "adjusting-vs-closing-entries",
+"level": 1,
+"topic": "closing-entries",
+"q_en": "What is the difference between adjusting and closing entries?",
+"q_fa": "تفاوت ثبت‌های اصلاحی و ثبت‌های اختتامی چیست؟"
+},
+{
+"slug": "closing-entries",
+"level": 1,
+"topic": "closing-entries",
+"q_en": "What are closing entries?",
+"q_fa": "ثبت‌های اختتامی چیست؟"
+},
+{
+"slug": "cogs-vs-opex",
+"level": 1,
+"topic": "cogs",
+"q_en": "What is the difference between COGS and operating expenses?",
+"q_fa": "تفاوت بهای تمام‌شده کالای فروش‌رفته (COGS) و مخارج عملیاتی چیست؟"
+},
+{
+"slug": "what-is-cogs",
+"level": 1,
+"topic": "cogs",
+"q_en": "What is COGS?",
+"q_fa": "بهای تمام‌شده کالای فروش‌رفته (COGS) چیست؟"
+},
+{
+"slug": "contra-account",
+"level": 1,
+"topic": "contra-accounts",
+"q_en": "What is a contra account? Give examples.",
+"q_fa": "حساب کاهنده چیست؟ مثال بزن."
+},
+{
+"slug": "debits-and-credits",
+"level": 1,
+"topic": "debits-credits",
+"q_en": "What are debits and credits, and which accounts carry a normal debit versus credit balance?",
+"q_fa": "بدهکار و بستانکار چیست و کدام حساب‌ها ماهیت بدهکار و کدام ماهیت بستانکار دارند؟"
+},
+{
+"slug": "deferred-revenue-vs-ar",
+"level": 1,
+"topic": "deferred-revenue",
+"q_en": "What is the difference between deferred revenue and accounts receivable?",
+"q_fa": "تفاوت بین درآمد پیش‌دریافتی و حساب‌های دریافتنی چیست؟"
+},
+{
+"slug": "deferred-unearned-revenue",
+"level": 1,
+"topic": "deferred-revenue",
+"q_en": "What is deferred (unearned) revenue?",
+"q_fa": "درآمد پیش‌دریافتی (تحقق‌نیافته) چیست؟"
+},
+{
+"slug": "unearned-vs-accrued-revenue",
+"level": 1,
+"topic": "deferred-revenue",
+"q_en": "What is the difference between unearned revenue and accrued revenue?",
+"q_fa": "تفاوت بین درآمد پیش‌دریافت و درآمد تحقق‌یافتهٔ دریافت‌نشده چیست؟"
+},
+{
+"slug": "depreciation-methods",
+"level": 1,
+"topic": "depreciation",
+"q_en": "What are the main depreciation methods (e.g., straight-line versus accelerated and units-of-production), and when is each appropriate?",
+"q_fa": "روش‌های اصلی استهلاک کدام‌اند (مثلاً خط مستقیم در برابر روش‌های شتابان و روش بر مبنای تولید) و هر یک در چه مواردی مناسب است؟"
+},
+{
+"slug": "what-is-depreciation",
+"level": 1,
+"topic": "depreciation",
+"q_en": "What is depreciation?",
+"q_fa": "استهلاک چیست؟"
+},
+{
+"slug": "double-entry-accounting",
+"level": 1,
+"topic": "double-entry",
+"q_en": "What is double-entry accounting?",
+"q_fa": "سیستم حسابداری دوطرفه چیست؟"
+},
+{
+"slug": "ensure-accuracy-completeness-reports",
+"level": 1,
+"topic": "financial-reporting",
+"q_en": "How do you ensure accuracy and completeness in financial reports and reconciliations?",
+"q_fa": "چگونه از دقت و کامل بودن گزارش‌های مالی و صورت‌های مغایرت اطمینان حاصل می‌کنید؟"
+},
+{
+"slug": "one-statement-to-judge-health",
+"level": 1,
+"topic": "financial-statements",
+"q_en": "If you could look at only one financial statement to judge a company's health, which would you pick and why?",
+"q_fa": "اگر برای داوری دربارهٔ سلامت یک شرکت فقط می‌توانستید به یک صورت مالی نگاه کنید، کدام را انتخاب می‌کردید و چرا؟"
+},
+{
+"slug": "three-financial-statements",
+"level": 1,
+"topic": "financial-statements",
+"q_en": "What are the three main financial statements, and what does each show?",
+"q_fa": "سه صورت مالی اصلی کدام‌اند و هر یک چه چیزی را نشان می‌دهند؟"
+},
+{
+"slug": "what-is-gaap",
+"level": 1,
+"topic": "gaap-ifrs",
+"q_en": "What is GAAP?",
+"q_fa": "GAAP چیست؟"
+},
+{
+"slug": "gross-profit-and-margin",
+"level": 1,
+"topic": "income-statement",
+"q_en": "What is gross profit and gross margin?",
+"q_fa": "سود ناخالص و حاشیه سود ناخالص چیست؟"
+},
+{
+"slug": "income-statement-shows",
+"level": 1,
+"topic": "income-statement",
+"q_en": "What does the income statement show?",
+"q_fa": "صورت سود و زیان چه چیزی را نشان می‌دهد؟"
+},
+{
+"slug": "net-income",
+"level": 1,
+"topic": "income-statement",
+"q_en": "What is net income?",
+"q_fa": "سود خالص چیست؟"
+},
+{
+"slug": "walk-through-income-statement",
+"level": 1,
+"topic": "income-statement",
+"q_en": "Walk me through the income statement from top to bottom.",
+"q_fa": "صورت سود و زیان را از بالا تا پایین برایم توضیح بده."
+},
+{
+"slug": "what-is-inventory",
+"level": 1,
+"topic": "inventory-valuation",
+"q_en": "What is inventory?",
+"q_fa": "موجودی کالا چیست؟"
+},
+{
+"slug": "compound-journal-entry",
+"level": 1,
+"topic": "journal-ledger",
+"q_en": "What is a compound journal entry? Give an example involving a purchase with sales tax or freight.",
+"q_fa": "ثبت روزنامهٔ مرکب چیست؟ مثالی شامل یک خرید همراه با مالیات بر فروش یا کرایهٔ حمل ارائه بده."
+},
+{
+"slug": "general-ledger",
+"level": 1,
+"topic": "journal-ledger",
+"q_en": "What is the general ledger?",
+"q_fa": "دفتر کل چیست؟"
+},
+{
+"slug": "inventory-purchase-on-account-entry",
+"level": 1,
+"topic": "journal-ledger",
+"q_en": "Provide the journal entry to record purchasing inventory on account, and explain how it affects the accounting equation.",
+"q_fa": "ثبت روزنامه‌ای مربوط به خرید نسیه موجودی کالا را ارائه دهید و توضیح دهید که چگونه بر معادله حسابداری اثر می‌گذارد."
+},
+{
+"slug": "journal-vs-ledger",
+"level": 1,
+"topic": "journal-ledger",
+"q_en": "What is the difference between a journal and a ledger?",
+"q_fa": "تفاوت دفتر روزنامه و دفتر کل چیست؟"
+},
+{
+"slug": "t-account",
+"level": 1,
+"topic": "journal-ledger",
+"q_en": "What is a T-account?",
+"q_fa": "حساب T چیست؟"
+},
+{
+"slug": "matching-principle",
+"level": 1,
+"topic": "matching-principle",
+"q_en": "What is the matching principle?",
+"q_fa": "اصل تطابق چیست؟"
+},
+{
+"slug": "fixed-asset",
+"level": 1,
+"topic": "ppe",
+"q_en": "What is a fixed asset?",
+"q_fa": "دارایی ثابت چیست؟"
+},
+{
+"slug": "accounting-for-prepaids-and-unearned-over-time",
+"level": 1,
+"topic": "prepaid-expense",
+"q_en": "How do you account for prepaid expenses and unearned (deferred) revenues over time, and why does this matter?",
+"q_fa": "پیش‌پرداخت هزینه‌ها و درآمدهای پیش‌دریافت (معوق) را در طول زمان چگونه حسابداری می‌کنید و چرا این موضوع اهمیت دارد؟"
+},
+{
+"slug": "prepaid-expense",
+"level": 1,
+"topic": "prepaid-expense",
+"q_en": "What is a prepaid expense?",
+"q_fa": "پیش‌پرداخت هزینه چیست؟"
+},
+{
+"slug": "how-statements-are-connected",
+"level": 1,
+"topic": "statement-articulation",
+"q_en": "How are the three financial statements connected? Trace net income and cash through them.",
+"q_fa": "سه صورت مالی چگونه به یکدیگر مرتبط می‌شوند؟ سود خالص و وجه نقد را در میان آن‌ها ردیابی کنید."
+},
+{
+"slug": "order-statements-prepared",
+"level": 1,
+"topic": "statement-articulation",
+"q_en": "In what general order are the financial statements prepared, and why?",
+"q_fa": "صورت‌های مالی به‌طور کلی به چه ترتیبی تهیه می‌شوند و چرا؟"
+},
+{
+"slug": "retained-earnings",
+"level": 1,
+"topic": "statement-articulation",
+"q_en": "What is retained earnings?",
+"q_fa": "سود انباشته چیست؟"
+},
+{
+"slug": "trial-balance",
+"level": 1,
+"topic": "trial-balance",
+"q_en": "What is a trial balance, and why does it matter?",
+"q_fa": "تراز آزمایشی چیست و چرا اهمیت دارد؟"
+},
+{
+"slug": "negative-working-capital",
+"level": 1,
+"topic": "working-capital",
+"q_en": "What does negative working capital mean?",
+"q_fa": "سرمایه در گردش منفی به چه معناست؟"
+},
+{
+"slug": "working-capital",
+"level": 1,
+"topic": "working-capital",
+"q_en": "What is working capital (and net working capital), and how does a change in it affect cash flow?",
+"q_fa": "سرمایه در گردش (و سرمایه در گردش خالص) چیست و تغییر در آن چگونه بر جریان نقد اثر می‌گذارد؟"
+},
+{
+"slug": "credit-sale-and-collection-entries",
+"level": 2,
+"topic": "accounts-receivable",
+"q_en": "What is the journal entry to record a credit sale and then its collection?",
+"q_fa": "ثبت روزنامه برای ثبت یک فروش نسیه و سپس وصول آن چیست؟"
+},
+{
+"slug": "accrue-wages-entry",
+"level": 2,
+"topic": "accrued-expense",
+"q_en": "What is the journal entry for accruing wages not yet paid?",
+"q_fa": "ثبت روزنامه برای شناسایی تعهدی دستمزدِ هنوز پرداخت‌نشده چیست؟"
+},
+{
+"slug": "internal-vs-external-audit",
+"level": 2,
+"topic": "audit",
+"q_en": "What is the difference between an internal and external audit?",
+"q_fa": "تفاوت میان حسابرسی داخلی و حسابرسی مستقل (خارجی) چیست؟"
+},
+{
+"slug": "what-is-an-audit",
+"level": 2,
+"topic": "audit",
+"q_en": "What is an audit?",
+"q_fa": "حسابرسی چیست؟"
+},
+{
+"slug": "allowance-method-bad-debts",
+"level": 2,
+"topic": "bad-debts-allowance",
+"q_en": "What is the allowance method for bad debts, what is the entry, and why is it preferred over the direct write-off method?",
+"q_fa": "روش ذخیره‌گیری برای مطالبات سوخت‌شده چیست، ثبت آن کدام است و چرا بر روش حذف مستقیم ترجیح داده می‌شود؟"
+},
+{
+"slug": "ar-aging-schedule",
+"level": 2,
+"topic": "bad-debts-allowance",
+"q_en": "How would you prepare and use an accounts receivable aging schedule, and what does it tell management?",
+"q_fa": "چگونه یک جدول سنی مطالبات (حساب‌های دریافتنی) تهیه و از آن استفاده می‌کنید، و این جدول چه چیزی به مدیریت می‌گوید؟"
+},
+{
+"slug": "write-off-uncollectible-account",
+"level": 2,
+"topic": "bad-debts-allowance",
+"q_en": "How do you write off a specific uncollectible account under the allowance method?",
+"q_fa": "تحت روش ذخیره، یک حساب وصول‌نشدنیِ مشخص را چگونه از دفاتر حذف (سوخت) می‌کنید؟"
+},
+{
+"slug": "bank-reconciliation-process",
+"level": 2,
+"topic": "bank-reconciliation",
+"q_en": "Walk through the bank reconciliation process. Which discrepancies require adjusting journal entries and which do not?",
+"q_fa": "فرایند تهیهٔ صورت مغایرت بانکی را شرح دهید. کدام مغایرت‌ها نیازمند ثبت اصلاحی در دفتر روزنامه هستند و کدام‌ها نیستند؟"
+},
+{
+"slug": "common-reconciling-items",
+"level": 2,
+"topic": "bank-reconciliation",
+"q_en": "What are common reconciling items in a bank reconciliation?",
+"q_fa": "اقلام مغایرت‌گیری متداول در صورت مغایرت بانکی کدام‌اند؟"
+},
+{
+"slug": "why-reconciliations-matter",
+"level": 2,
+"topic": "bank-reconciliation",
+"q_en": "What is a reconciliation, why is it important, and why do interviewers ask about it so often?",
+"q_fa": "مغایرت‌گیری چیست، چرا اهمیت دارد، و چرا مصاحبه‌گران این‌قدر زیاد دربارهٔ آن می‌پرسند؟"
+},
+{
+"slug": "capitalize-vs-expense",
+"level": 2,
+"topic": "capitalize-vs-expense",
+"q_en": "When should a cost be capitalized versus expensed, and what is the difference between CapEx and OpEx?",
+"q_fa": "چه زمانی باید یک هزینه را سرمایه‌ای کرد و چه زمانی هزینه‌ای، و تفاوت میان مخارج سرمایه‌ای (CapEx) و مخارج عملیاتی (OpEx) چیست؟"
+},
+{
+"slug": "free-cash-flow",
+"level": 2,
+"topic": "cash-flow-statement",
+"q_en": "What is free cash flow?",
+"q_fa": "جریان نقد آزاد چیست؟"
+},
+{
+"slug": "net-income-vs-cash-flow",
+"level": 2,
+"topic": "cash-flow-statement",
+"q_en": "What is the difference between net income and cash flow?",
+"q_fa": "تفاوت میان سود خالص و جریان نقد چیست؟"
+},
+{
+"slug": "three-sections-cash-flow",
+"level": 2,
+"topic": "cash-flow-statement",
+"q_en": "What are the three sections of the cash flow statement, and how do operating, investing, and financing cash flows differ?",
+"q_fa": "سه بخش صورت جریان‌های نقدی کدام‌اند و جریان‌های نقد عملیاتی، سرمایه‌گذاری و تأمین مالی چه تفاوتی با هم دارند؟"
+},
+{
+"slug": "cogs-periodic-system",
+"level": 2,
+"topic": "cogs",
+"q_en": "How do you calculate COGS under the periodic inventory system, and what additional information is needed versus the perpetual system?",
+"q_fa": "بهای تمام‌شدهٔ کالای فروش‌رفته (COGS) را در سیستم موجودی ادواری چگونه محاسبه می‌کنید و در مقایسه با سیستم موجودی دائمی به چه اطلاعات افزوده‌ای نیاز است؟"
+},
+{
+"slug": "ending-inventory-understated",
+"level": 2,
+"topic": "cogs",
+"q_en": "If ending inventory is understated, what happens to COGS and net income?",
+"q_fa": "اگر موجودی پایان دوره کمتر از واقع نشان داده شود، چه اتفاقی برای بهای تمام‌شدهٔ کالای فروش‌رفته و سود خالص می‌افتد؟"
+},
+{
+"slug": "sell-inventory-on-credit-perpetual-entries",
+"level": 2,
+"topic": "cogs",
+"q_en": "What are the journal entries when a company sells inventory on credit under a perpetual system?",
+"q_fa": "هنگامی که یک شرکت در سیستم موجودی دائمی کالا را به‌صورت نسیه می‌فروشد، ثبت‌های روزنامه چگونه‌اند؟"
+},
+{
+"slug": "customer-prepayment-entry",
+"level": 2,
+"topic": "deferred-revenue",
+"q_en": "What is the journal entry when a customer prepays for a service?",
+"q_fa": "وقتی مشتری بهای یک خدمت را پیش‌پرداخت می‌کند، ثبت روزنامه چیست؟"
+},
+{
+"slug": "depreciation-book-value-terms",
+"level": 2,
+"topic": "depreciation",
+"q_en": "What is the difference between cost, accumulated depreciation, book value, and salvage value?",
+"q_fa": "تفاوت میان بهای تمام‌شده، استهلاک انباشته، ارزش دفتری و ارزش اسقاط چیست؟"
+},
+{
+"slug": "what-is-goodwill",
+"level": 2,
+"topic": "goodwill-intangibles",
+"q_en": "What is goodwill, how is it created in a business combination, and how is it accounted for subsequently (amortization versus impairment)?",
+"q_fa": "سرقفلی چیست، در یک ترکیب تجاری چگونه ایجاد می‌شود و حسابداری بعدی آن چگونه است (استهلاک در برابر کاهش ارزش)؟"
+},
+{
+"slug": "identified-error-or-improved-process",
+"level": 2,
+"topic": "internal-controls",
+"q_en": "Tell me about a time you identified an error or improved an accounting process. What was the impact?",
+"q_fa": "دربارهٔ موردی برایم بگویید که یک اشتباه را شناسایی کردید یا یک فرایند حسابداری را بهبود بخشیدید. اثر آن چه بود؟"
+},
+{
+"slug": "internal-controls",
+"level": 2,
+"topic": "internal-controls",
+"q_en": "What are internal controls, and what examples would you implement in an accounting function to prevent or detect errors and fraud?",
+"q_fa": "کنترل‌های داخلی چیست و در یک واحد حسابداری چه نمونه‌هایی را برای پیشگیری یا کشف اشتباه و تقلب پیاده‌سازی می‌کنید؟"
+},
+{
+"slug": "fifo-meaning",
+"level": 2,
+"topic": "inventory-valuation",
+"q_en": "What does FIFO mean?",
+"q_fa": "FIFO به چه معناست؟"
+},
+{
+"slug": "inventory-costing-methods",
+"level": 2,
+"topic": "inventory-valuation",
+"q_en": "What are the inventory costing methods (FIFO, LIFO, and weighted-average), and in a period of rising prices how do they differ in their effects on COGS, net income, and taxes?",
+"q_fa": "روش‌های بهایابی موجودی کالا (FIFO، لایفو و میانگین موزون) کدام‌اند و در دوره‌ای که قیمت‌ها رو به افزایش است، اثر آن‌ها بر بهای تمام‌شدهٔ کالای فروش‌رفته (COGS)، سود خالص و مالیات چه تفاوتی دارد؟"
+},
+{
+"slug": "lifo-under-ifrs",
+"level": 2,
+"topic": "inventory-valuation",
+"q_en": "Is LIFO allowed under IFRS?",
+"q_fa": "آیا روش لایفو طبق IFRS مجاز است؟"
+},
+{
+"slug": "lower-of-cost-and-nrv",
+"level": 2,
+"topic": "inventory-valuation",
+"q_en": "What does lower of cost and net realizable value (LCNRV) mean?",
+"q_fa": "اقل بهای تمام‌شده یا خالص ارزش بازیافتنی (LCNRV) به چه معناست؟"
+},
+{
+"slug": "weighted-average-meaning",
+"level": 2,
+"topic": "inventory-valuation",
+"q_en": "What does weighted-average inventory costing mean?",
+"q_fa": "روش میانگین موزون موجودی کالا به چه معناست؟"
+},
+{
+"slug": "common-transaction-journal-entries",
+"level": 2,
+"topic": "journal-ledger",
+"q_en": "Provide journal entries for common transactions such as purchasing equipment for cash, recording monthly depreciation, accruing salaries, and collecting accounts receivable.",
+"q_fa": "برای معاملات متداول مانند خرید نقدی تجهیزات، ثبت استهلاک ماهانه، شناسایی تعهدی دستمزدها و وصول حساب‌های دریافتنی، ثبت‌های روزنامه ارائه دهید."
+},
+{
+"slug": "general-ledger-vs-subledger-erp",
+"level": 2,
+"topic": "journal-ledger",
+"q_en": "In an ERP environment, what is the functional difference between the general ledger and a sub-ledger, and how do they interact?",
+"q_fa": "در یک محیط ERP، تفاوت کارکردی میان دفتر کل و دفتر معین چیست و این دو چگونه با یکدیگر تعامل دارند؟"
+},
+{
+"slug": "cutoff-errors-month-end",
+"level": 2,
+"topic": "month-end-close",
+"q_en": "How would you identify cutoff errors at month-end? Give examples of common revenue and expense cutoff issues.",
+"q_fa": "چگونه خطاهای انقطاع زمانی (Cutoff) را در پایان ماه شناسایی می‌کنید؟ نمونه‌هایی از مشکلات رایج انقطاع زمانی در درآمد و هزینه ارائه دهید."
+},
+{
+"slug": "month-end-close-process",
+"level": 2,
+"topic": "month-end-close",
+"q_en": "Walk me through a typical month-end close process. What are the key steps, and why are timing and coordination important?",
+"q_fa": "یک فرایند معمول بستن حساب‌های پایان ماه را برایم شرح دهید. مراحل کلیدی کدام‌اند و چرا زمان‌بندی و هماهنگی مهم هستند؟"
+},
+{
+"slug": "prepaid-insurance-entry-and-adjustment",
+"level": 2,
+"topic": "prepaid-expense",
+"q_en": "What is the journal entry for prepaid insurance and its subsequent adjustment?",
+"q_fa": "ثبت روزنامهٔ پیش‌پرداخت بیمه و ثبت اصلاحی بعدی آن چیست؟"
+},
+{
+"slug": "ebit-vs-ebitda",
+"level": 2,
+"topic": "ratios-analysis",
+"q_en": "What is the difference between EBIT and EBITDA?",
+"q_fa": "تفاوت میان EBIT و EBITDA چیست؟"
+},
+{
+"slug": "ebitda-not-cash-flow",
+"level": 2,
+"topic": "ratios-analysis",
+"q_en": "Why might EBITDA not be a good measure of cash flow?",
+"q_fa": "چرا ممکن است EBITDA معیار خوبی برای جریان نقد نباشد؟"
+},
+{
+"slug": "what-is-ebitda",
+"level": 2,
+"topic": "ratios-analysis",
+"q_en": "What is EBITDA?",
+"q_fa": "EBITDA چیست؟"
+},
+{
+"slug": "revenue-recognition-principle",
+"level": 2,
+"topic": "revenue-recognition",
+"q_en": "What is the revenue recognition principle, and what are its core criteria at a high level?",
+"q_fa": "اصل شناسایی درآمد چیست و معیارهای اصلی آن در یک نگاه کلی کدام‌اند؟"
+},
+{
+"slug": "revenue-variable-consideration",
+"level": 2,
+"topic": "revenue-recognition",
+"q_en": "How would you account for a sale with a right of return or volume discount (variable consideration)?",
+"q_fa": "حسابداری فروشی را که همراه با حق برگشت کالا یا تخفیف حجمی (مابه‌ازای متغیر) است، چگونه انجام می‌دهید؟"
+},
+{
+"slug": "segregation-of-duties",
+"level": 2,
+"topic": "segregation-of-duties",
+"q_en": "What is segregation of duties?",
+"q_fa": "تفکیک وظایف چیست؟"
+},
+{
+"slug": "depreciation-increase-three-statements",
+"level": 2,
+"topic": "three-statement-flow",
+"q_en": "How does an increase in depreciation expense flow through the three financial statements (assume a given tax rate)?",
+"q_fa": "افزایش هزینهٔ استهلاک چگونه در سه صورت مالی جریان می‌یابد (فرض کنید نرخ مالیات مشخصی داده شده است)؟"
+},
+{
+"slug": "buy-equipment-cash-three-statements",
+"level": 2,
+"topic": "transaction-impact",
+"q_en": "How does buying equipment with cash affect the three financial statements at the moment of purchase?",
+"q_fa": "خرید تجهیزات با وجه نقد در لحظهٔ خرید چه تأثیری بر سه صورت مالی دارد؟"
+},
+{
+"slug": "inventory-up-income-statement",
+"level": 2,
+"topic": "transaction-impact",
+"q_en": "What immediately happens on the income statement if inventory goes up by $10?",
+"q_fa": "اگر موجودی کالا ۱۰ دلار افزایش یابد، بلافاصله چه اتفاقی در صورت سود و زیان می‌افتد؟"
+},
+{
+"slug": "inventory-write-down-three-statements",
+"level": 2,
+"topic": "transaction-impact",
+"q_en": "How does an inventory write-down (to net realizable value or market) affect the three financial statements?",
+"q_fa": "کاهش ارزش موجودی کالا (به خالص ارزش بازیافتنی یا ارزش بازار) چگونه بر سه صورت مالی اثر می‌گذارد؟"
+},
+{
+"slug": "raise-debt-three-statements",
+"level": 2,
+"topic": "transaction-impact",
+"q_en": "What happens to the three financial statements when a company raises $100 of debt?",
+"q_fa": "هنگامی که یک شرکت ۱۰۰ دلار بدهی (وام) جذب می‌کند، چه اتفاقی برای سه صورت مالی می‌افتد؟"
+},
+{
+"slug": "accounting-changes-vs-errors",
+"level": 3,
+"topic": "accounting-changes-errors",
+"q_en": "Distinguish between a change in accounting principle, a change in accounting estimate, and a correction of an error, and how is each applied?",
+"q_fa": "بین تغییر در رویه حسابداری، تغییر در برآورد حسابداری و اصلاح اشتباه تمایز قائل شوید و توضیح دهید هرکدام چگونه اعمال می‌شوند؟"
+},
+{
+"slug": "ethics-in-enterprise-accounting",
+"level": 3,
+"topic": "audit",
+"q_en": "How should you answer an ethics question in enterprise accounting?",
+"q_fa": "به یک پرسش اخلاقی در حسابداری سازمانی (شرکتی) چگونه باید پاسخ دهید؟"
+},
+{
+"slug": "estimate-bad-debt-expense",
+"level": 3,
+"topic": "bad-debts-allowance",
+"q_en": "How do you estimate a company's bad debt expense?",
+"q_fa": "هزینهٔ مطالبات سوخت‌شدهٔ یک شرکت را چگونه برآورد می‌کنید؟"
+},
+{
+"slug": "acquisition-method-consolidation-concepts",
+"level": 3,
+"topic": "business-combinations",
+"q_en": "Describe the acquisition method for business combinations and key consolidation concepts (eliminations, noncontrolling interest).",
+"q_fa": "روش تحصیل برای ترکیب‌های تجاری و مفاهیم کلیدی تلفیق (حذف‌ها، منافع فاقد کنترل) را شرح دهید."
+},
+{
+"slug": "bargain-purchase",
+"level": 3,
+"topic": "business-combinations",
+"q_en": "What is a bargain purchase in a business combination?",
+"q_fa": "خرید زیر قیمت (bargain purchase) در یک ترکیب تجاری چیست؟"
+},
+{
+"slug": "equity-method",
+"level": 3,
+"topic": "business-combinations",
+"q_en": "What is the equity method of accounting?",
+"q_fa": "روش ارزش ویژه (روش حقوق صاحبان سهام) در حسابداری چیست؟"
+},
+{
+"slug": "build-cash-flow-from-is-bs",
+"level": 3,
+"topic": "cash-flow-statement",
+"q_en": "How do you build a cash flow statement from the income statement and balance sheet, including the operating section under the indirect method (e.g., why do you add back depreciation and why does an increase in accounts receivable reduce cash)?",
+"q_fa": "چگونه صورت جریان‌های نقدی را از روی صورت سود و زیان و ترازنامه می‌سازید، از جمله بخش عملیاتی به روش غیرمستقیم (برای نمونه، چرا استهلاک را اضافه برمی‌گردانید و چرا افزایش حساب‌های دریافتنی وجه نقد را کاهش می‌دهد)؟"
+},
+{
+"slug": "increase-in-ap-increases-cash",
+"level": 3,
+"topic": "cash-flow-statement",
+"q_en": "Why does an increase in accounts payable increase cash flow?",
+"q_fa": "چرا افزایش حساب‌های پرداختنی جریان نقد را افزایش می‌دهد؟"
+},
+{
+"slug": "increase-in-ar-reduces-cash",
+"level": 3,
+"topic": "cash-flow-statement",
+"q_en": "Why does an increase in accounts receivable reduce cash flow?",
+"q_fa": "چرا افزایش حساب‌های دریافتنی جریان نقد را کاهش می‌دهد؟"
+},
+{
+"slug": "consolidation-when-required",
+"level": 3,
+"topic": "consolidation",
+"q_en": "What is consolidation, and what determines whether one entity must consolidate another?",
+"q_fa": "تلفیق صورت‌های مالی چیست و چه عاملی تعیین می‌کند که آیا یک واحد تجاری باید واحد دیگری را تلفیق کند یا خیر؟"
+},
+{
+"slug": "intercompany-eliminations",
+"level": 3,
+"topic": "consolidation",
+"q_en": "Why are intercompany eliminations necessary in consolidation, and how do they work?",
+"q_fa": "چرا حذف معاملات درون‌گروهی در تلفیق صورت‌های مالی ضروری است و چگونه انجام می‌شود؟"
+},
+{
+"slug": "noncontrolling-interest",
+"level": 3,
+"topic": "consolidation",
+"q_en": "What is noncontrolling (minority) interest?",
+"q_fa": "منافع فاقد کنترل (سهم اقلیت) چیست؟"
+},
+{
+"slug": "deferred-tax-asset",
+"level": 3,
+"topic": "deferred-taxes",
+"q_en": "What is a deferred tax asset?",
+"q_fa": "دارایی مالیات انتقالی چیست؟"
+},
+{
+"slug": "deferred-tax-liability",
+"level": 3,
+"topic": "deferred-taxes",
+"q_en": "What is a deferred tax liability and how is it created?",
+"q_fa": "بدهی مالیات انتقالی چیست و چگونه ایجاد می‌شود؟"
+},
+{
+"slug": "temporary-vs-permanent-tax-differences",
+"level": 3,
+"topic": "deferred-taxes",
+"q_en": "What is the difference between a temporary and a permanent tax difference, and how do temporary differences create deferred tax assets and liabilities?",
+"q_fa": "تفاوت بین تفاوت موقتی و تفاوت دائمی مالیاتی چیست و تفاوت‌های موقتی چگونه دارایی و بدهی مالیات انتقالی ایجاد می‌کنند؟"
+},
+{
+"slug": "automation-in-accounting",
+"level": 3,
+"topic": "financial-reporting",
+"q_en": "How would you answer an interview question about using automation in accounting?",
+"q_fa": "به پرسش مصاحبه دربارهٔ استفاده از خودکارسازی در حسابداری چگونه پاسخ می‌دهید؟"
+},
+{
+"slug": "bond-discount-vs-premium",
+"level": 3,
+"topic": "financial-reporting",
+"q_en": "What is a bond issued at a discount versus a premium?",
+"q_fa": "انتشار اوراق قرضه با تخفیف در برابر انتشار با صرف به چه معناست؟"
+},
+{
+"slug": "effective-interest-method",
+"level": 3,
+"topic": "financial-reporting",
+"q_en": "What does the effective interest method do, and how are bond interest expense and carrying value calculated over the life of a bond issued at a premium?",
+"q_fa": "روش بهرهٔ مؤثر چه کاری انجام می‌دهد و هزینهٔ بهره و ارزش دفتری اوراق قرضه‌ای که با صرف منتشر شده، در طول عمر اوراق چگونه محاسبه می‌شود؟"
+},
+{
+"slug": "erp-and-close-systems",
+"level": 3,
+"topic": "financial-reporting",
+"q_en": "Why do large companies care so much about ERP and close systems?",
+"q_fa": "چرا شرکت‌های بزرگ این‌قدر به سیستم‌های ERP و سیستم‌های بستن حساب‌ها اهمیت می‌دهند؟"
+},
+{
+"slug": "foreign-currency-transaction-vs-translation",
+"level": 3,
+"topic": "financial-reporting",
+"q_en": "What is the difference between foreign currency transaction accounting and foreign currency translation, and how is each presented in the financial statements?",
+"q_fa": "تفاوت میان حسابداری معاملات ارزی و تسعیر ارز چیست و هر یک چگونه در صورت‌های مالی ارائه می‌شود؟"
+},
+{
+"slug": "going-concern-assumption",
+"level": 3,
+"topic": "financial-reporting",
+"q_en": "What is the going-concern assumption?",
+"q_fa": "فرض تداوم فعالیت چیست؟"
+},
+{
+"slug": "materiality",
+"level": 3,
+"topic": "financial-reporting",
+"q_en": "What is materiality?",
+"q_fa": "اهمیت (مادیّت) چیست؟"
+},
+{
+"slug": "provision-vs-contingent-liability",
+"level": 3,
+"topic": "financial-reporting",
+"q_en": "What is the difference between a provision and a contingent liability?",
+"q_fa": "تفاوت میان «ذخیره» (provision) و «بدهی احتمالی» (contingent liability) چیست؟"
+},
+{
+"slug": "qualitative-characteristics-financial-info",
+"level": 3,
+"topic": "financial-reporting",
+"q_en": "What are the qualitative characteristics of useful financial information, and what makes it useful?",
+"q_fa": "ویژگی‌های کیفی اطلاعات مفید مالی کدام‌اند و چه چیزی این اطلاعات را مفید می‌سازد؟"
+},
+{
+"slug": "treasury-stock-cost-vs-par-method",
+"level": 3,
+"topic": "financial-reporting",
+"q_en": "Contrast the cost method and the par value method for recording treasury stock repurchases, and explain their impact on the income statement.",
+"q_fa": "روش بهای تمام‌شده و روش ارزش اسمی را برای ثبت بازخرید سهام خزانه با هم مقایسه کنید و تأثیر آن‌ها بر صورت سود و زیان را توضیح دهید."
+},
+{
+"slug": "gaap-vs-ifrs",
+"level": 3,
+"topic": "gaap-ifrs",
+"q_en": "What is the difference between GAAP and IFRS at a high level?",
+"q_fa": "تفاوت GAAP و IFRS در یک نگاه کلی چیست؟"
+},
+{
+"slug": "goodwill-impairment-testing",
+"level": 3,
+"topic": "impairment",
+"q_en": "What is goodwill, and walk through the mechanics of testing it for impairment under US GAAP.",
+"q_fa": "سرقفلی چیست و سازوکار آزمون کاهش ارزش آن را بر اساس GAAP آمریکا شرح دهید."
+},
+{
+"slug": "fraud-through-journal-entries",
+"level": 3,
+"topic": "internal-controls",
+"q_en": "Why is it easier to commit fraud through manual journal entries than it is to catch it in ordinary ledger review?",
+"q_fa": "چرا ارتکاب تقلب از طریق ثبت‌های روزنامهٔ دستی آسان‌تر از کشف آن در بررسی معمول دفتر کل است؟"
+},
+{
+"slug": "red-flags-suspicious-journal-entries",
+"level": 3,
+"topic": "internal-controls",
+"q_en": "What are some red flags that a journal entry might be suspicious or fraudulent?",
+"q_fa": "چه نشانه‌های هشداردهنده‌ای می‌تواند حاکی از مشکوک یا متقلبانه بودن یک ثبت روزنامه باشد؟"
+},
+{
+"slug": "basic-lease-accounting-idea",
+"level": 3,
+"topic": "leases",
+"q_en": "What is the basic accounting idea behind leases?",
+"q_fa": "ایدهٔ اساسی حسابداری پشت قراردادهای اجاره چیست؟"
+},
+{
+"slug": "lease-accounting-cash-flow",
+"level": 3,
+"topic": "leases",
+"q_en": "Does lease accounting change a company's actual cash flow?",
+"q_fa": "آیا حسابداری اجاره، جریان نقد واقعی یک شرکت را تغییر می‌دهد؟"
+},
+{
+"slug": "leases-on-balance-sheet-today",
+"level": 3,
+"topic": "leases",
+"q_en": "How are leases recorded on the balance sheet today?",
+"q_fa": "امروزه اجاره‌ها چگونه در ترازنامه ثبت می‌شوند؟"
+},
+{
+"slug": "operating-vs-finance-lease",
+"level": 3,
+"topic": "leases",
+"q_en": "What is the difference between an operating lease and a finance (capital) lease, and why are most leases now capitalized under ASC 842/IFRS 16?",
+"q_fa": "تفاوت بین اجارهٔ عملیاتی و اجارهٔ تأمین مالی (سرمایه‌ای) چیست، و چرا اکنون بیشتر اجاره‌ها تحت ASC 842/IFRS 16 سرمایه‌ای می‌شوند؟"
+},
+{
+"slug": "balance-sheet-reconciliation",
+"level": 3,
+"topic": "month-end-close",
+"q_en": "How do you perform a balance-sheet account reconciliation?",
+"q_fa": "چگونه یک مغایرت‌گیری حساب ترازنامه‌ای انجام می‌دهید؟"
+},
+{
+"slug": "improving-the-close",
+"level": 3,
+"topic": "month-end-close",
+"q_en": "How would you improve the month-end close process?",
+"q_fa": "فرایند بستن حساب‌های پایان ماه را چگونه بهبود می‌دهید؟"
+},
+{
+"slug": "why-error-prevention-matters",
+"level": 3,
+"topic": "month-end-close",
+"q_en": "Why do interviewers care so much about error prevention?",
+"q_fa": "چرا مصاحبه‌کنندگان این‌قدر به پیشگیری از خطا اهمیت می‌دهند؟"
+},
+{
+"slug": "record-ppe-and-events",
+"level": 3,
+"topic": "ppe",
+"q_en": "How do you record PP&E, and what events affect it (additions, improvements, repairs)?",
+"q_fa": "اموال، ماشین‌آلات و تجهیزات (PP&E) را چگونه ثبت می‌کنید و چه رویدادهایی بر آن اثر می‌گذارند (افزایش‌ها، بهسازی‌ها، تعمیرات)؟"
+},
+{
+"slug": "cash-conversion-cycle",
+"level": 3,
+"topic": "ratios-analysis",
+"q_en": "What is the cash conversion cycle?",
+"q_fa": "چرخهٔ تبدیل نقد چیست؟"
+},
+{
+"slug": "common-profitability-margins",
+"level": 3,
+"topic": "ratios-analysis",
+"q_en": "What are the most common profitability margins?",
+"q_fa": "رایج‌ترین حاشیه‌های سودآوری کدام‌اند؟"
+},
+{
+"slug": "current-ratio",
+"level": 3,
+"topic": "ratios-analysis",
+"q_en": "What is the current ratio?",
+"q_fa": "نسبت جاری چیست؟"
+},
+{
+"slug": "days-sales-outstanding",
+"level": 3,
+"topic": "ratios-analysis",
+"q_en": "What is days sales outstanding (DSO)?",
+"q_fa": "دورهٔ وصول مطالبات (DSO) چیست؟"
+},
+{
+"slug": "debt-to-equity-ratio",
+"level": 3,
+"topic": "ratios-analysis",
+"q_en": "What is the debt-to-equity ratio?",
+"q_fa": "نسبت بدهی به حقوق صاحبان سهام چیست؟"
+},
+{
+"slug": "inventory-turnover",
+"level": 3,
+"topic": "ratios-analysis",
+"q_en": "What is inventory turnover?",
+"q_fa": "گردش موجودی کالا چیست؟"
+},
+{
+"slug": "profit-margin",
+"level": 3,
+"topic": "ratios-analysis",
+"q_en": "What is profit margin?",
+"q_fa": "حاشیهٔ سود چیست؟"
+},
+{
+"slug": "quick-ratio",
+"level": 3,
+"topic": "ratios-analysis",
+"q_en": "What is the quick (acid-test) ratio?",
+"q_fa": "نسبت آنی (نسبت سریع) چیست؟"
+},
+{
+"slug": "return-on-assets",
+"level": 3,
+"topic": "ratios-analysis",
+"q_en": "What is return on assets (ROA)?",
+"q_fa": "بازده دارایی‌ها (ROA) چیست؟"
+},
+{
+"slug": "return-on-equity",
+"level": 3,
+"topic": "ratios-analysis",
+"q_en": "What is return on equity (ROE), and what does it measure?",
+"q_fa": "بازده حقوق صاحبان سهام (ROE) چیست و چه چیزی را اندازه‌گیری می‌کند؟"
+},
+{
+"slug": "five-step-revenue-recognition",
+"level": 3,
+"topic": "revenue-recognition",
+"q_en": "What is the five-step revenue recognition model under ASC 606?",
+"q_fa": "مدل پنج‌مرحله‌ای شناسایی درآمد بر اساس ASC 606 چیست؟"
+},
+{
+"slug": "recognize-revenue-annual-subscription",
+"level": 3,
+"topic": "revenue-recognition",
+"q_en": "How would you recognize revenue for an annual software subscription paid upfront?",
+"q_fa": "درآمد یک اشتراک سالانهٔ نرم‌افزار را که هزینهٔ آن از پیش پرداخت شده است، چگونه شناسایی می‌کنید؟"
+},
+{
+"slug": "revenue-multiple-performance-obligations",
+"level": 3,
+"topic": "revenue-recognition",
+"q_en": "How would you handle revenue recognition for a contract with multiple performance obligations (e.g., a product bundled with installation, training, and warranty)?",
+"q_fa": "شناسایی درآمد را برای قراردادی با چند تعهد عملکردی (مثلاً محصولی که همراه با نصب، آموزش و گارانتی به‌صورت بسته‌ای ارائه می‌شود) چگونه مدیریت می‌کنید؟"
+},
+{
+"slug": "accrue-unrecorded-expenses-statements",
+"level": 3,
+"topic": "transaction-impact",
+"q_en": "What is the impact on the three financial statements and cash flows when a company accrues previously unrecorded expenses at year-end (e.g., $8,000 of utilities or bonuses)? Assume a 25% tax rate.",
+"q_fa": "وقتی شرکتی در پایان سال هزینه‌های قبلاً ثبت‌نشده را به‌صورت تعهدی شناسایی می‌کند (مثلاً ۸٬۰۰۰ دلار بابت آب و برق یا پاداش)، اثر آن بر سه صورت مالی و جریان‌های نقدی چیست؟ نرخ مالیات را ۲۵٪ فرض کنید."
+},
+{
+"slug": "sale-of-fixed-asset-statements",
+"level": 3,
+"topic": "transaction-impact",
+"q_en": "How does the sale or disposal of a fixed asset affect the financial statements, including the gain or loss and the journal entries?",
+"q_fa": "فروش یا کنارگذاری یک دارایی ثابت چگونه بر صورت‌های مالی اثر می‌گذارد، از جمله سود یا زیان آن و ثبت‌های روزنامه؟"
+},
+{
+"slug": "activity-based-costing",
+"level": 4,
+"topic": "activity-based-costing",
+"q_en": "What is activity-based costing (ABC), how does it differ from traditional volume-based allocation, and when is it most beneficial?",
+"q_fa": "بهایابی بر مبنای فعالیت (ABC) چیست، چه تفاوتی با تخصیص سنتی مبتنی بر حجم دارد و در چه مواقعی بیشترین کارایی را دارد؟"
+},
+{
+"slug": "negative-shareholders-equity",
+"level": 4,
+"topic": "balance-sheet",
+"q_en": "Can a company have negative shareholders' equity? What does it mean?",
+"q_fa": "آیا یک شرکت می‌تواند حقوق صاحبان سهام منفی داشته باشد؟ این موضوع چه معنایی دارد؟"
+},
+{
+"slug": "budget-and-budgeting-methods",
+"level": 4,
+"topic": "budgeting",
+"q_en": "What is a budget, and what are common budgeting methods?",
+"q_fa": "بودجه چیست و روش‌های متداول بودجه‌بندی کدام‌اند؟"
+},
+{
+"slug": "budget-vs-forecast",
+"level": 4,
+"topic": "budgeting",
+"q_en": "What is the difference between a budget and a forecast?",
+"q_fa": "تفاوت بین بودجه و پیش‌بینی چیست؟"
+},
+{
+"slug": "master-budget-and-flexible-budget",
+"level": 4,
+"topic": "budgeting",
+"q_en": "Describe the master budget and its major components, and how a flexible budget differs from a static budget.",
+"q_fa": "بودجهٔ جامع و اجزای اصلی آن را توضیح دهید و بیان کنید بودجهٔ منعطف چه تفاوتی با بودجهٔ ثابت دارد."
+},
+{
+"slug": "accretive-vs-dilutive-acquisition",
+"level": 4,
+"topic": "business-combinations",
+"q_en": "What is the difference between an accretive and a dilutive acquisition, conceptually?",
+"q_fa": "از نظر مفهومی، تفاوت میان تحصیل افزاینده (accretive) و تحصیل کاهنده (dilutive) چیست؟"
+},
+{
+"slug": "nci-bridge-equity-to-enterprise-value",
+"level": 4,
+"topic": "consolidation",
+"q_en": "Why do you add noncontrolling interest when bridging from equity value to enterprise value?",
+"q_fa": "چرا هنگام تبدیل ارزش حقوق صاحبان سهام به ارزش بنگاه (Enterprise Value)، منافع فاقد کنترل (سهم اقلیت) را اضافه می‌کنید؟"
+},
+{
+"slug": "cost-classifications",
+"level": 4,
+"topic": "cost-classification",
+"q_en": "Distinguish between fixed, variable, mixed, direct, and indirect costs, with examples relevant to a manufacturing company.",
+"q_fa": "تفاوت میان هزینه‌های ثابت، متغیر، مختلط، مستقیم و غیرمستقیم را با مثال‌های مرتبط با یک شرکت تولیدی شرح دهید."
+},
+{
+"slug": "cost-vs-financial-vs-managerial-accounting",
+"level": 4,
+"topic": "cost-classification",
+"q_en": "What is the difference between cost accounting, financial accounting, and managerial accounting?",
+"q_fa": "تفاوت میان حسابداری بهای تمام‌شده، حسابداری مالی و حسابداری مدیریت چیست؟"
+},
+{
+"slug": "high-low-method",
+"level": 4,
+"topic": "cost-classification",
+"q_en": "What is the high-low method, and what are its limitations?",
+"q_fa": "روش حداکثر-حداقل (High-Low) چیست و محدودیت‌های آن کدام‌اند؟"
+},
+{
+"slug": "product-vs-period-costs",
+"level": 4,
+"topic": "cost-classification",
+"q_en": "What is the difference between product costs and period costs, and how does this affect inventory valuation under absorption costing?",
+"q_fa": "تفاوت میان بهای محصول (Product Cost) و هزینهٔ دوره (Period Cost) چیست و این تفاوت چگونه بر ارزش‌گذاری موجودی کالا تحت بهایابی جذبی اثر می‌گذارد؟"
+},
+{
+"slug": "cost-accounting-supports-financial-statements",
+"level": 4,
+"topic": "costing-systems",
+"q_en": "How does cost accounting information integrate with and support the financial statements and external reporting in a manufacturing company?",
+"q_fa": "اطلاعات حسابداری بهای تمام‌شده چگونه با صورت‌های مالی و گزارشگری برون‌سازمانی در یک شرکت تولیدی یکپارچه می‌شود و از آنها پشتیبانی می‌کند؟"
+},
+{
+"slug": "job-order-costing",
+"level": 4,
+"topic": "costing-systems",
+"q_en": "What is job order costing?",
+"q_fa": "بهایابی سفارش کار چیست؟"
+},
+{
+"slug": "job-order-vs-process-costing",
+"level": 4,
+"topic": "costing-systems",
+"q_en": "Compare job order costing and process costing. In what production environments is each most appropriate?",
+"q_fa": "بهایابی سفارش کار و بهایابی مرحله‌ای را مقایسه کنید. هر یک در چه محیط‌های تولیدی مناسب‌تر است؟"
+},
+{
+"slug": "process-costing",
+"level": 4,
+"topic": "costing-systems",
+"q_en": "What is process costing?",
+"q_fa": "بهایابی مرحله‌ای چیست؟"
+},
+{
+"slug": "break-even-analysis",
+"level": 4,
+"topic": "cvp-analysis",
+"q_en": "What is break-even analysis?",
+"q_fa": "تحلیل نقطهٔ سربه‌سر چیست؟"
+},
+{
+"slug": "contribution-margin",
+"level": 4,
+"topic": "cvp-analysis",
+"q_en": "What is contribution margin?",
+"q_fa": "حاشیهٔ مشارکت چیست؟"
+},
+{
+"slug": "cvp-cm-breakeven-margin-of-safety",
+"level": 4,
+"topic": "cvp-analysis",
+"q_en": "Explain contribution margin, break-even point, and margin of safety, and how they are used in managerial decision-making.",
+"q_fa": "حاشیهٔ مشارکت، نقطهٔ سربه‌سر و حاشیهٔ ایمنی را توضیح دهید و بگویید چگونه در تصمیم‌گیری مدیریتی به کار می‌روند."
+},
+{
+"slug": "deferred-tax-and-matching-principle",
+"level": 4,
+"topic": "deferred-taxes",
+"q_en": "Conceptually, how does deferred tax accounting uphold the matching principle?",
+"q_fa": "از نظر مفهومی، حسابداری مالیات انتقالی چگونه اصل تطابق را رعایت می‌کند؟"
+},
+{
+"slug": "dtl-in-acquisition-asset-writeup",
+"level": 4,
+"topic": "deferred-taxes",
+"q_en": "How does a deferred tax liability arise in an acquisition through an asset write-up?",
+"q_fa": "بدهی مالیات انتقالی در یک تحصیل چگونه از طریق افزایش ارزش دارایی (Write-up) به وجود می‌آید؟"
+},
+{
+"slug": "basic-vs-diluted-eps",
+"level": 4,
+"topic": "financial-reporting",
+"q_en": "What is the difference between basic and diluted EPS?",
+"q_fa": "تفاوت میان سود پایهٔ هر سهم و سود تقلیل‌یافتهٔ هر سهم چیست؟"
+},
+{
+"slug": "book-value-vs-market-value",
+"level": 4,
+"topic": "financial-reporting",
+"q_en": "What is the conceptual difference between book value and market value?",
+"q_fa": "تفاوت مفهومی میان ارزش دفتری و ارزش بازار چیست؟"
+},
+{
+"slug": "comprehensive-income",
+"level": 4,
+"topic": "financial-reporting",
+"q_en": "What is comprehensive income?",
+"q_fa": "سود و زیان جامع چیست؟"
+},
+{
+"slug": "conservatism-prudence",
+"level": 4,
+"topic": "financial-reporting",
+"q_en": "What is the principle of conservatism (prudence)?",
+"q_fa": "اصل احتیاط (محافظه‌کاری) چیست؟"
+},
+{
+"slug": "substance-over-form",
+"level": 4,
+"topic": "financial-reporting",
+"q_en": "What is 'substance over form'?",
+"q_fa": "اصل «رجحان محتوا بر شکل» چیست؟"
+},
+{
+"slug": "write-down-vs-write-off",
+"level": 4,
+"topic": "impairment",
+"q_en": "What is the difference between a write-down and a write-off?",
+"q_fa": "تفاوت بین کاهش ارزش (write-down) و حذف کامل دارایی (write-off) چیست؟"
+},
+{
+"slug": "cost-center-vs-profit-center",
+"level": 4,
+"topic": "performance-measurement",
+"q_en": "What is the difference between a cost center and a profit center?",
+"q_fa": "تفاوت بین مرکز هزینه و مرکز سود چیست؟"
+},
+{
+"slug": "roi-ri-eva",
+"level": 4,
+"topic": "performance-measurement",
+"q_en": "Explain Return on Investment (ROI), Residual Income (RI), and Economic Value Added (EVA), and how an accountant supports these metrics.",
+"q_fa": "بازده سرمایه‌گذاری (ROI)، سود باقیمانده (RI) و ارزش افزودهٔ اقتصادی (EVA) را توضیح دهید و بگویید یک حسابدار چگونه از این معیارها پشتیبانی می‌کند."
+},
+{
+"slug": "analyze-quality-of-earnings",
+"level": 4,
+"topic": "quality-of-earnings",
+"q_en": "What is 'quality of earnings', and how would you analyze whether a company's earnings are high quality, including red flags from aggressive revenue recognition or estimates?",
+"q_fa": "«کیفیت سود» چیست و چگونه تحلیل می‌کنید که آیا سود یک شرکت باکیفیت است یا نه، از جمله نشانه‌های خطر ناشی از شناسایی جسورانهٔ درآمد یا برآوردها؟"
+},
+{
+"slug": "why-profitable-company-goes-bankrupt",
+"level": 4,
+"topic": "quality-of-earnings",
+"q_en": "Why can a profitable company go bankrupt?",
+"q_fa": "چرا یک شرکت سودده می‌تواند ورشکست شود؟"
+},
+{
+"slug": "enterprise-value-vs-equity-value",
+"level": 4,
+"topic": "ratios-analysis",
+"q_en": "What is the difference between enterprise value and equity value?",
+"q_fa": "تفاوت میان ارزش بنگاه (Enterprise Value) و ارزش حقوق صاحبان سهام چیست؟"
+},
+{
+"slug": "relevant-costs-short-term-decisions",
+"level": 4,
+"topic": "relevant-costing",
+"q_en": "What are relevant costs in short-term decision-making, and how do avoidable costs, sunk costs, and opportunity costs apply to common decisions?",
+"q_fa": "هزینه‌های مربوط در تصمیم‌گیری کوتاه‌مدت چیستند و هزینه‌های قابل اجتناب، هزینه‌های ریخته و هزینه‌های فرصت چگونه در تصمیم‌های متداول به کار می‌روند؟"
+},
+{
+"slug": "sunk-cost",
+"level": 4,
+"topic": "relevant-costing",
+"q_en": "What is a sunk cost?",
+"q_fa": "هزینهٔ ریخته (Sunk Cost) چیست؟"
+},
+{
+"slug": "fixed-overhead-volume-variance",
+"level": 4,
+"topic": "standard-costing-variance",
+"q_en": "How do production volume variances arise for fixed overhead, and what do they indicate?",
+"q_fa": "انحرافات حجم تولید برای سربار ثابت چگونه پدید می‌آیند و چه چیزی را نشان می‌دهند؟"
+},
+{
+"slug": "revenue-variance-decomposition",
+"level": 4,
+"topic": "standard-costing-variance",
+"q_en": "When investigating a significant variance between budgeted and actual revenue, how do you decompose it into its core operational drivers?",
+"q_fa": "هنگام بررسی یک انحراف بااهمیت میان درآمد بودجه‌شده و درآمد واقعی، چگونه آن را به محرک‌های عملیاتی اصلی‌اش تجزیه می‌کنید؟"
+},
+{
+"slug": "standard-costing",
+"level": 4,
+"topic": "standard-costing-variance",
+"q_en": "What is standard costing, how does it differ from actual costing, and what are its primary uses in manufacturing?",
+"q_fa": "بهایابی استاندارد چیست، چه تفاوتی با بهایابی واقعی دارد و کاربردهای اصلی آن در تولید کدام‌اند؟"
+},
+{
+"slug": "variance-analysis",
+"level": 4,
+"topic": "standard-costing-variance",
+"q_en": "What is variance analysis, what are the main materials, labor, and overhead variances, and how would you investigate a significant variance?",
+"q_fa": "تحلیل انحرافات چیست، انحرافات اصلی مواد، دستمزد و سربار کدام‌اند، و چگونه یک انحراف بااهمیت را بررسی می‌کنید؟"
+},
+{
+"slug": "factory-funded-by-debt-multi-year",
+"level": 4,
+"topic": "three-statement-flow",
+"q_en": "Walk me through a multi-step scenario: a company buys a $100 factory funded entirely with debt. Year 1 at purchase, then a full Year 2 with 10% interest and 10% straight-line depreciation. How do the three statements move? (40% tax)",
+"q_fa": "یک سناریوی چندمرحله‌ای را برایم توضیح بده: شرکتی کارخانه‌ای ۱۰۰ دلاری می‌خرد که تماماً با بدهی تأمین مالی شده است. سال ۱ در زمان خرید، و سپس یک سال کامل (سال ۲) با بهرهٔ ۱۰٪ و استهلاک خط مستقیم ۱۰٪. هر سه صورت مالی چگونه تغییر می‌کنند؟ (مالیات ۴۰٪)"
+},
+{
+"slug": "good-three-statement-model",
+"level": 4,
+"topic": "three-statement-flow",
+"q_en": "What makes a good three-statement financial model?",
+"q_fa": "چه چیزی یک مدل مالی سه‌صورتی خوب را می‌سازد؟"
+},
+{
+"slug": "ppe-impairment-three-statements",
+"level": 4,
+"topic": "three-statement-flow",
+"q_en": "If a company writes down PP&E by $100 (impairment), how do the three statements respond? (40% tax)",
+"q_fa": "اگر شرکتی ارزش PP&E (اموال، ماشین‌آلات و تجهیزات) را ۱۰۰ دلار کاهش دهد (کاهش ارزش / impairment)، هر سه صورت مالی چگونه واکنش نشان می‌دهند؟ (مالیات ۴۰٪)"
+},
+{
+"slug": "stock-based-comp-three-statements",
+"level": 4,
+"topic": "three-statement-flow",
+"q_en": "How does stock-based compensation flow through the three financial statements?",
+"q_fa": "پاداش مبتنی بر سهام چگونه در هر سه صورت مالی جریان می‌یابد؟"
+},
+{
+"slug": "forecast-working-capital-in-model",
+"level": 4,
+"topic": "working-capital",
+"q_en": "How do you forecast working-capital items in a financial model?",
+"q_fa": "چگونه اقلام سرمایه در گردش را در یک مدل مالی پیش‌بینی می‌کنید؟"
+}
+]

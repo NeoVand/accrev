@@ -6,12 +6,30 @@
 	import { i18n, t } from '$lib/state/i18n.svelte';
 	import { questions as allQuestions, questionsForLevel, shuffle } from '$lib/interview';
 	import { INTERVIEW_LEVELS, INTERVIEW_LEVEL_COUNTS, INTERVIEW_TOTAL } from '$lib/interview/meta';
-	import { getInterviewLevelStats, gradeInterview } from '$lib/db';
+	import { PART_TITLES, isBookPartId, topicsForPart } from '$lib/interview/book-map';
+	import {
+		getInterviewLevelStats,
+		getInterviewProgress,
+		gradeInterview,
+		recordInterviewSession
+	} from '$lib/db';
 	import type { InterviewLevelId, InterviewQuestion } from '$lib/interview/types';
 	import type { Grade } from '$lib/types';
 
 	const runMode = $derived(page.url.searchParams.get('run') === '1');
 	const levelParam = $derived(page.url.searchParams.get('level'));
+	/** Optional book-part scope (e.g. ?part=foundations) — overrides level. */
+	const partParam = $derived(page.url.searchParams.get('part'));
+	/** Optional question to start on (e.g. ?q=net-income), used by deep links. */
+	const startSlug = $derived(page.url.searchParams.get('q'));
+	/** Machine scope tag stored with each completed session. */
+	const scope = $derived(
+		partParam
+			? `part:${partParam}`
+			: levelParam && levelParam !== 'all'
+				? `level:${levelParam}`
+				: 'all'
+	);
 
 	const isFa = $derived(i18n.lang === 'fa');
 
@@ -33,24 +51,50 @@
 		stats = await getInterviewLevelStats();
 	}
 
-	function loadDeck() {
+	// Build the session deck. Reads the URL-derived scope synchronously (so the
+	// $effect tracks it), then awaits progress; state is written only AFTER the
+	// await, which keeps the effect from depending on the state it sets.
+	async function loadDeck() {
 		const lp = levelParam;
-		const source =
-			lp && lp !== 'all' ? questionsForLevel(Number(lp) as InterviewLevelId) : allQuestions;
-		// Use a local, not the `deck` state, for the emptiness check — reading the
-		// just-written `deck` inside the $effect would make the effect depend on it
-		// and re-fire forever (each run reshuffles into a new array).
-		const shuffled = shuffle(source);
-		deck = shuffled;
+		const part = partParam;
+		const start = startSlug;
+
+		let source: InterviewQuestion[];
+		if (part) {
+			const topics = new Set(topicsForPart(part));
+			source = allQuestions.filter((q) => topics.has(q.topic));
+		} else if (lp && lp !== 'all') {
+			source = questionsForLevel(Number(lp) as InterviewLevelId);
+		} else {
+			source = allQuestions;
+		}
+
+		// Tailor the order: surface unseen + previously-weak questions first
+		// (unseen → Forgot → Hard → Got it → Easy), shuffled within each tier.
+		const progress = await getInterviewProgress();
+		const weight = (q: InterviewQuestion) => progress[q.slug]?.grade ?? 0;
+		const ordered = shuffle(source).sort((a, b) => weight(a) - weight(b));
+
+		// If a specific question was requested (book deep-link), start there.
+		if (start) {
+			const i = ordered.findIndex((q) => q.slug === start);
+			if (i > 0) {
+				const [picked] = ordered.splice(i, 1);
+				ordered.unshift(picked);
+			}
+		}
+
+		deck = ordered;
 		index = 0;
 		results = [];
-		done = shuffled.length === 0;
+		done = ordered.length === 0;
 		deckReady = true;
 	}
 
 	$effect(() => {
 		if (runMode) {
-			loadDeck();
+			deckReady = false;
+			void loadDeck();
 		} else {
 			deckReady = false;
 			void refreshStats();
@@ -62,10 +106,25 @@
 	const progress = $derived(total === 0 ? 0 : (index / total) * 100);
 
 	const activeLevelName = $derived.by(() => {
+		if (partParam && isBookPartId(partParam)) return PART_TITLES[partParam][isFa ? 'fa' : 'en'];
 		if (!levelParam || levelParam === 'all') return t('iv_all_levels');
 		const meta = INTERVIEW_LEVELS.find((l) => l.level === Number(levelParam));
 		return meta ? meta.name[isFa ? 'fa' : 'en'] : t('iv_all_levels');
 	});
+
+	async function finalizeSession() {
+		const r = results;
+		await recordInterviewSession({
+			endedAt: Date.now(),
+			scope,
+			total: r.length,
+			answered: r.filter((g) => g >= 3).length,
+			forgot: r.filter((g) => g === 1).length,
+			hard: r.filter((g) => g === 2).length,
+			gotIt: r.filter((g) => g === 3).length,
+			easy: r.filter((g) => g === 4).length
+		});
+	}
 
 	async function handleGrade(g: Grade) {
 		const q = current;
@@ -74,6 +133,7 @@
 		await gradeInterview(q.slug, q.level, g);
 		if (index + 1 >= deck.length) {
 			done = true;
+			await finalizeSession();
 		} else {
 			index += 1;
 		}
@@ -81,7 +141,7 @@
 	}
 
 	function restart() {
-		loadDeck();
+		void loadDeck();
 		document.querySelector('main')?.scrollTo({ top: 0 });
 	}
 

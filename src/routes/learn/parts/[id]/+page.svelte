@@ -5,6 +5,7 @@
 	import { learnRead } from '$lib/state/learn-read.svelte';
 	import SlideListItem from '$lib/learn/components/SlideListItem.svelte';
 	import SlideNav from '$lib/learn/components/SlideNav.svelte';
+	import InterviewPartPanel from '$lib/components/InterviewPartPanel.svelte';
 
 	const { data } = $props();
 	const { part, slides, blurbEn, blurbFa, prev, next } = $derived(data);
@@ -92,6 +93,8 @@
 			{/each}
 		</ul>
 	</div>
+
+	<InterviewPartPanel partId={part.id} />
 
 	<SlideNav {prev} {next} />
 </section>

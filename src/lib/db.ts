@@ -6,6 +6,7 @@ import type {
 	CpaSection,
 	Grade,
 	InterviewProgress,
+	InterviewSession,
 	Profile,
 	Review,
 	Session,
@@ -18,6 +19,7 @@ class AccrevDB extends Dexie {
 	sessions!: Table<Session, number>;
 	profile!: Table<Profile, number>;
 	interviewProgress!: Table<InterviewProgress, string>;
+	interviewSessions!: Table<InterviewSession, number>;
 
 	constructor() {
 		super('accrev');
@@ -46,6 +48,10 @@ class AccrevDB extends Dexie {
 		// v3: interview question self-ratings (one row per question slug).
 		this.version(3).stores({
 			interviewProgress: '&slug, level, grade, updatedAt'
+		});
+		// v4: completed interview sessions (effort-over-time log).
+		this.version(4).stores({
+			interviewSessions: '++id, endedAt'
 		});
 	}
 }
@@ -301,4 +307,28 @@ export async function getInterviewLevelStats(): Promise<
 		if (r.grade >= 3) s.answered += 1;
 	}
 	return stats;
+}
+
+/** Log a completed interview session for the Progress over-time view. */
+export async function recordInterviewSession(row: Omit<InterviewSession, 'id'>): Promise<void> {
+	await db().interviewSessions.add(row as InterviewSession);
+}
+
+/** Most recent completed interview sessions, newest first. */
+export async function getRecentInterviewSessions(limit = 5): Promise<InterviewSession[]> {
+	return db().interviewSessions.orderBy('endedAt').reverse().limit(limit).toArray();
+}
+
+/** Map of YYYY-MM-DD → interview sessions completed that day (for the heatmap). */
+export async function getInterviewSessionDayCounts(
+	daysBack: number
+): Promise<Record<string, number>> {
+	const since = Date.now() - daysBack * 86400000;
+	const rows = await db().interviewSessions.where('endedAt').above(since).toArray();
+	const counts: Record<string, number> = {};
+	for (const r of rows) {
+		const key = dateKey(r.endedAt);
+		counts[key] = (counts[key] ?? 0) + 1;
+	}
+	return counts;
 }

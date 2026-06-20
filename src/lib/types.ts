@@ -95,3 +95,21 @@ export interface InterviewProgress {
 	lastSeenAt: number;
 	updatedAt: number;
 }
+
+/**
+ * A completed interview session — logged so the Progress page can show effort
+ * over time and a sense of improvement.
+ */
+export interface InterviewSession {
+	id?: number;
+	endedAt: number;
+	/** What was practiced: 'all', 'level:1'…'level:4', or 'part:foundations' etc. */
+	scope: string;
+	total: number;
+	/** Questions self-rated Got it or Easy (grade ≥ 3). */
+	answered: number;
+	forgot: number;
+	hard: number;
+	gotIt: number;
+	easy: number;
+}
