@@ -948,6 +948,82 @@ const indirectMethodBody = `<p class="subtitle" style="margin-top:14px; max-widt
 const indirectMethodPlain =
 	'The indirect method starts with net income and converts it into cash from operating activities. روش غیرمستقیم از سود خالص شروع می‌کند و آن را به جریان نقد عملیاتی تبدیل می‌کند. Big idea Net income is not cash because accrual accounting records revenue when earned and expenses when incurred. ایده اصلی سود خالص وجه نقد نیست، چون حسابداری تعهدی درآمد را هنگام کسب‌شدن و هزینه را هنگام ایجادشدن ثبت می‌کند. Start with net income 32,850. Add back depreciation 8,000 because it is non-cash. Subtract increase in accounts receivable 4,500. Subtract increase in inventory 6,000. Add increase in accounts payable 2,000. Add increase in accrued wages 1,200. Cash from operating is 33,550. از سود خالص ۳۲٬۸۵۰ شروع کنید. استهلاک ۸٬۰۰۰ را اضافه کنید چون غیرنقدی است. افزایش دریافتنی‌ها ۴٬۵۰۰ را کسر کنید. افزایش موجودی ۶٬۰۰۰ را کسر کنید. افزایش پرداختنی‌ها ۲٬۰۰۰ را اضافه کنید. افزایش دستمزدهای معوق ۱٬۲۰۰ را اضافه کنید. جریان نقد عملیاتی ۳۳٬۵۵۰ است. Purchase of equipment is investing cash flow negative 20,000. Dividends paid are financing cash flow negative 5,000. Net change in cash is 8,550, so beginning cash 15,450 becomes ending cash 24,000. خرید تجهیزات جریان نقد سرمایه‌گذاری منفی ۲۰٬۰۰۰ است. سود سهام پرداختی جریان نقد تأمین مالی منفی ۵٬۰۰۰ است. تغییر خالص وجه نقد ۸٬۵۵۰ است، پس وجه نقد ابتدای دوره ۱۵٬۴۵۰ به وجه نقد پایان دوره ۲۴٬۰۰۰ می‌رسد. Working capital rule: current asset increase subtract, current asset decrease add, current liability increase add, current liability decrease subtract. قاعده سرمایه در گردش: افزایش دارایی جاری کسر، کاهش دارایی جاری اضافه، افزایش بدهی جاری اضافه، کاهش بدهی جاری کسر. CFO 33,550 plus CFI negative 20,000 plus CFF negative 5,000 equals net cash increase 8,550. Here CFO means cash flow from operations. در اینجا CFO یعنی جریان نقد عملیاتی.';
 
+const threeStatementsConnectBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">The three financial statements are not separate reports floating around by themselves. They are one connected system: the <strong>income statement</strong> measures performance, the <strong>balance sheet</strong> shows position, and the <strong>cash flow statement</strong> explains how cash moved between two balance sheet dates.</p>
+
+	<div class="farsi-block" style="margin-top:12px; max-width:none;">
+		سه صورت مالی گزارش‌های جدا و بی‌ارتباط نیستند. آن‌ها یک سیستم به‌هم‌پیوسته‌اند: <strong>صورت سود و زیان</strong> عملکرد دوره را اندازه می‌گیرد، <strong>ترازنامه</strong> وضعیت مالی در یک تاریخ مشخص را نشان می‌دهد، و <strong>صورت جریان وجوه نقد</strong> توضیح می‌دهد وجه نقد بین دو تاریخ ترازنامه چگونه تغییر کرده است.
+	</div>
+
+	<div style="margin-top:18px; display:grid; grid-template-columns: 1fr; gap:14px;">
+		<div>
+			<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep);">STATEMENT 01 · صورت ۰۱</div>
+			<div style="font-family:'Fraunces',serif; font-size:21px; color:var(--navy); margin-top:5px;">Income Statement <span style="font-family:'Vazirmatn',sans-serif; color:var(--tan-deep);">· صورت سود و زیان</span></div>
+			<p style="margin-top:8px; font-size:14px; line-height:1.65;"><strong>What happened during the period?</strong> It shows revenues, expenses, and net income. Net income is the bridge number: it moves into retained earnings and also becomes the starting point for the indirect cash flow statement.</p>
+			<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;"><strong>در طول دوره چه اتفاقی افتاد؟</strong> این صورت درآمدها، هزینه‌ها و سود خالص را نشان می‌دهد. سود خالص عددِ پل است: هم وارد سود انباشته می‌شود و هم در روش غیرمستقیم نقطهٔ شروع صورت جریان وجوه نقد است.</p>
+		</div>
+
+		<div>
+			<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep);">STATEMENT 02 · صورت ۰۲</div>
+			<div style="font-family:'Fraunces',serif; font-size:21px; color:var(--navy); margin-top:5px;">Balance Sheet <span style="font-family:'Vazirmatn',sans-serif; color:var(--tan-deep);">· ترازنامه</span></div>
+			<p style="margin-top:8px; font-size:14px; line-height:1.65;"><strong>What does the company have and owe at the end date?</strong> It must balance: assets equal liabilities plus equity. Retained earnings is where current-period profit accumulates after dividends.</p>
+			<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;"><strong>شرکت در تاریخ پایان دوره چه دارد و چه بدهکار است؟</strong> ترازنامه باید تراز باشد: دارایی‌ها برابر است با بدهی‌ها به‌علاوهٔ حقوق صاحبان سهام. سود انباشته جایی است که سود دوره، پس از کسر سود سهام، جمع می‌شود.</p>
+		</div>
+
+		<div>
+			<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep);">STATEMENT 03 · صورت ۰۳</div>
+			<div style="font-family:'Fraunces',serif; font-size:21px; color:var(--navy); margin-top:5px;">Cash Flow Statement <span style="font-family:'Vazirmatn',sans-serif; color:var(--tan-deep);">· صورت جریان وجوه نقد</span></div>
+			<p style="margin-top:8px; font-size:14px; line-height:1.65;"><strong>Why did cash change?</strong> This statement reconciles beginning cash to ending cash. Its ending cash must match the cash line on the balance sheet.</p>
+			<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;"><strong>چرا وجه نقد تغییر کرد؟</strong> این صورت، وجه نقد ابتدای دوره را به وجه نقد پایان دوره وصل می‌کند. وجه نقد پایان دوره در این صورت باید دقیقاً با خط وجه نقد در ترازنامه برابر باشد.</p>
+		</div>
+	</div>
+
+	<div style="margin-top:18px;">
+		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep); margin-bottom:10px;">THE AUDITOR'S FIRST CHECK · اولین کنترل حسابرس</div>
+		<div style="display:grid; grid-template-columns: 1fr; gap:8px; font-family:'JetBrains Mono',monospace; font-size:14px; line-height:1.6;">
+			<div><strong>1.</strong> Net income on the income statement = starting profit number used in cash flow.</div>
+			<div><strong>2.</strong> Beginning retained earnings + net income - dividends = ending retained earnings.</div>
+			<div><strong>3.</strong> Beginning cash + net change in cash = ending cash.</div>
+			<div><strong>4.</strong> Ending cash on the cash flow statement = cash on the balance sheet.</div>
+			<div><strong>5.</strong> Assets = liabilities + equity.</div>
+		</div>
+		<div class="farsi-block" style="margin-top:10px; font-size:14px; line-height:1.9;">
+			اولین کنترل حسابرس معمولاً همین اتصال‌هاست: سود خالص باید همان عددی باشد که در صورت جریان وجوه نقد استفاده می‌شود؛ سود انباشته باید با سود خالص و سود سهام حرکت کند؛ وجه نقد پایان دوره باید از تغییر خالص وجه نقد به‌دست آید؛ و در نهایت ترازنامه باید تراز باشد.
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Small number check</h3>
+			<p>Assume beginning retained earnings were <strong>$12,000</strong>, net income was <strong>$32,850</strong>, and dividends were <strong>$5,000</strong>. Ending retained earnings should be <strong>$39,850</strong>.</p>
+			<div class="example"><span class="label">Retained earnings</span>12,000 + 32,850 - 5,000 = 39,850</div>
+			<p>If beginning cash was <strong>$15,450</strong> and cash increased by <strong>$8,550</strong>, ending cash should be <strong>$24,000</strong>. That $24,000 must appear on the balance sheet.</p>
+			<div class="example"><span class="label">Cash tie</span>15,450 + 8,550 = 24,000</div>
+		</div>
+		<div class="col-fa">
+			<h3>کنترل عددی کوچک</h3>
+			<p>فرض کنید سود انباشتهٔ ابتدای دوره <strong>۱۲٬۰۰۰ دلار</strong>، سود خالص <strong>۳۲٬۸۵۰ دلار</strong> و سود سهام <strong>۵٬۰۰۰ دلار</strong> باشد. سود انباشتهٔ پایان دوره باید <strong>۳۹٬۸۵۰ دلار</strong> شود.</p>
+			<div class="example"><span class="label">سود انباشته</span>۱۲٬۰۰۰ + ۳۲٬۸۵۰ - ۵٬۰۰۰ = ۳۹٬۸۵۰</div>
+			<p>اگر وجه نقد ابتدای دوره <strong>۱۵٬۴۵۰ دلار</strong> و افزایش وجه نقد <strong>۸٬۵۵۰ دلار</strong> باشد، وجه نقد پایان دوره باید <strong>۲۴٬۰۰۰ دلار</strong> شود. همین ۲۴٬۰۰۰ باید در ترازنامه هم دیده شود.</p>
+			<div class="example"><span class="label">اتصال وجه نقد</span>۱۵٬۴۵۰ + ۸٬۵۵۰ = ۲۴٬۰۰۰</div>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>How to think about it</h3>
+			<p>Read the statements in a loop. The income statement explains profit. Profit changes equity on the balance sheet. The cash flow statement explains why the cash asset changed. The balance sheet then proves the ending position still balances.</p>
+			<div class="pitfall"><span class="label">Common mistake</span>Do not treat the statements as three separate homework problems. If one number changes, at least one other statement usually needs to change too.</div>
+		</div>
+		<div class="col-fa">
+			<h3>روش فکر کردن</h3>
+			<p>صورت‌های مالی را مثل یک حلقه بخوانید. صورت سود و زیان سود را توضیح می‌دهد. سود، حقوق صاحبان سهام را در ترازنامه تغییر می‌دهد. صورت جریان وجوه نقد توضیح می‌دهد چرا داراییِ وجه نقد تغییر کرده است. سپس ترازنامه نشان می‌دهد وضعیت پایان دوره هنوز تراز است.</p>
+			<div class="pitfall"><span class="label">اشتباه رایج</span>صورت‌های مالی را مثل سه تمرین جداگانه نبینید. اگر یک عدد تغییر کند، معمولاً حداقل یک صورت مالی دیگر هم باید تغییر کند.</div>
+		</div>
+	</div>`;
+
+const threeStatementsConnectPlain =
+	'The three financial statements are one connected system. The income statement measures performance, the balance sheet shows position, and the cash flow statement explains how cash moved between two balance sheet dates. سه صورت مالی یک سیستم به‌هم‌پیوسته‌اند. صورت سود و زیان عملکرد دوره را اندازه می‌گیرد، ترازنامه وضعیت مالی در یک تاریخ مشخص را نشان می‌دهد، و صورت جریان وجوه نقد توضیح می‌دهد وجه نقد بین دو تاریخ ترازنامه چگونه تغییر کرده است. Income statement: what happened during the period. Net income is the bridge number. It moves into retained earnings and starts the indirect cash flow statement. صورت سود و زیان: در طول دوره چه اتفاقی افتاد. سود خالص عدد پل است؛ وارد سود انباشته می‌شود و نقطه شروع روش غیرمستقیم صورت جریان وجوه نقد است. Balance sheet: what the company has and owes at the end date. Assets must equal liabilities plus equity. Retained earnings accumulates current-period profit after dividends. ترازنامه: شرکت در تاریخ پایان دوره چه دارد و چه بدهکار است. دارایی‌ها باید برابر بدهی‌ها به‌علاوه حقوق صاحبان سهام باشد. سود انباشته سود دوره را پس از کسر سود سهام جمع می‌کند. Cash flow statement: why cash changed. Beginning cash plus net change in cash equals ending cash, and ending cash must match the balance sheet. صورت جریان وجوه نقد: چرا وجه نقد تغییر کرد. وجه نقد ابتدای دوره به علاوه تغییر خالص وجه نقد برابر وجه نقد پایان دوره است، و وجه نقد پایان دوره باید با ترازنامه برابر باشد. Auditor first check: net income ties to cash flow, retained earnings rolls forward, cash rolls forward, ending cash matches the balance sheet, and the balance sheet balances. اولین کنترل حسابرس: سود خالص به صورت جریان وجوه نقد وصل است، سود انباشته به جلو حرکت می‌کند، وجه نقد به جلو حرکت می‌کند، وجه نقد پایان دوره با ترازنامه برابر است، و ترازنامه تراز می‌شود. Small check: beginning retained earnings 12,000 plus net income 32,850 minus dividends 5,000 equals ending retained earnings 39,850. Beginning cash 15,450 plus cash increase 8,550 equals ending cash 24,000. کنترل کوچک: سود انباشته ابتدای دوره ۱۲٬۰۰۰ به علاوه سود خالص ۳۲٬۸۵۰ منهای سود سهام ۵٬۰۰۰ برابر سود انباشته پایان دوره ۳۹٬۸۵۰ است. وجه نقد ابتدای دوره ۱۵٬۴۵۰ به علاوه افزایش وجه نقد ۸٬۵۵۰ برابر وجه نقد پایان دوره ۲۴٬۰۰۰ است. Common mistake: do not treat the statements as separate problems. If one number changes, at least one other statement usually needs to change too. اشتباه رایج: صورت‌های مالی را مثل تمرین‌های جداگانه نبینید. اگر یک عدد تغییر کند، معمولاً حداقل یک صورت مالی دیگر هم باید تغییر کند.';
+
 const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'05-equation': {
 		body: accountingEquationBody,
@@ -984,6 +1060,11 @@ const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'29-cfs-indirect': {
 		body: indirectMethodBody,
 		plain: indirectMethodPlain
+	},
+	'30-three-connect': {
+		eyebrowFa: 'ارتباط سه صورت مالی',
+		body: threeStatementsConnectBody,
+		plain: threeStatementsConnectPlain
 	}
 };
 
