@@ -79,3 +79,19 @@ export interface Profile {
 	uiLang: UiLang;
 	createdAt: number;
 }
+
+/**
+ * Per-question record of how the user self-rated an interview question. Keyed by
+ * the question's `slug` (one row per question; re-grading overwrites). Used to
+ * show per-level progress on the interview landing and to resume sessions.
+ */
+export interface InterviewProgress {
+	slug: string;
+	level: number;
+	/** Last self-rating: 1 Forgot · 2 Hard · 3 Got it · 4 Easy. */
+	grade: Grade;
+	/** How many times this question has been graded. */
+	seenCount: number;
+	lastSeenAt: number;
+	updatedAt: number;
+}

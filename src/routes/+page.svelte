@@ -9,6 +9,7 @@
 	import { i18n, t } from '$lib/state/i18n.svelte';
 	import { slides as learnSlides } from '$lib/learn';
 	import { allLookupEntries } from '$lib/data/lookup';
+	import { INTERVIEW_TOTAL } from '$lib/interview/meta';
 	import type { CpaSection } from '$lib/types';
 
 	type DeckMeta = { key: CpaSection; titleKey: string; subKey: string };
@@ -79,7 +80,9 @@
 	<header class="flex flex-col gap-0.5" in:fly={{ y: 8, duration: 320 }}>
 		<p class="eyebrow">{greeting}</p>
 		<h1 class="font-display text-[30px] leading-[1.05] font-medium tracking-tight text-ink">
-			{t('ellie')} <span class="text-accent italic">{t('jooon')}</span><span class="text-accent">.</span>
+			{t('ellie')} <span class="text-accent italic">{t('jooon')}</span><span class="text-accent"
+				>.</span
+			>
 		</h1>
 	</header>
 
@@ -100,8 +103,8 @@
 			class="hero-glyph hero-glyph-glossary"
 			style:top="14px"
 			style:right={isFa ? 'auto' : '14px'}
-			style:left={isFa ? '14px' : 'auto'}
-		>G</span>
+			style:left={isFa ? '14px' : 'auto'}>G</span
+		>
 
 		<div class="flex flex-col gap-2">
 			<p class="eyebrow text-accent">{t('hero_glossary_eyebrow')}</p>
@@ -140,7 +143,17 @@
 			class="flex items-center justify-between rounded-full border border-accent/40 bg-accent-soft/40 px-4 py-2 text-[12.5px] hover:border-accent"
 		>
 			<span class="flex items-center gap-2 text-ink">
-				<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<svg
+					viewBox="0 0 24 24"
+					width="13"
+					height="13"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.7"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
 					<path d="M3 12a9 9 0 1 0 3-6.7" />
 					<path d="M3 4v5h5" />
 				</svg>
@@ -162,8 +175,8 @@
 			class="hero-glyph hero-glyph-learn"
 			style:top="14px"
 			style:right={isFa ? 'auto' : '14px'}
-			style:left={isFa ? '14px' : 'auto'}
-		>A·R</span>
+			style:left={isFa ? '14px' : 'auto'}>A·R</span
+		>
 
 		<div class="flex flex-col gap-2">
 			<p class="eyebrow text-gold">{isFa ? 'یادگیری' : 'read · learn'}</p>
@@ -199,10 +212,56 @@
 		</div>
 	</a>
 
+	<!-- INTERVIEW — mock interview practice -->
+	<a
+		href={resolve('/interview')}
+		in:fly={{ y: 16, duration: 420, delay: 160 }}
+		class="hero hero-interview group"
+	>
+		<div class="hero-wash hero-wash-interview"></div>
+		<span
+			aria-hidden="true"
+			class="hero-glyph hero-glyph-interview"
+			style:top="14px"
+			style:right={isFa ? 'auto' : '14px'}
+			style:left={isFa ? '14px' : 'auto'}>Q·A</span
+		>
+
+		<div class="flex flex-col gap-2">
+			<p class="eyebrow text-accent">{t('hero_interview_eyebrow')}</p>
+			<p class="font-display text-[24px] leading-[1.1] font-medium text-ink">
+				{isFa ? 'مصاحبهٔ آزمایشی' : 'Mock Interview'}<span class="text-accent">.</span>
+			</p>
+			<p class="text-[12.5px] leading-[1.55] text-ink-muted">
+				{t('hero_interview_sub', INTERVIEW_TOTAL)}
+			</p>
+		</div>
+
+		<div class="hero-cta hero-cta-interview">
+			<svg
+				viewBox="0 0 24 24"
+				width="16"
+				height="16"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="1.7"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+			>
+				<path
+					d="M3 6.5A2.5 2.5 0 0 1 5.5 4h8A2.5 2.5 0 0 1 16 6.5v4A2.5 2.5 0 0 1 13.5 13H8l-4 3v-3H5.5A2.5 2.5 0 0 1 3 10.5z"
+				/>
+				<path d="M19 9.5h.5A2.5 2.5 0 0 1 22 12v4a2.5 2.5 0 0 1-2.5 2.5H19v2.5l-3-2.5h-2" />
+			</svg>
+			<span>{t('hero_interview_cta')}</span>
+		</div>
+	</a>
+
 	<!-- PRACTICE — flashcard study -->
 	<a
 		href={`${resolve('/study')}?run=1&cpa=Foundational`}
-		in:fly={{ y: 16, duration: 420, delay: 160 }}
+		in:fly={{ y: 16, duration: 420, delay: 200 }}
 		class="hero hero-practice group"
 	>
 		<div class="hero-wash hero-wash-practice"></div>
@@ -211,8 +270,8 @@
 			class="hero-glyph hero-glyph-practice"
 			style:top="14px"
 			style:right={isFa ? 'auto' : '14px'}
-			style:left={isFa ? '14px' : 'auto'}
-		>a</span>
+			style:left={isFa ? '14px' : 'auto'}>a</span
+		>
 
 		<div class="flex flex-col gap-2">
 			<p class="eyebrow text-accent">
@@ -272,7 +331,18 @@
 				{t('cpa_sections_subtitle', CPA_DECKS.length, cpaTotal)}
 			</p>
 		</div>
-		<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="text-ink-muted">
+		<svg
+			viewBox="0 0 24 24"
+			width="14"
+			height="14"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="1.7"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			aria-hidden="true"
+			class="text-ink-muted"
+		>
 			<path d="M9 6l6 6-6 6" />
 		</svg>
 	</button>
@@ -295,7 +365,9 @@
 				class="flex items-center gap-1.5 rounded-full border border-hairline bg-bg-elevated/60 px-3 py-1.5 text-ink-muted hover:border-accent/40 hover:text-accent"
 			>
 				<svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden="true">
-					<path d="M12 2c.6 4.5 3 6.5 5 9 2 2.5 2 6.5-1 9-3 2.5-7.5 2-10-1-2.5-3-2-7 0-9 2-2 3.5-1 4-3 0 0 1.5-1 2-5z" />
+					<path
+						d="M12 2c.6 4.5 3 6.5 5 9 2 2.5 2 6.5-1 9-3 2.5-7.5 2-10-1-2.5-3-2-7 0-9 2-2 3.5-1 4-3 0 0 1.5-1 2-5z"
+					/>
 				</svg>
 				{t('chip_streak', streakDays)}
 			</a>
@@ -305,7 +377,9 @@
 				class="flex items-center gap-1.5 rounded-full border border-hairline bg-bg-elevated/60 px-3 py-1.5 text-ink-muted"
 			>
 				<svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden="true">
-					<path d="M12 2l2.39 6.95H21l-5.31 4.27L17.83 20 12 15.77 6.17 20l2.14-6.78L3 8.95h6.61z" />
+					<path
+						d="M12 2l2.39 6.95H21l-5.31 4.27L17.83 20 12 15.77 6.17 20l2.14-6.78L3 8.95h6.61z"
+					/>
 				</svg>
 				{t('chip_level', level)}
 			</span>
@@ -466,63 +540,104 @@
 	.hero-cta-learn {
 		/* Subtle vertical gradient: top is a hair lighter than base gold,
 		   bottom is a hair darker — gives the pill a sculpted, lit feel. */
-		background:
-			linear-gradient(
-				180deg,
-				color-mix(in oklab, var(--gold) 88%, white) 0%,
-				var(--gold) 55%,
-				color-mix(in oklab, var(--gold) 92%, black) 100%
-			);
+		background: linear-gradient(
+			180deg,
+			color-mix(in oklab, var(--gold) 88%, white) 0%,
+			var(--gold) 55%,
+			color-mix(in oklab, var(--gold) 92%, black) 100%
+		);
 		color: #1a1414;
 	}
 	.hero:hover .hero-cta-learn,
 	.hero:focus-visible .hero-cta-learn {
-		background:
-			linear-gradient(
-				180deg,
-				color-mix(in oklab, var(--ink) 92%, white) 0%,
-				var(--ink) 100%
-			);
+		background: linear-gradient(
+			180deg,
+			color-mix(in oklab, var(--ink) 92%, white) 0%,
+			var(--ink) 100%
+		);
 		color: var(--bg);
 	}
 	.hero-cta-practice {
-		background:
-			linear-gradient(
-				180deg,
-				color-mix(in oklab, var(--ink) 92%, white) 0%,
-				var(--ink) 100%
-			);
+		background: linear-gradient(
+			180deg,
+			color-mix(in oklab, var(--ink) 92%, white) 0%,
+			var(--ink) 100%
+		);
 		color: var(--bg);
 	}
 	.hero:hover .hero-cta-practice,
 	.hero:focus-visible .hero-cta-practice {
-		background:
-			linear-gradient(
-				180deg,
-				color-mix(in oklab, var(--accent) 88%, white) 0%,
-				var(--accent) 60%,
-				color-mix(in oklab, var(--accent) 92%, black) 100%
-			);
+		background: linear-gradient(
+			180deg,
+			color-mix(in oklab, var(--accent) 88%, white) 0%,
+			var(--accent) 60%,
+			color-mix(in oklab, var(--accent) 92%, black) 100%
+		);
 		color: var(--bg);
 	}
 	.hero-cta-glossary {
-		background:
-			linear-gradient(
-				180deg,
-				color-mix(in oklab, var(--accent) 88%, white) 0%,
-				var(--accent) 60%,
-				color-mix(in oklab, var(--accent) 92%, black) 100%
-			);
+		background: linear-gradient(
+			180deg,
+			color-mix(in oklab, var(--accent) 88%, white) 0%,
+			var(--accent) 60%,
+			color-mix(in oklab, var(--accent) 92%, black) 100%
+		);
 		color: var(--bg);
 	}
 	.hero:hover .hero-cta-glossary,
 	.hero:focus-visible .hero-cta-glossary {
+		background: linear-gradient(
+			180deg,
+			color-mix(in oklab, var(--ink) 92%, white) 0%,
+			var(--ink) 100%
+		);
+		color: var(--bg);
+	}
+
+	/* INTERVIEW hero — a gold→terracotta CTA + blended wash to set it apart from
+	   the gold Learn card and the terracotta Practice card. */
+	.hero-interview:hover {
+		box-shadow:
+			var(--card-highlight),
+			var(--shadow-card-hover),
+			0 24px 60px -28px color-mix(in oklab, var(--accent) 48%, transparent);
+	}
+	.hero-wash-interview {
 		background:
-			linear-gradient(
-				180deg,
-				color-mix(in oklab, var(--ink) 92%, white) 0%,
-				var(--ink) 100%
+			radial-gradient(
+				ellipse 68% 58% at 100% 0%,
+				color-mix(in oklab, var(--accent) 26%, transparent) 0%,
+				transparent 62%
+			),
+			radial-gradient(
+				ellipse 55% 55% at 0% 100%,
+				color-mix(in oklab, var(--gold) 22%, transparent) 0%,
+				transparent 60%
 			);
+	}
+	.hero-glyph-interview {
+		font-size: 50px;
+		font-weight: 300;
+		font-style: italic;
+		letter-spacing: 0.02em;
+		color: color-mix(in oklab, var(--accent) 26%, transparent);
+	}
+	.hero-cta-interview {
+		background: linear-gradient(
+			180deg,
+			color-mix(in oklab, var(--gold) 82%, white) 0%,
+			var(--gold) 42%,
+			color-mix(in oklab, var(--accent) 82%, black) 100%
+		);
+		color: #1a1414;
+	}
+	.hero:hover .hero-cta-interview,
+	.hero:focus-visible .hero-cta-interview {
+		background: linear-gradient(
+			180deg,
+			color-mix(in oklab, var(--ink) 92%, white) 0%,
+			var(--ink) 100%
+		);
 		color: var(--bg);
 	}
 </style>

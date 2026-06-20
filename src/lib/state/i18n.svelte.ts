@@ -13,9 +13,8 @@ const en = {
 	study_streak: 'study streak',
 	begin_today: 'Begin today',
 	days: (n: number) => (n === 1 ? '1 day' : `${n} days`),
-	cards_waiting: (n: number) =>
-		n === 1 ? '1 card waiting for you' : `${n} cards waiting for you`,
-	couldnt_recall: "couldn’t recall",
+	cards_waiting: (n: number) => (n === 1 ? '1 card waiting for you' : `${n} cards waiting for you`),
+	couldnt_recall: 'couldn’t recall',
 	review_tripped: 'Review what tripped you up',
 	cards_in_recall: (n: number) =>
 		n === 1 ? '1 card waiting in your recall deck' : `${n} cards waiting in your recall deck`,
@@ -178,9 +177,7 @@ const en = {
 	hero_title_continue: 'Keep going.',
 	hero_title_recall: 'Catch up on what slipped.',
 	hero_body_begin: (n: number) =>
-		n === 0
-			? 'No cards yet — pull some in and start.'
-			: `${n} cards across all CPA sections.`,
+		n === 0 ? 'No cards yet — pull some in and start.' : `${n} cards across all CPA sections.`,
 	hero_body_recall: (n: number) =>
 		n === 1 ? '1 card in your recall deck.' : `${n} cards in your recall deck.`,
 	hero_button_start: 'start session',
@@ -192,8 +189,7 @@ const en = {
 	hero_button_foundations: 'start foundations',
 	hero_button_continue: 'continue',
 	cpa_sections_label: 'CPA Exam Sections',
-	cpa_sections_subtitle: (decks: number, cards: number) =>
-		`${decks} decks · ${cards} cards`,
+	cpa_sections_subtitle: (decks: number, cards: number) => `${decks} decks · ${cards} cards`,
 	recall_pill_inline: (n: number) =>
 		n === 1 ? '1 card in your recall deck' : `${n} cards in your recall deck`,
 
@@ -217,11 +213,11 @@ const en = {
 	glossary_to_memorize: 'to memorize',
 	glossary_memorized: 'memorized',
 	glossary_empty_to_memorize: 'Nothing left to memorize. Beautiful work.',
-	glossary_empty_memorized: 'No memorized words yet — tap “I memorized this” on a card to start your pile.',
+	glossary_empty_memorized:
+		'No memorized words yet — tap “I memorized this” on a card to start your pile.',
 	glossary_memorize_btn: 'I memorized this',
 	glossary_forget_btn: 'still learning',
-	glossary_count: (memorized: number, total: number) =>
-		`${memorized} of ${total} memorized`,
+	glossary_count: (memorized: number, total: number) => `${memorized} of ${total} memorized`,
 	glossary_no_results: 'No words match that.',
 	glossary_back: 'back',
 	glossary_definition: 'definition',
@@ -234,7 +230,39 @@ const en = {
 	read_aloud_term: 'read the word',
 	read_aloud_def: 'read the definition',
 	hero_glossary_eyebrow: 'memorize · learn',
-	hero_glossary_title: 'Glossary'
+	hero_glossary_title: 'Glossary',
+
+	// Interview
+	nav_interview: 'Interview',
+	hero_interview_eyebrow: 'practice · interview',
+	hero_interview_title: 'Mock Interview',
+	hero_interview_sub: (n: number) =>
+		`${n} questions across four levels — answer in English, reveal Farsi.`,
+	hero_interview_cta: 'start an interview',
+	iv_landing_eyebrow: 'mock interview',
+	iv_landing_title: 'Practice the interview',
+	iv_landing_sub:
+		'Pick a difficulty, answer out loud, reveal the model answer — then rate how you did.',
+	iv_choose_level: 'choose a level',
+	iv_questions_count: (n: number) => (n === 1 ? '1 question' : `${n} questions`),
+	iv_level_progress: (answered: number, total: number) => `${answered} of ${total} answered`,
+	iv_all_levels: 'All levels',
+	iv_all_levels_sub: 'A shuffled mix from every difficulty.',
+	iv_start: 'start',
+	iv_exit: 'exit interview',
+	iv_reveal_answer: 'reveal model answer',
+	iv_model_answer: 'model answer',
+	iv_talking_points: 'key points to hit',
+	iv_looks_for: 'what the interviewer looks for',
+	iv_show_persian: 'show Persian',
+	iv_hide_persian: 'hide Persian',
+	iv_rate_prompt: 'Could you answer it?',
+	iv_done_eyebrow: 'nicely done',
+	iv_complete_title: 'Interview complete.',
+	iv_answered_label: 'answered',
+	iv_again: 'interview again',
+	iv_empty: 'No questions here yet.',
+	iv_sources_label: 'sources'
 } as const satisfies Record<string, MsgValue>;
 
 type MessageKey = keyof typeof en;
@@ -401,9 +429,7 @@ const fa: Record<MessageKey, MsgValue> = {
 	hero_title_continue: 'ادامه بدیم.',
 	hero_title_recall: 'چیزایی که گیر افتادی رو مرور کن.',
 	hero_body_begin: (n: number) =>
-		n === 0
-			? 'هنوز کارتی نیست — یکم کارت اضافه کن و شروع کنیم.'
-			: `${n} کارت در همۀ بخش‌های CPA.`,
+		n === 0 ? 'هنوز کارتی نیست — یکم کارت اضافه کن و شروع کنیم.' : `${n} کارت در همۀ بخش‌های CPA.`,
 	hero_body_recall: (n: number) => `${n} کارت توی دستۀ مرور.`,
 	hero_button_start: 'شروع جلسه',
 	hero_button_recall: 'الان مرور کن',
@@ -439,8 +465,7 @@ const fa: Record<MessageKey, MsgValue> = {
 	glossary_empty_memorized: 'هنوز هیچ واژه‌ای حفظ نشده — روی «حفظ کردم» بزن تا اینجا اضافه بشه.',
 	glossary_memorize_btn: 'حفظ کردم',
 	glossary_forget_btn: 'هنوز یاد می‌گیرم',
-	glossary_count: (memorizedN: number, total: number) =>
-		`${memorizedN} از ${total} حفظ شده`,
+	glossary_count: (memorizedN: number, total: number) => `${memorizedN} از ${total} حفظ شده`,
 	glossary_no_results: 'چیزی پیدا نشد.',
 	glossary_back: 'بازگشت',
 	glossary_definition: 'تعریف',
@@ -453,7 +478,37 @@ const fa: Record<MessageKey, MsgValue> = {
 	read_aloud_term: 'خواندن واژه',
 	read_aloud_def: 'خواندن تعریف',
 	hero_glossary_eyebrow: 'حفظ · یادگیری',
-	hero_glossary_title: 'واژه‌نامه'
+	hero_glossary_title: 'واژه‌نامه',
+
+	// Interview
+	nav_interview: 'مصاحبه',
+	hero_interview_eyebrow: 'تمرین · مصاحبه',
+	hero_interview_title: 'مصاحبهٔ آزمایشی',
+	hero_interview_sub: (n: number) => `${n} پرسش در چهار سطح — به انگلیسی جواب بده، فارسی را ببین.`,
+	hero_interview_cta: 'شروع مصاحبه',
+	iv_landing_eyebrow: 'مصاحبهٔ آزمایشی',
+	iv_landing_title: 'برای مصاحبه تمرین کن',
+	iv_landing_sub: 'یک سطح انتخاب کن، بلند جواب بده، پاسخ نمونه را ببین — بعد به خودت امتیاز بده.',
+	iv_choose_level: 'یک سطح را انتخاب کن',
+	iv_questions_count: (n: number) => `${n} پرسش`,
+	iv_level_progress: (answered: number, total: number) => `${answered} از ${total} پاسخ‌داده`,
+	iv_all_levels: 'همهٔ سطوح',
+	iv_all_levels_sub: 'مجموعه‌ای درهم از همهٔ سطوح.',
+	iv_start: 'شروع',
+	iv_exit: 'خروج از مصاحبه',
+	iv_reveal_answer: 'دیدن پاسخ نمونه',
+	iv_model_answer: 'پاسخ نمونه',
+	iv_talking_points: 'نکات کلیدی که باید بگویی',
+	iv_looks_for: 'مصاحبه‌گر دنبال چیست',
+	iv_show_persian: 'نمایش فارسی',
+	iv_hide_persian: 'پنهان کردن فارسی',
+	iv_rate_prompt: 'تونستی جوابش رو بدی؟',
+	iv_done_eyebrow: 'آفرین',
+	iv_complete_title: 'مصاحبه تمام شد.',
+	iv_answered_label: 'پاسخ‌داده',
+	iv_again: 'یک‌بار دیگه',
+	iv_empty: 'هنوز پرسشی اینجا نیست.',
+	iv_sources_label: 'منابع'
 };
 
 const all: Record<Lang, Record<MessageKey, MsgValue>> = { en, fa };

@@ -1,4 +1,129 @@
 {
+  "goodwill": {
+    "term": "Goodwill",
+    "definition": "The excess of a purchase price over the fair value of the identifiable net assets acquired in a business combination; under US GAAP it is not amortized but tested for impairment at least annually.",
+    "fa": { "term": "سرقفلی", "definition": "مازاد بهای خرید نسبت به ارزش منصفانهٔ خالص دارایی‌های قابل تشخیص در یک ترکیب تجاری؛ طبق GAAP مستهلک نمی‌شود بلکه دست‌کم سالانه از نظر کاهش ارزش آزمون می‌شود." }
+  },
+  "impairment": {
+    "term": "Impairment",
+    "definition": "A write-down recognized when an asset's carrying amount exceeds its recoverable amount, reducing the asset to fair value and recording a loss in the income statement.",
+    "fa": { "term": "کاهش ارزش", "definition": "کاهش ارزش دفتری دارایی هنگامی که از مبلغ بازیافتنی آن بیشتر شود؛ دارایی به ارزش منصفانه تعدیل و زیان آن در صورت سود و زیان شناسایی می‌شود." }
+  },
+  "derecognition": {
+    "term": "Derecognition",
+    "definition": "Removing an asset or liability from the balance sheet when it is disposed of, settled, or no longer meets recognition criteria, recognizing any resulting gain or loss.",
+    "fa": { "term": "قطع شناخت", "definition": "حذف یک دارایی یا بدهی از ترازنامه هنگام واگذاری، تسویه یا زمانی که دیگر شرایط شناخت را ندارد، همراه با شناسایی سود یا زیان حاصل." }
+  },
+  "remeasurement": {
+    "term": "Remeasurement",
+    "definition": "Restating an item to a current value — e.g., converting a foreign subsidiary's books into its functional currency, with the resulting gain or loss reported in net income.",
+    "fa": { "term": "اندازه‌گیری مجدد", "definition": "بیان مجدد یک قلم به ارزش جاری — برای مثال تبدیل دفاتر واحد فرعی خارجی به واحد پول عملیاتی، که سود یا زیان آن در سود خالص گزارش می‌شود." }
+  },
+  "revaluation": {
+    "term": "Revaluation",
+    "definition": "Restating an asset to its current fair value; permitted for PP&E and certain intangibles under IFRS but generally not allowed under US GAAP, which uses historical cost.",
+    "fa": { "term": "تجدید ارزیابی", "definition": "بیان مجدد دارایی به ارزش منصفانهٔ جاری؛ این کار برای اموال، ماشین‌آلات و برخی دارایی‌های نامشهود طبق IFRS مجاز است اما طبق GAAP که بر بهای تاریخی تکیه دارد عموماً مجاز نیست." }
+  },
+  "accretion": {
+    "term": "Accretion",
+    "definition": "The gradual increase in a carrying amount over time, such as unwinding the discount on an asset retirement obligation; in M&A, the rise in acquirer EPS from a deal.",
+    "fa": { "term": "انباشت (افزایش تدریجی)", "definition": "افزایش تدریجی مبلغ دفتری در طول زمان، مانند بازگشت تنزیل تعهد برکناری دارایی؛ در ادغام و تملیک، افزایش سود هر سهم خریدار در اثر معامله." }
+  },
+  "accretive": {
+    "term": "Accretive",
+    "definition": "Describing an acquisition that increases the acquirer's earnings per share after the deal closes (the opposite of dilutive).",
+    "fa": { "term": "افزاینده (سود هر سهم)", "definition": "توصیف تملیکی که پس از انجام معامله سود هر سهم خریدار را افزایش می‌دهد (نقطهٔ مقابل تقلیل‌دهنده)." }
+  },
+  "obsolescence": {
+    "term": "Obsolescence",
+    "definition": "Loss of an asset's usefulness or value due to technological change, wear, or reduced demand, a key reason for accelerated depreciation or inventory write-downs.",
+    "fa": { "term": "نابابی / منسوخ‌شدن", "definition": "از دست رفتن کارایی یا ارزش یک دارایی به‌دلیل تغییر فناوری، فرسودگی یا کاهش تقاضا؛ از دلایل اصلی استهلاک شتابان یا کاهش ارزش موجودی." }
+  },
+  "recoverable": {
+    "term": "Recoverable",
+    "definition": "The amount expected to be recovered from an asset through use or sale; when carrying amount exceeds it, the asset is impaired.",
+    "fa": { "term": "بازیافتنی", "definition": "مبلغی که انتظار می‌رود از طریق استفاده یا فروش یک دارایی بازیافت شود؛ اگر مبلغ دفتری از آن بیشتر باشد، دارایی دچار کاهش ارزش است." }
+  },
+  "coupon": {
+    "term": "Coupon",
+    "definition": "The stated (nominal) interest rate a bond pays on its face value; when it is below the market rate at issuance the bond sells at a discount, and above it at a premium.",
+    "fa": { "term": "نرخ اسمی (کوپن)", "definition": "نرخ بهرهٔ اعلام‌شدهٔ اوراق قرضه بر مبنای ارزش اسمی؛ اگر کمتر از نرخ بازار در زمان انتشار باشد اوراق با تخفیف و اگر بیشتر باشد با صرف فروخته می‌شود." }
+  },
+  "maturity": {
+    "term": "Maturity",
+    "definition": "The date on which a debt instrument's principal becomes due and payable; over a bond's life its carrying value converges to face value at maturity.",
+    "fa": { "term": "سررسید", "definition": "تاریخی که اصل یک ابزار بدهی باید بازپرداخت شود؛ در طول عمر اوراق قرضه ارزش دفتری آن در سررسید به ارزش اسمی نزدیک می‌شود." }
+  },
+  "issuance": {
+    "term": "Issuance",
+    "definition": "The act of selling new debt or equity securities to investors to raise capital, reported as a financing activity on the cash flow statement.",
+    "fa": { "term": "انتشار (اوراق/سهام)", "definition": "فروش اوراق بدهی یا سهام جدید به سرمایه‌گذاران برای تأمین سرمایه، که در صورت جریان وجوه نقد به‌عنوان فعالیت تأمین مالی گزارش می‌شود." }
+  },
+  "acquirer": {
+    "term": "Acquirer",
+    "definition": "The entity that obtains control of another business in a combination and, under the acquisition method (ASC 805), measures the acquired assets and liabilities at fair value.",
+    "fa": { "term": "تحصیل‌کننده (خریدار)", "definition": "واحدی که در یک ترکیب تجاری کنترل واحد دیگری را به دست می‌آورد و طبق روش تحصیل (ASC 805) دارایی‌ها و بدهی‌های تحصیل‌شده را به ارزش منصفانه اندازه‌گیری می‌کند." }
+  },
+  "prepayment": {
+    "term": "Prepayment",
+    "definition": "Cash paid (or received) in advance of the related expense or revenue; the payer records an asset and the recipient records a liability until performance occurs.",
+    "fa": { "term": "پیش‌پرداخت", "definition": "وجه نقدی که پیش از وقوع هزینه یا درآمد مربوط پرداخت یا دریافت می‌شود؛ پرداخت‌کننده دارایی و دریافت‌کننده بدهی ثبت می‌کند تا زمان انجام تعهد." }
+  },
+  "deficit": {
+    "term": "Deficit",
+    "definition": "A negative retained earnings balance caused by cumulative net losses or distributions exceeding accumulated profits; shown as an accumulated deficit in equity.",
+    "fa": { "term": "کسری (زیان انباشته)", "definition": "مانده منفی سود انباشته که بر اثر زیان‌های انباشته یا توزیع‌های بیش از سود تجمعی ایجاد می‌شود و در حقوق صاحبان سهام به‌صورت زیان انباشته نشان داده می‌شود." }
+  },
+  "absorption": {
+    "term": "Absorption",
+    "definition": "A costing method that assigns all manufacturing costs — including fixed factory overhead — to units produced, so fixed overhead is carried in inventory until the goods are sold.",
+    "fa": { "term": "بهایابی جذبی", "definition": "روش بهایابی که همهٔ هزینه‌های ساخت — از جمله سربار ثابت کارخانه — را به واحدهای تولیدشده تخصیص می‌دهد، به‌طوری‌که سربار ثابت تا زمان فروش کالا در موجودی باقی می‌ماند." }
+  },
+  "markup": {
+    "term": "Markup",
+    "definition": "The amount added to cost to set a selling price; in consolidation, intercompany inventory markup must be eliminated until the goods are sold to outsiders.",
+    "fa": { "term": "افزودهٔ سود (مارک‌آپ)", "definition": "مبلغی که برای تعیین قیمت فروش به بهای تمام‌شده افزوده می‌شود؛ در تلفیق، افزودهٔ سود معاملات درون‌گروهی موجودی باید تا فروش کالا به خارج از گروه حذف شود." }
+  },
+  "freight": {
+    "term": "Freight",
+    "definition": "Shipping and transportation cost; freight-in to acquire inventory is capitalized into its cost, while freight-out to deliver to customers is a selling expense.",
+    "fa": { "term": "هزینهٔ حمل", "definition": "هزینهٔ حمل و نقل؛ کرایهٔ حمل ورودی برای تحصیل موجودی به بهای آن اضافه می‌شود، در حالی‌که کرایهٔ حمل خروجی برای تحویل به مشتری هزینهٔ فروش است." }
+  },
+  "standalone": {
+    "term": "Standalone",
+    "definition": "Referring to the standalone selling price — the price at which an entity would sell a good or service separately, used to allocate the transaction price among performance obligations under ASC 606.",
+    "fa": { "term": "قیمت فروش مستقل", "definition": "اشاره به قیمت فروش مستقل — قیمتی که یک واحد کالا یا خدمت را به‌طور جداگانه می‌فروشد و برای تخصیص بهای معامله میان تعهدات عملکردی طبق ASC 606 به‌کار می‌رود." }
+  },
+  "covenant": {
+    "term": "Covenant",
+    "definition": "A contractual condition in a loan or bond agreement that requires the borrower to maintain certain financial ratios or refrain from specified actions; breaching it can trigger default.",
+    "fa": { "term": "شرط ضمن قرارداد وام (کاوننت)", "definition": "شرطی قراردادی در قرارداد وام یا اوراق قرضه که وام‌گیرنده را ملزم به حفظ نسبت‌های مالی معین یا خودداری از اقدامات مشخص می‌کند؛ نقض آن می‌تواند موجب نکول شود." }
+  },
+  "depreciable": {
+    "term": "Depreciable",
+    "definition": "Describing the portion of an asset's cost subject to depreciation — the depreciable base equals cost minus salvage value, spread over the useful life.",
+    "fa": { "term": "مبنای استهلاک‌پذیر", "definition": "اشاره به بخشی از بهای دارایی که مشمول استهلاک است — مبنای استهلاک‌پذیر برابر بهای تمام‌شده منهای ارزش اسقاط است که در طول عمر مفید سرشکن می‌شود." }
+  },
+  "tangible": {
+    "term": "Tangible",
+    "definition": "Having physical substance; tangible long-lived assets such as machinery, buildings, and vehicles are depreciated over their useful lives.",
+    "fa": { "term": "مشهود", "definition": "دارای ماهیت فیزیکی؛ دارایی‌های بلندمدت مشهود مانند ماشین‌آلات، ساختمان‌ها و وسایل نقلیه در طول عمر مفید خود مستهلک می‌شوند." }
+  },
+  "provision": {
+    "term": "Provision",
+    "definition": "A recognized liability of uncertain timing or amount, recorded when an obligation is probable and reasonably estimable; distinct from a merely disclosed contingent liability.",
+    "fa": { "term": "ذخیره (تعهد محتمل)", "definition": "بدهی شناسایی‌شده با زمان یا مبلغ نامشخص که هنگام محتمل و قابل‌برآورد بودن تعهد ثبت می‌شود؛ متفاوت از بدهی احتمالی که صرفاً افشا می‌شود." }
+  },
+  "reserve": {
+    "term": "Reserve",
+    "definition": "An allowance set aside against an expected future loss, such as the allowance for doubtful accounts; write-offs draw down the reserve rather than creating new expense.",
+    "fa": { "term": "ذخیره", "definition": "مبلغی که در برابر زیان مورد انتظار آتی کنار گذاشته می‌شود، مانند ذخیرهٔ مطالبات مشکوک‌الوصول؛ سوخت مطالبات از این ذخیره کسر می‌شود نه آنکه هزینهٔ جدید ایجاد کند." }
+  },
+  "cogs": {
+    "term": "COGS",
+    "definition": "Cost of goods sold — the direct costs of producing the goods sold in the period: direct materials, direct labor, and attributable manufacturing overhead.",
+    "fa": { "term": "بهای تمام‌شدهٔ کالای فروش‌رفته", "definition": "بهای مستقیم تولید کالاهای فروخته‌شده در دوره: مواد مستقیم، دستمزد مستقیم و سربار ساخت قابل تخصیص." }
+  },
   "equity": {
     "term": "Equity",
     "definition": "The owners' residual claim on a company's assets after subtracting liabilities. Equity = Assets − Liabilities.",

@@ -5,6 +5,7 @@ import type {
 	CardDirection,
 	CpaSection,
 	Grade,
+	InterviewProgress,
 	Profile,
 	Review,
 	Session,
@@ -16,6 +17,7 @@ class AccrevDB extends Dexie {
 	reviews!: Table<Review, number>;
 	sessions!: Table<Session, number>;
 	profile!: Table<Profile, number>;
+	interviewProgress!: Table<InterviewProgress, string>;
 
 	constructor() {
 		super('accrev');
@@ -41,6 +43,10 @@ class AccrevDB extends Dexie {
 						if (typeof t.lapseCount !== 'number') t.lapseCount = 0;
 					})
 			);
+		// v3: interview question self-ratings (one row per question slug).
+		this.version(3).stores({
+			interviewProgress: '&slug, level, grade, updatedAt'
+		});
 	}
 }
 
@@ -125,9 +131,7 @@ export async function countDueTerms(now: number = Date.now()): Promise<number> {
 	const reviews = await d.reviews.toArray();
 	const reviewedTermIds = new Set(reviews.map((r) => r.termId));
 	const newCount = allTermIds.filter((id) => !reviewedTermIds.has(id)).length;
-	const dueTermIds = new Set(
-		reviews.filter((r) => r.dueAt <= now).map((r) => r.termId)
-	);
+	const dueTermIds = new Set(reviews.filter((r) => r.dueAt <= now).map((r) => r.termId));
 	return newCount + dueTermIds.size;
 }
 
@@ -249,4 +253,52 @@ export async function recordEggUnlock(key: string): Promise<Profile> {
 	};
 	await d.profile.put(updated);
 	return updated;
+}
+
+// ── Interview self-ratings ──────────────────────────────────────────────────
+
+/** Record (or overwrite) the self-rating for one interview question. */
+export async function gradeInterview(slug: string, level: number, grade: Grade): Promise<void> {
+	const d = db();
+	const existing = await d.interviewProgress.get(slug);
+	const now = Date.now();
+	await d.interviewProgress.put({
+		slug,
+		level,
+		grade,
+		seenCount: (existing?.seenCount ?? 0) + 1,
+		lastSeenAt: now,
+		updatedAt: now
+	});
+}
+
+/** Map of slug → progress for every graded interview question. */
+export async function getInterviewProgress(): Promise<Record<string, InterviewProgress>> {
+	const rows = await db().interviewProgress.toArray();
+	const map: Record<string, InterviewProgress> = {};
+	for (const r of rows) map[r.slug] = r;
+	return map;
+}
+
+/**
+ * Per-level interview progress: how many distinct questions have been seen
+ * (graded at all) and how many were "answered" (last grade Got it / Easy).
+ */
+export async function getInterviewLevelStats(): Promise<
+	Record<number, { seen: number; answered: number }>
+> {
+	const rows = await db().interviewProgress.toArray();
+	const stats: Record<number, { seen: number; answered: number }> = {
+		1: { seen: 0, answered: 0 },
+		2: { seen: 0, answered: 0 },
+		3: { seen: 0, answered: 0 },
+		4: { seen: 0, answered: 0 }
+	};
+	for (const r of rows) {
+		const s = stats[r.level];
+		if (!s) continue;
+		s.seen += 1;
+		if (r.grade >= 3) s.answered += 1;
+	}
+	return stats;
 }
