@@ -1026,8 +1026,8 @@
   },
   "cfo": {
     "term": "CFO",
-    "definition": "Chief Financial Officer — the executive responsible for the company's finances, including its accounting, treasury, and investor relations.",
-    "fa": { "term": "مدیر مالی", "definition": "بالاترین مقام مالی — مدیری که مسئول امور مالی شرکت است، شامل حسابداری، خزانه‌داری، و روابط با سرمایه‌گذاران." }
+    "definition": "In cash-flow formulas, CFO means Cash Flow from Operations — cash generated or used by the core business. In job-title contexts, CFO can also mean Chief Financial Officer.",
+    "fa": { "term": "جریان نقد عملیاتی", "definition": "در فرمول‌های صورت جریان وجوه نقد، CFO یعنی جریان نقد عملیاتی، یعنی وجه نقد ایجادشده یا مصرف‌شده توسط کسب‌وکار اصلی. در متن‌های مربوط به سمت‌های مدیریتی، CFO می‌تواند به معنی مدیر مالی هم باشد." }
   },
   "dupont": {
     "term": "DuPont",
