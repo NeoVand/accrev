@@ -749,6 +749,137 @@ const incomeStatementBody = `<p class="subtitle" style="margin-top:14px; max-wid
 const incomeStatementPlain =
 	'The income statement is the movie of a period. It does not freeze one date like the balance sheet. It shows what the company earned, what it spent to earn it, and what profit was left over during a month, quarter, or year. صورت سود و زیان فیلم یک دوره است. مثل ترازنامه یک تاریخ را ثابت نمی‌کند؛ نشان می‌دهد شرکت طی یک ماه، فصل یا سال چه درآمدی کسب کرده، برای کسب آن چه هزینه‌هایی داشته، و در پایان چه سودی باقی مانده است. Big idea The income statement answers: Was the company profitable during this period? It starts with revenue, subtracts layers of cost, and ends with net income. Revenue is the top line. Net income is the bottom line. Everything between them explains where the money went. ایده اصلی صورت سود و زیان پاسخ می‌دهد: آیا شرکت در این دوره سودآور بوده است؟ از درآمد شروع می‌کند، لایه‌های هزینه را کم می‌کند، و به سود خالص می‌رسد. درآمد خط بالاست. سود خالص خط پایین است. هرچه بین آن‌هاست توضیح می‌دهد پول کجا رفته است. Ranger Coffee income statement: revenue 245,000, COGS 142,000, gross profit 103,000, operating income 47,000, pre-tax income 43,800, tax 10,950, net income 32,850. صورت سود و زیان Ranger: درآمد ۲۴۵٬۰۰۰، بهای تمام‌شده ۱۴۲٬۰۰۰، سود ناخالص ۱۰۳٬۰۰۰، سود عملیاتی ۴۷٬۰۰۰، سود قبل از مالیات ۴۳٬۸۰۰، مالیات ۱۰٬۹۵۰، سود خالص ۳۲٬۸۵۰. The flow from top to bottom Revenue is earned from customers. COGS is the direct cost of products sold. Operating expenses are costs of running the business. Interest and tax come after operations. جریان از بالا به پایین درآمد از مشتریان کسب می‌شود. بهای تمام‌شده هزینه مستقیم محصولات فروخته‌شده است. هزینه‌های عملیاتی هزینه‌های اداره کسب‌وکار هستند. بهره و مالیات پس از عملیات می‌آیند. Three key subtotals: Gross Profit = Revenue - COGS. Operating Income = Gross Profit - operating expenses. Net Income = profit after all expenses. سه سطح مهم سود: سود ناخالص = درآمد - بهای تمام‌شده. سود عملیاتی = سود ناخالص - هزینه‌های عملیاتی. سود خالص = سود پس از همه هزینه‌ها. How to read it quickly Start with gross profit, then check operating income, then compare net income to cash flow. Common mistake Net income is not pure cash. It includes accruals, estimates, depreciation, inventory assumptions, and unpaid receivables. روش سریع خواندن صورت سود و زیان از سود ناخالص شروع کنید، بعد سود عملیاتی را بررسی کنید، سپس سود خالص را با جریان نقد مقایسه کنید. اشتباه رایج سود خالص وجه نقد خالص نیست. شامل اقلام تعهدی، برآوردها، استهلاک، فرض‌های موجودی و دریافتنی‌های وصول‌نشده است.';
 
+const cashFlowStatementBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">The cash flow statement explains the question the income statement cannot fully answer: <strong>where did cash actually come from, and where did it actually go?</strong> It sorts cash into three buckets: operating, investing, and financing.</p>
+
+	<div class="farsi-block" style="margin-top:12px; max-width:none;">
+		صورت جریان وجوه نقد به سؤالی پاسخ می‌دهد که صورت سود و زیان به‌تنهایی کامل جواب نمی‌دهد: <strong>وجه نقد واقعاً از کجا آمد و واقعاً کجا رفت؟</strong> این صورت، جریان نقد را در سه سبد دسته‌بندی می‌کند: عملیاتی، سرمایه‌گذاری و تأمین مالی.
+	</div>
+
+	<div style="margin-top:16px; display:grid; grid-template-columns: 1fr; gap:14px;">
+		<div>
+			<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep);">BUCKET 01 · سبد ۰۱</div>
+			<div style="font-family:'Fraunces',serif; font-size:21px; color:var(--navy); margin-top:5px;">Operating Activities <span style="font-family:'Vazirmatn',sans-serif; color:var(--tan-deep);">· فعالیت‌های عملیاتی</span></div>
+			<p style="margin-top:8px; font-size:14px; line-height:1.65;"><strong>Cash from the core business:</strong> collections from customers, payments to suppliers, payroll, rent, tax, and interest. This is the first place to look because it shows whether normal operations are producing cash.</p>
+			<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;"><strong>وجه نقد از کسب‌وکار اصلی:</strong> وصول از مشتریان، پرداخت به تأمین‌کنندگان، حقوق و دستمزد، اجاره، مالیات و بهره. این بخش مهم‌ترین نقطهٔ شروع است، چون نشان می‌دهد عملیات عادی شرکت وجه نقد تولید می‌کند یا نه.</p>
+		</div>
+
+		<div>
+			<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep);">BUCKET 02 · سبد ۰۲</div>
+			<div style="font-family:'Fraunces',serif; font-size:21px; color:var(--navy); margin-top:5px;">Investing Activities <span style="font-family:'Vazirmatn',sans-serif; color:var(--tan-deep);">· فعالیت‌های سرمایه‌گذاری</span></div>
+			<p style="margin-top:8px; font-size:14px; line-height:1.65;"><strong>Cash used for long-term assets:</strong> buying or selling equipment, buildings, securities, or another business. A growing company often has negative investing cash flow because it is buying assets for the future.</p>
+			<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;"><strong>وجه نقد برای دارایی‌های بلندمدت:</strong> خرید یا فروش تجهیزات، ساختمان، اوراق بهادار یا یک کسب‌وکار دیگر. در شرکت در حال رشد، جریان نقد سرمایه‌گذاری اغلب منفی است، چون شرکت برای آینده دارایی می‌خرد.</p>
+		</div>
+
+		<div>
+			<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep);">BUCKET 03 · سبد ۰۳</div>
+			<div style="font-family:'Fraunces',serif; font-size:21px; color:var(--navy); margin-top:5px;">Financing Activities <span style="font-family:'Vazirmatn',sans-serif; color:var(--tan-deep);">· فعالیت‌های تأمین مالی</span></div>
+			<p style="margin-top:8px; font-size:14px; line-height:1.65;"><strong>Cash from owners and creditors:</strong> borrowing money, repaying debt, issuing stock, paying dividends, or buying back shares. This bucket shows how the company is funded.</p>
+			<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;"><strong>وجه نقد از مالکان و طلبکاران:</strong> گرفتن وام، بازپرداخت بدهی، انتشار سهام، پرداخت سود سهام یا بازخرید سهام. این سبد نشان می‌دهد شرکت چگونه تأمین مالی می‌شود.</p>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Big idea</h3>
+			<p>Profit and cash are different. The income statement uses accrual accounting, so it can include revenue not yet collected and expenses not yet paid. The cash flow statement strips the story back to cash movement.</p>
+			<p>A healthy company usually wants positive operating cash flow. Negative investing cash flow can be good if it comes from useful growth investments. Financing cash flow can be positive or negative depending on whether the company is raising money or returning money.</p>
+			<div class="example"><span class="label">Memory hook</span>Operating = running the business. Investing = buying and selling long-term assets. Financing = getting money from, or returning money to, lenders and owners.</div>
+		</div>
+		<div class="col-fa">
+			<h3>ایدهٔ اصلی</h3>
+			<p>سود و وجه نقد یکی نیستند. صورت سود و زیان از مبنای تعهدی استفاده می‌کند، بنابراین ممکن است درآمدی را نشان دهد که هنوز وصول نشده و هزینه‌ای را نشان دهد که هنوز پرداخت نشده است. صورت جریان وجوه نقد داستان را به حرکت واقعی وجه نقد برمی‌گرداند.</p>
+			<p>یک شرکت سالم معمولاً باید جریان نقد عملیاتی مثبت داشته باشد. جریان نقد سرمایه‌گذاری منفی می‌تواند خوب باشد، اگر ناشی از سرمایه‌گذاری مفید برای رشد باشد. جریان نقد تأمین مالی ممکن است مثبت یا منفی باشد، بسته به اینکه شرکت پول جذب می‌کند یا پول برمی‌گرداند.</p>
+			<div class="example"><span class="label">یادسپار</span>عملیاتی = ادارهٔ کسب‌وکار. سرمایه‌گذاری = خرید و فروش دارایی‌های بلندمدت. تأمین مالی = گرفتن پول از وام‌دهندگان و مالکان، یا برگرداندن پول به آن‌ها.</div>
+		</div>
+	</div>
+
+	<div style="margin-top:18px;">
+		<div style="font-family:'Fraunces',serif; font-size:17px; color:var(--navy); text-align:center;">Cash Flow Statement · Indirect Method</div>
+		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; text-align:center; color:var(--ink-soft);">Year Ended Dec 31, 2025</div>
+		<div style="display:grid; grid-template-columns: 1fr 98px; gap:5px 12px; font-family:'JetBrains Mono',monospace; font-size:14px; line-height:1.55; margin-top:12px;">
+			<div style="grid-column:1/3; font-family:'Inter',sans-serif; font-weight:700; color:var(--navy); font-size:12px; letter-spacing:0.16em;">OPERATING ACTIVITIES</div>
+			<span>Net Income</span><span style="text-align:right;">32,850</span>
+			<span style="color:var(--ink-soft);">+ Depreciation</span><span style="text-align:right;">8,000</span>
+			<span style="color:var(--ink-soft);">- Increase in Accounts Receivable</span><span style="text-align:right;">(4,500)</span>
+			<span style="color:var(--ink-soft);">- Increase in Inventory</span><span style="text-align:right;">(6,000)</span>
+			<span style="color:var(--ink-soft);">+ Increase in Accounts Payable</span><span style="text-align:right;">2,000</span>
+			<span style="color:var(--ink-soft);">+ Increase in Accrued Wages</span><span style="text-align:right;">1,200</span>
+			<span style="font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">Cash from Operating</span><span style="text-align:right; font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">33,550</span>
+			<div style="grid-column:1/3; font-family:'Inter',sans-serif; font-weight:700; color:var(--tan-deep); font-size:12px; letter-spacing:0.16em; margin-top:8px;">INVESTING ACTIVITIES</div>
+			<span>Purchase of Equipment</span><span style="text-align:right;">(20,000)</span>
+			<span>Business acquisition</span><span style="text-align:right;">(12,000)</span>
+			<span style="font-weight:700; color:var(--tan-deep); border-top:1px solid var(--hairline); padding-top:5px;">Cash from Investing</span><span style="text-align:right; font-weight:700; color:var(--tan-deep); border-top:1px solid var(--hairline); padding-top:5px;">(32,000)</span>
+			<div style="grid-column:1/3; font-family:'Inter',sans-serif; font-weight:700; color:var(--navy); font-size:12px; letter-spacing:0.16em; margin-top:8px;">FINANCING ACTIVITIES</div>
+			<span>Proceeds from Debt</span><span style="text-align:right;">25,000</span>
+			<span>Repayment of Debt</span><span style="text-align:right;">(10,000)</span>
+			<span>Dividends Paid</span><span style="text-align:right;">(5,000)</span>
+			<span style="font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">Cash from Financing</span><span style="text-align:right; font-weight:700; color:var(--navy); border-top:1px solid var(--hairline); padding-top:5px;">10,000</span>
+			<span style="font-weight:700; border-top:1px solid var(--hairline); padding-top:7px;">Net Change in Cash</span><span style="text-align:right; font-weight:700; border-top:1px solid var(--hairline); padding-top:7px;">11,550</span>
+			<span>Cash, beginning</span><span style="text-align:right;">15,450</span>
+			<span style="font-weight:700; color:var(--navy);">Cash, ending</span><span style="text-align:right; font-weight:700; color:var(--navy);">27,000</span>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Hard words, translated</h3>
+			<ul>
+				<li><strong>Acquisition:</strong> buying another company, a business line, or a major asset. فارسی: <strong>تحصیل، خرید شرکت، یا تملک</strong>.</li>
+				<li><strong>CapEx / capital expenditures:</strong> cash spent on long-term assets like equipment, stores, buildings, or software. فارسی: <strong>مخارج سرمایه‌ای</strong>.</li>
+				<li><strong>Securities:</strong> financial investments such as stocks or bonds. فارسی: <strong>اوراق بهادار</strong>.</li>
+				<li><strong>Proceeds:</strong> cash received from issuing debt or stock, or from selling an asset. فارسی: <strong>وجوه دریافتی یا عواید حاصل از انتشار/فروش</strong>.</li>
+				<li><strong>Repayment:</strong> paying back borrowed money. فارسی: <strong>بازپرداخت بدهی</strong>.</li>
+				<li><strong>Buyback:</strong> the company buys back its own shares. فارسی: <strong>بازخرید سهام</strong>.</li>
+			</ul>
+		</div>
+		<div class="col-fa">
+			<h3>واژگان دشوار با ترجمه</h3>
+			<ul>
+				<li><strong>Acquisition / تحصیل یا تملک:</strong> یعنی خرید یک شرکت دیگر، یک بخش از کسب‌وکار، یا یک دارایی مهم. مثلاً اگر Ranger یک کافهٔ کوچک را بخرد، این یک acquisition است.</li>
+				<li><strong>CapEx / مخارج سرمایه‌ای:</strong> پولی که برای دارایی‌های بلندمدت خرج می‌شود؛ مثل تجهیزات، ساختمان، شعبهٔ جدید یا نرم‌افزار.</li>
+				<li><strong>Securities / اوراق بهادار:</strong> سرمایه‌گذاری‌های مالی مثل سهام و اوراق قرضه.</li>
+				<li><strong>Proceeds / وجوه دریافتی:</strong> پولی که از گرفتن وام، انتشار سهام یا فروش دارایی وارد شرکت می‌شود.</li>
+				<li><strong>Repayment / بازپرداخت:</strong> پس دادن پولی که قبلاً قرض گرفته شده است.</li>
+				<li><strong>Buyback / بازخرید سهام:</strong> وقتی شرکت سهام خودش را از بازار یا سهامداران می‌خرد.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Reading the pattern</h3>
+			<ul>
+				<li><strong>Mature company:</strong> operating cash is positive, investing is negative, financing is often negative because it repays debt or pays dividends.</li>
+				<li><strong>Growth company:</strong> operating cash may be positive, investing is usually negative because the company is building capacity, and financing may be positive if it raises money.</li>
+				<li><strong>Distressed company:</strong> operating cash is negative, investing may be positive because it sells assets, and financing may be positive because it needs outside cash to survive.</li>
+			</ul>
+			<div class="pitfall"><span class="label">Identity</span>Cash from Operating + Cash from Investing + Cash from Financing = the change in cash on the balance sheet.</div>
+		</div>
+		<div class="col-fa">
+			<h3>خواندن الگوی سه سبد</h3>
+			<ul>
+				<li><strong>شرکت بالغ:</strong> جریان نقد عملیاتی مثبت است، سرمایه‌گذاری معمولاً منفی است، و تأمین مالی اغلب منفی است چون شرکت بدهی بازپرداخت می‌کند یا سود سهام می‌دهد.</li>
+				<li><strong>شرکت در حال رشد:</strong> جریان نقد عملیاتی ممکن است مثبت باشد، سرمایه‌گذاری معمولاً منفی است چون شرکت ظرفیت می‌سازد، و تأمین مالی ممکن است مثبت باشد اگر شرکت پول جذب کند.</li>
+				<li><strong>شرکت دچار مشکل:</strong> جریان نقد عملیاتی منفی است، سرمایه‌گذاری ممکن است مثبت باشد چون دارایی می‌فروشد، و تأمین مالی ممکن است مثبت باشد چون برای بقا به پول بیرونی نیاز دارد.</li>
+			</ul>
+			<div class="pitfall"><span class="label">رابطهٔ اصلی</span>جریان نقد عملیاتی + جریان نقد سرمایه‌گذاری + جریان نقد تأمین مالی = تغییر وجه نقد در ترازنامه.</div>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Common mistake</h3>
+			<p>Do not assume negative investing cash flow is bad. If a company spends cash to buy productive equipment, open profitable stores, build software, or make a smart acquisition, the investing section will be negative because the company is investing for future returns.</p>
+		</div>
+		<div class="col-fa">
+			<h3>اشتباه رایج</h3>
+			<p>منفی بودن جریان نقد سرمایه‌گذاری همیشه بد نیست. اگر شرکت برای خرید تجهیزات مولد، افتتاح شعب سودآور، ساخت نرم‌افزار یا انجام یک تحصیل/خرید هوشمندانه پول خرج کند، بخش سرمایه‌گذاری منفی می‌شود چون شرکت برای بازده آینده سرمایه‌گذاری کرده است.</p>
+		</div>
+	</div>`;
+
+const cashFlowStatementPlain =
+	'The cash flow statement explains where cash actually came from and where it actually went. It sorts cash into three buckets: operating, investing, and financing. صورت جریان وجوه نقد توضیح می‌دهد وجه نقد واقعاً از کجا آمد و کجا رفت. این صورت، جریان نقد را در سه سبد دسته‌بندی می‌کند: عملیاتی، سرمایه‌گذاری و تأمین مالی. Operating activities are cash from the core business: collections from customers, payments to suppliers, payroll, rent, tax, and interest. فعالیت‌های عملیاتی یعنی وجه نقد از کسب‌وکار اصلی: وصول از مشتریان، پرداخت به تأمین‌کنندگان، حقوق و دستمزد، اجاره، مالیات و بهره. Investing activities are cash used for long-term assets: equipment, buildings, securities, or another business. فعالیت‌های سرمایه‌گذاری یعنی وجه نقد برای دارایی‌های بلندمدت: تجهیزات، ساختمان، اوراق بهادار یا یک کسب‌وکار دیگر. Financing activities are cash from owners and creditors: borrowing, repaying debt, issuing stock, dividends, or buybacks. فعالیت‌های تأمین مالی یعنی وجه نقد از مالکان و طلبکاران: گرفتن وام، بازپرداخت بدهی، انتشار سهام، پرداخت سود سهام یا بازخرید سهام. Big idea Profit and cash are different. The income statement uses accrual accounting, while the cash flow statement shows cash movement. ایده اصلی سود و وجه نقد یکی نیستند. صورت سود و زیان از حسابداری تعهدی استفاده می‌کند، اما صورت جریان وجوه نقد حرکت واقعی وجه نقد را نشان می‌دهد. Example cash flow statement: net income 32,850, depreciation 8,000, increase in accounts receivable 4,500, increase in inventory 6,000, increase in accounts payable 2,000, increase in accrued wages 1,200, cash from operating 33,550, purchase of equipment 20,000, business acquisition 12,000, cash from investing negative 32,000, proceeds from debt 25,000, repayment of debt 10,000, dividends paid 5,000, cash from financing 10,000, net change in cash 11,550. مثال صورت جریان وجوه نقد: سود خالص ۳۲٬۸۵۰، استهلاک ۸٬۰۰۰، افزایش حساب‌های دریافتنی ۴٬۵۰۰، افزایش موجودی ۶٬۰۰۰، افزایش حساب‌های پرداختنی ۲٬۰۰۰، افزایش دستمزدهای معوق ۱٬۲۰۰، جریان نقد عملیاتی ۳۳٬۵۵۰، خرید تجهیزات ۲۰٬۰۰۰، تحصیل یا خرید کسب‌وکار ۱۲٬۰۰۰، جریان نقد سرمایه‌گذاری منفی ۳۲٬۰۰۰، وجوه دریافتی از بدهی ۲۵٬۰۰۰، بازپرداخت بدهی ۱۰٬۰۰۰، سود سهام پرداختی ۵٬۰۰۰، جریان نقد تأمین مالی ۱۰٬۰۰۰، تغییر خالص وجه نقد ۱۱٬۵۵۰. Hard words: acquisition means تحصیل، خرید شرکت، یا تملک. CapEx means مخارج سرمایه‌ای. Securities means اوراق بهادار. Proceeds means وجوه دریافتی یا عواید حاصل از انتشار/فروش. Repayment means بازپرداخت بدهی. Buyback means بازخرید سهام. Pattern: mature company usually has positive operating, negative investing, negative financing. Growth company often has positive operating, negative investing, positive financing. Distressed company may have negative operating, positive investing from selling assets, and positive financing. الگو: شرکت بالغ معمولاً عملیاتی مثبت، سرمایه‌گذاری منفی و تأمین مالی منفی دارد. شرکت در حال رشد اغلب عملیاتی مثبت، سرمایه‌گذاری منفی و تأمین مالی مثبت دارد. شرکت بحرانی ممکن است عملیاتی منفی، سرمایه‌گذاری مثبت از فروش دارایی و تأمین مالی مثبت داشته باشد. Identity: cash from operating plus cash from investing plus cash from financing equals the change in cash on the balance sheet. رابطه اصلی: جریان نقد عملیاتی به علاوه جریان نقد سرمایه‌گذاری به علاوه جریان نقد تأمین مالی برابر است با تغییر وجه نقد در ترازنامه. Common mistake: negative investing cash flow is not always bad. اشتباه رایج: منفی بودن جریان نقد سرمایه‌گذاری همیشه بد نیست.';
+
 const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'05-equation': {
 		body: accountingEquationBody,
@@ -777,6 +908,10 @@ const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'27-income-statement': {
 		body: incomeStatementBody,
 		plain: incomeStatementPlain
+	},
+	'28-cfs-structure': {
+		body: cashFlowStatementBody,
+		plain: cashFlowStatementPlain
 	}
 };
 
