@@ -47,6 +47,7 @@
 		"@fontsource/vazirmatn": "^5.2.8",
 		"@tailwindcss/vite": "^4.2.2",
 		"dexie": "^4.4.2",
+		"kokoro-js": "^1.2.1",
 		"tailwindcss": "^4.2.2",
 		"ts-fsrs": "^5.3.2"
 	}

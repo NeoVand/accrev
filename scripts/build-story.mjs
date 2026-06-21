@@ -176,6 +176,158 @@ function renderSchedule(content) {
 const renderCode = (content) =>
 	`<pre class="codeblock"><code>${esc(content.replace(/\n+$/, ''))}</code></pre>`;
 
+// ---- narration (text-to-speech segments) ----------------------------------
+// Convert the chapter markdown into an ordered list of spoken segments. Prose,
+// headings, and callouts read naturally; journal entries and schedules are
+// re-voiced as plain sentences; widgets, margin notes, formulas, and the H1
+// title are skipped (the player announces the title itself).
+const AP_RE = /['’]/g;
+const cleanInline = (s) =>
+	s
+		.replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+		.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+		.replace(/`([^`]+)`/g, '$1')
+		.replace(/\*\*([^*]+)\*\*/g, '$1')
+		.replace(/\*([^*]+)\*/g, '$1')
+		.replace(/^#+\s*/, '')
+		.replace(/&#39;/g, '’')
+		.replace(/\s+/g, ' ')
+		.trim();
+
+const speakNum = (n) => n.replace(/^\((.*)\)$/, 'minus $1').replace(/[.]{2,}/g, '');
+
+function narrateJournal(content) {
+	const rows = [];
+	let cap = '';
+	let started = false;
+	for (const line of content.split('\n')) {
+		const t = line.trim();
+		if (!t) continue;
+		const m = t.match(/^(Dr|Cr)\s+(.*\S)$/i);
+		if (m) {
+			started = true;
+			const side = m[1].toLowerCase() === 'dr' ? 'Debit' : 'Credit';
+			const rest = m[2];
+			const am = rest.match(/([\d][\d,]*(?:\.\d+)?)\s*$/);
+			const amount = am ? am[1] : '';
+			const account = (am ? rest.slice(0, am.index) : rest).replace(/[.\s]+$/, '').trim();
+			rows.push(`${side} ${account}${amount ? `, ${amount}` : ''}`);
+		} else if (!started) {
+			cap = t;
+		}
+	}
+	if (!rows.length) return '';
+	return `Journal entry${cap ? `, ${cap}` : ''}. ` + rows.join('. ') + '.';
+}
+
+function narrateSchedule(content) {
+	const out = [];
+	for (const raw of content.split('\n')) {
+		const t = raw.trim();
+		if (!t) continue;
+		if (/^[─—_=\s-]+$/.test(t)) continue;
+		const row = parseRow(raw);
+		if (row) {
+			const note = row.note ? `. ${row.note}` : '';
+			out.push(`${row.label.replace(/[:=]/g, '').trim()}, ${speakNum(row.num)}${note}`);
+		} else {
+			out.push(t.replace(/:$/, ''));
+		}
+	}
+	return out.length ? out.join('. ') + '.' : '';
+}
+
+function buildNarration(body) {
+	const segs = [];
+	const lines = body.split('\n');
+	let para = [];
+	const flush = () => {
+		if (para.length) {
+			const text = cleanInline(para.join(' '));
+			if (text) segs.push(text);
+			para = [];
+		}
+	};
+	let i = 0;
+	while (i < lines.length) {
+		const line = lines[i];
+		const fence = line.match(/^```(.*)$/);
+		if (fence) {
+			flush();
+			const info = fence[1].trim();
+			const content = [];
+			i++;
+			while (i < lines.length && !/^```/.test(lines[i])) content.push(lines[i++]);
+			i++;
+			const c = content.join('\n');
+			if (info === 'widget') {
+				/* interactive — skip */
+			} else if (looksJournal(c)) {
+				const t = narrateJournal(c);
+				if (t) segs.push(t);
+			} else if (looksSchedule(c)) {
+				const t = narrateSchedule(c);
+				if (t) segs.push(t);
+			}
+			continue;
+		}
+		const h = line.match(/^(#{1,6})\s+(.*)$/);
+		if (h) {
+			flush();
+			if (h[1].length > 1) {
+				const text = cleanInline(h[2]);
+				if (text) segs.push(text);
+			}
+			i++;
+			continue;
+		}
+		if (/^>\s?/.test(line)) {
+			flush();
+			const q = [];
+			while (i < lines.length && /^>\s?/.test(lines[i])) q.push(lines[i++].replace(/^>\s?/, ''));
+			let text = cleanInline(q.join(' '));
+			text = text
+				.replace(new RegExp(`^Iris${AP_RE.source}s Question\\.?\\s*`, 'i'), 'Iris asks. ')
+				.replace(new RegExp(`^The Friar${AP_RE.source}s Proverb\\.?\\s*`, 'i'), 'The Friar’s proverb. ');
+			if (text) segs.push(text);
+			continue;
+		}
+		if (/^\*\*Iris['’]s Margin Notes\*\*/.test(line)) {
+			flush();
+			i++;
+			while (i < lines.length && (/^\s*[-*]\s/.test(lines[i]) || lines[i].trim() === '')) {
+				const blank = lines[i].trim() === '';
+				i++;
+				if (blank) break;
+			}
+			continue;
+		}
+		if (/^(\*\*\*|---|___)\s*$/.test(line)) {
+			flush();
+			i++;
+			continue;
+		}
+		if (/^\s*[-*]\s+/.test(line)) {
+			flush();
+			const items = [];
+			while (i < lines.length && /^\s*[-*]\s+/.test(lines[i]))
+				items.push(cleanInline(lines[i++].replace(/^\s*[-*]\s+/, '')));
+			const text = items.filter(Boolean).join('. ');
+			if (text) segs.push(text);
+			continue;
+		}
+		if (line.trim() === '') {
+			flush();
+			i++;
+			continue;
+		}
+		para.push(line.trim());
+		i++;
+	}
+	flush();
+	return segs;
+}
+
 // ---- per-chapter build ----------------------------------------------------
 function build(file) {
 	const raw = readFileSync(join(CH_DIR, file), 'utf8');
@@ -260,7 +412,8 @@ function build(file) {
 		wordCount,
 		readingMin: Math.max(1, Math.round(wordCount / 220)),
 		body: html.trim(),
-		plain
+		plain,
+		narration: buildNarration(body)
 	};
 }
 
@@ -292,6 +445,8 @@ export interface StoryChapter {
 	readingMin: number;
 	body: string;
 	plain: string;
+	/** Ordered spoken segments for the audiobook (TTS) — prose, headings, callouts, journals. */
+	narration: string[];
 }
 
 export const chapters: StoryChapter[] = ${JSON.stringify(chapters, null, '\t')};

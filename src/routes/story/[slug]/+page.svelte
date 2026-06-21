@@ -6,6 +6,7 @@
 	import ChapterBody from '$lib/story/components/ChapterBody.svelte';
 	import ChapterNav from '$lib/story/components/ChapterNav.svelte';
 	import StoryMarkAsRead from '$lib/story/components/StoryMarkAsRead.svelte';
+	import AudioPlayer from '$lib/story/components/AudioPlayer.svelte';
 	import '$lib/story/story.css';
 
 	const { data } = $props();
@@ -53,6 +54,8 @@
 				<p class="ch-station">{chapter.station}</p>
 			{/if}
 		</header>
+
+		<AudioPlayer title={chapter.title} segments={chapter.narration} />
 
 		<ChapterBody {chapter} />
 
