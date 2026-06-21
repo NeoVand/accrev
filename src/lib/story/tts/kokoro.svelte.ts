@@ -40,6 +40,8 @@ class KokoroModel {
 	progress = $state(0);
 	device = $state<'webgpu' | 'wasm' | null>(null);
 	error = $state<string | null>(null);
+	/** Technical detail of the failure (for logs / debug). */
+	errorDetail = $state<string | null>(null);
 	/** Human-readable phase note shown while loading (download / init / fallback). */
 	note = $state<string | null>(null);
 
@@ -127,7 +129,7 @@ class KokoroModel {
 				console.info('[kokoro] warmup', a.device, a.dtype);
 				await this.#withTimeout(
 					(tts as TtsLike).generate('The accrual world.', { voice: DEFAULT_VOICE }),
-					25000,
+					15000,
 					`${a.device} generate`
 				);
 				this.#tts = tts;
@@ -143,7 +145,9 @@ class KokoroModel {
 		}
 		this.status = 'error';
 		this.note = null;
-		this.error = lastErr instanceof Error ? lastErr.message : String(lastErr);
+		this.error =
+			'The on-device voice engine couldn’t start here. This is a known iOS Safari limitation — the audiobook works on a desktop browser for now.';
+		this.errorDetail = lastErr instanceof Error ? lastErr.message : String(lastErr);
 		this.#loadPromise = null;
 		console.error('[kokoro] all attempts failed', lastErr);
 		throw lastErr;
@@ -153,7 +157,7 @@ class KokoroModel {
 	// so the loop can fall back to the next device. The hung promise is abandoned;
 	// the `settled` guard prevents a late double-settle.
 	#withInitTimeout<T>(loadP: Promise<T>, device: string): Promise<T> {
-		const INIT_TIMEOUT_MS = 30000;
+		const INIT_TIMEOUT_MS = 20000;
 		return new Promise<T>((resolve, reject) => {
 			let settled = false;
 			let reached100At = 0;

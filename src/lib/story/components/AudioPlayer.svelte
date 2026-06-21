@@ -53,6 +53,7 @@
 		status === 'playing' || status === 'buffering' || status === 'loadingModel'
 	);
 	const isSpinning = $derived(status === 'buffering' || status === 'loadingModel');
+	const hasError = $derived(kokoro.status === 'error' || status === 'error');
 
 	const estTotal = $derived.by(() => {
 		if (!narr || narr.generatedCount === 0) return 0;
@@ -70,8 +71,7 @@
 	}
 
 	const statusText = $derived.by(() => {
-		if (kokoro.status === 'error' || status === 'error')
-			return 'Audio unavailable — tap ✕ and retry';
+		if (hasError) return 'Voice engine unavailable';
 		if (status === 'loadingModel') {
 			if (kokoro.progress > 0 && kokoro.progress < 100)
 				return `Loading voice — ${kokoro.progress}%`;
@@ -295,13 +295,17 @@
 			</button>
 		</div>
 
-		<div class="bar" aria-hidden="true">
-			<div
-				class="bar-fill"
-				class:dl={showDownloadBar}
-				style:width="{showDownloadBar ? kokoro.progress : progressPct}%"
-			></div>
-		</div>
+		{#if hasError}
+			<p class="player-err">{kokoro.error ?? 'The audio engine couldn’t start on this device.'}</p>
+		{:else}
+			<div class="bar" aria-hidden="true">
+				<div
+					class="bar-fill"
+					class:dl={showDownloadBar}
+					style:width="{showDownloadBar ? kokoro.progress : progressPct}%"
+				></div>
+			</div>
+		{/if}
 	</div>
 {/if}
 
@@ -525,5 +529,11 @@
 	}
 	.bar-fill.dl {
 		background: var(--gold);
+	}
+	.player-err {
+		margin: 8px 2px 0;
+		font-size: 11.5px;
+		line-height: 1.45;
+		color: var(--ink-muted);
 	}
 </style>
