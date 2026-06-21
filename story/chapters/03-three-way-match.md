@@ -199,6 +199,10 @@ Iris shook her head — gently, because it was a good question, the kind worth g
 
 Remy wrote *capitalize vs expense — ask later* in the margin and underlined it twice.
 
+```widget
+three-way-match
+```
+
 > **The Friar's Proverb.** *"Three witnesses who never met must tell the same tale — for one honest hand is good, but three independent hands are proof."*
 
 **Iris's Margin Notes** — *interview questions this chapter just answered:*

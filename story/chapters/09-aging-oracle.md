@@ -278,6 +278,10 @@ Because that's what Sunny finally saw, standing in the cold mouth of the cave: d
 
 "Estimate now," the Friar agreed, raising the lantern, "so *later* can never ambush you. Hope is a fine thing to feel. It's a *terrible* thing to put in the ledger."
 
+```widget
+depreciation
+```
+
 > **The Friar's Proverb.** *"Everything you own is quietly dying — the machine to use, the debt to the dark. Wisdom is not pretending otherwise; it is setting a little aside, today, for the loss you can already see."*
 
 ---

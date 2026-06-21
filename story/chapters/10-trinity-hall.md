@@ -292,6 +292,10 @@ But this was bigger than that. This was being *woven in*. Sal wasn't a number on
 
 "You're in all of them," he agreed. "That is what it means to be part of something whole. You stopped being a number a long time ago, child. You became a *thread.*"
 
+```widget
+cashflow-bridge
+```
+
 > **The Friar's Proverb.** *"The movie tells you how the year was lived; the snapshot tells you what it left behind; the lie-detector tells you whether any of it was real. Read all three, or you have read none of them."*
 
 **Iris's Margin Notes** — *interview questions this chapter just answered:*

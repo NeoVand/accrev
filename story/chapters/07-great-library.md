@@ -280,6 +280,10 @@ Before they left, Iris drew a circle on the whiteboard and walked its rim, becau
 
 "You're standing on step four," Iris said, capping the marker. "Tally's list is the unadjusted trial balance. It balances. It is not yet true. Steps five and six are a whole room of their own."
 
+```widget
+journal-checker
+```
+
 > **The Friar's Proverb.** *"A balanced book is not a true book — it is merely a book that has not yet been caught."*
 
 **Iris's Margin Notes** — *interview questions this chapter just answered:*

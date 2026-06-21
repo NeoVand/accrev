@@ -248,6 +248,10 @@ That, in one breath, is **month-end close:** post the adjusting entries, reconci
 >
 > Iris stood, satisfied. "*Now* the numbers mean something. Before the Workshop, you had a balance. After it, you have the *truth.* Never confuse the two."
 
+```widget
+adjusting-matrix
+```
+
 > **The Friar's Proverb.** *"A balanced book and a true book are cousins, not twins — the Workshop is where one becomes the other."*
 
 **Iris's Margin Notes** — *interview questions this chapter just answered:*

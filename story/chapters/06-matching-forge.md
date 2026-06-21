@@ -214,6 +214,10 @@ She and the Commission were on the exact same clock. Bought in the same breath. 
 
 "It's *matching*," said the Friar, which from the Friar was the same thing.
 
+```widget
+matching-amortization
+```
+
 > **The Friar's Proverb.** *"A cost that buys the future has no business haunting the present — spread it across the days it serves, and let each day pay its fair share."*
 
 ---

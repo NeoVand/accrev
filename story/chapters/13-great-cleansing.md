@@ -273,6 +273,10 @@ And the two cancel. Wage Expense was sitting at *negative* $18,000 from the reve
 
 "It's housekeeping," Iris said. "But it's the *good* kind — the kind that protects a colleague who doesn't even know you protected them. Reverse the accruals, and January takes care of itself."
 
+```widget
+closing-flow
+```
+
 > **The Friar's Proverb.** *"A temporary account does not die at year's end — it is gathered, weighed, and remembered. Nothing true is ever truly closed; it is only carried home."*
 
 ---

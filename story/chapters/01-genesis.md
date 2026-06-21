@@ -386,6 +386,10 @@ balances like everything else."
 
 ---
 
+```widget
+balance-scale
+```
+
 > **The Friar's Proverb.** *"Assets equal liabilities plus equity — everything
 > else in this whole world is just commentary."*
 

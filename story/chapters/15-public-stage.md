@@ -230,6 +230,10 @@ Sal hadn't just been *recognized.* Sal had been *remembered.*
 
 Sunny slipped her hand into Sal's. Lyle, recognized instantly a lifetime ago and certain the hard part had been getting through the Sphinx, stood on the other side and, for once, said nothing at all. The three of them — one transaction, two truths, one dream fulfilled — looked up at their name in the Hall of Records together.
 
+```widget
+ebitda-bridge
+```
+
 > **The Friar's Proverb.** *"To be recognized is to be counted; to be remembered is to be kept. Do the work honestly, and the books will do both."*
 
 **Iris's Margin Notes** — *interview questions this chapter just answered:*

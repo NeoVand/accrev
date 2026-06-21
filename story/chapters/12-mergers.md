@@ -334,6 +334,10 @@ Sal understood, suddenly, why this chapter had felt personal from the first whif
 
 "Nothing in this realm is too big to be folded into something larger," said the Friar. "Not a sale. Not a company. Not even, one day, Summit itself, if someone bigger ever comes shopping. To be consolidated is not to vanish. It is to become a line in a grander set of books." He looked up at the name over the arch. "Everybody counts. Even the buildings."
 
+```widget
+goodwill
+```
+
 > **The Friar's Proverb.** *"You can buy a company at any price, and call the dream you paid for 'goodwill' — but the dream is the one asset no chisel can age and no buyer can ever purchase back."*
 
 ---

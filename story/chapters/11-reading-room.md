@@ -227,6 +227,10 @@ Iris went still, the way she did when Remy had wandered a step ahead of the less
 
 She capped her pen. "There's a mirror, far ahead of us, on a very public stage, that makes companies look prettier than they are. We'll meet it. For now, just carry the doubt. The ratios are sentences — but a sentence can still be spin."
 
+```widget
+dupont
+```
+
 > **The Friar's Proverb.** *"A number is a noun, and a ratio is a sentence — but be sure you know the dialect, and ask always whether the sentence is true or merely well-spoken."*
 
 **Iris's Margin Notes** — *interview questions this chapter just answered:*

@@ -224,6 +224,10 @@ Remy already had. In the margin of the notebook, next to a tiny doodle of a conv
 
 What hadn't escaped Remy's notice — and Iris let it pass for now, with the small smile of someone saving a lesson for later — was the $60,000 of Accounts Receivable. The customer had thirty days to pay. By year-end, $45,000 had come in as cash, and **$15,000 was still outstanding**, a promise not yet kept, sitting on the books like an IOU. Promises have a way of going unkept. But that's a problem for the Oracle, and a colder room than this one.
 
+```widget
+fifo-lifo
+```
+
 > **The Friar's Proverb.** *"The metal is one thing; the money is another. Tell an honest story about each — but never confuse which you are holding."*
 
 **Iris's Margin Notes** — *interview questions this chapter just answered:*
