@@ -8,6 +8,7 @@
 	import { seedIfNeeded } from '$lib/seed';
 	import { i18n, t } from '$lib/state/i18n.svelte';
 	import { slides as learnSlides } from '$lib/learn';
+	import { chapters as storyChapters } from '$lib/story';
 	import { allLookupEntries } from '$lib/data/lookup';
 	import { INTERVIEW_TOTAL } from '$lib/interview/meta';
 	import type { CpaSection } from '$lib/types';
@@ -72,6 +73,7 @@
 	const foundationalContinuing = $derived(foundational.studied > 0);
 
 	const learnSlideCount = learnSlides.length;
+	const storyChapterCount = storyChapters.length;
 	const glossaryTotal = allLookupEntries().length;
 </script>
 
@@ -90,6 +92,50 @@
 	<div in:fly={{ y: 6, duration: 320, delay: 40 }}>
 		<UnifiedSearch />
 	</div>
+
+	<!-- STORY — The Accrual World, a narrative you can follow number by number -->
+	<a
+		href={resolve('/story')}
+		in:fly={{ y: 16, duration: 420, delay: 60 }}
+		class="hero hero-story group"
+	>
+		<div class="hero-wash hero-wash-story"></div>
+		<span
+			aria-hidden="true"
+			class="hero-glyph hero-glyph-story"
+			style:top="10px"
+			style:right={isFa ? 'auto' : '16px'}
+			style:left={isFa ? '16px' : 'auto'}>∞</span
+		>
+
+		<div class="flex flex-col gap-2">
+			<p class="eyebrow text-accent">{t('hero_story_eyebrow')}</p>
+			<p class="font-display text-[24px] leading-[1.1] font-medium text-ink">
+				{t('hero_story_title')}<span class="text-accent">.</span>
+			</p>
+			<p class="text-[12.5px] leading-[1.55] text-ink-muted">
+				{t('hero_story_sub', storyChapterCount)}
+			</p>
+		</div>
+
+		<div class="hero-cta hero-cta-story">
+			<svg
+				viewBox="0 0 24 24"
+				width="16"
+				height="16"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="1.7"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+			>
+				<path d="M4 5h12a3 3 0 0 1 3 3v11a1 1 0 0 1-1 1H7a3 3 0 0 1-3-3z" />
+				<path d="M8 9h7M8 13h5" />
+			</svg>
+			<span>{t('hero_story_cta')}</span>
+		</div>
+	</a>
 
 	<!-- GLOSSARY — bilingual word reference -->
 	<a
@@ -428,6 +474,51 @@
 			var(--card-highlight),
 			var(--shadow-card-hover),
 			0 24px 60px -28px color-mix(in oklab, var(--accent) 50%, transparent);
+	}
+	.hero-story:hover {
+		box-shadow:
+			var(--card-highlight),
+			var(--shadow-card-hover),
+			0 24px 60px -28px color-mix(in oklab, var(--accent) 50%, transparent);
+	}
+	.hero-wash-story {
+		background:
+			radial-gradient(
+				ellipse 68% 58% at 100% 0%,
+				color-mix(in oklab, var(--accent) 24%, transparent) 0%,
+				transparent 62%
+			),
+			radial-gradient(
+				ellipse 55% 55% at 0% 100%,
+				color-mix(in oklab, var(--gold) 20%, transparent) 0%,
+				transparent 60%
+			);
+	}
+	.hero-glyph-story {
+		font-size: 58px;
+		font-weight: 400;
+		font-style: italic;
+		letter-spacing: -0.02em;
+		color: color-mix(in oklab, var(--accent) 26%, transparent);
+		line-height: 0.9;
+	}
+	.hero-cta-story {
+		background: linear-gradient(
+			180deg,
+			color-mix(in oklab, var(--accent) 88%, white) 0%,
+			var(--accent) 60%,
+			color-mix(in oklab, var(--accent) 92%, black) 100%
+		);
+		color: var(--bg);
+	}
+	.hero:hover .hero-cta-story,
+	.hero:focus-visible .hero-cta-story {
+		background: linear-gradient(
+			180deg,
+			color-mix(in oklab, var(--ink) 92%, white) 0%,
+			var(--ink) 100%
+		);
+		color: var(--bg);
 	}
 
 	.hero-wash {

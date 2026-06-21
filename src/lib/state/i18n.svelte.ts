@@ -232,6 +232,27 @@ const en = {
 	hero_glossary_eyebrow: 'memorize · learn',
 	hero_glossary_title: 'Glossary',
 
+	// Story — The Accrual World
+	nav_story: 'Story',
+	hero_story_eyebrow: 'read · story',
+	hero_story_title: 'The Accrual World',
+	hero_story_sub: (n: number) =>
+		`Follow one transaction from a handshake to the 10-K — a ${n}-part story with numbers you can actually follow.`,
+	hero_story_cta: 'open the story',
+	story_index_title: 'The Accrual World',
+	story_index_sub: 'One transaction. A handshake to the 10-K. With every number you can follow.',
+	story_back_to_index: 'back to the journey',
+	story_prologue: 'P',
+	story_chapters: (n: number) => `${n} chapters`,
+	story_prev: 'previous',
+	story_next: 'next',
+	story_min: (n: number) => `${n} min`,
+	story_mark_read: 'mark as read',
+	story_marked_read: 'read',
+	story_unmark_read: 'mark as unread',
+	story_act: (roman: string) => `Act ${roman}`,
+	story_words_time: (w: number, m: number) => `${w.toLocaleString()} words · ${m} min read`,
+
 	// Interview
 	nav_interview: 'Interview',
 	hero_interview_eyebrow: 'practice · interview',
@@ -494,6 +515,27 @@ const fa: Record<MessageKey, MsgValue> = {
 	read_aloud_def: 'خواندن تعریف',
 	hero_glossary_eyebrow: 'حفظ · یادگیری',
 	hero_glossary_title: 'واژه‌نامه',
+
+	// Story — The Accrual World
+	nav_story: 'داستان',
+	hero_story_eyebrow: 'خواندن · داستان',
+	hero_story_title: 'دنیای تعهدی',
+	hero_story_sub: (n: number) =>
+		`دنبال‌کردن یک معامله از یک دست‌دادن تا گزارش ۱۰-K — داستانی ${n} بخشی با عددهایی که می‌توانی واقعاً دنبال کنی.`,
+	hero_story_cta: 'باز کردن داستان',
+	story_index_title: 'دنیای تعهدی',
+	story_index_sub: 'یک معامله. از یک دست‌دادن تا گزارش سالانه. با هر عددی که می‌توانی دنبال کنی.',
+	story_back_to_index: 'بازگشت به سفر',
+	story_prologue: 'پ',
+	story_chapters: (n: number) => `${n} فصل`,
+	story_prev: 'قبلی',
+	story_next: 'بعدی',
+	story_min: (n: number) => `${n} دقیقه`,
+	story_mark_read: 'علامت‌گذاری به‌عنوان خوانده‌شده',
+	story_marked_read: 'خوانده شد',
+	story_unmark_read: 'علامت‌گذاری به‌عنوان نخوانده',
+	story_act: (roman: string) => `پردهٔ ${roman}`,
+	story_words_time: (w: number, m: number) => `${w.toLocaleString()} واژه · ${m} دقیقه`,
 
 	// Interview
 	nav_interview: 'مصاحبه',

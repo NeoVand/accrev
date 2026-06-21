@@ -1,7 +1,7 @@
 import { lookupWord, type LookupHit } from '$lib/data/lookup';
 
 const SKIP_ANCESTOR_SELECTOR =
-	'.col-fa, .farsi-block, .farsi, .term-fa, .label, button, a, .word-lookup, .inline-speaker';
+	'.col-fa, .farsi-block, .farsi, .term-fa, .label, button, a, .word-lookup, .inline-speaker, .journal, .ledger, code';
 
 const TOKEN_RE = /[A-Za-z][A-Za-z'’-]+/g;
 

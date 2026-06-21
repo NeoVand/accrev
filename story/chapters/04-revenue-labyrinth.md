@@ -233,6 +233,10 @@ hero of our story had been cut in two before ever feeling whole.
 "I'm sorry," the Allocator said, and meant it. "But this is not an ending. It is
 how a thing becomes *real.* You were a price. Now you are two truths."
 
+```widget
+ssp-allocator
+```
+
 ---
 
 ## Lyle Walks Out a Somebody
