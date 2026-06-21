@@ -55,60 +55,67 @@
 	const allOn = $derived(addBacks.every((a) => a.on));
 	const atStory = $derived(allOn);
 
-	// Tallest bar drives the scale (Adjusted EBITDA when add-backs are on).
-	const peak = $derived(Math.max(adjusted, GAAP_NET_INCOME));
+	const money = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
 
-	// Build cumulative waterfall steps: a floating bar for each add-back that
-	// sits on top of the running total, plus solid base + final bars.
-	type Step = {
-		key: string;
-		kind: 'base' | 'add' | 'total';
-		label: string;
-		amount: number; // the segment's own value
-		base: number; // running total it stacks upon (px-space handled in style)
-		running: number; // cumulative total after this step
-		on: boolean;
+	// Short labels keep the compact chart rows to one line.
+	const SHORT: Record<string, string> = {
+		tax: 'Income Tax',
+		interest: 'Interest',
+		da: 'D & A',
+		sbc: 'Stock Comp'
 	};
 
-	const steps = $derived.by<Step[]>(() => {
-		const out: Step[] = [];
+	type Tone = 'start' | 'end' | 'add' | 'off';
+	type Row = {
+		key: string;
+		label: string;
+		valueLabel: string;
+		leftPct: number;
+		widthPct: number;
+		tone: Tone;
+		dim: boolean;
+	};
+
+	const maxScale = $derived(Math.max(adjusted, GAAP_NET_INCOME) || 1);
+
+	const rows = $derived.by((): Row[] => {
+		const M = maxScale;
+		const out: Row[] = [
+			{
+				key: 'gaap',
+				label: 'GAAP NI',
+				valueLabel: money(GAAP_NET_INCOME),
+				leftPct: 0,
+				widthPct: (GAAP_NET_INCOME / M) * 100,
+				tone: 'start',
+				dim: false
+			}
+		];
 		let running = GAAP_NET_INCOME;
-		out.push({
-			key: 'gaap',
-			kind: 'base',
-			label: 'GAAP Net Income',
-			amount: GAAP_NET_INCOME,
-			base: 0,
-			running,
-			on: true
-		});
 		for (const a of addBacks) {
-			const value = a.on ? a.amount : 0;
+			const delta = a.on ? a.amount : 0;
 			out.push({
 				key: a.key,
-				kind: 'add',
-				label: a.label,
-				amount: value,
-				base: running,
-				running: running + value,
-				on: a.on
+				label: SHORT[a.key] ?? a.label,
+				valueLabel: '+ ' + money(a.amount),
+				leftPct: (running / M) * 100,
+				widthPct: a.on ? Math.max((delta / M) * 100, 1.2) : 0,
+				tone: a.on ? 'add' : 'off',
+				dim: !a.on
 			});
-			running += value;
+			running += delta;
 		}
 		out.push({
 			key: 'adj',
-			kind: 'total',
-			label: 'Adjusted EBITDA',
-			amount: running,
-			base: 0,
-			running,
-			on: true
+			label: 'Adj. EBITDA',
+			valueLabel: money(running),
+			leftPct: 0,
+			widthPct: (running / M) * 100,
+			tone: 'end',
+			dim: false
 		});
 		return out;
 	});
-
-	const money = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
-	const pct = (n: number) => (peak > 0 ? (n / peak) * 100 : 0);
 
 	const toggle = (key: string) => {
 		const a = addBacks.find((x) => x.key === key);
@@ -129,29 +136,25 @@
 		<em>Adjusted</em> EBITDA.
 	</p>
 
-	<!-- Waterfall -->
-	<div class="eb-chart" aria-hidden="true">
-		<div class="eb-bars">
-			{#each steps as step (step.key)}
-				<div class="eb-col">
-					<div class="eb-track">
-						{#if step.amount > 0 || step.kind !== 'add'}
-							<div
-								class="eb-bar eb-{step.kind}"
-								class:is-off={step.kind === 'add' && !step.on}
-								style:height={pct(step.amount) + '%'}
-								style:bottom={pct(step.base) + '%'}
-							>
-								<span class="eb-bar-amt">{money(step.amount)}</span>
-							</div>
-						{:else}
-							<div class="eb-bar-empty">off</div>
-						{/if}
-					</div>
-					<span class="eb-col-label" class:is-anchor={step.kind !== 'add'}>{step.label}</span>
+	<!-- Horizontal waterfall: every bar measures from $0 at the left. -->
+	<div
+		class="eb-chart"
+		role="img"
+		aria-label={`From GAAP net income ${money(GAAP_NET_INCOME)} to adjusted EBITDA ${money(adjusted)}`}
+	>
+		{#each rows as r (r.key)}
+			<div class="wf-row" class:dim={r.dim} class:rule={r.tone === 'end'}>
+				<span class="wf-label">{r.label}</span>
+				<div class="wf-track">
+					<div
+						class="wf-bar wf-{r.tone}"
+						style:left="{r.leftPct}%"
+						style:width="{r.widthPct}%"
+					></div>
 				</div>
-			{/each}
-		</div>
+				<span class="wf-val wf-{r.tone}">{r.valueLabel}</span>
+			</div>
+		{/each}
 	</div>
 
 	<!-- Add-back toggles -->
@@ -265,90 +268,82 @@
 		color: var(--ink);
 	}
 
-	/* Waterfall chart */
+	/* Horizontal waterfall */
 	.eb-chart {
 		margin-top: 14px;
 		border-radius: 12px;
 		background: var(--bg-soft);
-		padding: 12px 8px 8px;
-	}
-	.eb-bars {
-		display: flex;
-		align-items: flex-end;
-		gap: 5px;
-		height: 150px;
-	}
-	.eb-col {
-		flex: 1 1 0;
-		min-width: 0;
+		border: 1px solid var(--hairline);
+		padding: 12px;
 		display: flex;
 		flex-direction: column;
+		gap: 7px;
+	}
+	.wf-row {
+		display: grid;
+		grid-template-columns: 72px 1fr 62px;
+		gap: 8px;
 		align-items: center;
-		height: 100%;
+		transition: opacity 200ms ease;
 	}
-	.eb-track {
+	.wf-row.dim {
+		opacity: 0.5;
+	}
+	.wf-row.rule {
+		margin-top: 3px;
+		padding-top: 8px;
+		border-top: 1px dashed var(--hairline);
+	}
+	.wf-label {
+		font-size: 10.5px;
+		line-height: 1.15;
+		color: var(--ink-muted);
+	}
+	.wf-track {
 		position: relative;
-		width: 100%;
-		flex: 1 1 auto;
-		min-height: 0;
+		height: 18px;
+		border-radius: 5px;
+		background: color-mix(in oklab, var(--hairline) 45%, transparent);
+		overflow: hidden;
 	}
-	.eb-bar {
+	.wf-bar {
 		position: absolute;
-		left: 0;
-		right: 0;
-		border-radius: 5px 5px 3px 3px;
-		display: flex;
-		align-items: flex-start;
-		justify-content: center;
-		min-height: 3px;
+		top: 0;
+		bottom: 0;
+		border-radius: 4px;
 		transition:
-			height 240ms cubic-bezier(0.22, 1, 0.36, 1),
-			bottom 240ms cubic-bezier(0.22, 1, 0.36, 1),
-			opacity 200ms ease;
+			left 280ms cubic-bezier(0.22, 1, 0.36, 1),
+			width 280ms cubic-bezier(0.22, 1, 0.36, 1);
 	}
-	.eb-base {
-		background: color-mix(in oklab, var(--ink-muted) 55%, var(--bg-elevated));
+	.wf-bar.wf-start {
+		background: color-mix(in oklab, var(--ink-muted) 60%, var(--bg-elevated));
 	}
-	.eb-add {
+	.wf-bar.wf-end {
+		background: color-mix(in oklab, var(--success) 80%, black 8%);
+	}
+	.wf-bar.wf-add {
 		background: var(--success);
 	}
-	.eb-add.is-off {
-		opacity: 0.18;
+	.wf-bar.wf-off {
+		background: var(--ink-faint);
 	}
-	.eb-total {
-		background: color-mix(in oklab, var(--success) 78%, black 10%);
-		box-shadow: var(--card-highlight);
-	}
-	.eb-bar-amt {
-		font-family: ui-monospace, 'JetBrains Mono', 'SF Mono', monospace;
-		font-size: 8.5px;
+	.wf-val {
+		font-family: ui-monospace, 'JetBrains Mono', monospace;
+		font-size: 11px;
 		font-variant-numeric: tabular-nums;
-		margin-top: -14px;
-		font-weight: 600;
-		color: var(--ink);
+		text-align: right;
 		white-space: nowrap;
+		color: var(--ink);
 	}
-	.eb-bar-empty {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		text-align: center;
-		font-size: 8px;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: var(--ink-faint);
+	.wf-val.wf-add {
+		color: var(--success);
 	}
-	.eb-col-label {
-		margin-top: 7px;
-		font-size: 8px;
-		line-height: 1.25;
-		text-align: center;
-		color: var(--ink-faint);
-		min-height: 22px;
+	.wf-val.wf-start {
+		color: var(--ink);
+		font-weight: 600;
 	}
-	.eb-col-label.is-anchor {
-		color: var(--ink-muted);
+	.wf-val.wf-end {
+		color: var(--success);
 		font-weight: 600;
 	}
 

@@ -115,8 +115,66 @@ function renderJournal(content) {
 	return html;
 }
 
-const renderLedger = (content) =>
-	`<pre class="ledger"><code>${esc(content.replace(/\n+$/, ''))}</code></pre>`;
+// A "schedule" line: a label, a run of dot/space leaders, then a (possibly
+// signed / parenthesised / $-prefixed) number, then an optional trailing note.
+const NUM = '[+\\-−]?\\s?\\$?\\(?[\\d,]+(?:\\.\\d+)?\\)?';
+const ROW_DOTS = new RegExp(`^(.*?\\S)\\s*[.\\u2500\\u2014_-]{2,}\\s*(${NUM})(.*)$`);
+const ROW_GAP = new RegExp(`^(.*?\\S)\\s{2,}(${NUM})(\\s.*)?$`);
+
+function parseRow(rawLine) {
+	const indent = (rawLine.match(/^ */) || [''])[0].length;
+	const t = rawLine.trim();
+	const m = t.match(ROW_DOTS) || t.match(ROW_GAP);
+	if (!m) return null;
+	return {
+		indent,
+		label: m[1].trim(),
+		num: m[2].replace(/\s+/g, ' ').trim(),
+		note: (m[3] || '').trim()
+	};
+}
+
+const looksSchedule = (content) => {
+	const lines = content.split('\n').filter((l) => l.trim());
+	const rows = lines.filter((l) => parseRow(l)).length;
+	return rows >= 2 && rows >= lines.length * 0.35;
+};
+
+// Render a financial schedule as responsive label/number rows (wraps cleanly on
+// a phone; never overflows). Numbers right-aligned, negatives/positives tinted.
+function renderSchedule(content) {
+	let html = '<div class="schedule">';
+	for (const raw of content.split('\n')) {
+		if (!raw.trim()) {
+			html += '<div class="sch-gap"></div>';
+			continue;
+		}
+		const indent = (raw.match(/^ */) || [''])[0].length;
+		const pad = ` style="padding-left:${indent * 6}px"`;
+		const t = raw.trim();
+		if (/^[─—_=\s-]+$/.test(t) && /[─—_=-]{3,}/.test(t)) {
+			html += '<div class="sch-rule"></div>';
+			continue;
+		}
+		const row = parseRow(raw);
+		if (row) {
+			const neg = /^[(−-]/.test(row.num) || /\)$/.test(row.num);
+			const pos = /^\+/.test(row.num);
+			const numCls = neg ? ' sch-neg' : pos ? ' sch-pos' : '';
+			const total = row.label.startsWith('=');
+			const note = row.note ? ` <span class="sch-note">${esc(row.note)}</span>` : '';
+			html += `<div class="sch-row${total ? ' sch-total' : ''}"${pad}><span class="sch-label">${esc(row.label)}${note}</span><span class="sch-num${numCls}">${esc(row.num)}</span></div>`;
+		} else {
+			const head = t.endsWith(':');
+			html += `<div class="sch-line${head ? ' sch-head' : ''}"${pad}>${esc(t)}</div>`;
+		}
+	}
+	return html + '</div>';
+}
+
+// Fallback for aligned monospace that isn't a schedule (formulas, ASCII).
+const renderCode = (content) =>
+	`<pre class="codeblock"><code>${esc(content.replace(/\n+$/, ''))}</code></pre>`;
 
 // ---- per-chapter build ----------------------------------------------------
 function build(file) {
@@ -139,8 +197,10 @@ function build(file) {
 			html = `<div class="story-widget" data-widget="${esc(wid)}"></div>`;
 		} else if (looksJournal(content)) {
 			html = renderJournal(content);
+		} else if (looksSchedule(content)) {
+			html = renderSchedule(content);
 		} else {
-			html = renderLedger(content);
+			html = renderCode(content);
 		}
 		blocks.push(html);
 		return `\n\n@@BLOCK${blocks.length - 1}@@\n\n`;

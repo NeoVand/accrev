@@ -29,11 +29,6 @@
 	const mult2 = (n: number) =>
 		n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '×';
 
-	// Relative widths for the three factor bars (each scaled to its own range).
-	const marginW = $derived(Math.max(2, (margin / 100) * 100));
-	const turnoverW = $derived(Math.max(2, (turnover / 3) * 100));
-	const multiplierW = $derived(Math.max(2, ((multiplier - 1) / 3) * 100));
-
 	function reset() {
 		margin = SUMMIT.margin;
 		turnover = SUMMIT.turnover;
@@ -68,9 +63,6 @@
 			bind:value={margin}
 			aria-label="Net profit margin, percent"
 		/>
-		<span class="dp-bar dp-bar-margin" aria-hidden="true"
-			><span class="dp-fill" style:width="{marginW}%"></span></span
-		>
 		<span class="dp-scale"><span>0%</span><span>100%</span></span>
 	</label>
 
@@ -88,9 +80,6 @@
 			bind:value={turnover}
 			aria-label="Asset turnover, times"
 		/>
-		<span class="dp-bar dp-bar-turnover" aria-hidden="true"
-			><span class="dp-fill" style:width="{turnoverW}%"></span></span
-		>
 		<span class="dp-scale"><span>0×</span><span>3×</span></span>
 	</label>
 
@@ -108,9 +97,6 @@
 			bind:value={multiplier}
 			aria-label="Equity multiplier, times"
 		/>
-		<span class="dp-bar dp-bar-multiplier" aria-hidden="true"
-			><span class="dp-fill" style:width="{multiplierW}%"></span></span
-		>
 		<span class="dp-scale"><span>1×</span><span>4×</span></span>
 	</label>
 
@@ -220,36 +206,13 @@
 		cursor: pointer;
 		margin: 0;
 	}
-	.dp-bar {
-		display: block;
-		height: 7px;
-		margin-top: 7px;
-		border-radius: 4px;
-		background: var(--bg-soft);
-		overflow: hidden;
-	}
-	.dp-fill {
-		display: block;
-		height: 100%;
-		border-radius: 4px;
-		transition: width 180ms cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	.dp-bar-margin .dp-fill {
-		background: var(--accent);
-	}
-	.dp-bar-turnover .dp-fill {
-		background: var(--gold);
-	}
-	.dp-bar-multiplier .dp-fill {
-		background: color-mix(in oklab, var(--accent) 55%, var(--gold) 45%);
-	}
 	.dp-scale {
 		display: flex;
 		justify-content: space-between;
 		font-size: 9.5px;
 		color: var(--ink-faint);
 		font-variant-numeric: tabular-nums;
-		margin-top: 3px;
+		margin-top: 5px;
 	}
 	.dp-chain {
 		display: flex;

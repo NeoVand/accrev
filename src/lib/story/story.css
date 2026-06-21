@@ -108,13 +108,14 @@
 .journal-tbl {
 	width: 100%;
 	border-collapse: collapse;
+	table-layout: auto;
 	font-family: ui-monospace, 'JetBrains Mono', monospace;
-	font-size: 13px;
+	font-size: 12.5px;
 }
 .journal-tbl td,
 .journal-tbl th {
-	padding: 7px 14px;
-	vertical-align: baseline;
+	padding: 6px 12px;
+	vertical-align: top;
 }
 .j-head td {
 	font-family: var(--font-sans);
@@ -129,17 +130,20 @@
 .j-acct {
 	text-align: left;
 	color: var(--ink);
-	white-space: nowrap;
+	overflow-wrap: anywhere;
+	line-height: 1.35;
 }
 .j-indent {
-	padding-left: 1.5em;
+	display: inline-block;
+	padding-left: 1.1em;
 	color: var(--ink-muted);
 }
 .j-amt {
 	text-align: right;
 	font-variant-numeric: tabular-nums;
-	width: 26%;
+	width: 1%;
 	white-space: nowrap;
+	padding-left: 6px;
 }
 .j-amt-dr {
 	color: var(--ink);
@@ -179,8 +183,78 @@
 	color: var(--danger);
 }
 
-/* ---------------- Ledgers / schedules (raw monospace) ---------------- */
-.ledger {
+/* ---------------- Financial schedules (responsive label/number rows) ---------------- */
+.schedule {
+	margin: 1.4em 0;
+	padding: 12px 14px;
+	border: 1px solid var(--hairline);
+	border-radius: 12px;
+	background: var(--bg-soft);
+	font-size: 13px;
+	line-height: 1.45;
+}
+.sch-row {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 2px 0;
+}
+.sch-label {
+	color: var(--ink);
+	min-width: 0;
+}
+.sch-note {
+	display: block;
+	font-size: 11px;
+	color: var(--ink-faint);
+	line-height: 1.4;
+	margin-top: 1px;
+}
+.sch-num {
+	flex: none;
+	font-family: ui-monospace, 'JetBrains Mono', monospace;
+	font-size: 12.5px;
+	font-variant-numeric: tabular-nums;
+	color: var(--ink);
+	white-space: nowrap;
+}
+.sch-num.sch-neg {
+	color: var(--danger);
+}
+.sch-num.sch-pos {
+	color: var(--success);
+}
+.sch-head {
+	color: var(--ink-muted);
+	font-weight: 500;
+	margin-top: 4px;
+}
+.sch-line {
+	color: var(--ink-muted);
+	padding: 2px 0;
+}
+.sch-total {
+	margin-top: 4px;
+	padding-top: 6px;
+	border-top: 1.5px solid color-mix(in oklab, var(--hairline) 85%, var(--ink));
+	font-weight: 600;
+}
+.sch-total .sch-label,
+.sch-total .sch-num {
+	color: var(--ink);
+}
+.sch-rule {
+	height: 1px;
+	margin: 5px 0;
+	background: color-mix(in oklab, var(--hairline) 90%, transparent);
+}
+.sch-gap {
+	height: 6px;
+}
+
+/* Aligned monospace that isn't a schedule (formulas, ASCII) — scrolls cleanly. */
+.codeblock {
 	margin: 1.4em 0;
 	padding: 12px 14px;
 	border: 1px solid var(--hairline);
@@ -190,9 +264,9 @@
 	overflow-x: auto;
 	-webkit-overflow-scrolling: touch;
 }
-.ledger code {
+.codeblock code {
 	font-family: ui-monospace, 'JetBrains Mono', monospace;
-	font-size: 12px;
+	font-size: 11.5px;
 	line-height: 1.55;
 	color: var(--ink);
 	white-space: pre;
@@ -201,9 +275,9 @@
 /* ---------------- Callouts: Iris asks / The Friar ---------------- */
 .callout {
 	margin: 1.5em 0;
-	padding: 14px 16px 14px 18px;
+	padding: 14px 16px;
 	border-radius: 14px;
-	border: 1px solid var(--hairline);
+	border: 1.5px solid var(--hairline);
 	position: relative;
 }
 .callout p {
@@ -225,16 +299,16 @@
 	vertical-align: 1.5px;
 }
 .callout-iris {
-	border-left: 3px solid var(--accent);
-	background: color-mix(in oklab, var(--accent) 7%, var(--bg-elevated));
+	border-color: color-mix(in oklab, var(--accent) 50%, var(--hairline));
+	background: color-mix(in oklab, var(--accent) 5%, var(--bg-elevated));
 }
 .callout-iris .callout-tag {
 	background: color-mix(in oklab, var(--accent) 88%, transparent);
 	color: var(--bg);
 }
 .callout-friar {
-	border-left: 3px solid var(--gold);
-	background: color-mix(in oklab, var(--gold) 9%, var(--bg-elevated));
+	border-color: color-mix(in oklab, var(--gold) 55%, var(--hairline));
+	background: color-mix(in oklab, var(--gold) 7%, var(--bg-elevated));
 	font-family: var(--font-serif);
 	font-size: 16.5px;
 	font-style: italic;

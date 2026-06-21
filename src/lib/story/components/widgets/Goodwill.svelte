@@ -87,26 +87,43 @@
 		<span class="gw-result-amt">{money(goodwill)}</span>
 	</div>
 
+	<!-- Proportional bar (visual only) — every number lives in the legend below,
+	     so a thin goodwill slice is never an unreadable scrap of text. -->
 	<div class="gw-bar" aria-hidden="true">
-		<div class="seg seg-nia" style:width="{niaPct}%">
-			<span class="seg-tag">Net identifiable assets</span>
-			<span class="seg-amt">{money(nia)}</span>
-		</div>
+		<div class="seg seg-nia" style:width="{niaPct}%"></div>
 		{#if goodwillPct > 0}
-			<div class="seg seg-goodwill" style:width="{goodwillPct}%">
-				<span class="seg-tag">Goodwill</span>
-				<span class="seg-amt">{money(goodwill)}</span>
-			</div>
+			<div class="seg seg-goodwill" style:width="{goodwillPct}%"></div>
 		{/if}
 		{#if lostPct > 0}
-			<div class="seg seg-lost" style:width="{lostPct}%">
-				<span class="seg-tag">impaired</span>
-				<span class="seg-amt">−{money(writedown)}</span>
-			</div>
+			<div class="seg seg-lost" style:width="{lostPct}%"></div>
 		{/if}
 	</div>
-	<div class="gw-bracket" aria-hidden="true">
-		<span>stacks up to the purchase price — {money(price)}</span>
+
+	<div class="gw-legend">
+		<div class="gw-leg">
+			<span class="gw-dot dot-nia"></span>
+			<span class="gw-leg-txt">Net identifiable assets</span>
+			<span class="gw-leg-amt">{money(nia)}</span>
+		</div>
+		{#if goodwill > 0}
+			<div class="gw-leg">
+				<span class="gw-dot dot-goodwill"></span>
+				<span class="gw-leg-txt">Goodwill — the premium</span>
+				<span class="gw-leg-amt">{money(goodwill)}</span>
+			</div>
+		{/if}
+		{#if writedown > 0}
+			<div class="gw-leg">
+				<span class="gw-dot dot-lost"></span>
+				<span class="gw-leg-txt">Impaired this period</span>
+				<span class="gw-leg-amt gw-leg-neg">−{money(writedown)}</span>
+			</div>
+		{/if}
+		<div class="gw-leg gw-leg-total">
+			<span class="gw-dot dot-none"></span>
+			<span class="gw-leg-txt">Purchase price</span>
+			<span class="gw-leg-amt">{money(price)}</span>
+		</div>
 	</div>
 
 	<div class="gw-impair">
@@ -266,24 +283,20 @@
 	}
 	.gw-bar {
 		display: flex;
-		gap: 3px;
 		margin-top: 14px;
-		height: 56px;
+		height: 26px;
+		border-radius: 8px;
+		overflow: hidden;
+		background: var(--bg-soft);
 	}
 	.seg {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 2px;
-		border-radius: 9px;
-		color: var(--bg);
-		min-width: 0;
-		overflow: hidden;
-		text-align: center;
+		min-width: 3px;
 		transition:
 			width 220ms cubic-bezier(0.22, 1, 0.36, 1),
 			background-color 200ms ease;
+	}
+	.seg + .seg {
+		box-shadow: inset 1px 0 0 var(--bg-elevated);
 	}
 	.seg-nia {
 		background: var(--gold);
@@ -299,31 +312,62 @@
 			color-mix(in oklab, var(--danger) 70%, black) 5px,
 			color-mix(in oklab, var(--danger) 70%, black) 10px
 		);
-		color: #fff;
 	}
-	.seg-tag {
-		font-size: 9px;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		opacity: 0.9;
-		padding: 0 2px;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		max-width: 100%;
-	}
-	.seg-amt {
-		font-family: var(--font-serif);
-		font-size: 15px;
-		font-variant-numeric: tabular-nums;
-	}
-	.gw-bracket {
+	.gw-legend {
+		margin-top: 12px;
 		display: flex;
-		justify-content: center;
-		margin-top: 6px;
-		font-size: 10.5px;
-		color: var(--ink-faint);
+		flex-direction: column;
+		gap: 7px;
+	}
+	.gw-leg {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		font-size: 12.5px;
+		color: var(--ink);
+	}
+	.gw-dot {
+		flex: none;
+		width: 11px;
+		height: 11px;
+		border-radius: 3px;
+	}
+	.dot-nia {
+		background: var(--gold);
+	}
+	.dot-goodwill {
+		background: color-mix(in oklab, var(--accent) 82%, black 4%);
+	}
+	.dot-lost {
+		background: var(--danger);
+	}
+	.dot-none {
+		background: transparent;
+	}
+	.gw-leg-txt {
+		flex: 1;
+		min-width: 0;
+		color: var(--ink-muted);
+	}
+	.gw-leg-amt {
+		flex: none;
+		font-family: ui-monospace, 'JetBrains Mono', monospace;
+		font-size: 12.5px;
 		font-variant-numeric: tabular-nums;
+		color: var(--ink);
+	}
+	.gw-leg-neg {
+		color: var(--danger);
+	}
+	.gw-leg-total {
+		margin-top: 1px;
+		padding-top: 8px;
+		border-top: 1px dashed var(--hairline);
+	}
+	.gw-leg-total .gw-leg-txt,
+	.gw-leg-total .gw-leg-amt {
+		color: var(--ink);
+		font-weight: 600;
 	}
 	.gw-impair {
 		display: flex;

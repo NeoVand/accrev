@@ -303,10 +303,10 @@ Remy scanned it. There — a line where Summit's books showed *coffee purchased 
 
 ```
 Consolidation eliminations (concept):
-  Cr  Intercompany Revenue (remove Ranger's sale to Summit)
-      Dr  Intercompany Cost/Purchases (remove Summit's buy from Ranger)
-  Dr  Intercompany Payable  (Summit no longer "owes" Ranger)
-      Cr  Intercompany Receivable (Ranger no longer "owed by" Summit)
+  Cr  Intercompany Revenue   (Ranger's sale to Summit)
+  Dr  Intercompany Cost      (Summit's purchase)
+  Dr  Intercompany Payable   (Summit's IOU to Ranger)
+  Cr  Intercompany Receivable(Ranger's claim)
 ```
 
 "And the goodwill?" Iris asked. "Where does it live on this worksheet?"

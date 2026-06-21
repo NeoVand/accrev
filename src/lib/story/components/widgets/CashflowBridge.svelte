@@ -2,16 +2,11 @@
 	// The indirect-method cash-flow bridge from Chapter 10, made live. This is the
 	// *illustrative* textbook shape (NUMBERS §8) — round numbers chosen to teach why
 	// net income ≠ cash, NOT Summit's real figures ($67,250 NI / $72,000 OCF, §11).
-	// Toggle each non-cash / working-capital adjustment and watch operating cash recompute.
+	// Toggle each adjustment and watch operating cash recompute. Rendered as a clean
+	// horizontal waterfall: every bar measures from the same left origin (= $0).
 	const NET_INCOME = 100000;
 
-	type Adj = {
-		id: string;
-		label: string;
-		short: string;
-		amount: number; // signed: + adds cash, − uses cash
-		why: string;
-	};
+	type Adj = { id: string; label: string; short: string; amount: number; why: string };
 
 	const adjustments: Adj[] = [
 		{
@@ -40,52 +35,75 @@
 	let on = $state<Record<string, boolean>>({ dep: true, ar: true, ap: true });
 
 	const operatingCash = $derived(
-		NET_INCOME + adjustments.reduce((sum, a) => sum + (on[a.id] ? a.amount : 0), 0)
+		NET_INCOME + adjustments.reduce((s, a) => s + (on[a.id] ? a.amount : 0), 0)
 	);
 
-	// Waterfall geometry. Scale bar heights to the largest cumulative value so the
-	// tallest column fills the plot; floating steps are positioned by their span.
-	const PLOT = 132; // px height of the bars area
+	const money = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
+	const signed = (n: number) => (n >= 0 ? '+' : '−') + money(Math.abs(n));
 
-	type Step = {
-		kind: 'start' | 'step' | 'end';
+	type Tone = 'start' | 'end' | 'up' | 'down' | 'off';
+	type Row = {
+		key: string;
 		label: string;
-		display: number; // value shown on the bar
-		amount?: number; // signed step delta
-		base: number; // cumulative value at the bottom of a floating step
-		on?: boolean;
-		id?: string;
+		valueLabel: string;
+		leftPct: number;
+		widthPct: number;
+		tone: Tone;
+		dim: boolean;
 	};
 
-	const steps = $derived.by((): Step[] => {
-		const out: Step[] = [{ kind: 'start', label: 'Net Income', display: NET_INCOME, base: 0 }];
+	// Scale to the largest extent the bridge ever reaches, so nothing clips.
+	const maxScale = $derived.by(() => {
+		let running = NET_INCOME;
+		let peak = NET_INCOME;
+		for (const a of adjustments) {
+			if (on[a.id]) running += a.amount;
+			peak = Math.max(peak, running);
+		}
+		return Math.max(NET_INCOME, operatingCash, peak) || 1;
+	});
+
+	const rows = $derived.by((): Row[] => {
+		const M = maxScale;
+		const out: Row[] = [
+			{
+				key: 'start',
+				label: 'Net Income',
+				valueLabel: money(NET_INCOME),
+				leftPct: 0,
+				widthPct: (NET_INCOME / M) * 100,
+				tone: 'start',
+				dim: false
+			}
+		];
 		let running = NET_INCOME;
 		for (const a of adjustments) {
 			const active = on[a.id];
 			const delta = active ? a.amount : 0;
+			const lo = Math.min(running, running + delta);
+			const hi = Math.max(running, running + delta);
 			out.push({
-				kind: 'step',
-				id: a.id,
+				key: a.id,
 				label: a.short,
-				display: a.amount,
-				amount: a.amount,
-				base: delta >= 0 ? running : running + delta,
-				on: active
+				valueLabel: signed(a.amount),
+				leftPct: (lo / M) * 100,
+				widthPct: active ? Math.max(((hi - lo) / M) * 100, 1.2) : 0,
+				tone: !active ? 'off' : a.amount >= 0 ? 'up' : 'down',
+				dim: !active
 			});
 			running += delta;
 		}
-		out.push({ kind: 'end', label: 'Operating Cash', display: running, base: 0 });
+		out.push({
+			key: 'end',
+			label: 'Operating Cash',
+			valueLabel: money(running),
+			leftPct: 0,
+			widthPct: (running / M) * 100,
+			tone: 'end',
+			dim: false
+		});
 		return out;
 	});
-
-	const scaleMax = $derived(
-		Math.max(NET_INCOME, operatingCash, ...steps.map((s) => s.base + Math.abs(s.display)))
-	);
-
-	const px = (v: number) => (Math.abs(v) / scaleMax) * PLOT;
-
-	const money = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
-	const signed = (n: number) => (n >= 0 ? '+' : '−') + money(Math.abs(n));
 
 	const allOn = $derived(adjustments.every((a) => on[a.id]));
 	const gap = $derived(operatingCash - NET_INCOME);
@@ -105,41 +123,25 @@
 		that moved profit but not money.
 	</p>
 
-	<!-- Waterfall -->
+	<!-- Horizontal waterfall: every bar measures from $0 at the left. -->
 	<div
 		class="cfb-chart"
 		role="img"
 		aria-label={`Waterfall from net income ${money(NET_INCOME)} to operating cash ${money(operatingCash)}`}
 	>
-		<div class="cfb-plot" style:height={PLOT + 'px'}>
-			{#each steps as s (s.kind + (s.id ?? s.label))}
-				<div class="col" class:is-off={s.kind === 'step' && !s.on}>
-					<span class="col-val">
-						{s.kind === 'step' ? signed(s.display) : money(s.display)}
-					</span>
-					<div class="col-track" style:height={PLOT + 'px'}>
-						{#if s.kind === 'step'}
-							<div
-								class="bar bar-step"
-								class:up={s.display >= 0}
-								class:down={s.display < 0}
-								class:off={!s.on}
-								style:height={(s.on ? px(s.display) : 2) + 'px'}
-								style:bottom={(s.on ? px(s.base) : px(s.base)) + 'px'}
-							></div>
-						{:else}
-							<div
-								class="bar"
-								class:bar-start={s.kind === 'start'}
-								class:bar-end={s.kind === 'end'}
-								style:height={px(s.display) + 'px'}
-							></div>
-						{/if}
-					</div>
-					<span class="col-label">{s.label}</span>
+		{#each rows as r (r.key)}
+			<div class="wf-row" class:dim={r.dim} class:rule={r.tone === 'end'}>
+				<span class="wf-label">{r.label}</span>
+				<div class="wf-track">
+					<div
+						class="wf-bar wf-{r.tone}"
+						style:left="{r.leftPct}%"
+						style:width="{r.widthPct}%"
+					></div>
 				</div>
-			{/each}
-		</div>
+				<span class="wf-val wf-{r.tone}">{r.valueLabel}</span>
+			</div>
+		{/each}
 	</div>
 
 	<!-- Toggles -->
@@ -172,8 +174,8 @@
 	<p class="cfb-note" class:is-on={allOn}>
 		{#if allOn}
 			All three on: net income <strong>{money(NET_INCOME)}</strong> bridges to
-			<strong>{money(operatingCash)}</strong> of operating cash — a
-			<strong>{signed(gap)}</strong> gap that lived entirely in non-cash and working-capital lines.
+			<strong>{money(operatingCash)}</strong> of operating cash — a <strong>{signed(gap)}</strong>
+			gap that lived entirely in non-cash and working-capital lines.
 		{:else if gap === 0}
 			With every adjustment off, cash equals net income exactly — but real businesses never look
 			like this. Turn the lines back on.
@@ -230,81 +232,86 @@
 		color: var(--ink-muted);
 	}
 
-	/* Waterfall chart */
+	/* Horizontal waterfall */
 	.cfb-chart {
-		margin-top: 16px;
-		padding: 10px 4px 0;
+		margin-top: 14px;
+		padding: 12px;
 		border-radius: 12px;
 		background: var(--bg-soft);
 		border: 1px solid var(--hairline);
-	}
-	.cfb-plot {
-		display: flex;
-		align-items: flex-end;
-		gap: 4px;
-	}
-	.col {
-		flex: 1;
-		min-width: 0;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		gap: 4px;
+		gap: 7px;
 	}
-	.col-val {
-		font-family: ui-monospace, 'JetBrains Mono', monospace;
-		font-size: 9.5px;
-		font-variant-numeric: tabular-nums;
-		color: var(--ink-muted);
-		white-space: nowrap;
+	.wf-row {
+		display: grid;
+		grid-template-columns: 78px 1fr 64px;
+		gap: 8px;
+		align-items: center;
 		transition: opacity 200ms ease;
 	}
-	.col.is-off .col-val {
-		opacity: 0.4;
+	.wf-row.dim {
+		opacity: 0.5;
 	}
-	.col-track {
+	.wf-row.rule {
+		margin-top: 3px;
+		padding-top: 8px;
+		border-top: 1px dashed var(--hairline);
+	}
+	.wf-label {
+		font-size: 10.5px;
+		line-height: 1.15;
+		color: var(--ink-muted);
+	}
+	.wf-track {
 		position: relative;
-		width: 100%;
+		height: 18px;
+		border-radius: 5px;
+		background: color-mix(in oklab, var(--hairline) 45%, transparent);
+		overflow: hidden;
 	}
-	.bar {
+	.wf-bar {
 		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
+		top: 0;
 		bottom: 0;
-		width: 78%;
 		border-radius: 4px;
 		transition:
-			height 260ms cubic-bezier(0.22, 1, 0.36, 1),
-			bottom 260ms cubic-bezier(0.22, 1, 0.36, 1),
-			opacity 200ms ease;
+			left 280ms cubic-bezier(0.22, 1, 0.36, 1),
+			width 280ms cubic-bezier(0.22, 1, 0.36, 1);
 	}
-	.bar-start {
+	.wf-bar.wf-start {
 		background: color-mix(in oklab, var(--accent) 82%, black 4%);
 	}
-	.bar-end {
+	.wf-bar.wf-end {
 		background: var(--gold);
 	}
-	.bar-step.up {
+	.wf-bar.wf-up {
 		background: var(--success);
 	}
-	.bar-step.down {
+	.wf-bar.wf-down {
 		background: var(--danger);
 	}
-	.bar-step.off {
+	.wf-bar.wf-off {
 		background: var(--ink-faint);
-		opacity: 0.5;
-		border-radius: 2px;
 	}
-	.col-label {
-		font-size: 9px;
-		line-height: 1.2;
-		text-align: center;
-		color: var(--ink-muted);
-		max-width: 100%;
-		overflow-wrap: break-word;
+	.wf-val {
+		font-family: ui-monospace, 'JetBrains Mono', monospace;
+		font-size: 11px;
+		font-variant-numeric: tabular-nums;
+		text-align: right;
+		white-space: nowrap;
+		color: var(--ink);
 	}
-	.col.is-off .col-label {
-		color: var(--ink-faint);
+	.wf-val.wf-up {
+		color: var(--success);
+	}
+	.wf-val.wf-down {
+		color: var(--danger);
+	}
+	.wf-val.wf-start,
+	.wf-val.wf-end {
+		color: var(--ink);
+		font-weight: 600;
 	}
 
 	/* Toggles */

@@ -50,12 +50,10 @@
 	/* Layered shadow system: ambient (soft + diffuse) + contact (sharp + close).
 	   Tinted with the warm ink color so shadows feel of-a-piece with the palette. */
 	--shadow-card:
-		0 1px 2px rgba(42, 31, 45, 0.04),
-		0 4px 12px -6px rgba(42, 31, 45, 0.08),
+		0 1px 2px rgba(42, 31, 45, 0.04), 0 4px 12px -6px rgba(42, 31, 45, 0.08),
 		0 18px 40px -22px rgba(42, 31, 45, 0.18);
 	--shadow-card-hover:
-		0 1px 2px rgba(42, 31, 45, 0.05),
-		0 8px 22px -8px rgba(42, 31, 45, 0.12),
+		0 1px 2px rgba(42, 31, 45, 0.05), 0 8px 22px -8px rgba(42, 31, 45, 0.12),
 		0 28px 60px -22px rgba(42, 31, 45, 0.28);
 	/* Inner top-edge highlight: simulates a soft light source above the card. */
 	--card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.65);
@@ -78,12 +76,10 @@
 	--danger: #c76860;
 
 	--shadow-card:
-		0 1px 2px rgba(0, 0, 0, 0.3),
-		0 6px 16px -6px rgba(0, 0, 0, 0.35),
+		0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 16px -6px rgba(0, 0, 0, 0.35),
 		0 22px 48px -22px rgba(0, 0, 0, 0.6);
 	--shadow-card-hover:
-		0 1px 2px rgba(0, 0, 0, 0.35),
-		0 10px 26px -8px rgba(0, 0, 0, 0.45),
+		0 1px 2px rgba(0, 0, 0, 0.35), 0 10px 26px -8px rgba(0, 0, 0, 0.45),
 		0 32px 70px -22px rgba(0, 0, 0, 0.75);
 	--card-highlight: inset 0 1px 0 rgba(255, 230, 217, 0.06);
 	--cta-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
@@ -115,6 +111,34 @@ body {
 	background-attachment: fixed;
 	min-height: 100dvh;
 	position: relative;
+}
+
+/* Subtle, of-a-piece scrollbars on desktop (phones use overlay scrollbars and
+   ignore most of this). Thin, rounded, inset via a transparent border, and only
+   gently darker on hover — never the heavy default gutter. */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: color-mix(in oklab, var(--ink-faint) 55%, transparent) transparent;
+}
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background-color: color-mix(in oklab, var(--ink-faint) 50%, transparent);
+	border-radius: 999px;
+	border: 3px solid transparent;
+	background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: color-mix(in oklab, var(--ink-muted) 65%, transparent);
+	background-clip: padding-box;
+}
+::-webkit-scrollbar-corner {
+	background: transparent;
 }
 
 /* Paper-grain overlay: a tactile, editorial texture that keeps the warm
