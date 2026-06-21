@@ -17,35 +17,35 @@
 	// The chapter title is spoken first, then every narration segment.
 	const fullSegments = $derived([title, ...segments]);
 
-	function listen() {
+	function makeNarration() {
 		narr?.dispose();
+		clearHighlight();
 		const n = new Narration(fullSegments, voice);
 		narr = n;
 		n.start();
 	}
-
 	function close() {
 		narr?.dispose();
 		narr = null;
+		clearHighlight();
 	}
-
 	function changeVoice(v: string) {
 		if (v === voice) return;
 		voice = v;
-		if (narr) {
-			narr.dispose();
-			const n = new Narration(fullSegments, voice);
-			narr = n;
-			n.start();
-		}
+		if (narr) makeNarration();
 	}
 
-	onDestroy(() => narr?.dispose());
+	onDestroy(() => {
+		narr?.dispose();
+		clearHighlight();
+	});
 
 	const status = $derived(narr?.status ?? 'idle');
-	const isBusy = $derived(status === 'playing' || status === 'buffering' || status === 'loadingModel');
+	const isBusy = $derived(
+		status === 'playing' || status === 'buffering' || status === 'loadingModel'
+	);
+	const isSpinning = $derived(status === 'buffering' || status === 'loadingModel');
 
-	// Smooth-ish total estimate from the average generated segment length.
 	const estTotal = $derived.by(() => {
 		if (!narr || narr.generatedCount === 0) return 0;
 		return (narr.knownDuration / narr.generatedCount) * narr.total;
@@ -62,107 +62,185 @@
 	}
 
 	const statusText = $derived.by(() => {
-		if (kokoro.status === 'error') return kokoro.error ?? 'Model failed to load';
-		if (status === 'error') return narr?.error ?? 'Something went wrong';
+		if (kokoro.status === 'error' || status === 'error')
+			return 'Audio unavailable — tap ✕ and retry';
 		if (status === 'loadingModel')
-			return kokoro.progress > 0
-				? `Downloading voice model — ${kokoro.progress}%`
-				: 'Loading voice model…';
+			return kokoro.progress > 0 ? `Loading voice — ${kokoro.progress}%` : 'Loading voice…';
 		if (status === 'buffering') return 'Synthesizing…';
 		if (status === 'done') return 'Finished';
 		return '';
 	});
-	const showProgressBar = $derived(kokoro.status === 'loading' && status === 'loadingModel');
+	const showDownloadBar = $derived(kokoro.status === 'loading' && status === 'loadingModel');
+
+	// ---- reading highlight: map the playing segment to a DOM element ----
+	let cachedEls: HTMLElement[] | null = null;
+	let highlighted: HTMLElement | null = null;
+
+	function narratedEls(): HTMLElement[] {
+		if (cachedEls) return cachedEls;
+		const container = document.querySelector('.story-prose');
+		if (!container) return [];
+		const out: HTMLElement[] = [];
+		for (const el of Array.from(container.children)) {
+			if (!(el instanceof HTMLElement)) continue;
+			const c = el.classList;
+			if (c.contains('margin-notes') || c.contains('story-widget') || c.contains('codeblock'))
+				continue;
+			const tag = el.tagName.toLowerCase();
+			if (tag === 'hr' || tag === 'h1') continue;
+			if (
+				tag === 'p' ||
+				tag === 'h2' ||
+				tag === 'h3' ||
+				tag === 'ul' ||
+				tag === 'ol' ||
+				tag === 'blockquote' ||
+				c.contains('journal') ||
+				c.contains('schedule')
+			) {
+				out.push(el);
+			}
+		}
+		cachedEls = out;
+		return out;
+	}
+
+	function clearHighlight() {
+		if (highlighted) highlighted.classList.remove('is-reading');
+		highlighted = null;
+	}
+
+	function scrollIntoViewIfNeeded(el: HTMLElement) {
+		const main = document.querySelector('main');
+		if (!main) return;
+		const r = el.getBoundingClientRect();
+		const m = main.getBoundingClientRect();
+		if (r.top < m.top + 100 || r.bottom > m.bottom - 24) {
+			el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+		}
+	}
+
+	function highlight(fullIdx: number) {
+		let el: HTMLElement | null = null;
+		if (fullIdx <= 0) el = document.querySelector('.ch-title');
+		else el = narratedEls()[fullIdx - 1] ?? null;
+		if (el === highlighted) {
+			if (el && status === 'playing') scrollIntoViewIfNeeded(el);
+			return;
+		}
+		clearHighlight();
+		if (el) {
+			el.classList.add('is-reading');
+			highlighted = el;
+			if (status === 'playing') scrollIntoViewIfNeeded(el);
+		}
+	}
+
+	$effect(() => {
+		const i = narr?.index;
+		void narr?.status; // re-run when playback starts so we scroll to the first line
+		if (narr && i != null) highlight(i);
+		else clearHighlight();
+	});
 </script>
 
 {#if !narr}
-	<button class="listen-btn" type="button" onclick={listen}>
+	<button class="listen-btn" type="button" onclick={makeNarration}>
 		<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
 			<path d="M8 5v14l11-7z" />
 		</svg>
 		<span>{t('story_listen')}</span>
-		<span class="listen-sub">audiobook</span>
 	</button>
 {:else}
-	<div class="player" transition:slide={{ duration: 220 }}>
-		<div class="player-top">
-			<span class="player-eyebrow">
-				<span class="dot" class:live={status === 'playing'}></span>
-				Audiobook
-				{#if kokoro.device}<span class="player-device">· {kokoro.device}</span>{/if}
-			</span>
-			<button class="icon-btn close" type="button" onclick={close} aria-label="Close player">
-				<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-					<path d="M6 6l12 12M18 6L6 18" />
-				</svg>
-			</button>
-		</div>
-
-		{#if showProgressBar}
-			<div class="dl">
-				<div class="dl-track"><div class="dl-fill" style:width="{kokoro.progress}%"></div></div>
-			</div>
-		{/if}
-
-		<div class="controls">
+	<div class="player" transition:slide={{ duration: 200 }}>
+		<div class="row">
 			<button
-				class="icon-btn"
+				class="rw"
 				type="button"
 				onclick={() => narr?.rewind(10)}
 				aria-label="Rewind 10 seconds"
 				disabled={status === 'loadingModel'}
 			>
-				<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-					<path d="M3 12a9 9 0 1 0 3-6.8" />
-					<path d="M3 4.5V9h4.5" />
+				<svg viewBox="0 0 24 24" width="21" height="21" aria-hidden="true">
+					<g
+						fill="none"
+						stroke="currentColor"
+						stroke-width="1.6"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+						<path d="M3 3v5h5" />
+					</g>
+					<text x="12.5" y="15.3" text-anchor="middle" class="rw-10">10</text>
 				</svg>
-				<span class="rw-num">10</span>
 			</button>
 
 			<button
-				class="play-btn"
+				class="play"
 				type="button"
 				onclick={() => narr?.toggle()}
 				aria-label={isBusy ? 'Pause' : 'Play'}
 			>
-				{#if status === 'buffering' || status === 'loadingModel'}
+				{#if isSpinning}
 					<span class="spinner" aria-hidden="true"></span>
 				{:else if isBusy}
-					<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+					<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
 						<rect x="6" y="5" width="4" height="14" rx="1" />
 						<rect x="14" y="5" width="4" height="14" rx="1" />
 					</svg>
 				{:else}
-					<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+					<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
 						<path d="M8 5v14l11-7z" />
 					</svg>
 				{/if}
 			</button>
 
-			<div class="meta">
+			<div class="readout">
 				{#if statusText}
-					<span class="status-text">{statusText}</span>
+					<span class="status" class:err={status === 'error' || kokoro.status === 'error'}
+						>{statusText}</span
+					>
 				{:else}
-					<span class="time">{fmt(narr.position)} {#if narr.generatedCount === narr.total}/ {fmt(estTotal)}{/if}</span>
-					<span class="seg">¶ {Math.min(narr.index + 1, narr.total)} / {narr.total}</span>
+					<span class="time">{fmt(narr.position)}</span>
+					<span class="seg">¶ {Math.min(narr.index + 1, narr.total)}/{narr.total}</span>
 				{/if}
 			</div>
+
+			<select
+				class="voice"
+				value={voice}
+				onchange={(e) => changeVoice(e.currentTarget.value)}
+				aria-label="Narrator voice"
+				title={kokoro.device ? `on-device · ${kokoro.device}` : 'on-device'}
+			>
+				{#each NARRATOR_VOICES as v (v.id)}
+					<option value={v.id}>{v.label}</option>
+				{/each}
+			</select>
+
+			<button class="x" type="button" onclick={close} aria-label="Close player">
+				<svg
+					viewBox="0 0 24 24"
+					width="14"
+					height="14"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.8"
+					stroke-linecap="round"
+					aria-hidden="true"
+				>
+					<path d="M6 6l12 12M18 6L6 18" />
+				</svg>
+			</button>
 		</div>
 
 		<div class="bar" aria-hidden="true">
-			<div class="bar-fill" style:width="{progressPct}%"></div>
-		</div>
-
-		<div class="footer">
-			<label class="voice">
-				voice
-				<select value={voice} onchange={(e) => changeVoice(e.currentTarget.value)}>
-					{#each NARRATOR_VOICES as v (v.id)}
-						<option value={v.id}>{v.label}</option>
-					{/each}
-				</select>
-			</label>
-			<span class="hint">on-device · cached after first use</span>
+			<div
+				class="bar-fill"
+				class:dl={showDownloadBar}
+				style:width="{showDownloadBar ? kokoro.progress : progressPct}%"
+			></div>
 		</div>
 	</div>
 {/if}
@@ -171,9 +249,9 @@
 	.listen-btn {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
+		gap: 7px;
 		align-self: flex-start;
-		padding: 7px 14px 7px 12px;
+		padding: 6px 14px 6px 11px;
 		border-radius: 999px;
 		border: 1px solid color-mix(in oklab, var(--accent) 35%, var(--hairline));
 		background: var(--bg-elevated);
@@ -189,144 +267,86 @@
 		border-color: var(--accent);
 		background: color-mix(in oklab, var(--accent) 7%, var(--bg-elevated));
 	}
-	.listen-sub {
-		font-size: 9.5px;
-		letter-spacing: 0.14em;
-		text-transform: uppercase;
-		color: var(--ink-faint);
-	}
 
 	.player {
 		position: sticky;
 		top: 2px;
 		z-index: 6;
-		margin: 4px 0 8px;
-		padding: 12px 14px;
-		border-radius: 16px;
-		border: 1px solid color-mix(in oklab, var(--accent) 28%, var(--hairline));
-		background: color-mix(in oklab, var(--bg-elevated) 92%, var(--bg));
+		margin: 2px 0 6px;
+		padding: 7px 9px 9px;
+		border-radius: 14px;
+		border: 1px solid color-mix(in oklab, var(--accent) 26%, var(--hairline));
+		background: color-mix(in oklab, var(--bg-elevated) 86%, transparent);
 		box-shadow: var(--shadow-card);
-		backdrop-filter: blur(8px);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
 	}
-	.player-top {
+	.row {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
 		gap: 8px;
 	}
-	.player-eyebrow {
-		display: inline-flex;
-		align-items: center;
-		gap: 6px;
-		font-size: 10px;
-		letter-spacing: 0.14em;
-		text-transform: uppercase;
-		color: var(--ink-faint);
-	}
-	.player-device {
-		color: color-mix(in oklab, var(--accent) 70%, var(--ink-faint));
-	}
-	.dot {
-		width: 7px;
-		height: 7px;
-		border-radius: 999px;
-		background: var(--ink-faint);
-	}
-	.dot.live {
-		background: var(--accent);
-		animation: pulse 1.4s ease-in-out infinite;
-	}
-	@keyframes pulse {
-		0%,
-		100% {
-			opacity: 1;
-		}
-		50% {
-			opacity: 0.35;
-		}
-	}
 
-	.dl {
-		margin-top: 10px;
-	}
-	.dl-track {
-		height: 4px;
-		border-radius: 999px;
-		background: color-mix(in oklab, var(--hairline) 60%, transparent);
-		overflow: hidden;
-	}
-	.dl-fill {
-		height: 100%;
-		background: var(--gold);
-		border-radius: 999px;
-		transition: width 200ms ease;
-	}
-
-	.controls {
-		display: flex;
-		align-items: center;
-		gap: 12px;
-		margin-top: 10px;
-	}
-	.icon-btn {
-		position: relative;
+	.rw,
+	.x {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 38px;
-		height: 38px;
-		border-radius: 999px;
-		border: 1px solid var(--hairline);
-		background: var(--bg-elevated);
-		color: var(--ink);
+		border: none;
+		background: transparent;
+		color: var(--ink-muted);
 		cursor: pointer;
 		flex: none;
-		transition:
-			border-color 160ms ease,
-			color 160ms ease;
+		padding: 0;
 	}
-	.icon-btn:hover:not(:disabled) {
-		border-color: var(--accent);
+	.rw {
+		width: 34px;
+		height: 34px;
+		border-radius: 999px;
+	}
+	.rw:hover:not(:disabled) {
 		color: var(--accent);
 	}
-	.icon-btn:disabled {
+	.rw:disabled {
 		opacity: 0.4;
 		cursor: not-allowed;
 	}
-	.icon-btn.close {
-		width: 28px;
-		height: 28px;
-		border: none;
-		background: transparent;
-		color: var(--ink-faint);
-	}
-	.rw-num {
-		position: absolute;
+	.rw-10 {
+		font-family: var(--font-sans);
 		font-size: 8px;
 		font-weight: 700;
-		font-variant-numeric: tabular-nums;
-		bottom: 9px;
+		fill: currentColor;
+		stroke: none;
 	}
-	.play-btn {
+	.x {
+		width: 26px;
+		height: 26px;
+		color: var(--ink-faint);
+	}
+	.x:hover {
+		color: var(--ink);
+	}
+
+	.play {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 48px;
-		height: 48px;
+		width: 40px;
+		height: 40px;
 		border-radius: 999px;
 		border: none;
 		background: var(--accent);
 		color: var(--bg);
 		cursor: pointer;
 		flex: none;
-		box-shadow: 0 4px 14px -6px color-mix(in oklab, var(--accent) 70%, transparent);
+		box-shadow: 0 3px 12px -6px color-mix(in oklab, var(--accent) 75%, transparent);
 	}
-	.play-btn:active {
-		transform: scale(0.96);
+	.play:active {
+		transform: scale(0.95);
 	}
 	.spinner {
-		width: 20px;
-		height: 20px;
+		width: 18px;
+		height: 18px;
 		border-radius: 999px;
 		border: 2.5px solid color-mix(in oklab, var(--bg) 45%, transparent);
 		border-top-color: var(--bg);
@@ -338,16 +358,13 @@
 		}
 	}
 
-	.meta {
+	.readout {
 		display: flex;
-		flex-direction: column;
-		gap: 2px;
+		align-items: baseline;
+		gap: 7px;
 		min-width: 0;
 		flex: 1;
-	}
-	.status-text {
-		font-size: 12px;
-		color: var(--ink-muted);
+		overflow: hidden;
 	}
 	.time {
 		font-family: ui-monospace, 'JetBrains Mono', monospace;
@@ -356,16 +373,52 @@
 		color: var(--ink);
 	}
 	.seg {
-		font-size: 10.5px;
+		font-size: 10px;
 		color: var(--ink-faint);
 		font-variant-numeric: tabular-nums;
+		white-space: nowrap;
+	}
+	.status {
+		font-size: 11.5px;
+		color: var(--ink-muted);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.status.err {
+		color: var(--danger);
+	}
+
+	.voice {
+		flex: none;
+		max-width: 142px;
+		font-family: var(--font-sans);
+		font-size: 12px;
+		color: var(--ink);
+		background: var(--bg-elevated);
+		border: 1px solid var(--hairline);
+		border-radius: 8px;
+		padding: 5px 7px;
+		cursor: pointer;
+	}
+	.voice:hover {
+		border-color: color-mix(in oklab, var(--accent) 40%, var(--hairline));
+	}
+	/* No ugly default focus ring after clicking; a clean accent ring on keyboard focus. */
+	.voice:focus {
+		outline: none;
+	}
+	.voice:focus-visible {
+		outline: none;
+		border-color: var(--accent);
+		box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 22%, transparent);
 	}
 
 	.bar {
-		margin-top: 11px;
-		height: 4px;
+		margin-top: 8px;
+		height: 3px;
 		border-radius: 999px;
-		background: color-mix(in oklab, var(--hairline) 60%, transparent);
+		background: color-mix(in oklab, var(--hairline) 55%, transparent);
 		overflow: hidden;
 	}
 	.bar-fill {
@@ -374,39 +427,7 @@
 		background: var(--accent);
 		transition: width 220ms linear;
 	}
-
-	.footer {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 10px;
-		margin-top: 11px;
-	}
-	.voice {
-		display: inline-flex;
-		align-items: center;
-		gap: 6px;
-		font-size: 10px;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		color: var(--ink-faint);
-	}
-	.voice select {
-		font-family: var(--font-sans);
-		font-size: 12px;
-		text-transform: none;
-		letter-spacing: 0;
-		color: var(--ink);
-		background: var(--bg-elevated);
-		border: 1px solid var(--hairline);
-		border-radius: 8px;
-		padding: 4px 8px;
-		cursor: pointer;
-	}
-	.hint {
-		font-size: 9.5px;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: var(--ink-faint);
+	.bar-fill.dl {
+		background: var(--gold);
 	}
 </style>

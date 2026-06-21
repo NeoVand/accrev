@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import { asset } from '$app/paths';
+	import { asset, base } from '$app/paths';
+	import { dev } from '$app/environment';
 	import '../app.css';
 	import '$lib/state/theme.svelte';
 	import '$lib/state/i18n.svelte';
@@ -11,6 +13,23 @@
 	import { lock } from '$lib/state/lock.svelte';
 
 	let { children } = $props();
+
+	// Register the PWA service worker in production only. In dev, unregister any
+	// stale worker so it can't serve cached pages / return 503 "Offline" while
+	// developing (auto-registration is disabled in svelte.config.js).
+	onMount(async () => {
+		if (!('serviceWorker' in navigator)) return;
+		if (dev) {
+			const regs = await navigator.serviceWorker.getRegistrations();
+			for (const r of regs) await r.unregister();
+		} else {
+			try {
+				await navigator.serviceWorker.register(`${base}/service-worker.js`, { type: 'module' });
+			} catch {
+				/* ignore */
+			}
+		}
+	});
 </script>
 
 <svelte:head><link rel="icon" type="image/svg+xml" href={asset('/icon.svg')} /></svelte:head>

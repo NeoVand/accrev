@@ -362,6 +362,23 @@
 	white-space: nowrap;
 }
 
+/* ---------------- Audiobook: the line being read aloud ---------------- */
+.story-prose .is-reading {
+	border-radius: 6px;
+	background: color-mix(in oklab, var(--accent) 9%, transparent);
+	/* The box-shadow spread extends the highlight a few px around the block
+	   without shifting layout, so prose, callouts, and cards all read cleanly. */
+	box-shadow: 0 0 0 7px color-mix(in oklab, var(--accent) 9%, transparent);
+	transition:
+		background 220ms ease,
+		box-shadow 220ms ease;
+}
+.ch-title.is-reading {
+	border-radius: 8px;
+	background: color-mix(in oklab, var(--accent) 9%, transparent);
+	box-shadow: 0 0 0 8px color-mix(in oklab, var(--accent) 9%, transparent);
+}
+
 /* ---------------- Interactive widget frame ---------------- */
 .story-widget {
 	margin: 1.6em 0;

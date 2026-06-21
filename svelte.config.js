@@ -9,7 +9,10 @@ const config = {
 	},
 	kit: {
 		adapter: adapter({ fallback: '404.html' }),
-		paths: { base: process.env.BASE_PATH ?? '' }
+		paths: { base: process.env.BASE_PATH ?? '' },
+		// We register the service worker ourselves (production only) from the root
+		// layout, so it never interferes with development.
+		serviceWorker: { register: false }
 	},
 	preprocess: [mdsvex({ extensions: ['.svx', '.md'] })],
 	extensions: ['.svelte', '.svx', '.md']

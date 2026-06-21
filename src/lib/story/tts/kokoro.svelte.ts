@@ -17,13 +17,13 @@ export type NarratorVoice = {
 
 // A curated shortlist of strong narrator voices (kokoro-js ships ~28).
 export const NARRATOR_VOICES: NarratorVoice[] = [
-	{ id: 'af_heart', label: 'Heart — warm US', gender: 'f' },
-	{ id: 'af_bella', label: 'Bella — US', gender: 'f' },
-	{ id: 'af_nicole', label: 'Nicole — soft US', gender: 'f' },
-	{ id: 'am_michael', label: 'Michael — US', gender: 'm' },
-	{ id: 'am_fenrir', label: 'Fenrir — US', gender: 'm' },
-	{ id: 'bf_emma', label: 'Emma — UK', gender: 'f' },
-	{ id: 'bm_george', label: 'George — UK', gender: 'm' }
+	{ id: 'af_heart', label: 'Heart (US)', gender: 'f' },
+	{ id: 'af_bella', label: 'Bella (US)', gender: 'f' },
+	{ id: 'af_nicole', label: 'Nicole (US)', gender: 'f' },
+	{ id: 'am_michael', label: 'Michael (US)', gender: 'm' },
+	{ id: 'am_fenrir', label: 'Fenrir (US)', gender: 'm' },
+	{ id: 'bf_emma', label: 'Emma (UK)', gender: 'f' },
+	{ id: 'bm_george', label: 'George (UK)', gender: 'm' }
 ];
 
 export const DEFAULT_VOICE = 'af_heart';
@@ -76,27 +76,46 @@ class KokoroModel {
 		this.status = 'loading';
 		this.error = null;
 		this.progress = 0;
-		try {
-			const { KokoroTTS } = await import('kokoro-js');
-			const hasWebGPU = typeof navigator !== 'undefined' && 'gpu' in navigator;
-			const device: 'webgpu' | 'wasm' = hasWebGPU ? 'webgpu' : 'wasm';
-			const dtype = device === 'webgpu' ? 'fp32' : 'q8';
-			this.device = device;
-			const tts = await KokoroTTS.from_pretrained(MODEL_ID, {
-				dtype,
-				device,
-				progress_callback: this.#onProgress
-			});
-			this.#tts = tts;
-			this.progress = 100;
-			this.status = 'ready';
-			return tts;
-		} catch (e) {
-			this.status = 'error';
-			this.error = e instanceof Error ? e.message : String(e);
-			this.#loadPromise = null;
-			throw e;
+		const { KokoroTTS } = await import('kokoro-js');
+
+		const ua = navigator.userAgent;
+		const isMobile =
+			/Android|iPhone|iPad|iPod|Mobile|IEMobile|Opera Mini/i.test(ua) ||
+			(navigator as unknown as { userAgentData?: { mobile?: boolean } }).userAgentData?.mobile ===
+				true;
+		const hasWebGPU = typeof navigator !== 'undefined' && 'gpu' in navigator;
+
+		// Best fit for the device first, then a safe fallback. fp32 weights (~326MB)
+		// exceed many mobile GPU buffer / cache-storage limits and hang at 100% on
+		// phones, so mobile uses the smaller q8 (~86MB); WASM q8 is the last resort.
+		type Attempt = { device: 'webgpu' | 'wasm'; dtype: 'fp32' | 'q8' };
+		const attempts: Attempt[] = [];
+		if (hasWebGPU) attempts.push({ device: 'webgpu', dtype: isMobile ? 'q8' : 'fp32' });
+		attempts.push({ device: 'wasm', dtype: 'q8' });
+
+		let lastErr: unknown = null;
+		for (const a of attempts) {
+			try {
+				this.device = a.device;
+				this.#files = {};
+				this.progress = 0;
+				const tts = await KokoroTTS.from_pretrained(MODEL_ID, {
+					dtype: a.dtype,
+					device: a.device,
+					progress_callback: this.#onProgress
+				});
+				this.#tts = tts;
+				this.progress = 100;
+				this.status = 'ready';
+				return tts;
+			} catch (e) {
+				lastErr = e;
+			}
 		}
+		this.status = 'error';
+		this.error = lastErr instanceof Error ? lastErr.message : String(lastErr);
+		this.#loadPromise = null;
+		throw lastErr;
 	}
 
 	/** Synthesize one segment of text. Loads the model on first call. */
