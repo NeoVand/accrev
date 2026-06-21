@@ -92,6 +92,11 @@ const en = {
 	light: 'light',
 	dark: 'dark',
 	system: 'system',
+	read_aloud_voice: 'read-aloud voice',
+	voice_model: 'On-device',
+	voice_browser: 'Browser',
+	voice_hint:
+		'On-device uses a warm, natural voice (the audiobook’s “Heart”). It loads a small model on first use and runs on desktop only — iPhone/iPad fall back to the browser voice.',
 	progress_eyebrow: 'progress',
 	progress_title: 'Calendar & mastery',
 	progress_body: 'Streak heatmap, words mastered, and category coverage land in Phase 3.',
@@ -388,6 +393,11 @@ const fa: Record<MessageKey, MsgValue> = {
 	light: 'روشن',
 	dark: 'تیره',
 	system: 'سیستم',
+	read_aloud_voice: 'صدای خواندن',
+	voice_model: 'روی‌دستگاه',
+	voice_browser: 'مرورگر',
+	voice_hint:
+		'حالت روی‌دستگاه از صدای گرم و طبیعی (همان «هارت» کتاب صوتی) استفاده می‌کند. بار اول یک مدل کوچک دانلود می‌شود و فقط روی دسکتاپ کار می‌کند؛ آیفون/آیپد به صدای مرورگر برمی‌گردد.',
 	progress_eyebrow: 'پیشرفت',
 	progress_title: 'تقویم و تسلط',
 	progress_body: 'نقشۀ دنباله، کلمات یاد‌گرفته‌شده، و پوشش دسته‌ها در فاز ۳ میاد.',

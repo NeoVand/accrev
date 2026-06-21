@@ -30,6 +30,21 @@ export const DEFAULT_VOICE = 'af_heart';
 
 const MODEL_ID = 'onnx-community/Kokoro-82M-v1.0-ONNX';
 
+const IOS_MESSAGE =
+	'The on-device voice isn’t available on iPhone or iPad yet — Safari can’t run the speech engine. It works on a desktop browser (Chrome or Edge), and the browser voice is used here in the meantime.';
+
+/**
+ * iOS Safari can't run the on-device engine: the espeak phonemizer throws at
+ * init ("undefined is not a function") regardless of WebGPU/WASM, so generation
+ * never completes. Detect it up front so we never download the model or make the
+ * user wait through timeouts — callers fall back to the browser voice instead.
+ */
+function detectIOS(): boolean {
+	if (!browser || typeof navigator === 'undefined') return false;
+	const ua = navigator.userAgent;
+	return /iP(ad|hone|od)/.test(ua) || (/Macintosh/.test(ua) && (navigator.maxTouchPoints ?? 0) > 1);
+}
+
 export type RawAudio = { audio: Float32Array; sampling_rate: number };
 
 type TtsLike = { generate: (t: string, o: { voice: string }) => Promise<RawAudio> };
@@ -51,6 +66,11 @@ class KokoroModel {
 
 	get isReady() {
 		return this.status === 'ready';
+	}
+
+	/** Whether the on-device engine can run here at all (false on iOS Safari). */
+	get available() {
+		return browser && !detectIOS();
 	}
 
 	/** True once the model has been downloaded at least once this session. */
@@ -79,6 +99,17 @@ class KokoroModel {
 	}
 
 	async #doLoad(): Promise<unknown> {
+		// Bail before downloading anything on iOS — the engine can't run there.
+		if (!this.available) {
+			this.status = 'error';
+			this.error = IOS_MESSAGE;
+			this.errorDetail = 'on-device voice unsupported on iOS Safari (phonemizer init fails)';
+			this.note = null;
+			this.#loadPromise = null;
+			console.info('[kokoro] skipping on-device voice (unsupported on this device)');
+			throw new Error('kokoro unavailable on this device');
+		}
+
 		this.status = 'loading';
 		this.error = null;
 		this.progress = 0;
@@ -91,19 +122,13 @@ class KokoroModel {
 				true;
 		const hasWebGPU = typeof navigator !== 'undefined' && 'gpu' in navigator;
 
-		// iOS Safari exposes WebGPU, but onnxruntime's WebGPU backend currently
-		// LOADS then hangs on inference there — so on iOS we use WASM first
-		// (reliable) and keep WebGPU only as a last resort. Elsewhere, WebGPU first
-		// (fp32 desktop / q8 mobile), with a warm-up guard that falls back if a
-		// device loads but can't actually generate.
-		const isIOS =
-			/iP(ad|hone|od)/.test(ua) || (/Macintosh/.test(ua) && (navigator.maxTouchPoints ?? 0) > 1);
-
+		// WebGPU first where available (fp32 on desktop, q8 on mobile), with a
+		// warm-up guard that falls back to WASM if a device loads but can't
+		// actually generate.
 		type Attempt = { device: 'webgpu' | 'wasm'; dtype: 'fp32' | 'q8' };
 		const attempts: Attempt[] = [];
-		if (hasWebGPU && !isIOS) attempts.push({ device: 'webgpu', dtype: isMobile ? 'q8' : 'fp32' });
+		if (hasWebGPU) attempts.push({ device: 'webgpu', dtype: isMobile ? 'q8' : 'fp32' });
 		attempts.push({ device: 'wasm', dtype: 'q8' });
-		if (hasWebGPU && isIOS) attempts.push({ device: 'webgpu', dtype: 'q8' });
 
 		// The FIRST synthesis on a device is far slower than every later one: it
 		// compiles the espeak-ng phonemizer wasm and warms up the onnxruntime
@@ -114,7 +139,7 @@ class KokoroModel {
 		const initTimeout = isMobile ? 45000 : 20000;
 		const warmupTimeout = isMobile ? 60000 : 15000;
 
-		console.info('[kokoro] loading', { isMobile, isIOS, hasWebGPU, attempts });
+		console.info('[kokoro] loading', { isMobile, hasWebGPU, attempts });
 
 		let lastErr: unknown = null;
 		const errs: string[] = [];

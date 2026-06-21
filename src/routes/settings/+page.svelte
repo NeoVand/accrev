@@ -3,6 +3,12 @@
 	import { wipeEverything } from '$lib/db';
 	import { t } from '$lib/state/i18n.svelte';
 	import { theme } from '$lib/state/theme.svelte';
+	import { voicePref, type VoiceEngine } from '$lib/state/voice.svelte';
+
+	const VOICE_OPTS: { id: VoiceEngine; key: 'voice_model' | 'voice_browser' }[] = [
+		{ id: 'model', key: 'voice_model' },
+		{ id: 'browser', key: 'voice_browser' }
+	];
 
 	let confirmReset = $state(false);
 	let busy = $state(false);
@@ -49,6 +55,28 @@
 				</button>
 			{/each}
 		</div>
+	</div>
+
+	<!-- Read-aloud voice -->
+	<div
+		class="flex flex-col gap-3 rounded-[var(--radius-card)] border border-hairline bg-bg-elevated p-4"
+	>
+		<p class="eyebrow">{t('read_aloud_voice')}</p>
+		<div class="grid grid-cols-2 gap-2">
+			{#each VOICE_OPTS as opt (opt.id)}
+				<button
+					type="button"
+					onclick={() => voicePref.set(opt.id)}
+					aria-pressed={voicePref.engine === opt.id}
+					class="rounded-xl border px-3 py-2.5 text-[11.5px] tracking-[0.14em] uppercase aria-pressed:border-accent aria-pressed:bg-accent-soft/40 aria-pressed:text-accent"
+					class:border-hairline={voicePref.engine !== opt.id}
+					class:text-ink-muted={voicePref.engine !== opt.id}
+				>
+					{t(opt.key)}
+				</button>
+			{/each}
+		</div>
+		<p class="text-[12px] leading-relaxed text-ink-faint">{t('voice_hint')}</p>
 	</div>
 
 	<!-- Reset -->

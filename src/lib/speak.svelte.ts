@@ -1,6 +1,7 @@
 import { browser } from '$app/environment';
 import { stripNonEnglish, pronounce, stopPronounce, primeVoices } from '$lib/audio';
 import { kokoro, DEFAULT_VOICE, type RawAudio } from '$lib/story/tts/kokoro.svelte';
+import { voicePref } from '$lib/state/voice.svelte';
 
 /**
  * App-wide "read this aloud" service. Prefers the on-device Kokoro voice
@@ -66,7 +67,6 @@ class QuickSpeak {
 	#ctx: AudioContext | null = null;
 	#src: AudioBufferSourceNode | null = null;
 	#isMobile = detectMobile();
-	#prewarmed = false;
 
 	isActive(id: number) {
 		return id !== 0 && this.activeId === id;
@@ -83,11 +83,13 @@ class QuickSpeak {
 		if (browser) primeVoices();
 	}
 
-	// Attempt Kokoro only on desktop and only until it has proven it can't run
-	// here — keeps phones (where the engine fails) on the instant browser voice
-	// and avoids a pointless model download over mobile data.
-	get #kokoroAllowed() {
-		return browser && !this.#isMobile && kokoro.status !== 'error';
+	// Use the on-device Heart voice only when the user has chosen it, on desktop
+	// (the model download is too heavy for a tap on mobile data, and iOS can't run
+	// it at all), and as long as it hasn't already failed this session.
+	get #useModel() {
+		return (
+			browser && voicePref.engine === 'model' && !this.#isMobile && kokoro.status !== 'error'
+		);
 	}
 
 	#ensureCtx(): AudioContext | null {
@@ -123,8 +125,10 @@ class QuickSpeak {
 			return;
 		}
 
-		// Preferred path: on-device Heart voice, already warm.
-		if (this.#kokoroAllowed && kokoro.isReady && cleaned.length <= MAX_KOKORO_CHARS) {
+		// Heart voice when chosen: load the model if needed (spinner until the
+		// first chunk is ready), then play. Fall back to the browser voice only if
+		// it can't run here.
+		if (this.#useModel && cleaned.length <= MAX_KOKORO_CHARS) {
 			this.loadingId = id;
 			try {
 				await this.#playChunks(id, splitForTts(cleaned), onEnd);
@@ -137,13 +141,6 @@ class QuickSpeak {
 			}
 		}
 
-		// Kokoro isn't ready (or isn't allowed here): respond instantly with the
-		// browser voice. If Kokoro could work, warm it in the background so the
-		// next click upgrades to Heart.
-		if (this.#kokoroAllowed && !kokoro.loaded && !this.#prewarmed) {
-			this.#prewarmed = true;
-			kokoro.load().catch(() => {});
-		}
 		this.#webSpeech(id, cleaned, onEnd);
 	}
 
