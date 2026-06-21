@@ -1,4 +1,5 @@
-import { canPronounce, primeVoices, pronounce, stopPronounce } from '$lib/audio';
+import { canPronounce } from '$lib/audio';
+import { quickSpeak } from '$lib/speak.svelte';
 
 const PLAY_ICON = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4z" fill="currentColor" stroke="none" /><path d="M15.54 8.46a5 5 0 0 1 0 7.07" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14" /></svg>`;
 
@@ -61,7 +62,7 @@ type Options = { label: string };
 export function injectSpeakers(node: HTMLElement, options: Options) {
 	if (typeof window === 'undefined') return;
 	if (!canPronounce()) return;
-	primeVoices();
+	quickSpeak.prime();
 
 	let opts = options;
 	let activeButton: HTMLButtonElement | null = null;
@@ -123,7 +124,7 @@ export function injectSpeakers(node: HTMLElement, options: Options) {
 		e.stopPropagation();
 
 		if (btn.dataset.speaking === '1') {
-			stopPronounce();
+			quickSpeak.stop();
 			setButtonState(btn, false);
 			activeButton = null;
 			return;
@@ -140,12 +141,10 @@ export function injectSpeakers(node: HTMLElement, options: Options) {
 		activeButton = btn;
 		setButtonState(btn, true);
 
-		pronounce(text, {
-			onEnd: () => {
-				if (activeButton === btn) {
-					setButtonState(btn, false);
-					activeButton = null;
-				}
+		quickSpeak.speak(text, () => {
+			if (activeButton === btn) {
+				setButtonState(btn, false);
+				activeButton = null;
 			}
 		});
 	}
@@ -164,7 +163,7 @@ export function injectSpeakers(node: HTMLElement, options: Options) {
 		destroy() {
 			node.removeEventListener('click', onClick);
 			reset();
-			stopPronounce();
+			quickSpeak.stop();
 		}
 	};
 }

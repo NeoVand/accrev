@@ -70,18 +70,19 @@
 		return `${m}:${s.toString().padStart(2, '0')}`;
 	}
 
+	// Keep the readout quiet. The only message worth showing is the one-time
+	// model download (a real, sizable wait); the model is a cached singleton, so
+	// later chapters reuse it and just show a brief spinner on the play button —
+	// no "warming up / synthesizing / loading voice" chatter every chapter.
+	const downloading = $derived(
+		!kokoro.loaded && kokoro.status === 'loading' && kokoro.progress > 0 && kokoro.progress < 100
+	);
 	const statusText = $derived.by(() => {
-		if (hasError) return 'Voice engine unavailable';
-		if (status === 'loadingModel') {
-			if (kokoro.progress > 0 && kokoro.progress < 100)
-				return `Loading voice — ${kokoro.progress}%`;
-			return kokoro.note ?? 'Loading voice…';
-		}
-		if (status === 'buffering') return 'Synthesizing…';
-		if (status === 'done') return 'Finished';
+		if (hasError) return 'Voice unavailable';
+		if (downloading) return `Downloading voice — ${kokoro.progress}%`;
 		return '';
 	});
-	const showDownloadBar = $derived(kokoro.status === 'loading' && status === 'loadingModel');
+	const showDownloadBar = $derived(downloading);
 
 	// ---- reading highlight: map the playing segment to a DOM element ----
 	let cachedEls: HTMLElement[] | null = null;

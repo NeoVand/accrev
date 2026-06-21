@@ -45,7 +45,7 @@ export function primeVoices(): void {
 }
 
 /** Strip Persian/Arabic letters and any RTL formatting marks before TTS — this app only ever speaks English. */
-function stripNonEnglish(text: string): string {
+export function stripNonEnglish(text: string): string {
 	return text
 		.replace(/[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/g, '')
 		.replace(/[\u200C\u200D\u200E\u200F\u202A-\u202E]/g, '')
