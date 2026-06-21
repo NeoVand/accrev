@@ -32,6 +32,8 @@ const MODEL_ID = 'onnx-community/Kokoro-82M-v1.0-ONNX';
 
 export type RawAudio = { audio: Float32Array; sampling_rate: number };
 
+type TtsLike = { generate: (t: string, o: { voice: string }) => Promise<RawAudio> };
+
 class KokoroModel {
 	status = $state<ModelStatus>('idle');
 	/** Aggregate download progress 0–100 across all model files (first load only). */
@@ -87,16 +89,21 @@ class KokoroModel {
 				true;
 		const hasWebGPU = typeof navigator !== 'undefined' && 'gpu' in navigator;
 
-		// Best fit for the device first, then a safe fallback. fp32 weights (~326MB)
-		// exceed many mobile GPU/cache limits, so mobile uses q8 (~86MB); and if a
-		// WebGPU session hangs during init (a known phone issue), we time out and
-		// fall back to WASM so it can never spin at 100% forever.
+		// iOS Safari exposes WebGPU, but onnxruntime's WebGPU backend currently
+		// LOADS then hangs on inference there — so on iOS we use WASM first
+		// (reliable) and keep WebGPU only as a last resort. Elsewhere, WebGPU first
+		// (fp32 desktop / q8 mobile), with a warm-up guard that falls back if a
+		// device loads but can't actually generate.
+		const isIOS =
+			/iP(ad|hone|od)/.test(ua) || (/Macintosh/.test(ua) && (navigator.maxTouchPoints ?? 0) > 1);
+
 		type Attempt = { device: 'webgpu' | 'wasm'; dtype: 'fp32' | 'q8' };
 		const attempts: Attempt[] = [];
-		if (hasWebGPU) attempts.push({ device: 'webgpu', dtype: isMobile ? 'q8' : 'fp32' });
+		if (hasWebGPU && !isIOS) attempts.push({ device: 'webgpu', dtype: isMobile ? 'q8' : 'fp32' });
 		attempts.push({ device: 'wasm', dtype: 'q8' });
+		if (hasWebGPU && isIOS) attempts.push({ device: 'webgpu', dtype: 'q8' });
 
-		console.info('[kokoro] loading', { isMobile, hasWebGPU, attempts });
+		console.info('[kokoro] loading', { isMobile, isIOS, hasWebGPU, attempts });
 
 		let lastErr: unknown = null;
 		for (const a of attempts) {
@@ -112,6 +119,17 @@ class KokoroModel {
 					progress_callback: this.#onProgress
 				});
 				const tts = await this.#withInitTimeout(loadP, a.device);
+				// Validate the pipeline can actually GENERATE on this device. iOS
+				// WebGPU commonly loads fine but then hangs/throws on inference — so
+				// "ready" isn't enough; we run a tiny warm-up (which also primes the
+				// phonemizer) and only accept the device if it produces audio.
+				this.note = `Warming up (${a.device})…`;
+				console.info('[kokoro] warmup', a.device, a.dtype);
+				await this.#withTimeout(
+					(tts as TtsLike).generate('The accrual world.', { voice: DEFAULT_VOICE }),
+					25000,
+					`${a.device} generate`
+				);
 				this.#tts = tts;
 				this.progress = 100;
 				this.note = null;
@@ -163,6 +181,34 @@ class KokoroModel {
 					if (settled) return;
 					settled = true;
 					clearInterval(iv);
+					reject(e);
+				}
+			);
+		});
+	}
+
+	// Reject if a promise (the warm-up generate) doesn't settle in time, so a
+	// device that loads but can't run inference is rejected and falls back.
+	#withTimeout<T>(p: Promise<T>, ms: number, label: string): Promise<T> {
+		return new Promise<T>((resolve, reject) => {
+			let settled = false;
+			const to = setTimeout(() => {
+				if (settled) return;
+				settled = true;
+				console.warn('[kokoro] timed out:', label);
+				reject(new Error(`${label} timed out`));
+			}, ms);
+			p.then(
+				(v) => {
+					if (settled) return;
+					settled = true;
+					clearTimeout(to);
+					resolve(v);
+				},
+				(e) => {
+					if (settled) return;
+					settled = true;
+					clearTimeout(to);
 					reject(e);
 				}
 			);
