@@ -105,9 +105,19 @@ class KokoroModel {
 		attempts.push({ device: 'wasm', dtype: 'q8' });
 		if (hasWebGPU && isIOS) attempts.push({ device: 'webgpu', dtype: 'q8' });
 
+		// The FIRST synthesis on a device is far slower than every later one: it
+		// compiles the espeak-ng phonemizer wasm and warms up the onnxruntime
+		// session/graph. On a phone that runs single-threaded (GitHub Pages can't
+		// send the COOP/COEP headers that unlock wasm threads), that one-time cold
+		// start can take most of a minute — so a tight timeout would wrongly kill a
+		// device that actually works. Give mobile a generous window; keep desktop snappy.
+		const initTimeout = isMobile ? 45000 : 20000;
+		const warmupTimeout = isMobile ? 60000 : 15000;
+
 		console.info('[kokoro] loading', { isMobile, isIOS, hasWebGPU, attempts });
 
 		let lastErr: unknown = null;
+		const errs: string[] = [];
 		for (const a of attempts) {
 			try {
 				this.device = a.device;
@@ -120,16 +130,18 @@ class KokoroModel {
 					device: a.device,
 					progress_callback: this.#onProgress
 				});
-				const tts = await this.#withInitTimeout(loadP, a.device);
+				const tts = await this.#withInitTimeout(loadP, a.device, initTimeout);
 				// Validate the pipeline can actually GENERATE on this device. iOS
 				// WebGPU commonly loads fine but then hangs/throws on inference — so
 				// "ready" isn't enough; we run a tiny warm-up (which also primes the
 				// phonemizer) and only accept the device if it produces audio.
-				this.note = `Warming up (${a.device})…`;
+				this.note = isMobile
+					? `First-time voice setup (${a.device})… this can take up to a minute`
+					: `Warming up (${a.device})…`;
 				console.info('[kokoro] warmup', a.device, a.dtype);
 				await this.#withTimeout(
 					(tts as TtsLike).generate('The accrual world.', { voice: DEFAULT_VOICE }),
-					15000,
+					warmupTimeout,
 					`${a.device} generate`
 				);
 				this.#tts = tts;
@@ -140,24 +152,28 @@ class KokoroModel {
 				return tts;
 			} catch (e) {
 				lastErr = e;
+				const msg = e instanceof Error ? e.message : String(e);
+				errs.push(`${a.device}/${a.dtype}: ${msg}`);
 				console.warn('[kokoro] attempt failed', a.device, a.dtype, e);
 			}
 		}
 		this.status = 'error';
 		this.note = null;
 		this.error =
-			'The on-device voice engine couldn’t start here. This is a known iOS Safari limitation — the audiobook works on a desktop browser for now.';
-		this.errorDetail = lastErr instanceof Error ? lastErr.message : String(lastErr);
+			'The on-device voice engine couldn’t start on this device. The audiobook works on a desktop browser (Chrome or Edge) for now.';
+		// Keep every attempt's underlying reason so phone logs surface the true cause
+		// (e.g. a phonemizer crash) instead of only the last timeout.
+		this.errorDetail = errs.join(' | ');
 		this.#loadPromise = null;
-		console.error('[kokoro] all attempts failed', lastErr);
+		console.error('[kokoro] all attempts failed', errs);
 		throw lastErr;
 	}
 
 	// Reject if a device session hangs (download hit 100% but init never finishes)
 	// so the loop can fall back to the next device. The hung promise is abandoned;
 	// the `settled` guard prevents a late double-settle.
-	#withInitTimeout<T>(loadP: Promise<T>, device: string): Promise<T> {
-		const INIT_TIMEOUT_MS = 20000;
+	#withInitTimeout<T>(loadP: Promise<T>, device: string, timeoutMs = 20000): Promise<T> {
+		const INIT_TIMEOUT_MS = timeoutMs;
 		return new Promise<T>((resolve, reject) => {
 			let settled = false;
 			let reached100At = 0;
