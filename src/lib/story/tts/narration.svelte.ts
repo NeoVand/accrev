@@ -26,6 +26,8 @@ export class Narration {
 	/** Seconds elapsed within the current segment (live while playing). */
 	displayPos = $state(0);
 	error = $state<string | null>(null);
+	/** Playback rate (1 = normal). Applied to the audio nodes, so changing it is instant. */
+	speed = $state(1);
 
 	readonly total: number;
 	#segments: string[];
@@ -41,9 +43,10 @@ export class Narration {
 	#manualStop = false;
 	#tickId = 0;
 
-	constructor(segments: string[], voice: string) {
+	constructor(segments: string[], voice: string, speed = 1) {
 		this.#segments = segments;
 		this.#voice = voice;
+		this.speed = speed;
 		this.total = segments.length;
 		this.#buffers = new Array(segments.length).fill(null);
 		this.durations = new Array(segments.length).fill(0);
@@ -65,13 +68,15 @@ export class Narration {
 
 	#curOffset() {
 		if (this.#playing && this.#source && this.#ctx)
-			return this.#startedOffset + (this.#ctx.currentTime - this.#startedAt);
+			return this.#startedOffset + (this.#ctx.currentTime - this.#startedAt) * this.speed;
 		return this.displayPos;
 	}
 
 	#ensureCtx() {
 		if (!this.#ctx) {
-			const AC = window.AudioContext ?? (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+			const AC =
+				window.AudioContext ??
+				(window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
 			this.#ctx = new AC();
 		}
 		if (this.#ctx.state === 'suspended') void this.#ctx.resume();
@@ -147,6 +152,7 @@ export class Narration {
 		const src = ctx.createBufferSource();
 		src.buffer = buf;
 		src.connect(ctx.destination);
+		src.playbackRate.value = this.speed;
 		this.#manualStop = false;
 		src.onended = () => {
 			if (this.#manualStop || this.#destroyed) return;
@@ -205,16 +211,29 @@ export class Narration {
 	}
 
 	toggle() {
-		if (this.#playing || this.status === 'buffering' || this.status === 'loadingModel') this.pause();
+		if (this.#playing || this.status === 'buffering' || this.status === 'loadingModel')
+			this.pause();
 		else this.resume();
 	}
 
-	rewind(seconds = 10) {
-		const target = Math.max(0, this.position - seconds);
+	/** Live speed change — applies to the current and future audio, no re-synth. */
+	setSpeed(s: number) {
+		this.speed = s;
+		if (this.#playing && this.#source) {
+			const off = this.#curOffset();
+			this.displayPos = off;
+			this.#playSeg(this.index, off); // rebase the timeline at the new rate
+		}
+	}
+
+	/** Seek by a signed number of seconds along the audio timeline. */
+	seek(deltaSeconds: number) {
+		const target = Math.max(0, this.position + deltaSeconds);
 		let acc = 0;
 		let ti = 0;
 		let toff = 0;
 		for (let i = 0; i < this.total; i++) {
+			// Generated segments are contiguous from 0; the first null is the edge.
 			if (this.#buffers[i] == null) {
 				ti = i;
 				toff = 0;
@@ -230,7 +249,20 @@ export class Narration {
 		}
 		this.index = ti;
 		this.displayPos = toff;
-		if (this.#playing) this.#playSeg(ti, toff);
+		if (this.#playing) {
+			if (this.#buffers[ti]) this.#playSeg(ti, toff);
+			else {
+				this.#stopSource();
+				this.status = 'buffering';
+			}
+		}
+	}
+
+	rewind(seconds = 10) {
+		this.seek(-seconds);
+	}
+	forward(seconds = 10) {
+		this.seek(seconds);
 	}
 
 	#startTick() {

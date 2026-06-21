@@ -11,7 +11,10 @@
 	}
 	const { title, segments }: Props = $props();
 
+	const SPEEDS = [1, 1.25, 1.5, 0.75];
+
 	let voice = $state(DEFAULT_VOICE);
+	let speed = $state(1);
 	let narr = $state<Narration | null>(null);
 
 	// The chapter title is spoken first, then every narration segment.
@@ -20,7 +23,7 @@
 	function makeNarration() {
 		narr?.dispose();
 		clearHighlight();
-		const n = new Narration(fullSegments, voice);
+		const n = new Narration(fullSegments, voice, speed);
 		narr = n;
 		n.start();
 	}
@@ -33,6 +36,11 @@
 		if (v === voice) return;
 		voice = v;
 		if (narr) makeNarration();
+	}
+	function cycleSpeed() {
+		const i = SPEEDS.indexOf(speed);
+		speed = SPEEDS[(i + 1) % SPEEDS.length];
+		narr?.setSpeed(speed);
 	}
 
 	onDestroy(() => {
@@ -196,6 +204,29 @@
 				{/if}
 			</button>
 
+			<button
+				class="rw"
+				type="button"
+				onclick={() => narr?.forward(10)}
+				aria-label="Forward 10 seconds"
+				disabled={status === 'loadingModel'}
+			>
+				<svg viewBox="0 0 24 24" width="21" height="21" aria-hidden="true">
+					<g
+						transform="translate(24,0) scale(-1,1)"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="1.6"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+						<path d="M3 3v5h5" />
+					</g>
+					<text x="12.5" y="15.3" text-anchor="middle" class="rw-10">10</text>
+				</svg>
+			</button>
+
 			<div class="readout">
 				{#if statusText}
 					<span class="status" class:err={status === 'error' || kokoro.status === 'error'}
@@ -206,6 +237,16 @@
 					<span class="seg">¶ {Math.min(narr.index + 1, narr.total)}/{narr.total}</span>
 				{/if}
 			</div>
+
+			<button
+				class="speed"
+				type="button"
+				onclick={cycleSpeed}
+				aria-label="Playback speed"
+				title="Playback speed"
+			>
+				{speed}×
+			</button>
 
 			<select
 				class="voice"
@@ -284,7 +325,7 @@
 	.row {
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: 6px;
 	}
 
 	.rw,
@@ -389,16 +430,42 @@
 		color: var(--danger);
 	}
 
-	.voice {
+	.speed {
 		flex: none;
-		max-width: 142px;
-		font-family: var(--font-sans);
-		font-size: 12px;
-		color: var(--ink);
+		min-width: 40px;
+		font-family: ui-monospace, 'JetBrains Mono', monospace;
+		font-size: 11.5px;
+		font-weight: 600;
+		font-variant-numeric: tabular-nums;
+		color: var(--ink-muted);
 		background: var(--bg-elevated);
 		border: 1px solid var(--hairline);
 		border-radius: 8px;
-		padding: 5px 7px;
+		padding: 5px 6px;
+		cursor: pointer;
+	}
+	.speed:hover {
+		border-color: color-mix(in oklab, var(--accent) 40%, var(--hairline));
+		color: var(--accent);
+	}
+
+	.voice {
+		/* Custom caret (native one crowds the right edge); appearance:none + padding. */
+		appearance: none;
+		-webkit-appearance: none;
+		flex: none;
+		max-width: 116px;
+		font-family: var(--font-sans);
+		font-size: 12px;
+		color: var(--ink);
+		background-color: var(--bg-elevated);
+		background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23998a99' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
+		background-repeat: no-repeat;
+		background-position: right 8px center;
+		background-size: 11px;
+		border: 1px solid var(--hairline);
+		border-radius: 8px;
+		padding: 5px 25px 5px 9px;
 		cursor: pointer;
 	}
 	.voice:hover {
