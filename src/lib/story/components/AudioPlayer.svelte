@@ -72,8 +72,11 @@
 	const statusText = $derived.by(() => {
 		if (kokoro.status === 'error' || status === 'error')
 			return 'Audio unavailable — tap ✕ and retry';
-		if (status === 'loadingModel')
-			return kokoro.progress > 0 ? `Loading voice — ${kokoro.progress}%` : 'Loading voice…';
+		if (status === 'loadingModel') {
+			if (kokoro.progress > 0 && kokoro.progress < 100)
+				return `Loading voice — ${kokoro.progress}%`;
+			return kokoro.note ?? 'Loading voice…';
+		}
 		if (status === 'buffering') return 'Synthesizing…';
 		if (status === 'done') return 'Finished';
 		return '';
@@ -248,17 +251,33 @@
 				{speed}×
 			</button>
 
-			<select
-				class="voice"
-				value={voice}
-				onchange={(e) => changeVoice(e.currentTarget.value)}
-				aria-label="Narrator voice"
-				title={kokoro.device ? `on-device · ${kokoro.device}` : 'on-device'}
-			>
-				{#each NARRATOR_VOICES as v (v.id)}
-					<option value={v.id}>{v.label}</option>
-				{/each}
-			</select>
+			<span class="voice-wrap">
+				<select
+					class="voice"
+					value={voice}
+					onchange={(e) => changeVoice(e.currentTarget.value)}
+					aria-label="Narrator voice"
+					title={kokoro.device ? `on-device · ${kokoro.device}` : 'on-device'}
+				>
+					{#each NARRATOR_VOICES as v (v.id)}
+						<option value={v.id}>{v.label}</option>
+					{/each}
+				</select>
+				<svg
+					class="voice-caret"
+					viewBox="0 0 24 24"
+					width="11"
+					height="11"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2.6"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<path d="M6 9l6 6 6-6" />
+				</svg>
+			</span>
 
 			<button class="x" type="button" onclick={close} aria-label="Close player">
 				<svg
@@ -449,23 +468,33 @@
 		color: var(--accent);
 	}
 
+	/* Custom, theme-aware caret (a real SVG over the select) — the native one
+	   crowds the right edge and a data-URI caret rendered black on some phones. */
+	.voice-wrap {
+		position: relative;
+		display: inline-flex;
+		flex: none;
+	}
+	.voice-caret {
+		position: absolute;
+		right: 8px;
+		top: 50%;
+		transform: translateY(-50%);
+		pointer-events: none;
+		color: var(--ink-muted);
+	}
 	.voice {
-		/* Custom caret (native one crowds the right edge); appearance:none + padding. */
 		appearance: none;
 		-webkit-appearance: none;
-		flex: none;
 		max-width: 116px;
 		font-family: var(--font-sans);
 		font-size: 12px;
 		color: var(--ink);
 		background-color: var(--bg-elevated);
-		background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23998a99' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
-		background-repeat: no-repeat;
-		background-position: right 8px center;
-		background-size: 11px;
+		background-image: none;
 		border: 1px solid var(--hairline);
 		border-radius: 8px;
-		padding: 5px 25px 5px 9px;
+		padding: 5px 24px 5px 9px;
 		cursor: pointer;
 	}
 	.voice:hover {

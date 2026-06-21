@@ -18,6 +18,24 @@
 	// stale worker so it can't serve cached pages / return 503 "Offline" while
 	// developing (auto-registration is disabled in svelte.config.js).
 	onMount(async () => {
+		// On-device debug console: open any page with `?debug` (e.g. on a phone) to
+		// get an Eruda console overlay so you can read logs/errors without a desktop.
+		// `?nodebug` turns it off. The flag persists in localStorage.
+		try {
+			const params = new URLSearchParams(location.search);
+			if (params.has('debug')) localStorage.setItem('accrev:debug', '1');
+			if (params.has('nodebug')) localStorage.removeItem('accrev:debug');
+			const w = window as unknown as { eruda?: { init: () => void } };
+			if (localStorage.getItem('accrev:debug') === '1' && !w.eruda) {
+				const s = document.createElement('script');
+				s.src = 'https://cdn.jsdelivr.net/npm/eruda@3';
+				s.onload = () => w.eruda?.init();
+				document.head.appendChild(s);
+			}
+		} catch {
+			/* ignore */
+		}
+
 		if (!('serviceWorker' in navigator)) return;
 		if (dev) {
 			const regs = await navigator.serviceWorker.getRegistrations();

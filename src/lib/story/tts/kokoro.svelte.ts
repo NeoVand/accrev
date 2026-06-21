@@ -38,6 +38,8 @@ class KokoroModel {
 	progress = $state(0);
 	device = $state<'webgpu' | 'wasm' | null>(null);
 	error = $state<string | null>(null);
+	/** Human-readable phase note shown while loading (download / init / fallback). */
+	note = $state<string | null>(null);
 
 	#tts: unknown = null;
 	#loadPromise: Promise<unknown> | null = null;
@@ -86,12 +88,15 @@ class KokoroModel {
 		const hasWebGPU = typeof navigator !== 'undefined' && 'gpu' in navigator;
 
 		// Best fit for the device first, then a safe fallback. fp32 weights (~326MB)
-		// exceed many mobile GPU buffer / cache-storage limits and hang at 100% on
-		// phones, so mobile uses the smaller q8 (~86MB); WASM q8 is the last resort.
+		// exceed many mobile GPU/cache limits, so mobile uses q8 (~86MB); and if a
+		// WebGPU session hangs during init (a known phone issue), we time out and
+		// fall back to WASM so it can never spin at 100% forever.
 		type Attempt = { device: 'webgpu' | 'wasm'; dtype: 'fp32' | 'q8' };
 		const attempts: Attempt[] = [];
 		if (hasWebGPU) attempts.push({ device: 'webgpu', dtype: isMobile ? 'q8' : 'fp32' });
 		attempts.push({ device: 'wasm', dtype: 'q8' });
+
+		console.info('[kokoro] loading', { isMobile, hasWebGPU, attempts });
 
 		let lastErr: unknown = null;
 		for (const a of attempts) {
@@ -99,23 +104,69 @@ class KokoroModel {
 				this.device = a.device;
 				this.#files = {};
 				this.progress = 0;
-				const tts = await KokoroTTS.from_pretrained(MODEL_ID, {
+				this.note = `Loading (${a.device})…`;
+				console.info('[kokoro] attempt', a.device, a.dtype);
+				const loadP = KokoroTTS.from_pretrained(MODEL_ID, {
 					dtype: a.dtype,
 					device: a.device,
 					progress_callback: this.#onProgress
 				});
+				const tts = await this.#withInitTimeout(loadP, a.device);
 				this.#tts = tts;
 				this.progress = 100;
+				this.note = null;
 				this.status = 'ready';
+				console.info('[kokoro] ready', a.device, a.dtype);
 				return tts;
 			} catch (e) {
 				lastErr = e;
+				console.warn('[kokoro] attempt failed', a.device, a.dtype, e);
 			}
 		}
 		this.status = 'error';
+		this.note = null;
 		this.error = lastErr instanceof Error ? lastErr.message : String(lastErr);
 		this.#loadPromise = null;
+		console.error('[kokoro] all attempts failed', lastErr);
 		throw lastErr;
+	}
+
+	// Reject if a device session hangs (download hit 100% but init never finishes)
+	// so the loop can fall back to the next device. The hung promise is abandoned;
+	// the `settled` guard prevents a late double-settle.
+	#withInitTimeout<T>(loadP: Promise<T>, device: string): Promise<T> {
+		const INIT_TIMEOUT_MS = 30000;
+		return new Promise<T>((resolve, reject) => {
+			let settled = false;
+			let reached100At = 0;
+			const iv = setInterval(() => {
+				if (this.progress >= 100) {
+					if (!reached100At) {
+						reached100At = Date.now();
+						this.note = `Preparing model (${device})…`;
+					} else if (Date.now() - reached100At > INIT_TIMEOUT_MS) {
+						settled = true;
+						clearInterval(iv);
+						console.warn('[kokoro] init timed out after download on', device);
+						reject(new Error(`${device} init timed out`));
+					}
+				}
+			}, 1000);
+			loadP.then(
+				(v) => {
+					if (settled) return;
+					settled = true;
+					clearInterval(iv);
+					resolve(v);
+				},
+				(e) => {
+					if (settled) return;
+					settled = true;
+					clearInterval(iv);
+					reject(e);
+				}
+			);
+		});
 	}
 
 	/** Synthesize one segment of text. Loads the model on first call. */
