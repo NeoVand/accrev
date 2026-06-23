@@ -14,13 +14,13 @@ import {
 	type Slide
 } from './slides.generated';
 
-const accountingEquationBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">The accounting equation is the first rule of the whole system: <strong>Assets = Liabilities + Equity</strong>. It says every resource a company controls must have been financed by someone: either creditors or owners.</p>
+const accountingEquationBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">The accounting equation is the quiet rule underneath every financial statement: <strong>Assets = Liabilities + Equity</strong>. It says every resource a company controls must have a source of funding.</p>
 
 	<div class="farsi-block" style="margin-top:12px; max-width:none;">
-		معادلهٔ حسابداری اولین قاعدهٔ کل سیستم است: <strong>دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام</strong>. یعنی هر منبعی که شرکت در اختیار دارد، حتماً از جایی تأمین مالی شده است: یا از طرف طلبکاران، یا از طرف مالکان.
+		معادلهٔ حسابداری قاعدهٔ آرام و زیربنایی همهٔ صورت‌های مالی است: <strong>دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام</strong>. یعنی هر منبعی که شرکت کنترل می‌کند، باید یک منبع تأمین مالی داشته باشد.
 	</div>
 
-	<div style="margin:18px 0 18px 0; display:grid; grid-template-columns: 1fr; gap:10px; text-align:center;">
+	<div style="margin:18px 0 16px 0; display:grid; grid-template-columns: 1fr; gap:10px; text-align:center;">
 		<div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px 22px; font-family:'Fraunces',serif; font-size:24px; font-weight:400;">
 			<div>
 				<div style="color:var(--navy);">Assets</div>
@@ -44,15 +44,15 @@ const accountingEquationBody = `<p class="subtitle" style="margin-top:14px; max-
 	<div class="lecture-grid" style="margin-top:16px;">
 		<div class="col-en">
 			<h3>Big idea</h3>
-			<p>The left side shows <strong>resources</strong>: cash, inventory, equipment, receivables, buildings, software, and other things the business controls and expects to benefit from.</p>
-			<p>The right side shows <strong>claims</strong> on those resources. Creditors have claims called liabilities. Owners have the residual claim called equity. There is no third source.</p>
-			<div class="example"><span class="label">Memory hook</span>Assets show where value sits. Liabilities and equity show who has a claim on that value.</div>
+			<p>The left side shows <strong>resources</strong>: cash, inventory, equipment, receivables, buildings, software, and other things the company controls and expects to benefit from.</p>
+			<p>The right side shows <strong>claims</strong> on those same resources. Some claims belong to outsiders, such as banks and suppliers. Those are liabilities. The remaining claim belongs to owners. That is equity.</p>
+			<div class="example"><span class="label">Memory hook</span>Assets answer: "What does the company have?" Liabilities and equity answer: "Who has a claim on it?"</div>
 		</div>
 		<div class="col-fa">
 			<h3>ایدهٔ اصلی</h3>
-			<p>سمت چپ <strong>منابع</strong> را نشان می‌دهد: وجه نقد، موجودی کالا، تجهیزات، حساب‌های دریافتنی، ساختمان، نرم‌افزار و چیزهای دیگری که کسب‌وکار کنترل می‌کند و انتظار منفعت از آن‌ها دارد.</p>
-			<p>سمت راست <strong>ادعاها</strong> نسبت به آن منابع را نشان می‌دهد. طلبکاران ادعایی به نام بدهی دارند. مالکان ادعای باقی‌مانده‌ای به نام حقوق صاحبان سهام دارند. محل سومی وجود ندارد.</p>
-			<div class="example"><span class="label">یادسپار</span>دارایی‌ها نشان می‌دهند ارزش کجا نشسته است. بدهی‌ها و حقوق صاحبان سهام نشان می‌دهند چه کسی روی آن ارزش ادعا دارد.</div>
+			<p>سمت چپ <strong>منابع</strong> را نشان می‌دهد: وجه نقد، موجودی کالا، تجهیزات، حساب‌های دریافتنی، ساختمان، نرم‌افزار و چیزهای دیگری که شرکت کنترل می‌کند و انتظار منفعت از آن‌ها دارد.</p>
+			<p>سمت راست <strong>ادعاها</strong> نسبت به همان منابع را نشان می‌دهد. بخشی از این ادعاها متعلق به افراد بیرونی مثل بانک‌ها و تأمین‌کنندگان است؛ این بخش بدهی نام دارد. ادعای باقی‌مانده متعلق به مالکان است؛ این بخش حقوق صاحبان سهام نام دارد.</p>
+			<div class="example"><span class="label">یادسپار</span>دارایی‌ها می‌پرسند: «شرکت چه دارد؟» بدهی‌ها و حقوق صاحبان سهام می‌پرسند: «چه کسی روی آن ادعا دارد؟»</div>
 		</div>
 	</div>
 
@@ -62,7 +62,7 @@ const accountingEquationBody = `<p class="subtitle" style="margin-top:14px; max-
 			<ul>
 				<li><strong>Assets:</strong> economic resources controlled by the company. They are useful because they can create future benefit.</li>
 				<li><strong>Liabilities:</strong> obligations to outsiders. The company must pay cash, deliver goods, provide services, or otherwise settle them later.</li>
-				<li><strong>Equity:</strong> the owners' claim after liabilities. In plain language: what would be left for owners if assets were used to pay debts.</li>
+				<li><strong>Equity:</strong> the owners' claim after liabilities. In plain language, it is the part funded by owners or left for owners after debts.</li>
 			</ul>
 		</div>
 		<div class="col-fa">
@@ -70,69 +70,69 @@ const accountingEquationBody = `<p class="subtitle" style="margin-top:14px; max-
 			<ul>
 				<li><strong>دارایی‌ها:</strong> منابع اقتصادی تحت کنترل شرکت. ارزشمندند چون می‌توانند در آینده منفعت ایجاد کنند.</li>
 				<li><strong>بدهی‌ها:</strong> تعهدات شرکت به افراد یا نهادهای بیرونی. شرکت باید بعداً وجه پرداخت کند، کالا تحویل دهد، خدمت ارائه کند، یا به شکل دیگری تسویه کند.</li>
-				<li><strong>حقوق صاحبان سهام:</strong> ادعای مالکان پس از بدهی‌ها. به زبان ساده: چیزی که اگر دارایی‌ها برای پرداخت بدهی‌ها استفاده شوند، برای مالکان باقی می‌ماند.</li>
+				<li><strong>حقوق صاحبان سهام:</strong> ادعای مالکان پس از بدهی‌ها. به زبان ساده، بخشی است که از طرف مالکان تأمین شده یا پس از بدهی‌ها برای مالکان باقی می‌ماند.</li>
 			</ul>
 		</div>
 	</div>
 
 	<div style="margin-top:18px;">
-		<div style="font-family:'Fraunces',serif; font-size:18px; color:var(--navy); text-align:center;">Two simple transactions</div>
+		<div style="font-family:'Fraunces',serif; font-size:18px; color:var(--navy); text-align:center;">Build the balance step by step</div>
 		<div style="display:grid; grid-template-columns: 1fr 92px 92px 92px; gap:6px 10px; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.55; margin-top:12px;">
 			<span style="font-weight:700; color:var(--navy);">Transaction</span><span style="font-weight:700; color:var(--navy); text-align:right;">Assets</span><span style="font-weight:700; color:var(--navy); text-align:right;">Liabilities</span><span style="font-weight:700; color:var(--navy); text-align:right;">Equity</span>
-			<span>Owner invests cash</span><span style="text-align:right;">+50,000</span><span style="text-align:right;">0</span><span style="text-align:right;">+50,000</span>
-			<span>Bank loan received</span><span style="text-align:right;">+20,000</span><span style="text-align:right;">+20,000</span><span style="text-align:right;">0</span>
+			<span>Owner contributes cash</span><span style="text-align:right;">+50,000</span><span style="text-align:right;">0</span><span style="text-align:right;">+50,000</span>
+			<span>Borrow from bank</span><span style="text-align:right;">+20,000</span><span style="text-align:right;">+20,000</span><span style="text-align:right;">0</span>
 			<span style="border-top:1px solid var(--hairline); padding-top:6px; font-weight:700; color:var(--navy);">Ending balance</span><span style="border-top:1px solid var(--hairline); padding-top:6px; text-align:right; font-weight:700; color:var(--navy);">70,000</span><span style="border-top:1px solid var(--hairline); padding-top:6px; text-align:right; font-weight:700; color:var(--navy);">20,000</span><span style="border-top:1px solid var(--hairline); padding-top:6px; text-align:right; font-weight:700; color:var(--navy);">50,000</span>
 		</div>
-		<p style="margin-top:10px; font-size:14px; line-height:1.7;"><strong>Check:</strong> 70,000 = 20,000 + 50,000. The equation still balances because each transaction changed both sides in a connected way.</p>
-		<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;"><strong>کنترل:</strong> ۷۰٬۰۰۰ = ۲۰٬۰۰۰ + ۵۰٬۰۰۰. معادله هنوز تراز است، چون هر معامله دو طرف را به شکلی مرتبط تغییر داده است.</p>
+		<p style="margin-top:10px; font-size:14px; line-height:1.7;"><strong>Check:</strong> 70,000 = 20,000 + 50,000. The company has $70,000 of assets. Creditors supplied $20,000, and owners supplied $50,000.</p>
+		<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;"><strong>کنترل:</strong> ۷۰٬۰۰۰ = ۲۰٬۰۰۰ + ۵۰٬۰۰۰. شرکت ۷۰٬۰۰۰ دارایی دارد. طلبکاران ۲۰٬۰۰۰ و مالکان ۵۰٬۰۰۰ آن را تأمین کرده‌اند.</p>
 	</div>
 
 	<div class="lecture-grid" style="margin-top:18px;">
 		<div class="col-en">
-			<h3>How transactions keep it balanced</h3>
-			<p>A transaction can affect the equation in different ways, but the total must always stay equal.</p>
+			<h3>Why it stays balanced</h3>
+			<p>Every transaction changes the story of resources and claims at the same time. Sometimes total assets change. Sometimes only the mix of assets changes. The equation still has to hold.</p>
 			<ul>
 				<li><strong>Buy equipment with cash:</strong> one asset goes up, another asset goes down. Total assets stay the same.</li>
 				<li><strong>Buy inventory on credit:</strong> assets go up and liabilities go up by the same amount.</li>
-				<li><strong>Earn revenue in cash:</strong> assets go up and equity eventually goes up through retained earnings.</li>
-				<li><strong>Pay a bill:</strong> assets go down and liabilities go down by the same amount.</li>
+				<li><strong>Repay a loan:</strong> cash goes down and liabilities go down by the same amount.</li>
 			</ul>
+			<div class="pitfall"><span class="label">Do not overthink it</span>The equation is not saying the company has no problems. It only says the records are internally connected. A company can be balanced and still be risky, unprofitable, or short on cash.</div>
 		</div>
 		<div class="col-fa">
-			<h3>معاملات چگونه تعادل را حفظ می‌کنند</h3>
-			<p>یک معامله می‌تواند معادله را به شکل‌های مختلف تغییر دهد، اما جمع دو طرف همیشه باید برابر بماند.</p>
+			<h3>چرا معادله تراز می‌ماند</h3>
+			<p>هر معامله هم‌زمان داستان منابع و ادعاها را تغییر می‌دهد. گاهی جمع دارایی‌ها تغییر می‌کند. گاهی فقط ترکیب دارایی‌ها عوض می‌شود. اما معادله باید همچنان برقرار بماند.</p>
 			<ul>
 				<li><strong>خرید تجهیزات با وجه نقد:</strong> یک دارایی افزایش می‌یابد و دارایی دیگری کاهش می‌یابد. جمع دارایی‌ها تغییر نمی‌کند.</li>
 				<li><strong>خرید موجودی به صورت نسیه:</strong> دارایی‌ها افزایش می‌یابند و بدهی‌ها به همان مبلغ افزایش می‌یابند.</li>
-				<li><strong>کسب درآمد نقدی:</strong> دارایی‌ها افزایش می‌یابند و حقوق صاحبان سهام در نهایت از طریق سود انباشته افزایش می‌یابد.</li>
-				<li><strong>پرداخت یک بدهی:</strong> دارایی‌ها کاهش می‌یابند و بدهی‌ها به همان مبلغ کاهش می‌یابند.</li>
+				<li><strong>بازپرداخت وام:</strong> وجه نقد کاهش می‌یابد و بدهی‌ها به همان مبلغ کاهش می‌یابند.</li>
 			</ul>
+			<div class="pitfall"><span class="label">زیاد پیچیده‌اش نکنید</span>تراز بودن معادله به این معنا نیست که شرکت هیچ مشکلی ندارد. فقط می‌گوید ثبت‌ها از نظر داخلی به هم وصل هستند. یک شرکت می‌تواند تراز باشد اما همچنان پرریسک، زیان‌ده، یا کم‌نقد باشد.</div>
 		</div>
 	</div>
 
 	<div class="lecture-grid" style="margin-top:18px;">
 		<div class="col-en">
-			<h3>How to use it as a self-check</h3>
+			<h3>How to use it</h3>
 			<ul>
-				<li><strong>First ask:</strong> what asset changed?</li>
-				<li><strong>Then ask:</strong> was it funded by a liability, by owners, or by earnings?</li>
-				<li><strong>Finally ask:</strong> does Assets = Liabilities + Equity after the entry?</li>
+				<li><strong>First ask:</strong> what resource changed?</li>
+				<li><strong>Then ask:</strong> who funded that change: outsiders or owners?</li>
+				<li><strong>Finally ask:</strong> after the transaction, does Assets = Liabilities + Equity?</li>
 			</ul>
-			<div class="pitfall"><span class="label">Common mistake</span>Do not think equity means cash in the owner's pocket. Equity is a claim inside the accounting records. The company may have high equity and very little cash if its value is tied up in inventory, equipment, or receivables.</div>
+			<div class="example"><span class="label">Boundary</span>The next lesson unpacks equity into contributed capital and retained earnings. This lesson only asks you to see the two sides: resources on the left, claims on the right.</div>
 		</div>
 		<div class="col-fa">
-			<h3>روش استفاده به‌عنوان کنترل سریع</h3>
+			<h3>روش استفاده</h3>
 			<ul>
-				<li><strong>اول بپرسید:</strong> کدام دارایی تغییر کرد؟</li>
-				<li><strong>بعد بپرسید:</strong> این تغییر از بدهی تأمین شد، از مالکان، یا از سودآوری؟</li>
-				<li><strong>در پایان بپرسید:</strong> آیا پس از ثبت، دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام است؟</li>
+				<li><strong>اول بپرسید:</strong> کدام منبع تغییر کرد؟</li>
+				<li><strong>بعد بپرسید:</strong> این تغییر را چه کسی تأمین کرد: افراد بیرونی یا مالکان؟</li>
+				<li><strong>در پایان بپرسید:</strong> پس از معامله، آیا دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام است؟</li>
 			</ul>
-			<div class="pitfall"><span class="label">اشتباه رایج</span>حقوق صاحبان سهام را با پول نقد در جیب مالک یکی ندانید. حقوق صاحبان سهام یک ادعا در سوابق حسابداری است. ممکن است شرکت حقوق صاحبان سهام بالایی داشته باشد اما وجه نقد کمی، چون ارزش آن در موجودی، تجهیزات یا دریافتنی‌ها گیر کرده است.</div>
+			<div class="example"><span class="label">مرز این درس</span>درس بعدی حقوق صاحبان سهام را به سرمایهٔ آورده و سود انباشته باز می‌کند. این درس فقط می‌خواهد دو طرف را ببینید: منابع در سمت چپ، ادعاها در سمت راست.</div>
 		</div>
 	</div>`;
 
 const accountingEquationPlain =
-	'The accounting equation is the first rule of the whole system: Assets = Liabilities + Equity. It says every resource a company controls must have been financed by someone: either creditors or owners. معادله حسابداری اولین قاعده کل سیستم است: دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام. یعنی هر منبعی که شرکت در اختیار دارد، حتماً از جایی تأمین مالی شده است: یا از طرف طلبکاران، یا از طرف مالکان. Assets = Liabilities + Equity. What the company has = claims against what the company has. آنچه شرکت دارد = ادعاها نسبت به آنچه شرکت دارد. Big idea The left side shows resources: cash, inventory, equipment, receivables, buildings, software, and other things the business controls and expects to benefit from. The right side shows claims on those resources. Creditors have claims called liabilities. Owners have the residual claim called equity. There is no third source. ایده اصلی سمت چپ منابع را نشان می‌دهد: وجه نقد، موجودی کالا، تجهیزات، حساب‌های دریافتنی، ساختمان، نرم‌افزار و چیزهای دیگری که کسب‌وکار کنترل می‌کند و انتظار منفعت از آن‌ها دارد. سمت راست ادعاها نسبت به آن منابع را نشان می‌دهد. طلبکاران ادعایی به نام بدهی دارند. مالکان ادعای باقی‌مانده‌ای به نام حقوق صاحبان سهام دارند. What each part means Assets are economic resources controlled by the company. Liabilities are obligations to outsiders. Equity is the owners claim after liabilities. معنای هر بخش دارایی‌ها منابع اقتصادی تحت کنترل شرکت هستند. بدهی‌ها تعهدات شرکت به افراد یا نهادهای بیرونی هستند. حقوق صاحبان سهام ادعای مالکان پس از بدهی‌هاست. Two simple transactions: owner invests 50,000 cash, so assets increase 50,000 and equity increases 50,000. Bank loan received 20,000, so assets increase 20,000 and liabilities increase 20,000. Ending balance: assets 70,000, liabilities 20,000, equity 50,000. Check: 70,000 = 20,000 + 50,000. دو معامله ساده: مالک ۵۰٬۰۰۰ وجه نقد سرمایه‌گذاری می‌کند، پس دارایی‌ها ۵۰٬۰۰۰ افزایش می‌یابد و حقوق صاحبان سهام ۵۰٬۰۰۰ افزایش می‌یابد. وام بانکی ۲۰٬۰۰۰ دریافت می‌شود، پس دارایی‌ها ۲۰٬۰۰۰ و بدهی‌ها ۲۰٬۰۰۰ افزایش می‌یابند. مانده پایان: دارایی‌ها ۷۰٬۰۰۰، بدهی‌ها ۲۰٬۰۰۰، حقوق صاحبان سهام ۵۰٬۰۰۰. کنترل: ۷۰٬۰۰۰ = ۲۰٬۰۰۰ + ۵۰٬۰۰۰. How transactions keep it balanced Buy equipment with cash: one asset up, another asset down. Buy inventory on credit: assets up and liabilities up. Earn revenue in cash: assets up and equity eventually up through retained earnings. Pay a bill: assets down and liabilities down. معاملات چگونه تعادل را حفظ می‌کنند خرید تجهیزات با وجه نقد: یک دارایی بالا و دارایی دیگر پایین. خرید موجودی نسیه: دارایی‌ها بالا و بدهی‌ها بالا. کسب درآمد نقدی: دارایی‌ها بالا و حقوق صاحبان سهام در نهایت از طریق سود انباشته بالا. پرداخت بدهی: دارایی‌ها پایین و بدهی‌ها پایین. How to use it as a self-check First ask what asset changed. Then ask whether it was funded by a liability, by owners, or by earnings. Finally ask whether Assets = Liabilities + Equity after the entry. Common mistake Equity is not cash in the owner pocket. Equity is a claim inside the accounting records. روش کنترل سریع اول بپرسید کدام دارایی تغییر کرد. بعد بپرسید این تغییر از بدهی تأمین شد، از مالکان، یا از سودآوری. در پایان بپرسید آیا پس از ثبت دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام است. اشتباه رایج حقوق صاحبان سهام پول نقد در جیب مالک نیست. حقوق صاحبان سهام یک ادعا در سوابق حسابداری است.';
+	'The accounting equation is the quiet rule underneath every financial statement: Assets = Liabilities + Equity. It says every resource a company controls must have a source of funding. معادله حسابداری قاعده زیربنایی همه صورت‌های مالی است: دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام. یعنی هر منبعی که شرکت کنترل می‌کند باید یک منبع تأمین مالی داشته باشد. Assets = Liabilities + Equity. What the company has = claims against what the company has. آنچه شرکت دارد = ادعاها نسبت به آنچه شرکت دارد. Big idea: assets answer what the company has. Liabilities and equity answer who has a claim on it. ایده اصلی: دارایی‌ها می‌پرسند شرکت چه دارد. بدهی‌ها و حقوق صاحبان سهام می‌پرسند چه کسی روی آن ادعا دارد. Assets are economic resources controlled by the company. Liabilities are obligations to outsiders. Equity is the owners claim after liabilities. دارایی‌ها منابع اقتصادی تحت کنترل شرکت هستند. بدهی‌ها تعهدات شرکت به افراد بیرونی هستند. حقوق صاحبان سهام ادعای مالکان پس از بدهی‌هاست. Build the balance: owner contributes 50,000 cash, so assets increase 50,000 and equity increases 50,000. Borrow 20,000 from a bank, so assets increase 20,000 and liabilities increase 20,000. Ending balance: assets 70,000, liabilities 20,000, equity 50,000. Check: 70,000 = 20,000 + 50,000. ساختن تراز: مالک ۵۰٬۰۰۰ وجه نقد می‌آورد، پس دارایی‌ها ۵۰٬۰۰۰ و حقوق صاحبان سهام ۵۰٬۰۰۰ افزایش می‌یابد. شرکت ۲۰٬۰۰۰ از بانک وام می‌گیرد، پس دارایی‌ها ۲۰٬۰۰۰ و بدهی‌ها ۲۰٬۰۰۰ افزایش می‌یابند. مانده پایان: دارایی‌ها ۷۰٬۰۰۰، بدهی‌ها ۲۰٬۰۰۰، حقوق صاحبان سهام ۵۰٬۰۰۰. کنترل: ۷۰٬۰۰۰ = ۲۰٬۰۰۰ + ۵۰٬۰۰۰. Why it stays balanced: buy equipment with cash, one asset up and another asset down. Buy inventory on credit, assets up and liabilities up. Repay a loan, cash down and liabilities down. چرا تراز می‌ماند: خرید تجهیزات با وجه نقد، یک دارایی بالا و دارایی دیگر پایین. خرید موجودی نسیه، دارایی‌ها بالا و بدهی‌ها بالا. بازپرداخت وام، وجه نقد پایین و بدهی‌ها پایین. The equation does not prove the company is healthy; it only proves the records are internally connected. تراز بودن معادله سلامت شرکت را ثابت نمی‌کند؛ فقط نشان می‌دهد ثبت‌ها از نظر داخلی به هم وصل هستند. How to use it: ask what resource changed, who funded it, and whether Assets = Liabilities + Equity after the transaction. روش استفاده: بپرسید کدام منبع تغییر کرد، چه کسی آن را تأمین کرد، و آیا پس از معامله دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام است. The next lesson unpacks equity; this lesson stays with resources on the left and claims on the right. درس بعدی حقوق صاحبان سهام را باز می‌کند؛ این درس فقط منابع سمت چپ و ادعاهای سمت راست را توضیح می‌دهد.';
 
 const cashVsAccrualBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">Cash basis and accrual basis answer the same question in two different ways: <strong>which period should show this revenue or expense?</strong> Cash basis follows the money. Accrual basis follows the economic activity.</p>
 
