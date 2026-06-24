@@ -134,6 +134,92 @@ const accountingEquationBody = `<p class="subtitle" style="margin-top:14px; max-
 const accountingEquationPlain =
 	'The accounting equation is the quiet rule underneath every financial statement: Assets = Liabilities + Equity. It says every resource a company controls must have a source of funding. معادله حسابداری قاعده زیربنایی همه صورت‌های مالی است: دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام. یعنی هر منبعی که شرکت کنترل می‌کند باید یک منبع تأمین مالی داشته باشد. Assets = Liabilities + Equity. What the company has = claims against what the company has. آنچه شرکت دارد = ادعاها نسبت به آنچه شرکت دارد. Big idea: assets answer what the company has. Liabilities and equity answer who has a claim on it. ایده اصلی: دارایی‌ها می‌پرسند شرکت چه دارد. بدهی‌ها و حقوق صاحبان سهام می‌پرسند چه کسی روی آن ادعا دارد. Assets are economic resources controlled by the company. Liabilities are obligations to outsiders. Equity is the owners claim after liabilities. دارایی‌ها منابع اقتصادی تحت کنترل شرکت هستند. بدهی‌ها تعهدات شرکت به افراد بیرونی هستند. حقوق صاحبان سهام ادعای مالکان پس از بدهی‌هاست. Build the balance: owner contributes 50,000 cash, so assets increase 50,000 and equity increases 50,000. Borrow 20,000 from a bank, so assets increase 20,000 and liabilities increase 20,000. Ending balance: assets 70,000, liabilities 20,000, equity 50,000. Check: 70,000 = 20,000 + 50,000. ساختن تراز: مالک ۵۰٬۰۰۰ وجه نقد می‌آورد، پس دارایی‌ها ۵۰٬۰۰۰ و حقوق صاحبان سهام ۵۰٬۰۰۰ افزایش می‌یابد. شرکت ۲۰٬۰۰۰ از بانک وام می‌گیرد، پس دارایی‌ها ۲۰٬۰۰۰ و بدهی‌ها ۲۰٬۰۰۰ افزایش می‌یابند. مانده پایان: دارایی‌ها ۷۰٬۰۰۰، بدهی‌ها ۲۰٬۰۰۰، حقوق صاحبان سهام ۵۰٬۰۰۰. کنترل: ۷۰٬۰۰۰ = ۲۰٬۰۰۰ + ۵۰٬۰۰۰. Why it stays balanced: buy equipment with cash, one asset up and another asset down. Buy inventory on credit, assets up and liabilities up. Repay a loan, cash down and liabilities down. چرا تراز می‌ماند: خرید تجهیزات با وجه نقد، یک دارایی بالا و دارایی دیگر پایین. خرید موجودی نسیه، دارایی‌ها بالا و بدهی‌ها بالا. بازپرداخت وام، وجه نقد پایین و بدهی‌ها پایین. The equation does not prove the company is healthy; it only proves the records are internally connected. تراز بودن معادله سلامت شرکت را ثابت نمی‌کند؛ فقط نشان می‌دهد ثبت‌ها از نظر داخلی به هم وصل هستند. How to use it: ask what resource changed, who funded it, and whether Assets = Liabilities + Equity after the transaction. روش استفاده: بپرسید کدام منبع تغییر کرد، چه کسی آن را تأمین کرد، و آیا پس از معامله دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام است. The next lesson unpacks equity; this lesson stays with resources on the left and claims on the right. درس بعدی حقوق صاحبان سهام را باز می‌کند؛ این درس فقط منابع سمت چپ و ادعاهای سمت راست را توضیح می‌دهد.';
 
+const expandedEquationBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">The basic equation says <strong>Assets = Liabilities + Equity</strong>. The expanded equation asks a more useful question: <strong>what is inside equity?</strong> Equity mainly comes from owner investment and profits the business kept.</p>
+
+	<div class="farsi-block" style="margin-top:12px; max-width:none;">
+		معادلهٔ پایه می‌گوید: <strong>دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام</strong>. معادلهٔ گسترش‌یافته سؤال کاربردی‌تری می‌پرسد: <strong>داخل حقوق صاحبان سهام چه چیزهایی قرار دارد؟</strong> حقوق صاحبان سهام عمدتاً از سرمایه‌گذاری مالکان و سودی که شرکت نگه داشته تشکیل می‌شود.
+	</div>
+
+	<div style="margin-top:18px;">
+		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep); margin-bottom:8px;">THE EXPANDED EQUATION · معادلهٔ گسترش‌یافته</div>
+		<div style="font-family:'Fraunces',serif; font-size:19px; line-height:1.55; color:var(--navy);">
+			Assets = Liabilities + Contributed Capital + Retained Earnings
+		</div>
+		<div style="font-family:'Fraunces',serif; font-size:16px; line-height:1.7; margin-top:8px;">
+			Retained Earnings<sub>end</sub> = Retained Earnings<sub>begin</sub> + Net Income - Dividends
+		</div>
+		<div style="font-family:'Fraunces',serif; font-size:15px; line-height:1.7; color:var(--ink-soft); margin-top:4px;">
+			Net Income = Revenue - Expenses
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Why expand it?</h3>
+			<p>In the basic equation, equity is one block. That is fine for a first look, but it hides two very different stories.</p>
+			<ul>
+				<li><strong>Contributed capital:</strong> money or other value owners put into the company.</li>
+				<li><strong>Retained earnings:</strong> profit the company earned and did not distribute to owners.</li>
+			</ul>
+			<div class="example"><span class="label">Memory hook</span>Contributed capital is owner money going in. Retained earnings is business profit staying in.</div>
+		</div>
+		<div class="col-fa">
+			<h3>چرا معادله را گسترش می‌دهیم؟</h3>
+			<p>در معادلهٔ پایه، حقوق صاحبان سهام یک تکه دیده می‌شود. برای شروع خوب است، اما دو داستان متفاوت را پنهان می‌کند.</p>
+			<ul>
+				<li><strong>سرمایهٔ آورده:</strong> پول یا ارزشی که مالکان وارد شرکت کرده‌اند.</li>
+				<li><strong>سود انباشته:</strong> سودی که شرکت کسب کرده و بین مالکان تقسیم نکرده است.</li>
+			</ul>
+			<div class="example"><span class="label">یادسپار</span>سرمایهٔ آورده یعنی پول مالک وارد شرکت می‌شود. سود انباشته یعنی سود کسب‌وکار داخل شرکت می‌ماند.</div>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Retained earnings, slowly</h3>
+			<p>Retained earnings is not cash. It is a cumulative equity account. It starts with the prior balance, increases when the company earns profit, and decreases when the company pays dividends.</p>
+			<p>If the company has a loss, net income is negative, so retained earnings goes down. If the company pays dividends, retained earnings also goes down because value is leaving the company for owners.</p>
+			<div class="pitfall"><span class="label">Important</span>Dividends are not expenses. Expenses help calculate net income. Dividends happen after net income and reduce retained earnings directly.</div>
+		</div>
+		<div class="col-fa">
+			<h3>سود انباشته، آرام و مرحله‌ای</h3>
+			<p>سود انباشته وجه نقد نیست. یک حساب تجمعی در بخش حقوق صاحبان سهام است. با ماندهٔ قبلی شروع می‌شود، وقتی شرکت سود می‌سازد افزایش می‌یابد، و وقتی شرکت سود سهام پرداخت می‌کند کاهش می‌یابد.</p>
+			<p>اگر شرکت زیان داشته باشد، سود خالص منفی است و سود انباشته کاهش می‌یابد. اگر شرکت سود سهام پرداخت کند، سود انباشته باز هم کاهش می‌یابد، چون ارزش از شرکت به مالکان منتقل شده است.</p>
+			<div class="pitfall"><span class="label">مهم</span>سود سهام هزینه نیست. هزینه‌ها برای محاسبهٔ سود خالص استفاده می‌شوند. سود سهام بعد از سود خالص اتفاق می‌افتد و مستقیماً سود انباشته را کاهش می‌دهد.</div>
+		</div>
+	</div>
+
+	<div style="margin-top:18px;">
+		<div style="font-family:'Fraunces',serif; font-size:18px; color:var(--navy); text-align:center;">One year of equity movement</div>
+		<div style="display:grid; grid-template-columns: 1fr 100px; gap:6px 12px; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.6; margin-top:12px;">
+			<span style="font-weight:700; color:var(--navy);">Item</span><span style="font-weight:700; color:var(--navy); text-align:right;">Amount</span>
+			<span>Beginning retained earnings</span><span style="text-align:right;">30,000</span>
+			<span>+ Revenue</span><span style="text-align:right;">80,000</span>
+			<span>- Expenses</span><span style="text-align:right;">(50,000)</span>
+			<span style="color:var(--ink-soft);">= Net income</span><span style="text-align:right; color:var(--ink-soft);">30,000</span>
+			<span>- Dividends</span><span style="text-align:right;">(10,000)</span>
+			<span style="border-top:1px solid var(--hairline); padding-top:6px; font-weight:700; color:var(--navy);">Ending retained earnings</span><span style="border-top:1px solid var(--hairline); padding-top:6px; text-align:right; font-weight:700; color:var(--navy);">50,000</span>
+		</div>
+		<p style="margin-top:10px; font-size:14px; line-height:1.7;"><strong>Check:</strong> 30,000 + (80,000 - 50,000) - 10,000 = 50,000. The company earned $30,000 and kept $20,000 of it after dividends.</p>
+		<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;"><strong>کنترل:</strong> ۳۰٬۰۰۰ + (۸۰٬۰۰۰ - ۵۰٬۰۰۰) - ۱۰٬۰۰۰ = ۵۰٬۰۰۰. شرکت ۳۰٬۰۰۰ سود ساخته و پس از پرداخت سود سهام، ۲۰٬۰۰۰ از آن را نگه داشته است.</p>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>How this connects the statements</h3>
+			<p>The income statement explains <strong>net income</strong>. Net income then flows into <strong>retained earnings</strong> on the balance sheet. That is why the expanded equation matters: it shows exactly how performance during the period changes owners' equity.</p>
+			<div class="example"><span class="label">Boundary</span>The next lesson names the five account types. Here, the job is narrower: understand why revenue, expenses, and dividends change equity.</div>
+		</div>
+		<div class="col-fa">
+			<h3>اتصال به صورت‌های مالی</h3>
+			<p>صورت سود و زیان <strong>سود خالص</strong> را توضیح می‌دهد. سود خالص سپس وارد <strong>سود انباشته</strong> در ترازنامه می‌شود. به همین دلیل معادلهٔ گسترش‌یافته مهم است: دقیقاً نشان می‌دهد عملکرد دوره چگونه حقوق صاحبان سهام را تغییر می‌دهد.</p>
+			<div class="example"><span class="label">مرز این درس</span>درس بعدی نام پنج نوع حساب را جداگانه توضیح می‌دهد. کار این درس محدودتر است: بفهمیم چرا درآمد، هزینه و سود سهام حقوق صاحبان سهام را تغییر می‌دهند.</div>
+		</div>
+	</div>`;
+
+const expandedEquationPlain =
+	'The basic equation says Assets = Liabilities + Equity. The expanded equation asks what is inside equity. Equity mainly comes from owner investment and profits the business kept. معادله پایه می‌گوید دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام. معادله گسترش‌یافته می‌پرسد داخل حقوق صاحبان سهام چیست. حقوق صاحبان سهام عمدتاً از سرمایه‌گذاری مالکان و سودی که شرکت نگه داشته تشکیل می‌شود. Expanded equation: Assets = Liabilities + Contributed Capital + Retained Earnings. Retained Earnings ending = Retained Earnings beginning + Net Income - Dividends. Net Income = Revenue - Expenses. معادله گسترش‌یافته: دارایی‌ها = بدهی‌ها + سرمایه آورده + سود انباشته. سود انباشته پایان دوره = سود انباشته ابتدای دوره + سود خالص - سود سهام. سود خالص = درآمد - هزینه‌ها. Contributed capital is money or value owners put into the company. Retained earnings is profit the company earned and did not distribute. سرمایه آورده پول یا ارزشی است که مالکان وارد شرکت کرده‌اند. سود انباشته سودی است که شرکت کسب کرده و بین مالکان تقسیم نکرده است. Retained earnings is not cash. It is a cumulative equity account. It increases with profit and decreases with losses or dividends. سود انباشته وجه نقد نیست؛ یک حساب تجمعی در حقوق صاحبان سهام است. با سود افزایش می‌یابد و با زیان یا سود سهام کاهش می‌یابد. Dividends are not expenses. Expenses help calculate net income. Dividends happen after net income and reduce retained earnings directly. سود سهام هزینه نیست. هزینه‌ها برای محاسبه سود خالص استفاده می‌شوند. سود سهام بعد از سود خالص اتفاق می‌افتد و مستقیم سود انباشته را کاهش می‌دهد. Example: beginning retained earnings 30,000 plus revenue 80,000 minus expenses 50,000 minus dividends 10,000 equals ending retained earnings 50,000. مثال: سود انباشته ابتدای دوره ۳۰٬۰۰۰ به علاوه درآمد ۸۰٬۰۰۰ منهای هزینه‌ها ۵۰٬۰۰۰ منهای سود سهام ۱۰٬۰۰۰ برابر سود انباشته پایان دوره ۵۰٬۰۰۰ است. The income statement explains net income, and net income flows into retained earnings on the balance sheet. صورت سود و زیان سود خالص را توضیح می‌دهد و سود خالص وارد سود انباشته در ترازنامه می‌شود.';
+
 const cashVsAccrualBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">Cash basis and accrual basis answer the same question in two different ways: <strong>which period should show this revenue or expense?</strong> Cash basis follows the money. Accrual basis follows the economic activity.</p>
 
 	<div class="farsi-block" style="margin-top:12px; max-width:none;">
@@ -1028,6 +1114,10 @@ const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'05-equation': {
 		body: accountingEquationBody,
 		plain: accountingEquationPlain
+	},
+	'06-expanded-equation': {
+		body: expandedEquationBody,
+		plain: expandedEquationPlain
 	},
 	'21-cash-vs-accrual': {
 		body: cashVsAccrualBody,
