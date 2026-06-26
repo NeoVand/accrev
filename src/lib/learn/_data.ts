@@ -1110,6 +1110,104 @@ const threeStatementsConnectBody = `<p class="subtitle" style="margin-top:14px; 
 const threeStatementsConnectPlain =
 	'The three financial statements are one connected system. The income statement measures performance, the balance sheet shows position, and the cash flow statement explains how cash moved between two balance sheet dates. سه صورت مالی یک سیستم به‌هم‌پیوسته‌اند. صورت سود و زیان عملکرد دوره را اندازه می‌گیرد، ترازنامه وضعیت مالی در یک تاریخ مشخص را نشان می‌دهد، و صورت جریان وجوه نقد توضیح می‌دهد وجه نقد بین دو تاریخ ترازنامه چگونه تغییر کرده است. Income statement: what happened during the period. Net income is the bridge number. It moves into retained earnings and starts the indirect cash flow statement. صورت سود و زیان: در طول دوره چه اتفاقی افتاد. سود خالص عدد پل است؛ وارد سود انباشته می‌شود و نقطه شروع روش غیرمستقیم صورت جریان وجوه نقد است. Balance sheet: what the company has and owes at the end date. Assets must equal liabilities plus equity. Retained earnings accumulates current-period profit after dividends. ترازنامه: شرکت در تاریخ پایان دوره چه دارد و چه بدهکار است. دارایی‌ها باید برابر بدهی‌ها به‌علاوه حقوق صاحبان سهام باشد. سود انباشته سود دوره را پس از کسر سود سهام جمع می‌کند. Cash flow statement: why cash changed. Beginning cash plus net change in cash equals ending cash, and ending cash must match the balance sheet. صورت جریان وجوه نقد: چرا وجه نقد تغییر کرد. وجه نقد ابتدای دوره به علاوه تغییر خالص وجه نقد برابر وجه نقد پایان دوره است، و وجه نقد پایان دوره باید با ترازنامه برابر باشد. Auditor first check: net income ties to cash flow, retained earnings rolls forward, cash rolls forward, ending cash matches the balance sheet, and the balance sheet balances. اولین کنترل حسابرس: سود خالص به صورت جریان وجوه نقد وصل است، سود انباشته به جلو حرکت می‌کند، وجه نقد به جلو حرکت می‌کند، وجه نقد پایان دوره با ترازنامه برابر است، و ترازنامه تراز می‌شود. Small check: beginning retained earnings 12,000 plus net income 32,850 minus dividends 5,000 equals ending retained earnings 39,850. Beginning cash 15,450 plus cash increase 8,550 equals ending cash 24,000. کنترل کوچک: سود انباشته ابتدای دوره ۱۲٬۰۰۰ به علاوه سود خالص ۳۲٬۸۵۰ منهای سود سهام ۵٬۰۰۰ برابر سود انباشته پایان دوره ۳۹٬۸۵۰ است. وجه نقد ابتدای دوره ۱۵٬۴۵۰ به علاوه افزایش وجه نقد ۸٬۵۵۰ برابر وجه نقد پایان دوره ۲۴٬۰۰۰ است. Common mistake: do not treat the statements as separate problems. If one number changes, at least one other statement usually needs to change too. اشتباه رایج: صورت‌های مالی را مثل تمرین‌های جداگانه نبینید. اگر یک عدد تغییر کند، معمولاً حداقل یک صورت مالی دیگر هم باید تغییر کند.';
 
+const straightLineDepreciationBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">Straight-line depreciation spreads the depreciable cost of a long-lived asset evenly across the years it helps the business. It is the simplest depreciation method: the same expense each period until the asset reaches its estimated salvage value.</p>
+
+	<div class="farsi-block" style="margin-top:12px; max-width:none;">
+		استهلاک خط مستقیم، بهای قابل استهلاک یک دارایی بلندمدت را به‌طور مساوی بین سال‌هایی پخش می‌کند که آن دارایی به کسب‌وکار خدمت می‌دهد. این ساده‌ترین روش استهلاک است: در هر دوره هزینهٔ یکسان ثبت می‌شود تا دارایی به ارزش اسقاط برآوردی برسد.
+	</div>
+
+	<div style="margin-top:18px;">
+		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep); margin-bottom:8px;">FORMULA · فرمول</div>
+		<div style="font-family:'Fraunces',serif; font-size:20px; line-height:1.45; color:var(--navy);">
+			Annual depreciation = (Cost - Salvage Value) / Useful Life
+		</div>
+		<p style="margin-top:10px; font-size:14px; line-height:1.7;"><strong>Cost</strong> is what the asset costs to acquire and prepare for use. <strong>Salvage value</strong> is what the company expects to recover at the end. <strong>Useful life</strong> is the expected service period.</p>
+		<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;"><strong>بهای تمام‌شده</strong> یعنی هزینهٔ خرید و آماده‌سازی دارایی برای استفاده. <strong>ارزش اسقاط</strong> یعنی مبلغی که شرکت انتظار دارد در پایان عمر دارایی بازیافت کند. <strong>عمر مفید</strong> یعنی دوره‌ای که انتظار می‌رود دارایی خدمت بدهد.</p>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Big idea</h3>
+			<p>Depreciation is not a cash payment each year. The cash usually went out when the asset was purchased. Depreciation is the accounting process that moves part of that asset cost from the balance sheet to the income statement over time.</p>
+			<p>Straight-line is used when the asset provides benefit fairly evenly from year to year. Buildings, furniture, fixtures, office equipment, and many simple machines often fit this pattern.</p>
+			<div class="example"><span class="label">Memory hook</span>Cash leaves once. Depreciation expense appears slowly.</div>
+		</div>
+		<div class="col-fa">
+			<h3>ایدهٔ اصلی</h3>
+			<p>استهلاک به این معنا نیست که شرکت هر سال دوباره وجه نقد پرداخت می‌کند. معمولاً وجه نقد هنگام خرید دارایی خارج شده است. استهلاک فرایندی حسابداری است که بخشی از بهای دارایی را به‌مرور از ترازنامه به صورت سود و زیان منتقل می‌کند.</p>
+			<p>روش خط مستقیم زمانی مناسب است که دارایی تقریباً در هر سال به‌طور یکنواخت منفعت ایجاد کند. ساختمان، اثاثیه، تجهیزات اداری و بسیاری از ماشین‌آلات ساده معمولاً با این الگو هماهنگ‌اند.</p>
+			<div class="example"><span class="label">یادسپار</span>وجه نقد یک‌بار خارج می‌شود. هزینهٔ استهلاک آرام‌آرام ظاهر می‌شود.</div>
+		</div>
+	</div>
+
+	<div style="margin-top:18px;">
+		<div style="font-family:'Fraunces',serif; font-size:18px; color:var(--navy); text-align:center;">Worked example</div>
+		<p style="margin-top:8px; font-size:14px; line-height:1.7;">A machine costs <strong>$60,000</strong>. The company expects to sell it for <strong>$6,000</strong> after <strong>6 years</strong>. Depreciable base = 60,000 - 6,000 = <strong>$54,000</strong>. Annual depreciation = 54,000 / 6 = <strong>$9,000</strong>.</p>
+		<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;">یک ماشین <strong>۶۰٬۰۰۰ دلار</strong> بهای تمام‌شده دارد. شرکت انتظار دارد پس از <strong>۶ سال</strong> آن را به <strong>۶٬۰۰۰ دلار</strong> بفروشد. مبنای قابل استهلاک = ۶۰٬۰۰۰ - ۶٬۰۰۰ = <strong>۵۴٬۰۰۰ دلار</strong>. هزینهٔ استهلاک سالانه = ۵۴٬۰۰۰ / ۶ = <strong>۹٬۰۰۰ دلار</strong>.</p>
+		<div style="display:grid; grid-template-columns: 1fr 90px 90px 90px; gap:5px 10px; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.55; margin-top:12px;">
+			<span style="font-weight:700; color:var(--navy);">Year</span><span style="font-weight:700; color:var(--navy); text-align:right;">Expense</span><span style="font-weight:700; color:var(--navy); text-align:right;">Accum.</span><span style="font-weight:700; color:var(--navy); text-align:right;">Book value</span>
+			<span>0</span><span style="text-align:right;">-</span><span style="text-align:right;">-</span><span style="text-align:right;">60,000</span>
+			<span>1</span><span style="text-align:right;">9,000</span><span style="text-align:right;">9,000</span><span style="text-align:right;">51,000</span>
+			<span>2</span><span style="text-align:right;">9,000</span><span style="text-align:right;">18,000</span><span style="text-align:right;">42,000</span>
+			<span>3</span><span style="text-align:right;">9,000</span><span style="text-align:right;">27,000</span><span style="text-align:right;">33,000</span>
+			<span>4</span><span style="text-align:right;">9,000</span><span style="text-align:right;">36,000</span><span style="text-align:right;">24,000</span>
+			<span>5</span><span style="text-align:right;">9,000</span><span style="text-align:right;">45,000</span><span style="text-align:right;">15,000</span>
+			<span style="border-top:1px solid var(--hairline); padding-top:5px;">6</span><span style="border-top:1px solid var(--hairline); padding-top:5px; text-align:right;">9,000</span><span style="border-top:1px solid var(--hairline); padding-top:5px; text-align:right;">54,000</span><span style="border-top:1px solid var(--hairline); padding-top:5px; text-align:right;">6,000</span>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Journal entry</h3>
+			<p>At the end of each year, record the same entry:</p>
+			<div class="example"><span class="label">Entry</span>Dr Depreciation Expense 9,000 · Cr Accumulated Depreciation 9,000</div>
+			<p><strong>Depreciation Expense</strong> reduces income. <strong>Accumulated Depreciation</strong> is a contra-asset: it reduces the asset's carrying value on the balance sheet without deleting the original cost.</p>
+		</div>
+		<div class="col-fa">
+			<h3>ثبت روزنامه</h3>
+			<p>در پایان هر سال، همین ثبت تکرار می‌شود:</p>
+			<div class="example"><span class="label">ثبت</span>بدهکار هزینهٔ استهلاک ۹٬۰۰۰ · بستانکار استهلاک انباشته ۹٬۰۰۰</div>
+			<p><strong>هزینهٔ استهلاک</strong> سود را کاهش می‌دهد. <strong>استهلاک انباشته</strong> یک حساب کاهندهٔ دارایی است: ارزش دفتری دارایی را در ترازنامه کم می‌کند، بدون اینکه بهای اولیهٔ دارایی حذف شود.</p>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Statement effects</h3>
+			<ul>
+				<li><strong>Income statement:</strong> depreciation expense reduces operating income and net income.</li>
+				<li><strong>Balance sheet:</strong> accumulated depreciation rises; net book value falls.</li>
+				<li><strong>Cash flow statement:</strong> under the indirect method, depreciation is added back because it is non-cash.</li>
+			</ul>
+			<div class="pitfall"><span class="label">Common mistake</span>Do not depreciate below salvage value. In this example, the book value stops at $6,000, not zero.</div>
+		</div>
+		<div class="col-fa">
+			<h3>اثر روی صورت‌های مالی</h3>
+			<ul>
+				<li><strong>صورت سود و زیان:</strong> هزینهٔ استهلاک سود عملیاتی و سود خالص را کاهش می‌دهد.</li>
+				<li><strong>ترازنامه:</strong> استهلاک انباشته افزایش می‌یابد و ارزش دفتری خالص کاهش می‌یابد.</li>
+				<li><strong>صورت جریان وجوه نقد:</strong> در روش غیرمستقیم، استهلاک اضافه می‌شود چون غیرنقدی است.</li>
+			</ul>
+			<div class="pitfall"><span class="label">اشتباه رایج</span>دارایی را پایین‌تر از ارزش اسقاط مستهلک نکنید. در این مثال، ارزش دفتری روی ۶٬۰۰۰ دلار متوقف می‌شود، نه صفر.</div>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Estimates can change</h3>
+			<p>Cost is usually known, but salvage value and useful life are estimates. If new information changes those estimates, the company adjusts depreciation going forward. It normally does not rewrite prior years just because the estimate changed.</p>
+			<div class="example"><span class="label">Boundary</span>The next lessons compare accelerated and usage-based depreciation. This lesson stays with the straight-line idea: equal expense each year.</div>
+		</div>
+		<div class="col-fa">
+			<h3>برآوردها ممکن است تغییر کنند</h3>
+			<p>بهای تمام‌شده معمولاً مشخص است، اما ارزش اسقاط و عمر مفید برآوردی‌اند. اگر اطلاعات جدید این برآوردها را تغییر دهد، شرکت استهلاک دوره‌های آینده را تعدیل می‌کند. معمولاً فقط به‌دلیل تغییر برآورد، سال‌های گذشته بازنویسی نمی‌شوند.</p>
+			<div class="example"><span class="label">مرز این درس</span>درس‌های بعدی روش‌های شتاب‌دار و مبتنی بر استفاده را مقایسه می‌کنند. این درس فقط روی ایدهٔ خط مستقیم می‌ماند: هزینهٔ برابر در هر سال.</div>
+		</div>
+	</div>`;
+
+const straightLineDepreciationPlain =
+	'Straight-line depreciation spreads the depreciable cost of a long-lived asset evenly across the years it helps the business. It records the same expense each period until the asset reaches estimated salvage value. استهلاک خط مستقیم بهای قابل استهلاک یک دارایی بلندمدت را به‌طور مساوی بین سال‌هایی پخش می‌کند که دارایی به کسب‌وکار خدمت می‌دهد. در هر دوره هزینه یکسان ثبت می‌شود تا دارایی به ارزش اسقاط برآوردی برسد. Formula: annual depreciation = cost minus salvage value divided by useful life. فرمول: استهلاک سالانه = بهای تمام‌شده منهای ارزش اسقاط تقسیم بر عمر مفید. Cost is what the asset costs to acquire and prepare. Salvage value is what the company expects to recover at the end. Useful life is the expected service period. بهای تمام‌شده هزینه خرید و آماده‌سازی دارایی است. ارزش اسقاط مبلغی است که شرکت انتظار دارد در پایان بازیافت کند. عمر مفید دوره خدمت مورد انتظار است. Depreciation is not a cash payment each year. Cash usually left when the asset was purchased. Depreciation moves part of the asset cost from the balance sheet to the income statement over time. استهلاک پرداخت نقدی هر سال نیست. وجه نقد معمولاً هنگام خرید دارایی خارج شده است. استهلاک بخشی از بهای دارایی را به‌مرور از ترازنامه به صورت سود و زیان منتقل می‌کند. Example: machine cost 60,000, salvage 6,000, useful life 6 years. Depreciable base is 54,000. Annual depreciation is 9,000. مثال: بهای ماشین ۶۰٬۰۰۰، ارزش اسقاط ۶٬۰۰۰ و عمر مفید ۶ سال است. مبنای قابل استهلاک ۵۴٬۰۰۰ و استهلاک سالانه ۹٬۰۰۰ است. Journal entry: debit depreciation expense 9,000 and credit accumulated depreciation 9,000. ثبت: بدهکار هزینه استهلاک ۹٬۰۰۰ و بستانکار استهلاک انباشته ۹٬۰۰۰. Income statement: depreciation reduces operating income and net income. Balance sheet: accumulated depreciation rises and book value falls. Cash flow statement: under the indirect method, depreciation is added back because it is non-cash. صورت سود و زیان: استهلاک سود عملیاتی و سود خالص را کاهش می‌دهد. ترازنامه: استهلاک انباشته افزایش و ارزش دفتری کاهش می‌یابد. صورت جریان وجوه نقد: در روش غیرمستقیم، استهلاک اضافه می‌شود چون غیرنقدی است. Common mistake: do not depreciate below salvage value. اشتباه رایج: دارایی را پایین‌تر از ارزش اسقاط مستهلک نکنید. Estimates can change prospectively. برآوردها می‌توانند برای دوره‌های آینده تغییر کنند.';
+
 const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'05-equation': {
 		body: accountingEquationBody,
@@ -1155,6 +1253,11 @@ const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 		eyebrowFa: 'ارتباط سه صورت مالی',
 		body: threeStatementsConnectBody,
 		plain: threeStatementsConnectPlain
+	},
+	'34-sl-depreciation': {
+		eyebrowFa: 'استهلاک خط مستقیم',
+		body: straightLineDepreciationBody,
+		plain: straightLineDepreciationPlain
 	}
 };
 
