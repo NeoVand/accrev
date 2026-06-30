@@ -929,6 +929,56 @@
     "definition": "The opening balance — the amount in an account at the start of a period, before any of that period's activity.",
     "fa": { "term": "ابتدای دوره", "definition": "ماندهٔ افتتاحیه — مبلغ یک حساب در ابتدای دوره، پیش از هرگونه فعالیت آن دوره." }
   },
+  "assumption": {
+    "term": "Assumption",
+    "definition": "A simplifying idea used to choose an accounting method. In inventory, a cost-flow assumption decides which costs are treated as sold first.",
+    "fa": { "term": "فرض / مفروضه", "definition": "ایده‌ای ساده‌ساز برای انتخاب روش حسابداری. در موجودی، فرض جریان هزینه مشخص می‌کند کدام بهای خرید اول به بهای تمام‌شده منتقل شود." }
+  },
+  "assumptions": {
+    "term": "Assumptions",
+    "definition": "Simplifying ideas used to make accounting choices. Inventory methods are called flow assumptions because they choose how costs flow into COGS.",
+    "fa": { "term": "فرض‌ها / مفروضات", "definition": "ایده‌های ساده‌ساز برای انتخاب‌های حسابداری. روش‌های موجودی را فرض‌های جریان می‌نامند چون تعیین می‌کنند هزینه‌ها چگونه وارد بهای تمام‌شده شوند." }
+  },
+  "prohibit": {
+    "term": "Prohibit",
+    "definition": "To forbid or not allow something under a rule or standard.",
+    "fa": { "term": "ممنوع کردن / اجازه ندادن", "definition": "طبق یک قانون یا استاندارد، اجازهٔ انجام چیزی را ندادن." }
+  },
+  "prohibits": {
+    "term": "Prohibits",
+    "definition": "Forbids; does not allow. IFRS prohibits LIFO means IFRS does not allow LIFO.",
+    "fa": { "term": "ممنوع می‌کند / اجازه نمی‌دهد", "definition": "اجازه نمی‌دهد. وقتی می‌گوییم IFRS روش LIFO را prohibits، یعنی IFRS استفاده از LIFO را مجاز نمی‌داند." }
+  },
+  "prohibited": {
+    "term": "Prohibited",
+    "definition": "Not allowed under a rule or standard.",
+    "fa": { "term": "ممنوع / غیرمجاز", "definition": "طبق یک قانون یا استاندارد مجاز نیست." }
+  },
+  "fluctuation": {
+    "term": "Fluctuation",
+    "definition": "A movement up and down over time, such as changing purchase prices.",
+    "fa": { "term": "نوسان", "definition": "بالا و پایین رفتن در طول زمان؛ مثل تغییر قیمت خرید موجودی." }
+  },
+  "fluctuations": {
+    "term": "Fluctuations",
+    "definition": "Repeated movements up and down over time. Price fluctuations are changes in prices.",
+    "fa": { "term": "نوسانات", "definition": "بالا و پایین رفتن‌های تکراری در طول زمان. نوسانات قیمت یعنی تغییرات قیمت." }
+  },
+  "disclose": {
+    "term": "Disclose",
+    "definition": "To reveal or report information in the financial statements or notes so users can see it.",
+    "fa": { "term": "افشا کردن", "definition": "اطلاعات را در صورت‌های مالی یا یادداشت‌ها نشان دادن تا استفاده‌کنندگان بتوانند آن را ببینند." }
+  },
+  "disclosed": {
+    "term": "Disclosed",
+    "definition": "Reported or revealed in the financial statements or notes.",
+    "fa": { "term": "افشا شده", "definition": "در صورت‌های مالی یا یادداشت‌ها گزارش یا آشکار شده است." }
+  },
+  "consistently": {
+    "term": "Consistently",
+    "definition": "In the same way from period to period, so readers can compare results fairly.",
+    "fa": { "term": "به‌طور یکنواخت / مستمر", "definition": "از یک دوره به دورهٔ بعد به همان روش؛ تا خوانندگان بتوانند نتایج را منصفانه مقایسه کنند." }
+  },
   "wac": {
     "term": "WAC",
     "definition": "Weighted-average cost — an inventory method that values cost of sales at the rolling average unit cost rather than FIFO/LIFO.",

@@ -53,6 +53,7 @@ export function wireWordLookup(node: HTMLElement, options: Options) {
 			btn.className = 'word-lookup';
 			btn.dataset.word = M.original;
 			btn.textContent = M.original;
+			btn.addEventListener('click', onClick);
 			frag.appendChild(btn);
 			cursor = M.end;
 		}
