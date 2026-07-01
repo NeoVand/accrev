@@ -220,6 +220,112 @@ const expandedEquationBody = `<p class="subtitle" style="margin-top:14px; max-wi
 const expandedEquationPlain =
 	'The basic equation says Assets = Liabilities + Equity. The expanded equation asks what is inside equity. Equity mainly comes from owner investment and profits the business kept. معادله پایه می‌گوید دارایی‌ها = بدهی‌ها + حقوق صاحبان سهام. معادله گسترش‌یافته می‌پرسد داخل حقوق صاحبان سهام چیست. حقوق صاحبان سهام عمدتاً از سرمایه‌گذاری مالکان و سودی که شرکت نگه داشته تشکیل می‌شود. Expanded equation: Assets = Liabilities + Contributed Capital + Retained Earnings. Retained Earnings ending = Retained Earnings beginning + Net Income - Dividends. Net Income = Revenue - Expenses. معادله گسترش‌یافته: دارایی‌ها = بدهی‌ها + سرمایه آورده + سود انباشته. سود انباشته پایان دوره = سود انباشته ابتدای دوره + سود خالص - سود سهام. سود خالص = درآمد - هزینه‌ها. Contributed capital is money or value owners put into the company. Retained earnings is profit the company earned and did not distribute. سرمایه آورده پول یا ارزشی است که مالکان وارد شرکت کرده‌اند. سود انباشته سودی است که شرکت کسب کرده و بین مالکان تقسیم نکرده است. Retained earnings is not cash. It is a cumulative equity account. It increases with profit and decreases with losses or dividends. سود انباشته وجه نقد نیست؛ یک حساب تجمعی در حقوق صاحبان سهام است. با سود افزایش می‌یابد و با زیان یا سود سهام کاهش می‌یابد. Dividends are not expenses. Expenses help calculate net income. Dividends happen after net income and reduce retained earnings directly. سود سهام هزینه نیست. هزینه‌ها برای محاسبه سود خالص استفاده می‌شوند. سود سهام بعد از سود خالص اتفاق می‌افتد و مستقیم سود انباشته را کاهش می‌دهد. Example: beginning retained earnings 30,000 plus revenue 80,000 minus expenses 50,000 minus dividends 10,000 equals ending retained earnings 50,000. مثال: سود انباشته ابتدای دوره ۳۰٬۰۰۰ به علاوه درآمد ۸۰٬۰۰۰ منهای هزینه‌ها ۵۰٬۰۰۰ منهای سود سهام ۱۰٬۰۰۰ برابر سود انباشته پایان دوره ۵۰٬۰۰۰ است. The income statement explains net income, and net income flows into retained earnings on the balance sheet. صورت سود و زیان سود خالص را توضیح می‌دهد و سود خالص وارد سود انباشته در ترازنامه می‌شود.';
 
+const accountTypesBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">Every account name in accounting belongs to one of five families: <strong>assets, liabilities, equity, revenue, or expenses</strong>. If you can classify the account, the rest of the entry becomes much easier because you know whether the account lives on the balance sheet or the income statement.</p>
+
+	<div class="farsi-block" style="margin-top:12px; max-width:none;">
+		هر نام حساب در حسابداری در یکی از پنج خانواده قرار می‌گیرد: <strong>دارایی، بدهی، حقوق صاحبان سهام، درآمد، یا هزینه</strong>. اگر بتوانید نوع حساب را تشخیص دهید، بقیهٔ ثبت خیلی آسان‌تر می‌شود؛ چون می‌فهمید حساب در ترازنامه می‌نشیند یا در صورت سود و زیان.
+	</div>
+
+	<div class="lecture-grid" style="margin-top:16px;">
+		<div class="col-en">
+			<h3>The simple sorting question</h3>
+			<p>Do not start by memorizing hundreds of account names. Start by asking what the account represents.</p>
+			<ul>
+				<li><strong>Asset:</strong> something the company controls and expects to benefit from.</li>
+				<li><strong>Liability:</strong> something the company owes or must perform later.</li>
+				<li><strong>Equity:</strong> the owners' claim after liabilities.</li>
+				<li><strong>Revenue:</strong> value earned from selling goods or providing services.</li>
+				<li><strong>Expense:</strong> value used up to earn revenue or run the business.</li>
+			</ul>
+		</div>
+		<div class="col-fa">
+			<h3>سؤال ساده برای دسته‌بندی</h3>
+			<p>از حفظ کردن صدها نام حساب شروع نکنید. اول بپرسید این حساب نمایندهٔ چه چیزی است.</p>
+			<ul>
+				<li><strong>دارایی:</strong> چیزی که شرکت کنترل می‌کند و انتظار دارد از آن منفعت بگیرد.</li>
+				<li><strong>بدهی:</strong> چیزی که شرکت بدهکار است یا باید در آینده انجام دهد.</li>
+				<li><strong>حقوق صاحبان سهام:</strong> حق مالکان پس از کسر بدهی‌ها.</li>
+				<li><strong>درآمد:</strong> ارزشی که از فروش کالا یا ارائهٔ خدمت کسب شده است.</li>
+				<li><strong>هزینه:</strong> ارزشی که برای کسب درآمد یا ادارهٔ کسب‌وکار مصرف شده است.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div style="margin-top:18px; display:grid; grid-template-columns: 1fr; gap:16px;">
+		<div>
+			<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep); margin-bottom:6px;">01 · ASSETS · دارایی‌ها</div>
+			<p style="margin:0; font-size:14px; line-height:1.6;"><strong>Think:</strong> future benefit controlled by the company. Examples: Cash, Accounts Receivable, Inventory, Supplies, Prepaid Rent, Prepaid Insurance, Equipment, Vehicles, Buildings, Land, Patents, Software, Right-of-Use Asset.</p>
+			<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.85;"><strong>فکر کنید:</strong> منفعت آینده که شرکت آن را کنترل می‌کند. مثال‌ها: وجه نقد، حساب‌های دریافتنی، موجودی کالا، ملزومات، اجارهٔ پیش‌پرداخت، بیمهٔ پیش‌پرداخت، تجهیزات، خودرو، ساختمان، زمین، حق اختراع، نرم‌افزار، دارایی حق استفاده.</p>
+		</div>
+
+		<div>
+			<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep); margin-bottom:6px;">02 · LIABILITIES · بدهی‌ها</div>
+			<p style="margin:0; font-size:14px; line-height:1.6;"><strong>Think:</strong> an obligation to pay cash, transfer assets, or provide service later. Examples: Accounts Payable, Wages Payable, Interest Payable, Taxes Payable, Sales Tax Payable, Unearned Revenue, Notes Payable, Bank Loans, Bonds Payable, Lease Liability.</p>
+			<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.85;"><strong>فکر کنید:</strong> تعهدی برای پرداخت وجه، انتقال دارایی، یا ارائهٔ خدمت در آینده. مثال‌ها: حساب‌های پرداختنی، دستمزد پرداختنی، بهرهٔ پرداختنی، مالیات پرداختنی، مالیات فروش پرداختنی، درآمد پیش‌دریافت، اسناد پرداختنی، وام بانکی، اوراق قرضه پرداختنی، بدهی اجاره.</p>
+		</div>
+
+		<div>
+			<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep); margin-bottom:6px;">03 · EQUITY · حقوق صاحبان سهام</div>
+			<p style="margin:0; font-size:14px; line-height:1.6;"><strong>Think:</strong> the owners' stake in the business. Examples: Common Stock, Additional Paid-in Capital, Owner Capital, Retained Earnings, Treasury Stock, Dividends or Owner Draws. Dividends reduce equity; they are not expenses.</p>
+			<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.85;"><strong>فکر کنید:</strong> سهم و حق مالکان در کسب‌وکار. مثال‌ها: سهام عادی، سرمایهٔ اضافی پرداخت‌شده، سرمایهٔ مالک، سود انباشته، سهام خزانه، سود سهام یا برداشت مالک. سود سهام حقوق صاحبان سهام را کم می‌کند؛ هزینه نیست.</p>
+		</div>
+
+		<div>
+			<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep); margin-bottom:6px;">04 · REVENUE · درآمدها</div>
+			<p style="margin:0; font-size:14px; line-height:1.6;"><strong>Think:</strong> the company earned value by doing what it sells. Examples: Sales Revenue, Service Revenue, Subscription Revenue, Rental Revenue, Interest Revenue, Fee Revenue, Consulting Revenue. Cash collection can happen before, during, or after revenue is earned.</p>
+			<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.85;"><strong>فکر کنید:</strong> شرکت با انجام کاری که می‌فروشد ارزش کسب کرده است. مثال‌ها: درآمد فروش، درآمد خدمات، درآمد اشتراک، درآمد اجاره، درآمد بهره، درآمد کارمزد، درآمد مشاوره. دریافت وجه می‌تواند قبل، هم‌زمان، یا بعد از کسب درآمد باشد.</p>
+		</div>
+
+		<div>
+			<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep); margin-bottom:6px;">05 · EXPENSES · هزینه‌ها</div>
+			<p style="margin:0; font-size:14px; line-height:1.6;"><strong>Think:</strong> value used up. Examples: Cost of Goods Sold, Salaries Expense, Rent Expense, Utilities Expense, Insurance Expense, Advertising Expense, Depreciation Expense, Bad Debt Expense, Interest Expense, Income Tax Expense.</p>
+			<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.85;"><strong>فکر کنید:</strong> ارزشی که مصرف شده است. مثال‌ها: بهای تمام‌شده کالای فروش‌رفته، هزینهٔ حقوق و دستمزد، هزینهٔ اجاره، هزینهٔ آب و برق، هزینهٔ بیمه، هزینهٔ تبلیغات، هزینهٔ استهلاک، هزینهٔ مطالبات مشکوک‌الوصول، هزینهٔ بهره، هزینهٔ مالیات بر درآمد.</p>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Permanent vs. temporary</h3>
+			<p><strong>Assets, liabilities, and equity</strong> are permanent accounts. Their balances carry forward and appear on the balance sheet. If the company has $20,000 of equipment on December 31, that balance is still there on January 1 unless something changes it.</p>
+			<p><strong>Revenue and expenses</strong> are temporary accounts. They measure performance for one period, then close into retained earnings. That is why the income statement starts fresh each year while the balance sheet keeps rolling forward.</p>
+			<div class="example"><span class="label">Memory hook</span>Permanent accounts answer, "What exists at this date?" Temporary accounts answer, "What happened during this period?"</div>
+		</div>
+		<div class="col-fa">
+			<h3>دائمی در برابر موقت</h3>
+			<p><strong>دارایی، بدهی، و حقوق صاحبان سهام</strong> حساب‌های دائمی هستند. ماندهٔ آن‌ها منتقل می‌شود و در ترازنامه می‌آید. اگر شرکت در ۳۱ دسامبر ۲۰٬۰۰۰ دلار تجهیزات دارد، در ۱ ژانویه هم همان مانده وجود دارد مگر معامله‌ای آن را تغییر دهد.</p>
+			<p><strong>درآمد و هزینه</strong> حساب‌های موقت هستند. آن‌ها عملکرد یک دوره را اندازه می‌گیرند و سپس به سود انباشته بسته می‌شوند. به همین دلیل صورت سود و زیان هر سال از نو شروع می‌شود، اما ترازنامه ادامه پیدا می‌کند.</p>
+			<div class="example"><span class="label">یادسپار</span>حساب‌های دائمی می‌پرسند: «در این تاریخ چه چیزی وجود دارد؟» حساب‌های موقت می‌پرسند: «در این دوره چه اتفاقی افتاد؟»</div>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Accounts that trick students</h3>
+			<ul>
+				<li><strong>Prepaid Rent</strong> is an asset because the company has paid for future use of space.</li>
+				<li><strong>Unearned Revenue</strong> is a liability because the company has cash but still owes service.</li>
+				<li><strong>Accounts Receivable</strong> is an asset because customers owe the company.</li>
+				<li><strong>Accounts Payable</strong> is a liability because the company owes suppliers.</li>
+				<li><strong>Depreciation Expense</strong> is an expense; <strong>Accumulated Depreciation</strong> is a contra-asset, which the next lesson will show in the chart of accounts.</li>
+			</ul>
+			<div class="pitfall"><span class="label">Common mistake</span>Do not classify by one word in the name. "Revenue" inside Unearned Revenue does not make it revenue. "Rent" inside Prepaid Rent does not make it an expense. Ask what the account represents today.</div>
+		</div>
+		<div class="col-fa">
+			<h3>حساب‌هایی که دانشجو را گول می‌زنند</h3>
+			<ul>
+				<li><strong>اجارهٔ پیش‌پرداخت</strong> دارایی است، چون شرکت برای استفادهٔ آینده از فضا پول داده است.</li>
+				<li><strong>درآمد پیش‌دریافت</strong> بدهی است، چون شرکت وجه را گرفته اما هنوز خدمت بدهکار است.</li>
+				<li><strong>حساب‌های دریافتنی</strong> دارایی است، چون مشتریان به شرکت بدهکارند.</li>
+				<li><strong>حساب‌های پرداختنی</strong> بدهی است، چون شرکت به تأمین‌کنندگان بدهکار است.</li>
+				<li><strong>هزینهٔ استهلاک</strong> هزینه است؛ <strong>استهلاک انباشته</strong> حساب کاهندهٔ دارایی است که درس بعدی آن را در فهرست حساب‌ها نشان می‌دهد.</li>
+			</ul>
+			<div class="pitfall"><span class="label">اشتباه رایج</span>فقط با دیدن یک کلمه در نام حساب تصمیم نگیرید. وجود کلمهٔ «درآمد» در درآمد پیش‌دریافت، آن را درآمد نمی‌کند. وجود کلمهٔ «اجاره» در اجارهٔ پیش‌پرداخت، آن را هزینه نمی‌کند. بپرسید حساب امروز نمایندهٔ چه چیزی است.</div>
+		</div>
+	</div>`;
+
+const accountTypesPlain =
+	'Every account name in accounting belongs to one of five families: assets, liabilities, equity, revenue, or expenses. If you can classify the account, the rest of the entry becomes much easier because you know whether the account lives on the balance sheet or the income statement. هر نام حساب در حسابداری در یکی از پنج خانواده قرار می‌گیرد: دارایی، بدهی، حقوق صاحبان سهام، درآمد، یا هزینه. اگر بتوانید نوع حساب را تشخیص دهید، بقیه ثبت خیلی آسان‌تر می‌شود؛ چون می‌فهمید حساب در ترازنامه می‌نشیند یا در صورت سود و زیان. The simple sorting question Do not start by memorizing hundreds of account names. Start by asking what the account represents. Asset: something the company controls and expects to benefit from. Liability: something the company owes or must perform later. Equity: the owners claim after liabilities. Revenue: value earned from selling goods or providing services. Expense: value used up to earn revenue or run the business. سؤال ساده برای دسته‌بندی از حفظ کردن صدها نام حساب شروع نکنید. اول بپرسید این حساب نماینده چه چیزی است. دارایی: چیزی که شرکت کنترل می‌کند و انتظار دارد از آن منفعت بگیرد. بدهی: چیزی که شرکت بدهکار است یا باید در آینده انجام دهد. حقوق صاحبان سهام: حق مالکان پس از کسر بدهی‌ها. درآمد: ارزشی که از فروش کالا یا ارائه خدمت کسب شده است. هزینه: ارزشی که برای کسب درآمد یا اداره کسب‌وکار مصرف شده است. Assets Think: future benefit controlled by the company. Examples: Cash, Accounts Receivable, Inventory, Supplies, Prepaid Rent, Prepaid Insurance, Equipment, Vehicles, Buildings, Land, Patents, Software, Right-of-Use Asset. دارایی‌ها فکر کنید: منفعت آینده که شرکت آن را کنترل می‌کند. مثال‌ها: وجه نقد، حساب‌های دریافتنی، موجودی کالا، ملزومات، اجاره پیش‌پرداخت، بیمه پیش‌پرداخت، تجهیزات، خودرو، ساختمان، زمین، حق اختراع، نرم‌افزار، دارایی حق استفاده. Liabilities Think: an obligation to pay cash, transfer assets, or provide service later. Examples: Accounts Payable, Wages Payable, Interest Payable, Taxes Payable, Sales Tax Payable, Unearned Revenue, Notes Payable, Bank Loans, Bonds Payable, Lease Liability. بدهی‌ها فکر کنید: تعهدی برای پرداخت وجه، انتقال دارایی، یا ارائه خدمت در آینده. مثال‌ها: حساب‌های پرداختنی، دستمزد پرداختنی، بهره پرداختنی، مالیات پرداختنی، مالیات فروش پرداختنی، درآمد پیش‌دریافت، اسناد پرداختنی، وام بانکی، اوراق قرضه پرداختنی، بدهی اجاره. Equity Think: the owners stake in the business. Examples: Common Stock, Additional Paid-in Capital, Owner Capital, Retained Earnings, Treasury Stock, Dividends or Owner Draws. Dividends reduce equity; they are not expenses. حقوق صاحبان سهام فکر کنید: سهم و حق مالکان در کسب‌وکار. مثال‌ها: سهام عادی، سرمایه اضافی پرداخت‌شده، سرمایه مالک، سود انباشته، سهام خزانه، سود سهام یا برداشت مالک. سود سهام حقوق صاحبان سهام را کم می‌کند؛ هزینه نیست. Revenue Think: the company earned value by doing what it sells. Examples: Sales Revenue, Service Revenue, Subscription Revenue, Rental Revenue, Interest Revenue, Fee Revenue, Consulting Revenue. Cash collection can happen before, during, or after revenue is earned. درآمدها فکر کنید: شرکت با انجام کاری که می‌فروشد ارزش کسب کرده است. مثال‌ها: درآمد فروش، درآمد خدمات، درآمد اشتراک، درآمد اجاره، درآمد بهره، درآمد کارمزد، درآمد مشاوره. دریافت وجه می‌تواند قبل، هم‌زمان، یا بعد از کسب درآمد باشد. Expenses Think: value used up. Examples: Cost of Goods Sold, Salaries Expense, Rent Expense, Utilities Expense, Insurance Expense, Advertising Expense, Depreciation Expense, Bad Debt Expense, Interest Expense, Income Tax Expense. هزینه‌ها فکر کنید: ارزشی که مصرف شده است. مثال‌ها: بهای تمام‌شده کالای فروش‌رفته، هزینه حقوق و دستمزد، هزینه اجاره، هزینه آب و برق، هزینه بیمه، هزینه تبلیغات، هزینه استهلاک، هزینه مطالبات مشکوک‌الوصول، هزینه بهره، هزینه مالیات بر درآمد. Permanent vs temporary Assets, liabilities, and equity are permanent accounts. Their balances carry forward and appear on the balance sheet. Revenue and expenses are temporary accounts. They measure performance for one period, then close into retained earnings. Memory hook Permanent accounts answer: What exists at this date? Temporary accounts answer: What happened during this period? دائمی در برابر موقت دارایی، بدهی، و حقوق صاحبان سهام حساب‌های دائمی هستند. مانده آن‌ها منتقل می‌شود و در ترازنامه می‌آید. درآمد و هزینه حساب‌های موقت هستند. آن‌ها عملکرد یک دوره را اندازه می‌گیرند و سپس به سود انباشته بسته می‌شوند. یادسپار حساب‌های دائمی می‌پرسند: در این تاریخ چه چیزی وجود دارد؟ حساب‌های موقت می‌پرسند: در این دوره چه اتفاقی افتاد؟ Accounts that trick students Prepaid Rent is an asset because the company has paid for future use of space. Unearned Revenue is a liability because the company has cash but still owes service. Accounts Receivable is an asset because customers owe the company. Accounts Payable is a liability because the company owes suppliers. Depreciation Expense is an expense; Accumulated Depreciation is a contra-asset, which the next lesson will show in the chart of accounts. حساب‌هایی که دانشجو را گول می‌زنند اجاره پیش‌پرداخت دارایی است، چون شرکت برای استفاده آینده از فضا پول داده است. درآمد پیش‌دریافت بدهی است، چون شرکت وجه را گرفته اما هنوز خدمت بدهکار است. حساب‌های دریافتنی دارایی است، چون مشتریان به شرکت بدهکارند. حساب‌های پرداختنی بدهی است، چون شرکت به تأمین‌کنندگان بدهکار است. هزینه استهلاک هزینه است؛ استهلاک انباشته حساب کاهنده دارایی است که درس بعدی آن را در فهرست حساب‌ها نشان می‌دهد. Common mistake Do not classify by one word in the name. Revenue inside Unearned Revenue does not make it revenue. Rent inside Prepaid Rent does not make it an expense. Ask what the account represents today. اشتباه رایج فقط با دیدن یک کلمه در نام حساب تصمیم نگیرید. وجود کلمه درآمد در درآمد پیش‌دریافت، آن را درآمد نمی‌کند. وجود کلمه اجاره در اجاره پیش‌پرداخت، آن را هزینه نمی‌کند. بپرسید حساب امروز نماینده چه چیزی است.';
+
 const cashVsAccrualBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">Cash basis and accrual basis answer the same question in two different ways: <strong>which period should show this revenue or expense?</strong> Cash basis follows the money. Accrual basis follows the economic activity.</p>
 
 	<div class="farsi-block" style="margin-top:12px; max-width:none;">
@@ -1216,6 +1322,10 @@ const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'06-expanded-equation': {
 		body: expandedEquationBody,
 		plain: expandedEquationPlain
+	},
+	'07-account-types': {
+		body: accountTypesBody,
+		plain: accountTypesPlain
 	},
 	'21-cash-vs-accrual': {
 		body: cashVsAccrualBody,
