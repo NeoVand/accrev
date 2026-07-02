@@ -774,6 +774,76 @@
     "definition": "Financially strong — adequate cash, manageable debt, stable margins. Not a single number; comes from looking at many ratios together.",
     "fa": { "term": "سالم", "definition": "از نظر مالی قوی — نقد کافی، بدهی قابل مدیریت، حاشیهٔ پایدار. یک عدد واحد نیست؛ از نگاه ترکیبی به چند نسبت به‌دست می‌آید." }
   },
+  "liquidity": {
+    "term": "Liquidity",
+    "definition": "How easily a company can meet short-term cash needs. Liquidity ratios compare near-cash assets with current liabilities.",
+    "fa": { "term": "نقدینگی", "definition": "توان شرکت برای پاسخ به نیازهای نقدی کوتاه‌مدت. نسبت‌های نقدینگی دارایی‌های نزدیک به نقد را با بدهی‌های جاری مقایسه می‌کنند." }
+  },
+  "liquid": {
+    "term": "Liquid",
+    "definition": "Easy to turn into cash quickly. Cash is the most liquid asset; inventory is usually less liquid.",
+    "fa": { "term": "نقدشونده", "definition": "چیزی که سریع و آسان به وجه نقد تبدیل می‌شود. وجه نقد نقدشونده‌ترین دارایی است؛ موجودی معمولاً کمتر نقدشونده است." }
+  },
+  "potential": {
+    "term": "Potential",
+    "definition": "Possible, but not certain yet. Potential short-term stress means the company may face pressure soon.",
+    "fa": { "term": "احتمالی / بالقوه", "definition": "ممکن است رخ دهد، اما هنوز قطعی نیست. فشار کوتاه‌مدت بالقوه یعنی شرکت ممکن است به‌زودی با فشار روبه‌رو شود." }
+  },
+  "short-term": {
+    "term": "Short-term",
+    "definition": "Near future, usually within one year in accounting. Short-term stress means pressure in the coming months.",
+    "fa": { "term": "کوتاه‌مدت", "definition": "آیندهٔ نزدیک، معمولاً ظرف یک سال در حسابداری. فشار کوتاه‌مدت یعنی فشار در ماه‌های پیش رو." }
+  },
+  "exclude": {
+    "term": "Exclude",
+    "definition": "To leave something out of a calculation or group.",
+    "fa": { "term": "حذف کردن / کنار گذاشتن", "definition": "چیزی را از یک محاسبه یا گروه بیرون گذاشتن." }
+  },
+  "excludes": {
+    "term": "Excludes",
+    "definition": "Leaves out. The quick ratio excludes inventory because inventory may not turn into cash quickly.",
+    "fa": { "term": "حذف می‌کند / کنار می‌گذارد", "definition": "کنار می‌گذارد. نسبت آنی موجودی را حذف می‌کند چون ممکن است موجودی سریع به نقد تبدیل نشود." }
+  },
+  "strict": {
+    "term": "Strict",
+    "definition": "Tighter or more demanding. A strict test accepts fewer items.",
+    "fa": { "term": "سخت‌گیرانه", "definition": "دقیق‌تر و محدودکننده‌تر. یک آزمون سخت‌گیرانه اقلام کمتری را قبول می‌کند." }
+  },
+  "stricter": {
+    "term": "Stricter",
+    "definition": "More strict; more demanding. The quick ratio is stricter than the current ratio because it removes inventory.",
+    "fa": { "term": "سخت‌گیرانه‌تر", "definition": "محدودکننده‌تر و دقیق‌تر. نسبت آنی از نسبت جاری سخت‌گیرانه‌تر است چون موجودی را حذف می‌کند." }
+  },
+  "equivalent": {
+    "term": "Equivalent",
+    "definition": "Nearly the same in value or function. A cash equivalent is almost like cash because it can be converted quickly.",
+    "fa": { "term": "معادل", "definition": "از نظر ارزش یا کارکرد تقریباً همانند چیز دیگر. معادل نقد تقریباً مثل وجه نقد است چون سریع قابل تبدیل است." }
+  },
+  "equivalents": {
+    "term": "Equivalents",
+    "definition": "Items nearly the same in value or function. Cash equivalents are very short-term, highly liquid investments treated almost like cash.",
+    "fa": { "term": "معادل‌ها", "definition": "اقلامی که از نظر ارزش یا کارکرد تقریباً مشابه‌اند. معادل‌های نقد سرمایه‌گذاری‌های بسیار کوتاه‌مدت و بسیار نقدشونده‌اند که تقریباً مثل وجه نقد در نظر گرفته می‌شوند." }
+  },
+  "conservative": {
+    "term": "Conservative",
+    "definition": "Careful and cautious. A conservative ratio uses fewer, safer assets in the numerator.",
+    "fa": { "term": "محافظه‌کارانه / محتاطانه", "definition": "با احتیاط و سخت‌گیری بیشتر. یک نسبت محافظه‌کارانه در صورت کسر از دارایی‌های کمتر و مطمئن‌تر استفاده می‌کند." }
+  },
+  "numerator": {
+    "term": "Numerator",
+    "definition": "The top number in a fraction or ratio. In current ratio, current assets are the numerator.",
+    "fa": { "term": "صورت کسر", "definition": "عدد بالای کسر یا نسبت. در نسبت جاری، دارایی‌های جاری صورت کسر هستند." }
+  },
+  "idle": {
+    "term": "Idle",
+    "definition": "Not being used productively. Idle cash is cash sitting unused instead of earning a return or supporting growth.",
+    "fa": { "term": "بیکار / بلااستفاده", "definition": "چیزی که به‌طور مولد استفاده نمی‌شود. وجه نقد بیکار پولی است که استفاده نمی‌شود و بازده یا رشد ایجاد نمی‌کند." }
+  },
+  "over-capitalized": {
+    "term": "Over-capitalized",
+    "definition": "Having more capital or cash than the business currently needs. It can make liquidity ratios look unusually high.",
+    "fa": { "term": "بیش‌ازحد سرمایه‌گذاری‌شده", "definition": "داشتن سرمایه یا نقد بیشتر از نیاز فعلی کسب‌وکار. این وضعیت می‌تواند نسبت‌های نقدینگی را به‌طور غیرعادی بالا نشان دهد." }
+  },
   "non-cash": {
     "term": "Non-cash",
     "definition": "Items that affect the income statement but don't move cash — depreciation, amortization, stock-based compensation. Added back in the cash flow indirect method.",
