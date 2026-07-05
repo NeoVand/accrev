@@ -1314,6 +1314,97 @@ const straightLineDepreciationBody = `<p class="subtitle" style="margin-top:14px
 const straightLineDepreciationPlain =
 	'Straight-line depreciation spreads the depreciable cost of a long-lived asset evenly across the years it helps the business. It records the same expense each period until the asset reaches estimated salvage value. استهلاک خط مستقیم بهای قابل استهلاک یک دارایی بلندمدت را به‌طور مساوی بین سال‌هایی پخش می‌کند که دارایی به کسب‌وکار خدمت می‌دهد. در هر دوره هزینه یکسان ثبت می‌شود تا دارایی به ارزش اسقاط برآوردی برسد. Formula: annual depreciation = cost minus salvage value divided by useful life. فرمول: استهلاک سالانه = بهای تمام‌شده منهای ارزش اسقاط تقسیم بر عمر مفید. Cost is what the asset costs to acquire and prepare. Salvage value is what the company expects to recover at the end. Useful life is the expected service period. بهای تمام‌شده هزینه خرید و آماده‌سازی دارایی است. ارزش اسقاط مبلغی است که شرکت انتظار دارد در پایان بازیافت کند. عمر مفید دوره خدمت مورد انتظار است. Depreciation is not a cash payment each year. Cash usually left when the asset was purchased. Depreciation moves part of the asset cost from the balance sheet to the income statement over time. استهلاک پرداخت نقدی هر سال نیست. وجه نقد معمولاً هنگام خرید دارایی خارج شده است. استهلاک بخشی از بهای دارایی را به‌مرور از ترازنامه به صورت سود و زیان منتقل می‌کند. Example: machine cost 60,000, salvage 6,000, useful life 6 years. Depreciable base is 54,000. Annual depreciation is 9,000. مثال: بهای ماشین ۶۰٬۰۰۰، ارزش اسقاط ۶٬۰۰۰ و عمر مفید ۶ سال است. مبنای قابل استهلاک ۵۴٬۰۰۰ و استهلاک سالانه ۹٬۰۰۰ است. Journal entry: debit depreciation expense 9,000 and credit accumulated depreciation 9,000. ثبت: بدهکار هزینه استهلاک ۹٬۰۰۰ و بستانکار استهلاک انباشته ۹٬۰۰۰. Income statement: depreciation reduces operating income and net income. Balance sheet: accumulated depreciation rises and book value falls. Cash flow statement: under the indirect method, depreciation is added back because it is non-cash. صورت سود و زیان: استهلاک سود عملیاتی و سود خالص را کاهش می‌دهد. ترازنامه: استهلاک انباشته افزایش و ارزش دفتری کاهش می‌یابد. صورت جریان وجوه نقد: در روش غیرمستقیم، استهلاک اضافه می‌شود چون غیرنقدی است. Common mistake: do not depreciate below salvage value. اشتباه رایج: دارایی را پایین‌تر از ارزش اسقاط مستهلک نکنید. Estimates can change prospectively. برآوردها می‌توانند برای دوره‌های آینده تغییر کنند.';
 
+const solvencyBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">Solvency asks a longer-term question than liquidity: <strong>can this company keep its debt promises over the next several years?</strong> It is about survival under debt pressure, not just paying tomorrow's bill.</p>
+
+	<div class="farsi-block" style="margin-top:12px; max-width:none;">
+		توان پرداخت بلندمدت سؤال بلندمدت‌تری از نقدینگی می‌پرسد: <strong>آیا این شرکت می‌تواند در چند سال آینده به وعده‌های بدهی خود عمل کند؟</strong> موضوع این درس زنده ماندن زیر فشار بدهی است، نه فقط پرداخت قبض فردا.
+	</div>
+
+	<div class="lecture-grid" style="margin-top:16px;">
+		<div class="col-en">
+			<h3>Risk and default, in plain English</h3>
+			<p><strong>Risk</strong> here means the chance that the company cannot handle its debt comfortably. Debt creates fixed promises: interest must be paid, principal must be repaid, and loan covenants may have to be obeyed.</p>
+			<p><strong>Default</strong> means the company breaks one of those required promises. It might miss an interest payment, fail to repay principal on time, or violate a loan covenant. Default does not always mean instant bankruptcy, but it is a serious warning sign because lenders can demand action.</p>
+			<div class="example"><span class="label">Simple idea</span>Debt is not bad by itself. The danger is too much debt compared with the company's profit, cash flow, and owner cushion.</div>
+		</div>
+		<div class="col-fa">
+			<h3>ریسک و نکول به زبان ساده</h3>
+			<p><strong>ریسک</strong> در این درس یعنی احتمال اینکه شرکت نتواند بدهی‌هایش را با خیال راحت مدیریت کند. بدهی وعده‌های ثابت ایجاد می‌کند: بهره باید پرداخت شود، اصل بدهی باید بازپرداخت شود، و شرط‌های قرارداد وام ممکن است باید رعایت شوند.</p>
+			<p><strong>نکول</strong> یعنی شرکت یکی از این وعده‌های الزامی را انجام نمی‌دهد. ممکن است بهره را نپردازد، اصل بدهی را در سررسید پرداخت نکند، یا یکی از شروط وام را نقض کند. نکول همیشه به‌معنای ورشکستگی فوری نیست، اما علامت هشدار جدی است چون وام‌دهندگان می‌توانند اقدام بخواهند.</p>
+			<div class="example"><span class="label">ایدهٔ ساده</span>بدهی به‌خودی‌خود بد نیست. خطر وقتی شروع می‌شود که بدهی نسبت به سود، جریان نقد، و پشتوانهٔ مالکان بیش از حد بزرگ شود.</div>
+		</div>
+	</div>
+
+	<div style="margin-top:18px; display:grid; grid-template-columns: 1fr; gap:16px;">
+		<div>
+			<div style="font-family:'Fraunces',serif; font-size:20px; color:var(--navy); font-weight:500;">Debt-to-Equity <span style="font-family:'Vazirmatn',sans-serif; color:var(--tan-deep); font-size:15px;">· بدهی به حقوق صاحبان سهام</span></div>
+			<div style="margin-top:8px; font-family:'JetBrains Mono',monospace; font-size:15px;">Total Liabilities ÷ Total Equity</div>
+			<p style="margin-top:8px; font-size:14px; line-height:1.6;"><strong>Meaning:</strong> how many dollars of creditor financing exist for each dollar of owner financing. Higher D/E means more leverage. More leverage can raise returns in good years, but it also makes bad years hurt more.</p>
+			<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.85;"><strong>معنا:</strong> در برابر هر یک دلار تأمین مالی مالکان، چند دلار تأمین مالی طلبکاران وجود دارد. نسبت بالاتر یعنی اهرم مالی بیشتر. اهرم بیشتر در سال‌های خوب می‌تواند بازده را بالا ببرد، اما در سال‌های بد فشار را هم بیشتر می‌کند.</p>
+		</div>
+
+		<div>
+			<div style="font-family:'Fraunces',serif; font-size:20px; color:var(--navy); font-weight:500;">Debt-to-Assets <span style="font-family:'Vazirmatn',sans-serif; color:var(--tan-deep); font-size:15px;">· بدهی به دارایی</span></div>
+			<div style="margin-top:8px; font-family:'JetBrains Mono',monospace; font-size:15px;">Total Liabilities ÷ Total Assets</div>
+			<p style="margin-top:8px; font-size:14px; line-height:1.6;"><strong>Meaning:</strong> what share of the company's assets is funded by creditors. A 60% debt-to-assets ratio means creditors have funded 60 cents of every asset dollar.</p>
+			<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.85;"><strong>معنا:</strong> چه سهمی از دارایی‌های شرکت با پول طلبکاران تأمین شده است. نسبت ۶۰٪ یعنی از هر یک دلار دارایی، ۶۰ سنت با بدهی تأمین شده است.</p>
+		</div>
+
+		<div>
+			<div style="font-family:'Fraunces',serif; font-size:20px; color:var(--navy); font-weight:500;">Interest Coverage <span style="font-family:'Vazirmatn',sans-serif; color:var(--tan-deep); font-size:15px;">· پوشش بهره</span></div>
+			<div style="margin-top:8px; font-family:'JetBrains Mono',monospace; font-size:15px;">EBIT ÷ Interest Expense</div>
+			<p style="margin-top:8px; font-size:14px; line-height:1.6;"><strong>Meaning:</strong> how many times operating profit can cover interest. Coverage of 6× means operating profit is six times the interest bill. Coverage near 1× means almost all operating profit is being used just to pay interest.</p>
+			<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.85;"><strong>معنا:</strong> سود عملیاتی چند بار می‌تواند هزینهٔ بهره را پوشش دهد. پوشش ۶ برابر یعنی سود عملیاتی شش برابر هزینهٔ بهره است. پوشش نزدیک ۱ برابر یعنی تقریباً همهٔ سود عملیاتی فقط صرف پرداخت بهره می‌شود.</p>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Two borrowers, very different risk</h3>
+			<p>Imagine two companies with the same industry and similar sales.</p>
+			<ul>
+				<li><strong>Steady Co.:</strong> liabilities 60, equity 120. D/E = 0.50×. EBIT 30, interest 5. Interest coverage = 6.0×.</li>
+				<li><strong>Stretched Co.:</strong> liabilities 180, equity 60. D/E = 3.00×. EBIT 12, interest 8. Interest coverage = 1.5×.</li>
+			</ul>
+			<p>Steady Co. has room for a bad year. Stretched Co. has very little room. If its EBIT falls from 12 to 7, it cannot cover its 8 of interest from operating profit. That is the kind of situation analysts mean by <strong>default risk</strong>.</p>
+		</div>
+		<div class="col-fa">
+			<h3>دو وام‌گیرنده، ریسک بسیار متفاوت</h3>
+			<p>دو شرکت را تصور کنید که در یک صنعت‌اند و فروش تقریباً مشابهی دارند.</p>
+			<ul>
+				<li><strong>شرکت باثبات:</strong> بدهی‌ها ۶۰، حقوق صاحبان سهام ۱۲۰. D/E = ۰٫۵۰. EBIT برابر ۳۰ و بهره ۵ است. پوشش بهره = ۶٫۰ برابر.</li>
+				<li><strong>شرکت تحت فشار:</strong> بدهی‌ها ۱۸۰، حقوق صاحبان سهام ۶۰. D/E = ۳٫۰۰. EBIT برابر ۱۲ و بهره ۸ است. پوشش بهره = ۱٫۵ برابر.</li>
+			</ul>
+			<p>شرکت باثبات برای یک سال بد جا دارد. شرکت تحت فشار فضای بسیار کمی دارد. اگر EBIT آن از ۱۲ به ۷ کاهش یابد، سود عملیاتی دیگر بهرهٔ ۸ را پوشش نمی‌دهد. این همان وضعیتی است که تحلیل‌گران از آن به‌عنوان <strong>ریسک نکول</strong> یاد می‌کنند.</p>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>How to read solvency quickly</h3>
+			<ul>
+				<li><strong>Start with the balance sheet:</strong> how much debt is sitting on the company compared with equity and assets?</li>
+				<li><strong>Then check the income statement:</strong> does operating profit comfortably cover interest?</li>
+				<li><strong>Then ask about time:</strong> when does principal come due, and does the company have years to repay or only months?</li>
+				<li><strong>Finally compare the industry:</strong> banks and utilities normally carry more debt than software companies.</li>
+			</ul>
+			<div class="pitfall"><span class="label">Common mistake</span>High debt does not automatically mean danger. Stable cash flows, regulated prices, and long maturities can make higher debt manageable. The real question is whether the debt promises are too heavy for the company's earning power.</div>
+		</div>
+		<div class="col-fa">
+			<h3>روش سریع خواندن توان پرداخت بلندمدت</h3>
+			<ul>
+				<li><strong>از ترازنامه شروع کنید:</strong> بدهی شرکت نسبت به حقوق صاحبان سهام و دارایی‌ها چقدر است؟</li>
+				<li><strong>بعد صورت سود و زیان را ببینید:</strong> آیا سود عملیاتی با فاصلهٔ کافی هزینهٔ بهره را پوشش می‌دهد؟</li>
+				<li><strong>بعد زمان را بپرسید:</strong> اصل بدهی چه زمانی سررسید می‌شود؟ شرکت چند سال وقت دارد یا فقط چند ماه؟</li>
+				<li><strong>در پایان صنعت را مقایسه کنید:</strong> بانک‌ها و شرکت‌های خدمات عمومی معمولاً بدهی بیشتری از شرکت‌های نرم‌افزاری دارند.</li>
+			</ul>
+			<div class="pitfall"><span class="label">اشتباه رایج</span>بدهی بالا همیشه به‌معنای خطر نیست. جریان نقد پایدار، قیمت‌های تنظیم‌شده، و سررسیدهای بلند می‌تواند بدهی بیشتر را قابل مدیریت کند. سؤال واقعی این است که آیا وعده‌های بدهی برای توان سودآوری شرکت بیش از حد سنگین‌اند یا نه.</div>
+		</div>
+	</div>`;
+
+const solvencyPlain =
+	'Solvency asks a longer-term question than liquidity: can this company keep its debt promises over the next several years? It is about survival under debt pressure, not just paying tomorrow\'s bill. توان پرداخت بلندمدت سؤال بلندمدت‌تری از نقدینگی می‌پرسد: آیا این شرکت می‌تواند در چند سال آینده به وعده‌های بدهی خود عمل کند؟ موضوع این درس زنده ماندن زیر فشار بدهی است، نه فقط پرداخت قبض فردا. Risk and default, in plain English Risk here means the chance that the company cannot handle its debt comfortably. Debt creates fixed promises: interest must be paid, principal must be repaid, and loan covenants may have to be obeyed. Default means the company breaks one of those required promises. It might miss an interest payment, fail to repay principal on time, or violate a loan covenant. Default does not always mean instant bankruptcy, but it is a serious warning sign because lenders can demand action. ریسک و نکول به زبان ساده ریسک در این درس یعنی احتمال اینکه شرکت نتواند بدهی‌هایش را با خیال راحت مدیریت کند. بدهی وعده‌های ثابت ایجاد می‌کند: بهره باید پرداخت شود، اصل بدهی باید بازپرداخت شود، و شرط‌های قرارداد وام ممکن است باید رعایت شوند. نکول یعنی شرکت یکی از این وعده‌های الزامی را انجام نمی‌دهد. ممکن است بهره را نپردازد، اصل بدهی را در سررسید پرداخت نکند، یا یکی از شروط وام را نقض کند. نکول همیشه به‌معنای ورشکستگی فوری نیست، اما علامت هشدار جدی است چون وام‌دهندگان می‌توانند اقدام بخواهند. Debt is not bad by itself. The danger is too much debt compared with profit, cash flow, and owner cushion. بدهی به‌خودی‌خود بد نیست. خطر وقتی شروع می‌شود که بدهی نسبت به سود، جریان نقد، و پشتوانه مالکان بیش از حد بزرگ شود. Debt-to-Equity = Total Liabilities divided by Total Equity. It shows how many dollars of creditor financing exist for each dollar of owner financing. بدهی به حقوق صاحبان سهام = کل بدهی‌ها تقسیم بر حقوق صاحبان سهام. نشان می‌دهد در برابر هر دلار تأمین مالی مالکان چند دلار تأمین مالی طلبکاران وجود دارد. Debt-to-Assets = Total Liabilities divided by Total Assets. It shows what share of assets is funded by creditors. بدهی به دارایی = کل بدهی‌ها تقسیم بر کل دارایی‌ها. نشان می‌دهد چه سهمی از دارایی‌ها با پول طلبکاران تأمین شده است. Interest Coverage = EBIT divided by Interest Expense. It shows how many times operating profit can cover interest. پوشش بهره = EBIT تقسیم بر هزینه بهره. نشان می‌دهد سود عملیاتی چند بار می‌تواند هزینه بهره را پوشش دهد. Two borrowers: Steady Co has liabilities 60, equity 120, D/E 0.50, EBIT 30, interest 5, interest coverage 6.0. Stretched Co has liabilities 180, equity 60, D/E 3.00, EBIT 12, interest 8, interest coverage 1.5. Steady Co has room for a bad year. Stretched Co has little room. If EBIT falls from 12 to 7, it cannot cover 8 of interest from operating profit. That is default risk. دو وام‌گیرنده: شرکت باثبات بدهی ۶۰، حقوق صاحبان سهام ۱۲۰، D/E برابر ۰٫۵۰، EBIT برابر ۳۰، بهره ۵، پوشش بهره ۶٫۰ دارد. شرکت تحت فشار بدهی ۱۸۰، حقوق صاحبان سهام ۶۰، D/E برابر ۳٫۰۰، EBIT برابر ۱۲، بهره ۸، پوشش بهره ۱٫۵ دارد. شرکت باثبات برای سال بد جا دارد. شرکت تحت فشار فضای کمی دارد. اگر EBIT از ۱۲ به ۷ کاهش یابد، نمی‌تواند بهره ۸ را از سود عملیاتی پوشش دهد. این ریسک نکول است. How to read solvency quickly: start with the balance sheet, then check interest coverage, then ask when principal comes due, then compare the industry. روش سریع: از ترازنامه شروع کنید، بعد پوشش بهره را بررسی کنید، بعد بپرسید اصل بدهی چه زمانی سررسید می‌شود، سپس صنعت را مقایسه کنید. Common mistake: high debt does not automatically mean danger. Stable cash flows, regulated prices, and long maturities can make higher debt manageable. اشتباه رایج: بدهی بالا همیشه به‌معنای خطر نیست. جریان نقد پایدار، قیمت‌های تنظیم‌شده، و سررسیدهای بلند می‌تواند بدهی بیشتر را قابل مدیریت کند.';
+
 const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'05-equation': {
 		body: accountingEquationBody,
@@ -1368,6 +1459,10 @@ const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 		eyebrowFa: 'استهلاک خط مستقیم',
 		body: straightLineDepreciationBody,
 		plain: straightLineDepreciationPlain
+	},
+	'42-solvency': {
+		body: solvencyBody,
+		plain: solvencyPlain
 	}
 };
 

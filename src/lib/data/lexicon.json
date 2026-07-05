@@ -454,6 +454,31 @@
     "definition": "Use of debt to amplify returns. High leverage magnifies both gains and losses; ratios like debt-to-equity measure it.",
     "fa": { "term": "اهرم مالی", "definition": "استفاده از بدهی برای بزرگ‌نمایی بازده. اهرم بالا، هم سود و هم زیان را تشدید می‌کند؛ نسبت‌هایی مثل بدهی به حقوق صاحبان سهام آن را اندازه می‌گیرند." }
   },
+  "solvency": {
+    "term": "Solvency",
+    "definition": "A company's ability to meet long-term obligations and stay financially alive. Solvency focuses on debt load, interest burden, and default risk.",
+    "fa": { "term": "توان پرداخت بلندمدت", "definition": "توان شرکت برای انجام تعهدات بلندمدت و ادامهٔ حیات مالی. توان پرداخت بلندمدت روی حجم بدهی، فشار بهره، و خطر نکول تمرکز دارد." }
+  },
+  "solvent": {
+    "term": "Solvent",
+    "definition": "Able to pay debts as they come due and continue operating. A solvent company is not crushed by its long-term obligations.",
+    "fa": { "term": "توانمند در پرداخت بدهی", "definition": "قادر به پرداخت بدهی‌ها در سررسید و ادامهٔ فعالیت. شرکت solvent زیر فشار تعهدات بلندمدت له نشده است." }
+  },
+  "default": {
+    "term": "Default",
+    "definition": "Failure to meet a required debt promise, such as missing an interest payment, missing principal repayment, or violating a loan covenant.",
+    "fa": { "term": "نکول", "definition": "انجام ندادن یک تعهد الزامی بدهی؛ مثل نپرداختن بهره، نپرداختن اصل بدهی در سررسید، یا نقض شرط قرارداد وام." }
+  },
+  "principal": {
+    "term": "Principal",
+    "definition": "The original amount borrowed, before interest. Repaying principal reduces the debt balance.",
+    "fa": { "term": "اصل بدهی", "definition": "مبلغ اصلی وام‌گرفته‌شده، جدا از بهره. بازپرداخت اصل بدهی ماندهٔ بدهی را کم می‌کند." }
+  },
+  "borrower": {
+    "term": "Borrower",
+    "definition": "The person or company that receives money through a loan and promises to repay it.",
+    "fa": { "term": "وام‌گیرنده", "definition": "شخص یا شرکتی که از طریق وام پول دریافت می‌کند و متعهد می‌شود آن را بازپرداخت کند." }
+  },
   "ledg": {
     "term": "Ledger",
     "definition": "The collection of all accounts where transactions are posted and balances accumulate. The general ledger is the master record.",
