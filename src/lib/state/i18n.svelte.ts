@@ -55,7 +55,7 @@ const en = {
 	learn_title: 'Accounting, Reviewed.',
 	learn_subtitle:
 		'Sixty concepts, end-to-end, paired in English and Farsi — with worked examples and the pitfalls that make accounting hard the second time around.',
-	learn_for_you: 'For you, jooon. From the very first equation to a real annual report.',
+	learn_for_you: 'For you, Ellie. From the very first equation to a real annual report.',
 	learn_search_placeholder: 'Search slides, terms, examples…',
 	learn_search_no_results: 'Nothing found. Try a different word.',
 	learn_search_results_count: (n: number) => (n === 1 ? '1 result' : `${n} results`),
@@ -356,7 +356,7 @@ const fa: Record<MessageKey, MsgValue> = {
 	learn_title: 'حسابداری، مرور شد.',
 	learn_subtitle:
 		'شصت مفهوم، از پایه تا تحلیل صورت‌های مالی — به دو زبان، با مثال‌های عددی و یادداشت‌هایی دربارهٔ خطاهای رایج.',
-	learn_for_you: 'برای تو جون. از اولین معادله تا یک گزارش سالانهٔ واقعی.',
+	learn_for_you: 'برای الی. از اولین معادله تا یک گزارش سالانهٔ واقعی.',
 	learn_search_placeholder: 'جست‌وجو در اسلایدها، واژه‌ها، مثال‌ها…',
 	learn_search_no_results: 'چیزی پیدا نشد. کلمهٔ دیگری امتحان کن.',
 	learn_search_results_count: (n: number) => `${n} نتیجه`,
