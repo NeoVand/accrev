@@ -22,7 +22,7 @@ const MAX_KOKORO_CHARS = 4000; // beyond this, use the browser voice (avoid huge
 
 /** Split text into short, sentence-aligned chunks so the first audio starts fast. */
 function splitForTts(text: string, max = MAX_CHUNK): string[] {
-	const sentences = text.match(/[^.!?]+[.!?]+(?:\s|$)|[^.!?]+$/g) ?? [text];
+	const sentences = sentenceChunks(text);
 	const chunks: string[] = [];
 	let cur = '';
 	for (const s of sentences) {
@@ -34,8 +34,10 @@ function splitForTts(text: string, max = MAX_CHUNK): string[] {
 				chunks.push(cur);
 				cur = '';
 			}
-			chunks.push(piece.slice(0, max));
-			piece = piece.slice(max);
+			const splitAt = piece.lastIndexOf(' ', max);
+			const end = splitAt > max * 0.6 ? splitAt : max;
+			chunks.push(piece.slice(0, end).trim());
+			piece = piece.slice(end).trim();
 		}
 		if (cur && cur.length + piece.length + 1 > max) {
 			chunks.push(cur);
@@ -48,12 +50,36 @@ function splitForTts(text: string, max = MAX_CHUNK): string[] {
 	return chunks;
 }
 
+function sentenceChunks(text: string): string[] {
+	const chunks: string[] = [];
+	let start = 0;
+
+	for (let i = 0; i < text.length; i++) {
+		if (!'.!?'.includes(text[i])) continue;
+
+		let end = i + 1;
+		while (end < text.length && /['")\]}’”]/.test(text[end])) end++;
+
+		const next = text[end];
+		if (next && !/\s/.test(next)) continue;
+
+		const chunk = text.slice(start, end).trim();
+		if (chunk) chunks.push(chunk);
+		start = end;
+	}
+
+	const rest = text.slice(start).trim();
+	if (rest) chunks.push(rest);
+	return chunks;
+}
+
 function detectMobile(): boolean {
 	if (!browser) return false;
 	const ua = navigator.userAgent;
 	return (
 		/Android|iPhone|iPad|iPod|Mobile|IEMobile|Opera Mini/i.test(ua) ||
-		(navigator as unknown as { userAgentData?: { mobile?: boolean } }).userAgentData?.mobile === true
+		(navigator as unknown as { userAgentData?: { mobile?: boolean } }).userAgentData?.mobile ===
+			true
 	);
 }
 
@@ -87,9 +113,7 @@ class QuickSpeak {
 	// (the model download is too heavy for a tap on mobile data, and iOS can't run
 	// it at all), and as long as it hasn't already failed this session.
 	get #useModel() {
-		return (
-			browser && voicePref.engine === 'model' && !this.#isMobile && kokoro.status !== 'error'
-		);
+		return browser && voicePref.engine === 'model' && !this.#isMobile && kokoro.status !== 'error';
 	}
 
 	#ensureCtx(): AudioContext | null {
@@ -154,8 +178,7 @@ class QuickSpeak {
 		for (let i = 0; i < chunks.length; i++) {
 			if (this.#seq !== id || !raw) return;
 			// Prefetch the next chunk while the current one plays.
-			const prefetch =
-				i + 1 < chunks.length ? kokoro.generate(chunks[i + 1], DEFAULT_VOICE) : null;
+			const prefetch = i + 1 < chunks.length ? kokoro.generate(chunks[i + 1], DEFAULT_VOICE) : null;
 			await this.#playOne(id, raw);
 			if (this.#seq !== id) return;
 			raw = prefetch ? await prefetch : null;
