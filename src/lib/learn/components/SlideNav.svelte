@@ -17,7 +17,9 @@
 	}
 
 	function title(target: NavTarget): string {
-		if (target.kind === 'slide') return target.slide.title;
+		if (target.kind === 'slide') {
+			return i18n.lang === 'fa' ? target.slide.titleFa || target.slide.title : target.slide.title;
+		}
 		const part = target.part;
 		const name = i18n.lang === 'fa' ? part.titleFa : part.title;
 		return `${t('learn_part_label', part.roman)} · ${name}`;
@@ -41,7 +43,7 @@
 			</svg>
 			<span class="slide-nav-meta">
 				<span class="dir">{t('learn_prev')}</span>
-				<span class="ttl" dir="ltr">{title(prev)}</span>
+				<span class="ttl" dir={i18n.lang === 'fa' ? 'rtl' : 'ltr'}>{title(prev)}</span>
 			</span>
 		</a>
 	{:else}
@@ -52,7 +54,7 @@
 		<a href={resolve(path(next) as never)} class="slide-nav-link slide-nav-next">
 			<span class="slide-nav-meta align-end">
 				<span class="dir">{t('learn_next')}</span>
-				<span class="ttl" dir="ltr">{title(next)}</span>
+				<span class="ttl" dir={i18n.lang === 'fa' ? 'rtl' : 'ltr'}>{title(next)}</span>
 			</span>
 			<svg
 				viewBox="0 0 24 24"

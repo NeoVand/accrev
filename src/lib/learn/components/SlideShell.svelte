@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { i18n, t } from '$lib/state/i18n.svelte';
-	import type { Slide, Part } from '../slides.generated';
+	import type { LearnSlide } from '../_data';
+	import type { Part } from '../slides.generated';
 
 	interface Props {
-		slide: Slide;
+		slide: LearnSlide;
 		part?: Part;
 		children: () => unknown;
 	}
@@ -22,6 +23,12 @@
 	// nothing for free-standing front/back matter (cover, contents, how-to,
 	// glossary, close — they speak for themselves).
 	const showPartMeta = $derived(!!part && slide.kind !== 'divider');
+	const partTitle = $derived(
+		part ? (i18n.lang === 'fa' ? part.titleFa || part.title : part.title) : ''
+	);
+	const slideTitle = $derived(i18n.lang === 'fa' ? slide.titleFa || slide.title : slide.title);
+	const slideTitleAlt = $derived(i18n.lang === 'fa' ? slide.title : slide.titleFa);
+	const titleDir = $derived(i18n.lang === 'fa' ? 'rtl' : 'ltr');
 </script>
 
 {#if isFullBleed}
@@ -31,7 +38,7 @@
 				<div class="learn-slide-meta">
 					<span>{t('learn_part_label', part.roman)}</span>
 					<span class="learn-slide-sep">·</span>
-					<span>{part.title}</span>
+					<span>{partTitle}</span>
 				</div>
 			{/if}
 
@@ -45,7 +52,12 @@
 				</p>
 			{/if}
 
-			<h1 class="learn-slide-title" dir="ltr">{slide.title}</h1>
+			<h1 class="learn-slide-title" dir={titleDir}>{slideTitle}</h1>
+			{#if slideTitleAlt && slideTitleAlt !== slideTitle}
+				<p class="learn-slide-title-alt" dir={i18n.lang === 'fa' ? 'ltr' : 'rtl'}>
+					{slideTitleAlt}
+				</p>
+			{/if}
 		</header>
 
 		<div class="learn-slide-body">{@render children()}</div>
@@ -57,7 +69,7 @@
 				<div class="flat-meta">
 					<span>{t('learn_part_label', part.roman)}</span>
 					<span class="flat-sep">·</span>
-					<span>{part.title}</span>
+					<span>{partTitle}</span>
 				</div>
 			{/if}
 
@@ -76,7 +88,12 @@
 				</p>
 			{/if}
 
-			<h1 class="flat-title" dir="ltr">{slide.title}</h1>
+			<h1 class="flat-title" dir={titleDir}>{slideTitle}</h1>
+			{#if slideTitleAlt && slideTitleAlt !== slideTitle}
+				<p class="flat-title-alt" dir={i18n.lang === 'fa' ? 'ltr' : 'rtl'}>
+					{slideTitleAlt}
+				</p>
+			{/if}
 		</header>
 
 		<div class="flat-body">{@render children()}</div>
@@ -131,6 +148,13 @@
 		font-family: var(--font-persian);
 		letter-spacing: 0;
 		font-weight: 500;
+	}
+	.flat-title-alt {
+		margin: -2px 0 4px 0;
+		font-family: var(--font-sans);
+		font-size: 0.9rem;
+		line-height: 1.45;
+		color: var(--ink-muted);
 	}
 
 	.flat-body {
@@ -237,6 +261,19 @@
 		font-family: var(--font-persian);
 		letter-spacing: 0;
 		font-weight: 500;
+	}
+	.learn-slide-title-alt {
+		margin: 6px 0 0 0;
+		font-family: var(--font-sans);
+		font-size: 0.95rem;
+		line-height: 1.45;
+		color: var(--ink-muted);
+	}
+	.is-navy .learn-slide-title-alt,
+	.is-tan .learn-slide-title-alt,
+	.is-sage .learn-slide-title-alt,
+	.is-ink .learn-slide-title-alt {
+		color: rgba(245, 242, 236, 0.72);
 	}
 
 	.learn-slide-body {

@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { learnRead } from '$lib/state/learn-read.svelte';
-	import { t } from '$lib/state/i18n.svelte';
-	import type { Slide } from '../slides.generated';
+	import { i18n, t } from '$lib/state/i18n.svelte';
+	import type { LearnSlide } from '../_data';
 
 	interface Props {
-		slide: Slide;
+		slide: LearnSlide;
 		highlight?: string;
 	}
 
@@ -16,15 +16,24 @@
 		slide.kind !== 'cover' && slide.kind !== 'divider' && slide.kind !== 'close'
 	);
 	const isRead = $derived(trackable && learnRead.has(slide.slug));
+	const displayTitle = $derived(i18n.lang === 'fa' ? slide.titleFa || slide.title : slide.title);
 
 	function escapeRe(s: string) {
 		return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 	}
 
-	const titleHTML = $derived.by(() => {
+	const titleParts = $derived.by(() => {
 		if (!highlight) return null;
 		const re = new RegExp(`(${escapeRe(highlight)})`, 'i');
-		return slide.title.replace(re, '<mark>$1</mark>');
+		const match = displayTitle.match(re);
+		if (!match || match.index === undefined) return null;
+		const start = match.index;
+		const end = start + match[0].length;
+		return {
+			before: displayTitle.slice(0, start),
+			match: displayTitle.slice(start, end),
+			after: displayTitle.slice(end)
+		};
 	});
 
 	// Lectures get a 1-based per-part lesson number; dividers/front/back
@@ -38,15 +47,33 @@
 	href={resolve(`/learn/${slide.slug}` as never)}
 	class="slide-link"
 	class:is-read={isRead}
-	dir="ltr"
+	dir={i18n.lang === 'fa' ? 'rtl' : 'ltr'}
 >
 	<span class="slide-link-num" aria-hidden="true">{numLabel}</span>
-	<span class="slide-link-title" dir="ltr">
-		{#if titleHTML}{@html titleHTML}{:else}{slide.title}{/if}
+	<span class="slide-link-title" dir={i18n.lang === 'fa' ? 'rtl' : 'ltr'}>
+		{#if titleParts}
+			{titleParts.before}<mark>{titleParts.match}</mark>{titleParts.after}
+		{:else}
+			{displayTitle}
+		{/if}
 	</span>
 	{#if isRead}
-		<span class="slide-link-read" aria-label={t('learn_marked_read')} title={t('learn_marked_read')}>
-			<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+		<span
+			class="slide-link-read"
+			aria-label={t('learn_marked_read')}
+			title={t('learn_marked_read')}
+		>
+			<svg
+				viewBox="0 0 24 24"
+				width="11"
+				height="11"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2.6"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+			>
 				<path d="M5 12.5l4 4 10-10" />
 			</svg>
 		</span>

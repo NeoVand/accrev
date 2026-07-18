@@ -14,6 +14,71 @@ import {
 	type Slide
 } from './slides.generated';
 
+export type LearnSlide = Slide & { titleFa: string };
+
+const slideTitleFaBySlug: Record<string, string> = {
+	'01-cover': 'مرور حسابداری.',
+	'02-contents': 'این مجموعه چه چیزهایی را پوشش می‌دهد.',
+	'03-how-to-use': 'روش خواندن این مجموعه.',
+	'04-section-i': 'پایه‌ها.',
+	'05-equation': 'معادلهٔ حسابداری.',
+	'06-expanded-equation': 'حقوق صاحبان سهام، بازشده.',
+	'07-account-types': 'هر حساب یکی از پنج نوع است.',
+	'08-chart-of-accounts': 'فهرست حساب‌های شرکت.',
+	'09-debits-credits': 'دو طرف؛ همین.',
+	'10-normal-balance': 'تنها قاعده‌ای که باید حفظ کنید.',
+	'11-section-ii': 'چرخهٔ حسابداری.',
+	'12-nine-steps': 'نه گام در هر دوره.',
+	'13-journal-entries': 'ثبت به ترتیب زمان.',
+	'14-t-accounts': 'از ثبت‌ها به حساب‌ها.',
+	'15-trial-balance': 'کنترل برابری.',
+	'16-adjusting-entries': 'چهار نوع، یک جدول.',
+	'17-prepaid': 'یک دارایی به هزینه تبدیل می‌شود.',
+	'18-accrued-liability': 'هزینه قبل از پرداخت وجه.',
+	'19-closing-entries': 'حساب‌های موقت را صفر کنید.',
+	'20-section-iii': 'زمان‌بندی و شناسایی.',
+	'21-cash-vs-accrual': 'مسئلهٔ زمان‌بندی.',
+	'22-revenue-recognition': 'مدل پنج‌مرحله‌ای.',
+	'23-matching': 'هزینه‌ها دنبال درآمدها می‌آیند.',
+	'24-deferrals-accruals': 'چهار الگو، چهار ثبت.',
+	'25-section-iv': 'صورت‌های مالی.',
+	'26-balance-sheet': 'تصویری در یک تاریخ.',
+	'27-income-statement': 'فیلم یک دوره.',
+	'28-cfs-structure': 'سه سبد جریان نقد.',
+	'29-cfs-indirect': 'از سود خالص تا وجه نقد.',
+	'30-three-connect': 'اولین کنترل حسابرس.',
+	'31-mini-case-transactions': 'ده ثبت، یک سال.',
+	'32-mini-case-statements': 'رنجر کافی؛ جمع‌بندی‌شده.',
+	'33-section-v': 'انتخاب‌های اندازه‌گیری.',
+	'34-sl-depreciation': 'هزینهٔ برابر در هر سال.',
+	'35-ddb-depreciation': 'هزینه بیشتر در سال‌های اول.',
+	'36-uop-depreciation': 'هزینه وابسته به میزان استفاده.',
+	'37-inventory-overview': 'سه فرض جریان موجودی.',
+	'38-inventory-worked': 'داده‌های یکسان، سه پاسخ.',
+	'39-bad-debt': 'اکنون برآورد کنید، بعداً حذف کنید.',
+	'40-section-vi': 'تحلیل.',
+	'41-liquidity': 'آیا می‌تواند قبض بعدی را بپردازد؟',
+	'42-solvency': 'آیا می‌تواند دهه را دوام بیاورد؟',
+	'43-profitability': 'چقدر خوب فروش را به سود تبدیل می‌کند؟',
+	'44-efficiency': 'وجه نقد با چه سرعتی می‌چرخد؟',
+	'45-dupont': 'چرا ROE این مقدار است؟',
+	'46-section-vii': 'چارچوب‌ها.',
+	'47-gaap-ifrs': 'دو کتاب قانون.',
+	'48-revenue-standard': 'ASC 606 تقریباً برابر IFRS 15.',
+	'49-leases': 'اکنون روی ترازنامه.',
+	'50-glossary': 'مرجع دوزبانه.',
+	'51-capstone-divider': 'از ابتدا تا انتها.',
+	'52-meet-ranger-coffee': 'با شرکت رنجر کافی آشنا شوید.',
+	'53-annual-report-anatomy': 'در گزارش 10-K چه چیزهایی هست؟',
+	'54-reading-is': 'خواندن از بالا تا پایین.',
+	'55-reading-bs': 'تصویری در پایان سال.',
+	'56-reading-cfs': 'وجه نقد از کجا آمد و کجا رفت.',
+	'57-reading-notes': 'یادداشت‌های توضیحی مهم‌اند.',
+	'58-problem-set-1': 'این پنج مورد را ثبت روزنامه کنید.',
+	'59-problem-set-2': 'محاسبه و تفسیر کنید.',
+	'60-close': 'هر عدد یک تصمیم است.'
+};
+
 const accountingEquationBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">The accounting equation is the quiet rule underneath every financial statement: <strong>Assets = Liabilities + Equity</strong>. It says every resource a company controls must have a source of funding.</p>
 
 	<div class="farsi-block" style="margin-top:12px; max-width:none;">
@@ -1578,20 +1643,24 @@ const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	}
 };
 
-export const slides: Slide[] = rawSlides
+export const slides: LearnSlide[] = rawSlides
 	.filter((s) => s.kind !== 'glossary')
-	.map((slide) => ({ ...slide, ...slideOverrides[slide.slug] }));
+	.map((slide) => ({
+		...slide,
+		...slideOverrides[slide.slug],
+		titleFa: slideTitleFaBySlug[slide.slug] ?? slide.title
+	}));
 
-export const slidesBySlug: Record<string, Slide> = Object.fromEntries(
+export const slidesBySlug: Record<string, LearnSlide> = Object.fromEntries(
 	slides.map((s) => [s.slug, s])
 );
 
-export const slidesByPart: Record<PartId, Slide[]> = slides.reduce(
+export const slidesByPart: Record<PartId, LearnSlide[]> = slides.reduce(
 	(acc, s) => {
 		(acc[s.partId] ??= []).push(s);
 		return acc;
 	},
-	{} as Record<PartId, Slide[]>
+	{} as Record<PartId, LearnSlide[]>
 );
 
 export const parts = rawParts;

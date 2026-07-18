@@ -1,5 +1,6 @@
 import { parts, slides } from './_data';
-import type { Part, Slide } from './slides.generated';
+import type { LearnSlide } from './_data';
+import type { Part } from './slides.generated';
 
 /**
  * Navigation deck — the user-facing reading order. Each section divider
@@ -7,9 +8,7 @@ import type { Part, Slide } from './slides.generated';
  * Next/Prev between parts lands on the unified section opener instead of
  * a hidden "second copy" of the part hero.
  */
-export type NavTarget =
-	| { kind: 'slide'; slide: Slide }
-	| { kind: 'part'; part: Part };
+export type NavTarget = { kind: 'slide'; slide: LearnSlide } | { kind: 'part'; part: Part };
 
 export const navDeck: NavTarget[] = slides.map((s) => {
 	if (s.kind === 'divider') {

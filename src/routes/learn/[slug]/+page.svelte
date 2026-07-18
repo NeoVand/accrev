@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { fly } from 'svelte/transition';
-	import { t } from '$lib/state/i18n.svelte';
+	import { i18n, t } from '$lib/state/i18n.svelte';
 	import SlideShell from '$lib/learn/components/SlideShell.svelte';
 	import LectureBody from '$lib/learn/components/LectureBody.svelte';
 	import MarkAsRead from '$lib/learn/components/MarkAsRead.svelte';
@@ -13,6 +13,7 @@
 
 	const backHref = $derived(part ? `/learn/parts/${part.id}` : '/learn');
 	const backLabel = $derived(part ? t('learn_back_to_part') : t('learn_back_to_index'));
+	const pageTitle = $derived(i18n.lang === 'fa' ? slide.titleFa || slide.title : slide.title);
 
 	// Cover / close keep the variant tint card. Dividers redirect to the
 	// part page now, so they never reach this view.
@@ -24,7 +25,7 @@
 </script>
 
 <svelte:head>
-	<title>{slide.title} · Learn · accrev</title>
+	<title>{pageTitle} · Learn · accrev</title>
 </svelte:head>
 
 {#key slide.slug}
