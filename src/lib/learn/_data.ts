@@ -1403,7 +1403,115 @@ const solvencyBody = `<p class="subtitle" style="margin-top:14px; max-width:none
 	</div>`;
 
 const solvencyPlain =
-	'Solvency asks a longer-term question than liquidity: can this company keep its debt promises over the next several years? It is about survival under debt pressure, not just paying tomorrow\'s bill. توان پرداخت بلندمدت سؤال بلندمدت‌تری از نقدینگی می‌پرسد: آیا این شرکت می‌تواند در چند سال آینده به وعده‌های بدهی خود عمل کند؟ موضوع این درس زنده ماندن زیر فشار بدهی است، نه فقط پرداخت قبض فردا. Risk and default, in plain English Risk here means the chance that the company cannot handle its debt comfortably. Debt creates fixed promises: interest must be paid, principal must be repaid, and loan covenants may have to be obeyed. Default means the company breaks one of those required promises. It might miss an interest payment, fail to repay principal on time, or violate a loan covenant. Default does not always mean instant bankruptcy, but it is a serious warning sign because lenders can demand action. ریسک و نکول به زبان ساده ریسک در این درس یعنی احتمال اینکه شرکت نتواند بدهی‌هایش را با خیال راحت مدیریت کند. بدهی وعده‌های ثابت ایجاد می‌کند: بهره باید پرداخت شود، اصل بدهی باید بازپرداخت شود، و شرط‌های قرارداد وام ممکن است باید رعایت شوند. نکول یعنی شرکت یکی از این وعده‌های الزامی را انجام نمی‌دهد. ممکن است بهره را نپردازد، اصل بدهی را در سررسید پرداخت نکند، یا یکی از شروط وام را نقض کند. نکول همیشه به‌معنای ورشکستگی فوری نیست، اما علامت هشدار جدی است چون وام‌دهندگان می‌توانند اقدام بخواهند. Debt is not bad by itself. The danger is too much debt compared with profit, cash flow, and owner cushion. بدهی به‌خودی‌خود بد نیست. خطر وقتی شروع می‌شود که بدهی نسبت به سود، جریان نقد، و پشتوانه مالکان بیش از حد بزرگ شود. Debt-to-Equity = Total Liabilities divided by Total Equity. It shows how many dollars of creditor financing exist for each dollar of owner financing. بدهی به حقوق صاحبان سهام = کل بدهی‌ها تقسیم بر حقوق صاحبان سهام. نشان می‌دهد در برابر هر دلار تأمین مالی مالکان چند دلار تأمین مالی طلبکاران وجود دارد. Debt-to-Assets = Total Liabilities divided by Total Assets. It shows what share of assets is funded by creditors. بدهی به دارایی = کل بدهی‌ها تقسیم بر کل دارایی‌ها. نشان می‌دهد چه سهمی از دارایی‌ها با پول طلبکاران تأمین شده است. Interest Coverage = EBIT divided by Interest Expense. It shows how many times operating profit can cover interest. پوشش بهره = EBIT تقسیم بر هزینه بهره. نشان می‌دهد سود عملیاتی چند بار می‌تواند هزینه بهره را پوشش دهد. Two borrowers: Steady Co has liabilities 60, equity 120, D/E 0.50, EBIT 30, interest 5, interest coverage 6.0. Stretched Co has liabilities 180, equity 60, D/E 3.00, EBIT 12, interest 8, interest coverage 1.5. Steady Co has room for a bad year. Stretched Co has little room. If EBIT falls from 12 to 7, it cannot cover 8 of interest from operating profit. That is default risk. دو وام‌گیرنده: شرکت باثبات بدهی ۶۰، حقوق صاحبان سهام ۱۲۰، D/E برابر ۰٫۵۰، EBIT برابر ۳۰، بهره ۵، پوشش بهره ۶٫۰ دارد. شرکت تحت فشار بدهی ۱۸۰، حقوق صاحبان سهام ۶۰، D/E برابر ۳٫۰۰، EBIT برابر ۱۲، بهره ۸، پوشش بهره ۱٫۵ دارد. شرکت باثبات برای سال بد جا دارد. شرکت تحت فشار فضای کمی دارد. اگر EBIT از ۱۲ به ۷ کاهش یابد، نمی‌تواند بهره ۸ را از سود عملیاتی پوشش دهد. این ریسک نکول است. How to read solvency quickly: start with the balance sheet, then check interest coverage, then ask when principal comes due, then compare the industry. روش سریع: از ترازنامه شروع کنید، بعد پوشش بهره را بررسی کنید، بعد بپرسید اصل بدهی چه زمانی سررسید می‌شود، سپس صنعت را مقایسه کنید. Common mistake: high debt does not automatically mean danger. Stable cash flows, regulated prices, and long maturities can make higher debt manageable. اشتباه رایج: بدهی بالا همیشه به‌معنای خطر نیست. جریان نقد پایدار، قیمت‌های تنظیم‌شده، و سررسیدهای بلند می‌تواند بدهی بیشتر را قابل مدیریت کند.';
+	"Solvency asks a longer-term question than liquidity: can this company keep its debt promises over the next several years? It is about survival under debt pressure, not just paying tomorrow's bill. توان پرداخت بلندمدت سؤال بلندمدت‌تری از نقدینگی می‌پرسد: آیا این شرکت می‌تواند در چند سال آینده به وعده‌های بدهی خود عمل کند؟ موضوع این درس زنده ماندن زیر فشار بدهی است، نه فقط پرداخت قبض فردا. Risk and default, in plain English Risk here means the chance that the company cannot handle its debt comfortably. Debt creates fixed promises: interest must be paid, principal must be repaid, and loan covenants may have to be obeyed. Default means the company breaks one of those required promises. It might miss an interest payment, fail to repay principal on time, or violate a loan covenant. Default does not always mean instant bankruptcy, but it is a serious warning sign because lenders can demand action. ریسک و نکول به زبان ساده ریسک در این درس یعنی احتمال اینکه شرکت نتواند بدهی‌هایش را با خیال راحت مدیریت کند. بدهی وعده‌های ثابت ایجاد می‌کند: بهره باید پرداخت شود، اصل بدهی باید بازپرداخت شود، و شرط‌های قرارداد وام ممکن است باید رعایت شوند. نکول یعنی شرکت یکی از این وعده‌های الزامی را انجام نمی‌دهد. ممکن است بهره را نپردازد، اصل بدهی را در سررسید پرداخت نکند، یا یکی از شروط وام را نقض کند. نکول همیشه به‌معنای ورشکستگی فوری نیست، اما علامت هشدار جدی است چون وام‌دهندگان می‌توانند اقدام بخواهند. Debt is not bad by itself. The danger is too much debt compared with profit, cash flow, and owner cushion. بدهی به‌خودی‌خود بد نیست. خطر وقتی شروع می‌شود که بدهی نسبت به سود، جریان نقد، و پشتوانه مالکان بیش از حد بزرگ شود. Debt-to-Equity = Total Liabilities divided by Total Equity. It shows how many dollars of creditor financing exist for each dollar of owner financing. بدهی به حقوق صاحبان سهام = کل بدهی‌ها تقسیم بر حقوق صاحبان سهام. نشان می‌دهد در برابر هر دلار تأمین مالی مالکان چند دلار تأمین مالی طلبکاران وجود دارد. Debt-to-Assets = Total Liabilities divided by Total Assets. It shows what share of assets is funded by creditors. بدهی به دارایی = کل بدهی‌ها تقسیم بر کل دارایی‌ها. نشان می‌دهد چه سهمی از دارایی‌ها با پول طلبکاران تأمین شده است. Interest Coverage = EBIT divided by Interest Expense. It shows how many times operating profit can cover interest. پوشش بهره = EBIT تقسیم بر هزینه بهره. نشان می‌دهد سود عملیاتی چند بار می‌تواند هزینه بهره را پوشش دهد. Two borrowers: Steady Co has liabilities 60, equity 120, D/E 0.50, EBIT 30, interest 5, interest coverage 6.0. Stretched Co has liabilities 180, equity 60, D/E 3.00, EBIT 12, interest 8, interest coverage 1.5. Steady Co has room for a bad year. Stretched Co has little room. If EBIT falls from 12 to 7, it cannot cover 8 of interest from operating profit. That is default risk. دو وام‌گیرنده: شرکت باثبات بدهی ۶۰، حقوق صاحبان سهام ۱۲۰، D/E برابر ۰٫۵۰، EBIT برابر ۳۰، بهره ۵، پوشش بهره ۶٫۰ دارد. شرکت تحت فشار بدهی ۱۸۰، حقوق صاحبان سهام ۶۰، D/E برابر ۳٫۰۰، EBIT برابر ۱۲، بهره ۸، پوشش بهره ۱٫۵ دارد. شرکت باثبات برای سال بد جا دارد. شرکت تحت فشار فضای کمی دارد. اگر EBIT از ۱۲ به ۷ کاهش یابد، نمی‌تواند بهره ۸ را از سود عملیاتی پوشش دهد. این ریسک نکول است. How to read solvency quickly: start with the balance sheet, then check interest coverage, then ask when principal comes due, then compare the industry. روش سریع: از ترازنامه شروع کنید، بعد پوشش بهره را بررسی کنید، بعد بپرسید اصل بدهی چه زمانی سررسید می‌شود، سپس صنعت را مقایسه کنید. Common mistake: high debt does not automatically mean danger. Stable cash flows, regulated prices, and long maturities can make higher debt manageable. اشتباه رایج: بدهی بالا همیشه به‌معنای خطر نیست. جریان نقد پایدار، قیمت‌های تنظیم‌شده، و سررسیدهای بلند می‌تواند بدهی بیشتر را قابل مدیریت کند.";
+
+const dupontBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">ROE means <strong>Return on Equity</strong>: how much profit the company earns for each dollar of owners' equity. DuPont does not create a new ratio. It breaks ROE into three smaller questions so you can see <strong>why</strong> ROE is high or low.</p>
+
+	<div class="farsi-block" style="margin-top:12px; max-width:none;">
+		ROE یعنی <strong>بازده حقوق صاحبان سهام</strong>: شرکت در برابر هر دلار حقوق صاحبان سهام مالکان چقدر سود می‌سازد. تحلیل دوپونت نسبت تازه‌ای نمی‌سازد؛ ROE را به سه سؤال کوچک‌تر می‌شکند تا بفهمیم <strong>چرا</strong> ROE بالا یا پایین است.
+	</div>
+
+	<div style="margin-top:18px;">
+		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan); margin-bottom:8px;">CORE IDEA · ایدهٔ اصلی</div>
+		<div style="font-family:'Fraunces',serif; font-size:18px; line-height:1.5; color:var(--ink);">
+			ROE = Net Income / Average Equity
+		</div>
+		<div style="font-family:'Fraunces',serif; font-size:16px; line-height:1.6; color:var(--ink); margin-top:8px;">
+			ROE = Net Margin × Asset Turnover × Equity Multiplier
+		</div>
+		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; line-height:1.75; color:var(--ink-soft); overflow-wrap:anywhere; margin-top:10px;">
+			ROE = (NI / Revenue) × (Revenue / Average Assets) × (Average Assets / Average Equity)
+		</div>
+	</div>
+
+	<div style="margin-top:16px; display:grid; grid-template-columns: 1fr; gap:10px;">
+		<div style="border-left:2px solid var(--tan); padding-left:12px;">
+			<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.16em; color:var(--tan);">TERM TRANSLATIONS · ترجمهٔ واژه‌ها</div>
+			<p style="margin-top:8px; font-size:14px; line-height:1.7;"><strong>Net Income (NI)</strong> = سود خالص · <strong>Revenue</strong> = درآمد · <strong>Average Assets</strong> = میانگین دارایی‌ها · <strong>Average Equity</strong> = میانگین حقوق صاحبان سهام</p>
+			<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;">حاشیه سود خالص = <strong>Net Margin</strong> · گردش دارایی‌ها = <strong>Asset Turnover</strong> · ضریب اهرمی / اهرم مالی = <strong>Equity Multiplier</strong></p>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>1. Profit: Net Margin</h3>
+			<p><strong>Net Margin = Net Income / Revenue.</strong> It asks: out of each dollar of sales, how much is left as profit after expenses?</p>
+			<div class="example"><span class="label">Read it</span>A 10% net margin means every $1.00 of sales leaves $0.10 of profit.</div>
+		</div>
+		<div class="col-fa">
+			<h3>۱. سودآوری: حاشیه سود خالص</h3>
+			<p><strong>حاشیه سود خالص = سود خالص / درآمد.</strong> می‌پرسد: از هر دلار فروش، بعد از هزینه‌ها چقدر به‌عنوان سود باقی می‌ماند؟</p>
+			<div class="example"><span class="label">خوانش</span>حاشیه سود ۱۰٪ یعنی از هر ۱ دلار فروش، ۰٫۱۰ دلار سود باقی می‌ماند.</div>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>2. Efficiency: Asset Turnover</h3>
+			<p><strong>Asset Turnover = Revenue / Average Assets.</strong> It asks: how much revenue does the company generate from the assets it uses?</p>
+			<div class="example"><span class="label">Read it</span>Asset turnover of 2.0× means every $1.00 of assets supports $2.00 of sales.</div>
+		</div>
+		<div class="col-fa">
+			<h3>۲. بهره‌وری: گردش دارایی‌ها</h3>
+			<p><strong>گردش دارایی‌ها = درآمد / میانگین دارایی‌ها.</strong> می‌پرسد: شرکت از دارایی‌هایی که به‌کار گرفته چقدر درآمد می‌سازد؟</p>
+			<div class="example"><span class="label">خوانش</span>گردش دارایی ۲٫۰ برابر یعنی هر ۱ دلار دارایی، ۲ دلار فروش پشتیبانی می‌کند.</div>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>3. Leverage: Equity Multiplier</h3>
+			<p><strong>Equity Multiplier = Average Assets / Average Equity.</strong> It asks: how large is the asset base compared with owners' equity? A higher number usually means more assets are financed by liabilities.</p>
+			<div class="pitfall"><span class="label">Careful</span>High leverage can lift ROE, but it can also make the company riskier because debt promises still have to be paid in weak years.</div>
+		</div>
+		<div class="col-fa">
+			<h3>۳. اهرم مالی: ضریب اهرمی</h3>
+			<p><strong>ضریب اهرمی = میانگین دارایی‌ها / میانگین حقوق صاحبان سهام.</strong> می‌پرسد: پایهٔ دارایی شرکت نسبت به حقوق صاحبان سهام چقدر بزرگ است؟ عدد بالاتر معمولاً یعنی بخش بیشتری از دارایی‌ها با بدهی تأمین مالی شده است.</p>
+			<div class="pitfall"><span class="label">دقت کنید</span>اهرم بالا می‌تواند ROE را بالا ببرد، اما ریسک شرکت را هم بیشتر می‌کند چون تعهدات بدهی در سال‌های ضعیف هم باید پرداخت شوند.</div>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Why the formula works</h3>
+			<p>The middle terms cancel out. Revenue appears once on top and once on bottom. Average assets also appears once on top and once on bottom. After cancellation, the formula returns to <strong>Net Income / Average Equity</strong>, which is ROE.</p>
+			<div class="example"><span class="label">Meaning</span>DuPont keeps the same final ROE, but shows whether it came from margin, efficiency, or leverage.</div>
+		</div>
+		<div class="col-fa">
+			<h3>چرا فرمول کار می‌کند؟</h3>
+			<p>عبارت‌های وسط حذف می‌شوند. درآمد یک‌بار در صورت و یک‌بار در مخرج می‌آید. میانگین دارایی‌ها هم یک‌بار در صورت و یک‌بار در مخرج می‌آید. بعد از حذف، فرمول به <strong>سود خالص / میانگین حقوق صاحبان سهام</strong> برمی‌گردد؛ یعنی همان ROE.</p>
+			<div class="example"><span class="label">معنا</span>دوپونت همان ROE نهایی را نگه می‌دارد، اما نشان می‌دهد این ROE از حاشیه سود، بهره‌وری، یا اهرم آمده است.</div>
+		</div>
+	</div>
+
+	<div style="margin-top:18px;">
+		<div style="font-family:'Fraunces',serif; font-size:18px; color:var(--tan); text-align:center;">Worked example · مثال عددی</div>
+		<div style="display:grid; grid-template-columns: 1fr 92px; gap:6px 12px; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.6; margin-top:12px;">
+			<span style="font-weight:700; color:var(--tan);">Input</span><span style="font-weight:700; color:var(--tan); text-align:right;">Amount</span>
+			<span>Net income</span><span style="text-align:right;">80</span>
+			<span>Revenue</span><span style="text-align:right;">1,000</span>
+			<span>Average assets</span><span style="text-align:right;">500</span>
+			<span>Average equity</span><span style="text-align:right;">250</span>
+		</div>
+		<p style="margin-top:10px; font-size:14px; line-height:1.7;"><strong>DuPont:</strong> 8% net margin × 2.0× asset turnover × 2.0× equity multiplier = <strong>32% ROE</strong>.</p>
+		<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;"><strong>دوپونت:</strong> حاشیه سود ۸٪ × گردش دارایی ۲٫۰ برابر × ضریب اهرمی ۲٫۰ برابر = <strong>ROE برابر ۳۲٪</strong>.</p>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Diagnostic use</h3>
+			<p>If two firms in the same industry have the same ROE, DuPont reveals <em>how</em> they got there. One may have strong margins and low debt. Another may have weak margins but heavy leverage. Those are very different businesses.</p>
+			<div class="pitfall"><span class="label">Common mistake</span>High ROE is not automatically good. It can be high because operations are excellent, or because the company is taking more debt risk.</div>
+		</div>
+		<div class="col-fa">
+			<h3>کاربرد تشخیصی</h3>
+			<p>اگر دو شرکت در یک صنعت ROE یکسان داشته باشند، دوپونت نشان می‌دهد <em>چگونه</em> به آن رسیده‌اند. یکی ممکن است حاشیه سود قوی و بدهی کم داشته باشد. دیگری ممکن است حاشیه ضعیف اما اهرم مالی سنگین داشته باشد. این دو کسب‌وکار بسیار متفاوت‌اند.</p>
+			<div class="pitfall"><span class="label">اشتباه رایج</span>ROE بالا همیشه خوب نیست. ممکن است به‌خاطر عملکرد عالی باشد، یا به‌خاطر اینکه شرکت ریسک بدهی بیشتری پذیرفته است.</div>
+		</div>
+	</div>`;
+
+const dupontPlain =
+	'ROE means Return on Equity: how much profit the company earns for each dollar of owners equity. DuPont does not create a new ratio. It breaks ROE into three smaller questions so you can see why ROE is high or low. ROE یعنی بازده حقوق صاحبان سهام: شرکت در برابر هر دلار حقوق صاحبان سهام مالکان چقدر سود می‌سازد. تحلیل دوپونت نسبت تازه‌ای نمی‌سازد؛ ROE را به سه سؤال کوچک‌تر می‌شکند تا بفهمیم چرا ROE بالا یا پایین است. Core idea: ROE = Net Income / Average Equity. ROE = Net Margin times Asset Turnover times Equity Multiplier. ROE = Net Income divided by Revenue, times Revenue divided by Average Assets, times Average Assets divided by Average Equity. ایده اصلی: ROE = سود خالص تقسیم بر میانگین حقوق صاحبان سهام. ROE = حاشیه سود خالص ضربدر گردش دارایی‌ها ضربدر ضریب اهرمی. Term translations: Net Income or NI = سود خالص. Revenue = درآمد. Average Assets = میانگین دارایی‌ها. Average Equity = میانگین حقوق صاحبان سهام. Net Margin = حاشیه سود خالص. Asset Turnover = گردش دارایی‌ها. Equity Multiplier = ضریب اهرمی یا اهرم مالی. Profit: Net Margin asks how much profit is left from each dollar of sales after expenses. حاشیه سود خالص می‌پرسد از هر دلار فروش، بعد از هزینه‌ها چقدر سود باقی می‌ماند. Efficiency: Asset Turnover asks how much revenue the company generates from the assets it uses. گردش دارایی‌ها می‌پرسد شرکت از دارایی‌هایی که به‌کار گرفته چقدر درآمد می‌سازد. Leverage: Equity Multiplier asks how large the asset base is compared with owners equity. ضریب اهرمی می‌پرسد پایه دارایی شرکت نسبت به حقوق صاحبان سهام چقدر بزرگ است. Why the formula works: revenue cancels revenue, and average assets cancels average assets, leaving Net Income divided by Average Equity, which is ROE. چرا فرمول کار می‌کند: درآمد با درآمد حذف می‌شود و میانگین دارایی‌ها با میانگین دارایی‌ها حذف می‌شود و سود خالص تقسیم بر میانگین حقوق صاحبان سهام باقی می‌ماند، یعنی ROE. Example: Net income 80, revenue 1,000, average assets 500, average equity 250. DuPont: 8 percent net margin times 2.0 times asset turnover times 2.0 times equity multiplier equals 32 percent ROE. مثال: سود خالص ۸۰، درآمد ۱٬۰۰۰، میانگین دارایی‌ها ۵۰۰، میانگین حقوق صاحبان سهام ۲۵۰. دوپونت: حاشیه سود ۸٪ ضربدر گردش دارایی ۲٫۰ برابر ضربدر ضریب اهرمی ۲٫۰ برابر برابر ROE برابر ۳۲٪ است. Diagnostic use: if two firms in the same industry have the same ROE, DuPont reveals how they got there. High ROE is not automatically good; it can come from strong operations or from more debt risk. کاربرد تشخیصی: اگر دو شرکت در یک صنعت ROE یکسان داشته باشند، دوپونت نشان می‌دهد چگونه به آن رسیده‌اند. ROE بالا همیشه خوب نیست؛ می‌تواند از عملکرد قوی یا از ریسک بدهی بیشتر آمده باشد.';
 
 const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'05-equation': {
@@ -1463,6 +1571,10 @@ const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'42-solvency': {
 		body: solvencyBody,
 		plain: solvencyPlain
+	},
+	'45-dupont': {
+		body: dupontBody,
+		plain: dupontPlain
 	}
 };
 
