@@ -2,8 +2,10 @@
 	import { onDestroy } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { t } from '$lib/state/i18n.svelte';
-	import { kokoro, NARRATOR_VOICES, DEFAULT_VOICE } from '$lib/story/tts/kokoro.svelte';
+	import { voicePref } from '$lib/state/voice.svelte';
 	import { Narration } from '$lib/story/tts/narration.svelte';
+	import { SUPERTONIC_MODEL } from '$lib/voice/catalog';
+	import { supertonic } from '$lib/voice/supertonic.svelte';
 
 	interface Props {
 		title: string;
@@ -13,9 +15,11 @@
 
 	const SPEEDS = [1, 1.25, 1.5, 0.75];
 
-	let voice = $state(DEFAULT_VOICE);
+	let voice = $state(voicePref.voiceId);
 	let speed = $state(1);
 	let narr = $state<Narration | null>(null);
+	let showSetup = $state(false);
+	let consentChecked = $state(false);
 
 	// The chapter title is spoken first, then every narration segment.
 	const fullSegments = $derived([title, ...segments]);
@@ -23,9 +27,29 @@
 	function makeNarration() {
 		narr?.dispose();
 		clearHighlight();
-		const n = new Narration(fullSegments, voice, speed);
+		const n = new Narration(fullSegments, {
+			voice,
+			language: voicePref.language,
+			generationSteps: voicePref.generationSteps,
+			synthesisSpeed: voicePref.synthesisSpeed,
+			backend: voicePref.backend,
+			playbackSpeed: speed
+		});
 		narr = n;
 		n.start();
+	}
+	function requestNarration() {
+		if (!voicePref.licenseAccepted) {
+			showSetup = true;
+			return;
+		}
+		makeNarration();
+	}
+	function acceptAndStart() {
+		if (!consentChecked) return;
+		voicePref.acceptLicense(true);
+		showSetup = false;
+		makeNarration();
 	}
 	function close() {
 		narr?.dispose();
@@ -35,6 +59,7 @@
 	function changeVoice(v: string) {
 		if (v === voice) return;
 		voice = v;
+		voicePref.setVoice(v);
 		if (narr) makeNarration();
 	}
 	function cycleSpeed() {
@@ -53,7 +78,7 @@
 		status === 'playing' || status === 'buffering' || status === 'loadingModel'
 	);
 	const isSpinning = $derived(status === 'buffering' || status === 'loadingModel');
-	const hasError = $derived(kokoro.status === 'error' || status === 'error');
+	const hasError = $derived(supertonic.status === 'error' || status === 'error');
 
 	const estTotal = $derived.by(() => {
 		if (!narr || narr.generatedCount === 0) return 0;
@@ -75,11 +100,14 @@
 	// later chapters reuse it and just show a brief spinner on the play button —
 	// no "warming up / synthesizing / loading voice" chatter every chapter.
 	const downloading = $derived(
-		!kokoro.loaded && kokoro.status === 'loading' && kokoro.progress > 0 && kokoro.progress < 100
+		supertonic.status === 'loading' && supertonic.progress >= 0 && supertonic.progress < 100
 	);
 	const statusText = $derived.by(() => {
 		if (hasError) return 'Voice unavailable';
-		if (downloading) return `Downloading voice — ${kokoro.progress}%`;
+		if (downloading)
+			return supertonic.progress > 0
+				? `Preparing Supertonic 3 — ${Math.round(supertonic.progress)}%`
+				: (supertonic.note ?? 'Preparing Supertonic 3…');
 		return '';
 	});
 	const showDownloadBar = $derived(downloading);
@@ -133,9 +161,8 @@
 	}
 
 	function highlight(fullIdx: number) {
-		let el: HTMLElement | null = null;
-		if (fullIdx <= 0) el = document.querySelector('.ch-title');
-		else el = narratedEls()[fullIdx - 1] ?? null;
+		const el: HTMLElement | null =
+			fullIdx <= 0 ? document.querySelector('.ch-title') : (narratedEls()[fullIdx - 1] ?? null);
 		if (el === highlighted) {
 			if (el && status === 'playing') scrollIntoViewIfNeeded(el);
 			return;
@@ -157,12 +184,36 @@
 </script>
 
 {#if !narr}
-	<button class="listen-btn" type="button" onclick={makeNarration}>
+	<button class="listen-btn" type="button" onclick={requestNarration}>
 		<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
 			<path d="M8 5v14l11-7z" />
 		</svg>
 		<span>{t('story_listen')}</span>
 	</button>
+	{#if showSetup}
+		<div class="voice-setup" role="group" aria-labelledby="voice-setup-title">
+			<div>
+				<strong id="voice-setup-title">Set up the new local voice</strong>
+				<p>
+					Supertonic 3 downloads about {SUPERTONIC_MODEL.sizeMb} MB once, then generates speech privately
+					on this device with WebGPU or WASM.
+				</p>
+				<a href={SUPERTONIC_MODEL.licenseUrl} target="_blank" rel="external noreferrer">
+					Review the OpenRAIL-M model terms
+				</a>
+			</div>
+			<label>
+				<input type="checkbox" bind:checked={consentChecked} />
+				<span>I have reviewed and accept the model terms</span>
+			</label>
+			<div class="voice-setup-actions">
+				<button type="button" onclick={() => (showSetup = false)}>Not now</button>
+				<button type="button" disabled={!consentChecked} onclick={acceptAndStart}>
+					Accept & download
+				</button>
+			</div>
+		</div>
+	{/if}
 {:else}
 	<div class="player" transition:slide={{ duration: 200 }}>
 		<div class="row">
@@ -233,7 +284,7 @@
 
 			<div class="readout">
 				{#if statusText}
-					<span class="status" class:err={status === 'error' || kokoro.status === 'error'}
+					<span class="status" class:err={status === 'error' || supertonic.status === 'error'}
 						>{statusText}</span
 					>
 				{:else}
@@ -258,10 +309,10 @@
 					value={voice}
 					onchange={(e) => changeVoice(e.currentTarget.value)}
 					aria-label="Narrator voice"
-					title={kokoro.device ? `on-device · ${kokoro.device}` : 'on-device'}
+					title={supertonic.backend ? `Supertonic 3 · ${supertonic.backend}` : 'Supertonic 3'}
 				>
-					{#each NARRATOR_VOICES as v (v.id)}
-						<option value={v.id}>{v.label}</option>
+					{#each SUPERTONIC_MODEL.voices as v (v.id)}
+						<option value={v.id}>{v.name}</option>
 					{/each}
 				</select>
 				<svg
@@ -297,13 +348,15 @@
 		</div>
 
 		{#if hasError}
-			<p class="player-err">{kokoro.error ?? 'The audio engine couldn’t start on this device.'}</p>
+			<p class="player-err">
+				{supertonic.error ?? 'The audio engine couldn’t start on this device.'}
+			</p>
 		{:else}
 			<div class="bar" aria-hidden="true">
 				<div
 					class="bar-fill"
 					class:dl={showDownloadBar}
-					style:width="{showDownloadBar ? kokoro.progress : progressPct}%"
+					style:width="{showDownloadBar ? supertonic.progress : progressPct}%"
 				></div>
 			</div>
 		{/if}
@@ -331,6 +384,63 @@
 	.listen-btn:hover {
 		border-color: var(--accent);
 		background: color-mix(in oklab, var(--accent) 7%, var(--bg-elevated));
+	}
+	.voice-setup {
+		display: grid;
+		max-width: 560px;
+		gap: 12px;
+		padding: 14px;
+		border: 1px solid color-mix(in oklab, var(--accent) 32%, var(--hairline));
+		border-radius: 14px;
+		background: var(--bg-elevated);
+		box-shadow: var(--shadow-card);
+		font-size: 12px;
+	}
+	.voice-setup strong {
+		display: block;
+		margin-bottom: 4px;
+		color: var(--ink);
+		font-size: 13px;
+	}
+	.voice-setup p {
+		margin: 0;
+		color: var(--ink-muted);
+		line-height: 1.55;
+	}
+	.voice-setup a {
+		display: inline-block;
+		margin-top: 6px;
+		color: var(--accent);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+	.voice-setup label {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		color: var(--ink-muted);
+	}
+	.voice-setup-actions {
+		display: flex;
+		justify-content: flex-end;
+		gap: 8px;
+	}
+	.voice-setup-actions button {
+		padding: 7px 11px;
+		border: 1px solid var(--hairline);
+		border-radius: 999px;
+		background: transparent;
+		color: var(--ink-muted);
+		cursor: pointer;
+	}
+	.voice-setup-actions button:last-child {
+		border-color: var(--accent);
+		background: var(--accent);
+		color: var(--bg);
+	}
+	.voice-setup-actions button:disabled {
+		cursor: not-allowed;
+		opacity: 0.45;
 	}
 
 	.player {

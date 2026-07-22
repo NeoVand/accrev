@@ -1,8 +1,9 @@
-import { kokoro } from './kokoro.svelte';
+import { supertonic } from '$lib/voice/supertonic.svelte';
+import type { BackendPreference } from '$lib/voice/types';
 
 /**
  * Plays a chapter's narration segments as a continuous audiobook: generates
- * each segment with Kokoro (one ahead of the playhead), schedules them back to
+ * each segment with Supertonic 3 in a worker, schedules them back to
  * back on a single Web Audio timeline, and supports play / pause / rewind.
  */
 
@@ -32,6 +33,10 @@ export class Narration {
 	readonly total: number;
 	#segments: string[];
 	#voice: string;
+	#language: string;
+	#generationSteps: number;
+	#synthesisSpeed: number;
+	#backend: BackendPreference;
 	#buffers: (AudioBuffer | null)[];
 	#ctx: AudioContext | null = null;
 	#source: AudioBufferSourceNode | null = null;
@@ -42,11 +47,26 @@ export class Narration {
 	#destroyed = false;
 	#manualStop = false;
 	#tickId = 0;
+	#abort = new AbortController();
 
-	constructor(segments: string[], voice: string, speed = 1) {
+	constructor(
+		segments: string[],
+		options: {
+			voice: string;
+			language: string;
+			generationSteps: number;
+			synthesisSpeed: number;
+			backend: BackendPreference;
+			playbackSpeed?: number;
+		}
+	) {
 		this.#segments = segments;
-		this.#voice = voice;
-		this.speed = speed;
+		this.#voice = options.voice;
+		this.#language = options.language;
+		this.#generationSteps = options.generationSteps;
+		this.#synthesisSpeed = options.synthesisSpeed;
+		this.#backend = options.backend;
+		this.speed = options.playbackSpeed ?? 1;
 		this.total = segments.length;
 		this.#buffers = new Array(segments.length).fill(null);
 		this.durations = new Array(segments.length).fill(0);
@@ -105,14 +125,21 @@ export class Narration {
 			if (this.#destroyed) break;
 			const i = this.generatedCount;
 			try {
-				const raw = await kokoro.generate(this.#segments[i], this.#voice);
+				const raw = await supertonic.generate(this.#segments[i], {
+					voice: this.#voice,
+					language: this.#language,
+					steps: this.#generationSteps,
+					speed: this.#synthesisSpeed,
+					backend: this.#backend,
+					signal: this.#abort.signal
+				});
 				if (this.#destroyed) break;
 				const ctx = this.#ensureCtx();
-				const buf = ctx.createBuffer(1, raw.audio.length, raw.sampling_rate);
-				buf.copyToChannel(raw.audio, 0);
+				const buf = ctx.createBuffer(1, raw.audio.length, raw.sampleRate);
+				buf.copyToChannel(Float32Array.from(raw.audio), 0);
 				this.#buffers[i] = buf;
 				const next = this.durations.slice();
-				next[i] = raw.audio.length / raw.sampling_rate;
+				next[i] = raw.audio.length / raw.sampleRate;
 				this.durations = next;
 				this.generatedCount = i + 1;
 				// If playback is waiting on exactly this segment, start it now.
@@ -137,7 +164,7 @@ export class Narration {
 		if (this.#buffers[this.index]) {
 			this.#playSeg(this.index, this.displayPos);
 		} else {
-			this.status = kokoro.isReady ? 'buffering' : 'loadingModel';
+			this.status = supertonic.isReady ? 'buffering' : 'loadingModel';
 		}
 	}
 
@@ -286,6 +313,7 @@ export class Narration {
 
 	dispose() {
 		this.#destroyed = true;
+		this.#abort.abort();
 		this.#stopSource();
 		this.#stopTick();
 		if (this.#ctx) {

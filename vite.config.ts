@@ -9,13 +9,7 @@ export default defineConfig({
 		sveltekit(),
 		paraglideVitePlugin({ project: './project.inlang', outdir: './src/lib/paraglide' })
 	],
-	// kokoro-js + transformers.js load ONNX/WASM and large model files at runtime
-	// and are imported only in the browser (lazily, on first "Listen"). Keep Vite
-	// from pre-bundling them and from trying to externalize/run them during SSR.
-	optimizeDeps: {
-		exclude: ['kokoro-js', '@huggingface/transformers']
-	},
-	ssr: {
-		external: ['kokoro-js', '@huggingface/transformers']
-	}
+	// Supertonic owns four ONNX sessions inside a module worker. Keeping the
+	// worker as ESM lets its WebGPU/WASM runtime be selected lazily in-browser.
+	worker: { format: 'es' }
 });

@@ -1578,6 +1578,247 @@ const dupontBody = `<p class="subtitle" style="margin-top:14px; max-width:none;"
 const dupontPlain =
 	'ROE means Return on Equity: how much profit the company earns for each dollar of owners equity. DuPont does not create a new ratio. It breaks ROE into three smaller questions so you can see why ROE is high or low. ROE یعنی بازده حقوق صاحبان سهام: شرکت در برابر هر دلار حقوق صاحبان سهام مالکان چقدر سود می‌سازد. تحلیل دوپونت نسبت تازه‌ای نمی‌سازد؛ ROE را به سه سؤال کوچک‌تر می‌شکند تا بفهمیم چرا ROE بالا یا پایین است. Core idea: ROE = Net Income / Average Equity. ROE = Net Margin times Asset Turnover times Equity Multiplier. ROE = Net Income divided by Revenue, times Revenue divided by Average Assets, times Average Assets divided by Average Equity. ایده اصلی: ROE = سود خالص تقسیم بر میانگین حقوق صاحبان سهام. ROE = حاشیه سود خالص ضربدر گردش دارایی‌ها ضربدر ضریب اهرمی. Term translations: Net Income or NI = سود خالص. Revenue = درآمد. Average Assets = میانگین دارایی‌ها. Average Equity = میانگین حقوق صاحبان سهام. Efficiency = بهره‌وری یا کارایی. Net Margin = حاشیه سود خالص. Asset Turnover = گردش دارایی‌ها. Equity Multiplier = ضریب اهرمی یا اهرم مالی. Profit: Net Margin asks how much profit is left from each dollar of sales after expenses. حاشیه سود خالص می‌پرسد از هر دلار فروش، بعد از هزینه‌ها چقدر سود باقی می‌ماند. Efficiency means بهره‌وری or کارایی: using resources well. In this DuPont page, efficiency is measured by Asset Turnover. گردش دارایی‌ها می‌پرسد شرکت از دارایی‌هایی که به‌کار گرفته چقدر درآمد می‌سازد. Leverage: Equity Multiplier asks how large the asset base is compared with owners equity. ضریب اهرمی می‌پرسد پایه دارایی شرکت نسبت به حقوق صاحبان سهام چقدر بزرگ است. Why the formula works: revenue cancels revenue, and average assets cancels average assets, leaving Net Income divided by Average Equity, which is ROE. چرا فرمول کار می‌کند: درآمد با درآمد حذف می‌شود و میانگین دارایی‌ها با میانگین دارایی‌ها حذف می‌شود و سود خالص تقسیم بر میانگین حقوق صاحبان سهام باقی می‌ماند، یعنی ROE. Example: Net income 80, revenue 1,000, average assets 500, average equity 250. DuPont: 8 percent net margin times 2.0 times asset turnover times 2.0 times equity multiplier equals 32 percent ROE. مثال: سود خالص ۸۰، درآمد ۱٬۰۰۰، میانگین دارایی‌ها ۵۰۰، میانگین حقوق صاحبان سهام ۲۵۰. دوپونت: حاشیه سود ۸٪ ضربدر گردش دارایی ۲٫۰ برابر ضربدر ضریب اهرمی ۲٫۰ برابر برابر ROE برابر ۳۲٪ است. Diagnostic use: if two firms in the same industry have the same ROE, DuPont reveals how they got there. High ROE is not automatically good; it can come from strong operations or from more debt risk. کاربرد تشخیصی: اگر دو شرکت در یک صنعت ROE یکسان داشته باشند، دوپونت نشان می‌دهد چگونه به آن رسیده‌اند. ROE بالا همیشه خوب نیست؛ می‌تواند از عملکرد قوی یا از ریسک بدهی بیشتر آمده باشد.';
 
+const gaapIfrsBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">This chapter is about the accounting rulebooks. <strong>US GAAP</strong> is the main rulebook used by public companies in the United States. <strong>IFRS</strong> is the international rulebook used in many other countries. The goal is similar: make financial statements useful and comparable. The details are not always the same.</p>
+
+	<div class="farsi-block" style="margin-top:12px; max-width:none;">
+		این فصل دربارهٔ کتاب‌های قانون حسابداری است. <strong>US GAAP</strong> کتاب قانون اصلی برای شرکت‌های عمومی در ایالات متحده است. <strong>IFRS</strong> کتاب قانون بین‌المللی است که در بسیاری از کشورهای دیگر استفاده می‌شود. هدف هر دو شبیه است: صورت‌های مالی مفید و قابل مقایسه باشند. اما جزئیات همیشه یکسان نیست.
+	</div>
+
+	<div style="margin-top:16px; border-left:2px solid var(--tan); padding-left:12px;">
+		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.16em; color:var(--tan-deep);">TERM TRANSLATIONS · ترجمهٔ واژه‌ها</div>
+		<p style="margin-top:8px; font-size:14px; line-height:1.7;"><strong>United States</strong> = ایالات متحده · <strong>Rest of world</strong> = سایر کشورها / جهان خارج از آمریکا · <strong>Rulebook</strong> = کتاب قانون / مجموعه استانداردها · <strong>Standard setter</strong> = نهاد تدوین‌کننده استاندارد</p>
+		<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;">اصول پذیرفته‌شده حسابداری = <strong>Generally Accepted Accounting Principles</strong> · بنیاد استانداردهای حسابداری مالی = <strong>FASB</strong> · هیئت استانداردهای بین‌المللی حسابداری = <strong>IASB</strong></p>
+		<p style="margin-top:6px; font-size:14px; line-height:1.7;"><strong>Rules-based</strong> = قاعده‌محور · <strong>Principles-based</strong> = اصل‌محور · <strong>Bright line</strong> = مرز عددی/قاعدهٔ روشن · <strong>Judgment</strong> = قضاوت حرفه‌ای · <strong>PP&amp;E</strong> = اموال، ماشین‌آلات و تجهیزات</p>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>United States: US GAAP</h3>
+			<p><strong>GAAP</strong> means <strong>Generally Accepted Accounting Principles</strong>. In the U.S., the main standard setter is the <strong>FASB</strong>, or Financial Accounting Standards Board.</p>
+			<p>GAAP is often described as more <strong>rules-based</strong>. That means it contains many detailed rules and bright lines. This can make answers more consistent, but it can also make the rulebook feel heavy.</p>
+			<ul>
+				<li><strong>LIFO</strong> inventory costing is permitted.</li>
+				<li>Inventory write-downs are generally not reversed later.</li>
+				<li>Development costs are usually expensed, with limited exceptions.</li>
+				<li>PP&amp;E is usually kept at historical cost, not revalued upward.</li>
+			</ul>
+		</div>
+		<div class="col-fa">
+			<h3>ایالات متحده: US GAAP</h3>
+			<p><strong>GAAP</strong> یعنی <strong>اصول پذیرفته‌شده حسابداری</strong>. در آمریکا، نهاد اصلی تدوین استاندارد <strong>FASB</strong> است؛ یعنی بنیاد استانداردهای حسابداری مالی.</p>
+			<p>GAAP معمولاً <strong>قاعده‌محور</strong> توصیف می‌شود. یعنی قواعد ریز و مرزهای روشن زیادی دارد. این موضوع می‌تواند پاسخ‌ها را یکنواخت‌تر کند، اما کتاب قانون را هم سنگین‌تر می‌کند.</p>
+			<ul>
+				<li>روش <strong>LIFO</strong> برای بهای موجودی مجاز است.</li>
+				<li>کاهش ارزش موجودی معمولاً بعداً برگشت داده نمی‌شود.</li>
+				<li>مخارج توسعه معمولاً هزینه می‌شود، با چند استثنای محدود.</li>
+				<li>اموال، ماشین‌آلات و تجهیزات معمولاً با بهای تاریخی نگه داشته می‌شود و به بالا تجدید ارزیابی نمی‌شود.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Rest of world: IFRS</h3>
+			<p><strong>IFRS</strong> means <strong>International Financial Reporting Standards</strong>. The main standard setter is the <strong>IASB</strong>, or International Accounting Standards Board.</p>
+			<p>IFRS is often described as more <strong>principles-based</strong>. It gives the preparer more judgment in applying the underlying idea. This can make the statements better reflect the economics, but it also asks for careful reasoning and disclosure.</p>
+			<ul>
+				<li><strong>LIFO</strong> is prohibited.</li>
+				<li>Some inventory write-downs can be reversed if value recovers.</li>
+				<li>Development costs may be capitalized if strict criteria are met.</li>
+				<li>A revaluation model for PP&amp;E is permitted.</li>
+			</ul>
+		</div>
+		<div class="col-fa">
+			<h3>سایر کشورها: IFRS</h3>
+			<p><strong>IFRS</strong> یعنی <strong>استانداردهای بین‌المللی گزارشگری مالی</strong>. نهاد اصلی تدوین استاندارد <strong>IASB</strong> است؛ یعنی هیئت استانداردهای بین‌المللی حسابداری.</p>
+			<p>IFRS معمولاً <strong>اصل‌محور</strong> توصیف می‌شود. یعنی تهیه‌کننده در به‌کارگیری ایدهٔ اصلی قضاوت بیشتری دارد. این می‌تواند صورت‌های مالی را به واقعیت اقتصادی نزدیک‌تر کند، اما نیازمند استدلال و افشای دقیق‌تر است.</p>
+			<ul>
+				<li>روش <strong>LIFO</strong> ممنوع است.</li>
+				<li>برخی کاهش‌های ارزش موجودی اگر ارزش بازیابی شود، قابل برگشت است.</li>
+				<li>مخارج توسعه اگر معیارهای سخت‌گیرانه را داشته باشد، می‌تواند سرمایه‌ای شود.</li>
+				<li>مدل تجدید ارزیابی برای اموال، ماشین‌آلات و تجهیزات مجاز است.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>How to remember the difference</h3>
+			<p>Do not memorize this as "GAAP is strict, IFRS is loose." That is too simple. A better memory hook is this: GAAP often gives more detailed instructions; IFRS often asks you to apply a broader principle and explain your judgment.</p>
+			<div class="example"><span class="label">Example</span>If an asset loses value and later recovers, IFRS is more willing to show that recovery in some cases. GAAP is usually more cautious about reversing earlier write-downs.</div>
+		</div>
+		<div class="col-fa">
+			<h3>چطور تفاوت را به خاطر بسپاریم</h3>
+			<p>این را به شکل «GAAP سخت‌گیر است و IFRS آزاد» حفظ نکنید؛ بیش از حد ساده است. یادسپار بهتر این است: GAAP اغلب دستورالعمل‌های جزئی‌تری می‌دهد؛ IFRS اغلب از شما می‌خواهد اصل کلی را به‌کار ببرید و قضاوت خود را توضیح دهید.</p>
+			<div class="example"><span class="label">مثال</span>اگر یک دارایی کاهش ارزش پیدا کند و بعداً ارزشش برگردد، IFRS در بعضی موارد بیشتر اجازه می‌دهد این بازیابی نشان داده شود. GAAP معمولاً دربارهٔ برگشت کاهش ارزش محتاط‌تر است.</div>
+		</div>
+	</div>
+
+	<div class="pitfall" style="margin-top:18px;"><span class="label">Common mistake · اشتباه رایج</span>Rules-based versus principles-based is a useful shortcut, not a perfect boundary. GAAP has principles, and IFRS has rules. The real exam question is usually: what does this difference change in inventory, development costs, PP&amp;E, leases, or revenue?</div>`;
+
+const gaapIfrsPlain =
+	'This chapter is about accounting rulebooks. US GAAP is the main rulebook used by public companies in the United States. IFRS is the international rulebook used in many other countries. این فصل درباره کتاب‌های قانون حسابداری است. US GAAP کتاب قانون اصلی برای شرکت‌های عمومی در ایالات متحده است. IFRS کتاب قانون بین‌المللی است که در بسیاری از کشورهای دیگر استفاده می‌شود. Term translations: United States = ایالات متحده. Rest of world = سایر کشورها یا جهان خارج از آمریکا. Rulebook = کتاب قانون یا مجموعه استانداردها. Standard setter = نهاد تدوین‌کننده استاندارد. GAAP = Generally Accepted Accounting Principles = اصول پذیرفته‌شده حسابداری. FASB = Financial Accounting Standards Board = بنیاد استانداردهای حسابداری مالی. IFRS = International Financial Reporting Standards = استانداردهای بین‌المللی گزارشگری مالی. IASB = International Accounting Standards Board = هیئت استانداردهای بین‌المللی حسابداری. Rules-based = قاعده‌محور. Principles-based = اصل‌محور. Bright line = مرز عددی یا قاعده روشن. Judgment = قضاوت حرفه‌ای. PP&E = اموال، ماشین‌آلات و تجهیزات. US GAAP is often more rules-based. LIFO is permitted. Inventory write-downs are generally not reversible. Development costs are usually expensed. PP&E is usually kept at historical cost. IFRS is often more principles-based. LIFO is prohibited. Some inventory write-downs are reversible. Development costs may be capitalized if criteria are met. PP&E revaluation is permitted. GAAP معمولاً قاعده‌محورتر است. روش LIFO مجاز است. کاهش ارزش موجودی معمولاً برگشت داده نمی‌شود. مخارج توسعه معمولاً هزینه می‌شود. اموال، ماشین‌آلات و تجهیزات معمولاً با بهای تاریخی نگه داشته می‌شود. IFRS معمولاً اصل‌محورتر است. LIFO ممنوع است. برخی کاهش‌های ارزش موجودی قابل برگشت است. مخارج توسعه اگر معیارها برقرار باشد می‌تواند سرمایه‌ای شود. تجدید ارزیابی PP&E مجاز است. Common mistake: rules-based versus principles-based is a useful shortcut, not a perfect boundary. اشتباه رایج: قاعده‌محور در برابر اصل‌محور یک میانبر مفید است، نه مرز کامل.';
+
+const revenueStandardBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">This page explains a rare moment when the U.S. and international rulebooks became very similar. <strong>ASC 606</strong> is the U.S. GAAP revenue standard. <strong>IFRS 15</strong> is the IFRS revenue standard. Both use the same core idea: recognize revenue when control of goods or services transfers to the customer.</p>
+
+	<div class="farsi-block" style="margin-top:12px; max-width:none;">
+		این صفحه یک مورد کم‌یاب را توضیح می‌دهد که در آن کتاب قانون آمریکا و کتاب قانون بین‌المللی بسیار شبیه شدند. <strong>ASC 606</strong> استاندارد درآمد در US GAAP است. <strong>IFRS 15</strong> استاندارد درآمد در IFRS است. ایدهٔ اصلی هر دو یکی است: درآمد زمانی شناسایی می‌شود که کنترل کالا یا خدمت به مشتری منتقل شود.
+	</div>
+
+	<div style="margin-top:16px; border-left:2px solid var(--tan); padding-left:12px;">
+		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.16em; color:var(--tan-deep);">TERM TRANSLATIONS · ترجمهٔ واژه‌ها</div>
+		<p style="margin-top:8px; font-size:14px; line-height:1.7;"><strong>Revenue standard</strong> = استاندارد درآمد · <strong>Global convergence</strong> = همگرایی جهانی · <strong>Revenue recognition</strong> = شناسایی درآمد · <strong>Control transfer</strong> = انتقال کنترل</p>
+		<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;">تعهد عملکرد = <strong>Performance obligation</strong> · بهای معامله = <strong>Transaction price</strong> · مابه‌ازای متغیر = <strong>Variable consideration</strong> · قیمت فروش مستقل = <strong>Standalone selling price</strong> · افشا = <strong>Disclosure</strong></p>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Why ASC 606 and IFRS 15 matter</h3>
+			<p>Before these standards, revenue rules were more scattered. Some industries had special rules, and similar transactions could be reported differently. The new model gave companies one main framework for deciding when and how much revenue to record.</p>
+			<p>The focus moved away from "Did we send an invoice?" and toward "Did the customer receive control of what we promised?" That is a much better question for accrual accounting.</p>
+		</div>
+		<div class="col-fa">
+			<h3>چرا ASC 606 و IFRS 15 مهم‌اند</h3>
+			<p>قبل از این استانداردها، قواعد درآمد پراکنده‌تر بود. بعضی صنایع قواعد خاص خود را داشتند و معامله‌های مشابه ممکن بود متفاوت گزارش شوند. مدل جدید یک چارچوب اصلی داد تا شرکت‌ها تصمیم بگیرند چه زمانی و چه مقدار درآمد ثبت کنند.</p>
+			<p>تمرکز از «آیا فاکتور فرستادیم؟» به «آیا مشتری کنترل چیزی را که وعده داده بودیم دریافت کرده؟» منتقل شد. این سؤال برای حسابداری تعهدی بسیار بهتر است.</p>
+		</div>
+	</div>
+
+	<div style="margin-top:18px;">
+		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep);">THE FIVE-STEP MODEL · مدل پنج‌مرحله‌ای</div>
+		<div style="display:grid; grid-template-columns:1fr; gap:10px; margin-top:10px; font-size:14px; line-height:1.65;">
+			<div><strong>1. Identify the contract.</strong> What agreement creates enforceable rights and obligations? <span style="font-family:'Vazirmatn',sans-serif;">قرارداد را شناسایی کنید.</span></div>
+			<div><strong>2. Identify performance obligations.</strong> What separate goods or services did the company promise? <span style="font-family:'Vazirmatn',sans-serif;">تعهدات عملکرد را شناسایی کنید.</span></div>
+			<div><strong>3. Determine the transaction price.</strong> How much consideration does the company expect? <span style="font-family:'Vazirmatn',sans-serif;">بهای معامله را تعیین کنید.</span></div>
+			<div><strong>4. Allocate the price.</strong> Split the price across the separate promises. <span style="font-family:'Vazirmatn',sans-serif;">بها را بین تعهدات تقسیم کنید.</span></div>
+			<div><strong>5. Recognize revenue.</strong> Record revenue when each promise is satisfied. <span style="font-family:'Vazirmatn',sans-serif;">وقتی هر تعهد انجام شد، درآمد را شناسایی کنید.</span></div>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>What changed in practice</h3>
+			<ul>
+				<li><strong>Bundled contracts:</strong> split the deal into separate performance obligations.</li>
+				<li><strong>Variable consideration:</strong> estimate discounts, rebates, bonuses, penalties, and returns carefully.</li>
+				<li><strong>Timing:</strong> decide whether revenue is recognized over time or at one point in time.</li>
+				<li><strong>Disclosure:</strong> explain judgments, remaining obligations, and revenue by category.</li>
+			</ul>
+		</div>
+		<div class="col-fa">
+			<h3>در عمل چه چیزی تغییر کرد</h3>
+			<ul>
+				<li><strong>قراردادهای بسته‌ای:</strong> معامله را به تعهدات عملکرد جدا تقسیم کنید.</li>
+				<li><strong>مابه‌ازای متغیر:</strong> تخفیف‌ها، برگشت‌ها، پاداش‌ها، جریمه‌ها و مرجوعی‌ها را با دقت برآورد کنید.</li>
+				<li><strong>زمان‌بندی:</strong> تصمیم بگیرید درآمد در طول زمان شناسایی می‌شود یا در یک نقطهٔ زمانی.</li>
+				<li><strong>افشا:</strong> قضاوت‌ها، تعهدات باقی‌مانده و درآمد به تفکیک گروه را توضیح دهید.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Worked example: software bundle</h3>
+			<p>A customer pays <strong>$1,200</strong> for a software license, one year of support, and training. The invoice may show one total, but accounting asks whether those promises are separate.</p>
+			<p>If the license, support, and training are distinct, the company allocates the $1,200 based on standalone selling prices. The license might be recognized when control transfers. Support is usually recognized over the support period. Training is recognized when training is delivered.</p>
+			<div class="example"><span class="label">Memory hook</span>One invoice does not always mean one revenue item. First separate the promises, then recognize each promise when it is satisfied.</div>
+		</div>
+		<div class="col-fa">
+			<h3>مثال عددی: بستهٔ نرم‌افزاری</h3>
+			<p>مشتری <strong>۱٬۲۰۰ دلار</strong> برای لایسنس نرم‌افزار، یک سال پشتیبانی، و آموزش پرداخت می‌کند. فاکتور ممکن است فقط یک مبلغ کل نشان دهد، اما حسابداری می‌پرسد آیا این وعده‌ها جدا هستند یا نه.</p>
+			<p>اگر لایسنس، پشتیبانی و آموزش جدا باشند، شرکت مبلغ ۱٬۲۰۰ را بر اساس قیمت فروش مستقل تقسیم می‌کند. لایسنس ممکن است هنگام انتقال کنترل شناسایی شود. پشتیبانی معمولاً طی دورهٔ پشتیبانی شناسایی می‌شود. آموزش وقتی شناسایی می‌شود که آموزش ارائه شده باشد.</p>
+			<div class="example"><span class="label">یادسپار</span>یک فاکتور همیشه به معنی یک قلم درآمد نیست. اول وعده‌ها را جدا کنید، بعد هر وعده را وقتی انجام شد شناسایی کنید.</div>
+		</div>
+	</div>
+
+	<div class="pitfall" style="margin-top:18px;"><span class="label">Common mistake · اشتباه رایج</span>Cash collection, invoice date, contract signing, and revenue recognition can all be different moments. Under ASC 606 and IFRS 15, the main trigger is satisfying the performance obligation, not simply receiving cash.</div>`;
+
+const revenueStandardPlain =
+	'ASC 606 is the U.S. GAAP revenue standard. IFRS 15 is the IFRS revenue standard. Both use the same core idea: recognize revenue when control of goods or services transfers to the customer. ASC 606 استاندارد درآمد در US GAAP است. IFRS 15 استاندارد درآمد در IFRS است. ایده اصلی هر دو این است که درآمد زمانی شناسایی می‌شود که کنترل کالا یا خدمت به مشتری منتقل شود. Term translations: Revenue standard = استاندارد درآمد. Global convergence = همگرایی جهانی. Revenue recognition = شناسایی درآمد. Control transfer = انتقال کنترل. Performance obligation = تعهد عملکرد. Transaction price = بهای معامله. Variable consideration = مابه‌ازای متغیر. Standalone selling price = قیمت فروش مستقل. Disclosure = افشا. The five-step model: identify the contract, identify performance obligations, determine the transaction price, allocate the price, and recognize revenue when each promise is satisfied. مدل پنج مرحله‌ای: قرارداد را شناسایی کنید، تعهدات عملکرد را شناسایی کنید، بهای معامله را تعیین کنید، بها را تخصیص دهید، و وقتی هر وعده انجام شد درآمد را شناسایی کنید. Practical changes: bundled contracts are split into separate performance obligations. Variable consideration includes discounts, rebates, bonuses, penalties, and returns. Timing can be over time or at a point in time. Disclosure explains judgments and remaining obligations. تغییرات عملی: قراردادهای بسته‌ای به تعهدات جدا تقسیم می‌شوند. مابه‌ازای متغیر شامل تخفیف، برگشت، پاداش، جریمه و مرجوعی است. زمان‌بندی می‌تواند در طول زمان یا در یک نقطه زمانی باشد. افشا قضاوت‌ها و تعهدات باقی‌مانده را توضیح می‌دهد. Example: a software bundle with a license, support, and training may have one invoice but three separate performance obligations. مثال: یک بسته نرم‌افزاری با لایسنس، پشتیبانی و آموزش ممکن است یک فاکتور داشته باشد اما سه تعهد عملکرد جدا داشته باشد.';
+
+const leasesBody = `<p class="subtitle" style="margin-top:14px; max-width:none;">This page explains why leases moved onto the balance sheet. Under <strong>ASC 842</strong> in U.S. GAAP and <strong>IFRS 16</strong> under IFRS, most leases longer than 12 months create both an asset and a liability for the lessee.</p>
+
+	<div class="farsi-block" style="margin-top:12px; max-width:none;">
+		این صفحه توضیح می‌دهد چرا اجاره‌ها وارد ترازنامه شدند. طبق <strong>ASC 842</strong> در US GAAP و <strong>IFRS 16</strong> در IFRS، بیشتر اجاره‌های بیش از ۱۲ ماه برای مستأجر هم دارایی ایجاد می‌کنند و هم بدهی.
+	</div>
+
+	<div style="margin-top:16px; border-left:2px solid var(--tan); padding-left:12px;">
+		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.16em; color:var(--tan-deep);">TERM TRANSLATIONS · ترجمهٔ واژه‌ها</div>
+		<p style="margin-top:8px; font-size:14px; line-height:1.7;"><strong>Lease</strong> = اجاره · <strong>Lessee</strong> = مستأجر · <strong>Lessor</strong> = موجر · <strong>Right-of-use asset / ROU asset</strong> = دارایی حق استفاده · <strong>Lease liability</strong> = بدهی اجاره</p>
+		<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;">سرمایه‌ای کردن = <strong>Capitalize</strong> · ارزش فعلی = <strong>Present value / PV</strong> · نرخ تنزیل = <strong>Discount rate</strong> · نرخ استقراض حاشیه‌ای = <strong>Incremental borrowing rate</strong> · استهلاک = <strong>Amortization</strong></p>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>The big idea</h3>
+			<p>A lease gives the company the right to use something, such as a store, aircraft, truck, office, or equipment. If the company controls the use of that asset for a meaningful period, accounting treats that right as an asset.</p>
+			<p>But the company also promised to make lease payments. That promise is a liability. So the entry creates both sides: an asset for the right to use the property, and a liability for the future payments.</p>
+		</div>
+		<div class="col-fa">
+			<h3>ایدهٔ اصلی</h3>
+			<p>اجاره به شرکت حق استفاده از چیزی را می‌دهد؛ مثل فروشگاه، هواپیما، کامیون، دفتر یا تجهیزات. اگر شرکت برای یک دورهٔ معنادار کنترل استفاده از آن دارایی را داشته باشد، حسابداری آن حق را دارایی می‌داند.</p>
+			<p>اما شرکت وعده داده پرداخت‌های اجاره را انجام دهد. این وعده یک بدهی است. بنابراین ثبت هم‌زمان دو طرف ایجاد می‌کند: دارایی برای حق استفاده، و بدهی برای پرداخت‌های آینده.</p>
+		</div>
+	</div>
+
+	<div style="margin-top:18px;">
+		<div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; color:var(--tan-deep);">AT INCEPTION · در آغاز اجاره</div>
+		<div style="font-family:'JetBrains Mono',monospace; font-size:14px; line-height:1.75; margin-top:10px;">
+			<div>Dr Right-of-Use Asset <span style="color:var(--tan-deep);">X</span></div>
+			<div>Cr Lease Liability <span style="color:var(--tan-deep);">X</span></div>
+		</div>
+		<p style="margin-top:8px; font-size:14px; line-height:1.7;"><strong>X</strong> is usually the present value of future lease payments, discounted at the rate required by the standard. In plain English: convert the future rent payments into today's value.</p>
+		<p style="font-family:'Vazirmatn',sans-serif; direction:rtl; text-align:right; margin-top:6px; font-size:14px; line-height:1.9;"><strong>X</strong> معمولاً ارزش فعلی پرداخت‌های آیندهٔ اجاره است که با نرخ مورد نیاز استاندارد تنزیل شده است. به زبان ساده: پرداخت‌های اجارهٔ آینده را به ارزش امروز تبدیل کنید.</p>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Why the discount rate matters</h3>
+			<p>The lease liability is not usually the simple total of all future payments. It is the <strong>present value</strong> of those payments. The discount rate is often the lessee's <strong>incremental borrowing rate</strong>, meaning the rate the company would pay to borrow a similar amount for a similar term.</p>
+			<div class="example"><span class="label">Read it</span>A higher discount rate gives a lower present value. A lower discount rate gives a higher present value. That changes both the ROU asset and lease liability.</div>
+		</div>
+		<div class="col-fa">
+			<h3>چرا نرخ تنزیل مهم است</h3>
+			<p>بدهی اجاره معمولاً جمع سادهٔ همهٔ پرداخت‌های آینده نیست. بدهی اجاره <strong>ارزش فعلی</strong> آن پرداخت‌هاست. نرخ تنزیل اغلب <strong>نرخ استقراض حاشیه‌ای مستأجر</strong> است؛ یعنی نرخی که شرکت برای وام گرفتن مبلغی مشابه در دوره‌ای مشابه می‌پرداخت.</p>
+			<div class="example"><span class="label">خوانش</span>نرخ تنزیل بالاتر، ارزش فعلی پایین‌تر می‌دهد. نرخ تنزیل پایین‌تر، ارزش فعلی بالاتر می‌دهد. این موضوع هم دارایی حق استفاده و هم بدهی اجاره را تغییر می‌دهد.</div>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>GAAP and IFRS still differ</h3>
+			<p>Both systems bring most leases onto the balance sheet. The main remaining difference is often on the income statement.</p>
+			<ul>
+				<li><strong>GAAP operating leases:</strong> usually one straight-line lease expense. Profit and loss looks flatter.</li>
+				<li><strong>GAAP finance leases and IFRS leases:</strong> split expense into amortization plus interest. Expense is usually higher earlier in the lease.</li>
+			</ul>
+		</div>
+		<div class="col-fa">
+			<h3>GAAP و IFRS هنوز تفاوت دارند</h3>
+			<p>هر دو نظام بیشتر اجاره‌ها را وارد ترازنامه می‌کنند. تفاوت اصلی باقی‌مانده اغلب در صورت سود و زیان است.</p>
+			<ul>
+				<li><strong>اجاره‌های عملیاتی در GAAP:</strong> معمولاً یک هزینهٔ اجارهٔ خط مستقیم ثبت می‌شود. سود و زیان یکنواخت‌تر دیده می‌شود.</li>
+				<li><strong>اجاره‌های مالی در GAAP و اجاره‌ها در IFRS:</strong> هزینه به استهلاک و بهره تقسیم می‌شود. هزینه معمولاً در سال‌های ابتدایی اجاره بیشتر است.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="lecture-grid" style="margin-top:18px;">
+		<div class="col-en">
+			<h3>Why this rule changed analysis</h3>
+			<p>Before the newer lease standards, many operating leases stayed off the balance sheet. That made some companies look less indebted than they really were. Airlines, retailers, restaurants, and logistics companies often had large lease commitments that were easy to miss.</p>
+			<div class="pitfall"><span class="label">Common mistake</span>Do not treat a lease as "just rent" if it gives the company control of an asset for more than a short period. The balance sheet may need both a ROU asset and a lease liability.</div>
+		</div>
+		<div class="col-fa">
+			<h3>چرا این قاعده تحلیل را تغییر داد</h3>
+			<p>قبل از استانداردهای جدید اجاره، بسیاری از اجاره‌های عملیاتی بیرون از ترازنامه می‌ماندند. این باعث می‌شد بعضی شرکت‌ها کم‌بدهی‌تر از واقعیت دیده شوند. خطوط هوایی، خرده‌فروشی‌ها، رستوران‌ها و شرکت‌های لجستیک اغلب تعهدات اجارهٔ بزرگی داشتند که به‌راحتی دیده نمی‌شد.</p>
+			<div class="pitfall"><span class="label">اشتباه رایج</span>اگر اجاره به شرکت کنترل استفاده از یک دارایی را برای بیش از یک دورهٔ کوتاه می‌دهد، آن را فقط «اجاره‌بها» نبینید. ممکن است ترازنامه هم دارایی حق استفاده و هم بدهی اجاره لازم داشته باشد.</div>
+		</div>
+	</div>`;
+
+const leasesPlain =
+	'This page explains why leases moved onto the balance sheet. Under ASC 842 in U.S. GAAP and IFRS 16 under IFRS, most leases longer than 12 months create both an asset and a liability for the lessee. این صفحه توضیح می‌دهد چرا اجاره‌ها وارد ترازنامه شدند. طبق ASC 842 در US GAAP و IFRS 16 در IFRS، بیشتر اجاره‌های بیش از ۱۲ ماه برای مستأجر هم دارایی ایجاد می‌کنند و هم بدهی. Term translations: Lease = اجاره. Lessee = مستأجر. Lessor = موجر. Right-of-use asset or ROU asset = دارایی حق استفاده. Lease liability = بدهی اجاره. Capitalize = سرمایه‌ای کردن. Present value or PV = ارزش فعلی. Discount rate = نرخ تنزیل. Incremental borrowing rate = نرخ استقراض حاشیه‌ای. Amortization = استهلاک. A lease gives the company the right to use something, such as a store, aircraft, truck, office, or equipment. Accounting records an asset for the right to use the property and a liability for the future payments. اجاره به شرکت حق استفاده از چیزی را می‌دهد، مثل فروشگاه، هواپیما، کامیون، دفتر یا تجهیزات. حسابداری دارایی برای حق استفاده و بدهی برای پرداخت‌های آینده ثبت می‌کند. Entry at inception: debit right-of-use asset and credit lease liability. X is usually the present value of future lease payments. ثبت در آغاز: بدهکار دارایی حق استفاده و بستانکار بدهی اجاره. X معمولاً ارزش فعلی پرداخت‌های آینده اجاره است. The discount rate matters because a higher discount rate gives a lower present value and a lower discount rate gives a higher present value. نرخ تنزیل مهم است چون نرخ بالاتر ارزش فعلی پایین‌تر می‌دهد و نرخ پایین‌تر ارزش فعلی بالاتر می‌دهد. GAAP and IFRS both bring most leases onto the balance sheet, but income statement treatment still differs. GAAP operating leases often show one straight-line lease expense. GAAP finance leases and IFRS leases split expense into amortization plus interest. GAAP و IFRS هر دو بیشتر اجاره‌ها را وارد ترازنامه می‌کنند، اما برخورد در صورت سود و زیان هنوز متفاوت است. اجاره عملیاتی در GAAP اغلب یک هزینه خط مستقیم نشان می‌دهد. اجاره مالی در GAAP و اجاره‌ها در IFRS هزینه را به استهلاک و بهره تقسیم می‌کنند. Before the newer lease standards, many operating leases were off balance sheet. قبل از استانداردهای جدید، بسیاری از اجاره‌های عملیاتی بیرون از ترازنامه بودند.';
+
 const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'05-equation': {
 		body: accountingEquationBody,
@@ -1640,6 +1881,18 @@ const slideOverrides: Partial<Record<string, Partial<Slide>>> = {
 	'45-dupont': {
 		body: dupontBody,
 		plain: dupontPlain
+	},
+	'47-gaap-ifrs': {
+		body: gaapIfrsBody,
+		plain: gaapIfrsPlain
+	},
+	'48-revenue-standard': {
+		body: revenueStandardBody,
+		plain: revenueStandardPlain
+	},
+	'49-leases': {
+		body: leasesBody,
+		plain: leasesPlain
 	}
 };
 

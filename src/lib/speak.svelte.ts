@@ -1,13 +1,13 @@
 import { browser } from '$app/environment';
 import { stripNonEnglish, pronounce, stopPronounce, primeVoices } from '$lib/audio';
-import { kokoro, DEFAULT_VOICE, type RawAudio } from '$lib/story/tts/kokoro.svelte';
 import { voicePref } from '$lib/state/voice.svelte';
+import { supertonic } from '$lib/voice/supertonic.svelte';
+import type { SynthesisResult } from '$lib/voice/types';
 
 /**
- * App-wide "read this aloud" service. Prefers the on-device Kokoro voice
- * (Heart) — far nicer than the browser's built-in speech — and falls back to
- * the Web Speech API whenever Kokoro isn't available (mobile / iOS / load
- * failure) or hasn't warmed up yet.
+ * App-wide "read this aloud" service. Prefers Supertonic 3 in its dedicated
+ * worker and falls back to the Web Speech API when local speech is disabled,
+ * its model terms have not been accepted, or the model cannot run.
  *
  * One shared singleton drives every speaker button in the app, so only one
  * thing speaks at a time and the heavy model is loaded/cached just once
@@ -18,7 +18,7 @@ import { voicePref } from '$lib/state/voice.svelte';
  */
 
 const MAX_CHUNK = 220; // characters per synthesized chunk (sentence-ish)
-const MAX_KOKORO_CHARS = 4000; // beyond this, use the browser voice (avoid huge synth)
+const MAX_MODEL_CHARS = 4000; // beyond this, use the browser voice (avoid huge synth)
 
 /** Split text into short, sentence-aligned chunks so the first audio starts fast. */
 function splitForTts(text: string, max = MAX_CHUNK): string[] {
@@ -73,26 +73,16 @@ function sentenceChunks(text: string): string[] {
 	return chunks;
 }
 
-function detectMobile(): boolean {
-	if (!browser) return false;
-	const ua = navigator.userAgent;
-	return (
-		/Android|iPhone|iPad|iPod|Mobile|IEMobile|Opera Mini/i.test(ua) ||
-		(navigator as unknown as { userAgentData?: { mobile?: boolean } }).userAgentData?.mobile ===
-			true
-	);
-}
-
 class QuickSpeak {
 	/** Token of the utterance currently producing sound (0 = nothing playing). */
 	activeId = $state(0);
-	/** Token whose first Kokoro chunk is still synthesizing (0 = none) — shows a spinner. */
+	/** Token whose first local-model chunk is still synthesizing (0 = none). */
 	loadingId = $state(0);
 
 	#seq = 0;
 	#ctx: AudioContext | null = null;
 	#src: AudioBufferSourceNode | null = null;
-	#isMobile = detectMobile();
+	#abort: AbortController | null = null;
 
 	isActive(id: number) {
 		return id !== 0 && this.activeId === id;
@@ -109,11 +99,15 @@ class QuickSpeak {
 		if (browser) primeVoices();
 	}
 
-	// Use the on-device Heart voice only when the user has chosen it, on desktop
-	// (the model download is too heavy for a tap on mobile data, and iOS can't run
-	// it at all), and as long as it hasn't already failed this session.
+	// A first-time model download only starts after explicit OpenRAIL acceptance.
 	get #useModel() {
-		return browser && voicePref.engine === 'model' && !this.#isMobile && kokoro.status !== 'error';
+		return (
+			browser &&
+			voicePref.engine === 'model' &&
+			voicePref.licenseAccepted &&
+			supertonic.available &&
+			supertonic.status !== 'error'
+		);
 	}
 
 	#ensureCtx(): AudioContext | null {
@@ -137,22 +131,20 @@ class QuickSpeak {
 		const id = ++this.#seq;
 		this.#stopAudio();
 		stopPronounce();
+		this.#abort = new AbortController();
 		this.#ensureCtx(); // capture the click gesture for WebAudio playback
 		void this.#run(id, text, onEnd);
 		return id;
 	}
 
 	async #run(id: number, text: string, onEnd?: () => void) {
-		const cleaned = stripNonEnglish(text);
+		const cleaned = voicePref.language === 'en' ? stripNonEnglish(text) : text.trim();
 		if (!cleaned) {
 			this.#finish(id, onEnd);
 			return;
 		}
 
-		// Heart voice when chosen: load the model if needed (spinner until the
-		// first chunk is ready), then play. Fall back to the browser voice only if
-		// it can't run here.
-		if (this.#useModel && cleaned.length <= MAX_KOKORO_CHARS) {
+		if (this.#useModel && cleaned.length <= MAX_MODEL_CHARS) {
 			this.loadingId = id;
 			try {
 				await this.#playChunks(id, splitForTts(cleaned), onEnd);
@@ -170,7 +162,7 @@ class QuickSpeak {
 
 	async #playChunks(id: number, chunks: string[], onEnd?: () => void) {
 		// Synthesize the first chunk before we claim "playing" (spinner until then).
-		let raw: RawAudio | null = await kokoro.generate(chunks[0], DEFAULT_VOICE);
+		let raw: SynthesisResult | null = await this.#generate(chunks[0]);
 		if (this.#seq !== id) return;
 		this.loadingId = 0;
 		this.activeId = id;
@@ -178,7 +170,7 @@ class QuickSpeak {
 		for (let i = 0; i < chunks.length; i++) {
 			if (this.#seq !== id || !raw) return;
 			// Prefetch the next chunk while the current one plays.
-			const prefetch = i + 1 < chunks.length ? kokoro.generate(chunks[i + 1], DEFAULT_VOICE) : null;
+			const prefetch = i + 1 < chunks.length ? this.#generate(chunks[i + 1]) : null;
 			await this.#playOne(id, raw);
 			if (this.#seq !== id) return;
 			raw = prefetch ? await prefetch : null;
@@ -187,14 +179,25 @@ class QuickSpeak {
 		this.#finish(id, onEnd);
 	}
 
-	#playOne(id: number, raw: { audio: Float32Array; sampling_rate: number }): Promise<void> {
+	#generate(text: string): Promise<SynthesisResult> {
+		return supertonic.generate(text, {
+			voice: voicePref.voiceId,
+			language: voicePref.language,
+			steps: voicePref.generationSteps,
+			speed: voicePref.synthesisSpeed,
+			backend: voicePref.backend,
+			signal: this.#abort?.signal
+		});
+	}
+
+	#playOne(id: number, raw: SynthesisResult): Promise<void> {
 		return new Promise((resolve) => {
 			const ctx = this.#ensureCtx();
 			if (!ctx) {
 				resolve();
 				return;
 			}
-			const buf = ctx.createBuffer(1, raw.audio.length, raw.sampling_rate);
+			const buf = ctx.createBuffer(1, raw.audio.length, raw.sampleRate);
 			buf.getChannelData(0).set(raw.audio);
 			const src = ctx.createBufferSource();
 			src.buffer = buf;
@@ -229,6 +232,8 @@ class QuickSpeak {
 	}
 
 	#stopAudio() {
+		this.#abort?.abort();
+		this.#abort = null;
 		if (this.#src) {
 			try {
 				this.#src.onended = null;

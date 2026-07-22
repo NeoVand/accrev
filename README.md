@@ -25,6 +25,8 @@ The app is built as a mostly static SvelteKit site. Learning content ships with 
 - Schedules reviews with FSRS through `ts-fsrs`.
 - Tracks streaks, XP, levels, mastered terms, lapsed terms, and recent sessions.
 - Supports English and Farsi UI text through Paraglide/Inlang.
+- Generates private, on-device speech with Supertonic 3 through WebGPU or WASM,
+  including ten voices, 31 languages, adjustable quality, and model-level pace.
 - Caches build assets and visited pages with a SvelteKit service worker.
 - Includes a browser-only admin area for importing/exporting local study data.
 
@@ -138,6 +140,12 @@ The app has two kinds of data:
 - Local user data: review state, sessions, profile, XP, streaks, lapsed status, theme, language, and unlock state live in IndexedDB/localStorage in the user's browser.
 
 There is no server database in the current architecture. Clearing site data resets the user's local progress.
+
+The optional Supertonic 3 voice model is downloaded directly from Hugging Face
+after the user accepts its OpenRAIL-M terms. Model files and generated speech
+remain in browser-managed local storage; speech synthesis makes no cloud API
+call. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for attribution and
+license details.
 
 ## Internationalization
 

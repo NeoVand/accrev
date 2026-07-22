@@ -9,9 +9,16 @@ const sw = self as unknown as ServiceWorkerGlobalScope;
 const CACHE = `accrev-cache-${version}`;
 // `build` = JS / CSS bundles SvelteKit emitted. `files` = static assets in static/.
 const ASSETS = [...build, ...files];
+// ONNX Runtime contributes large worker/WASM files that most sessions never
+// need. Fetch and cache them on first voice use instead of delaying service
+// worker installation for every visitor.
+const isHeavyRuntimeAsset = (asset: string) =>
+	asset.endsWith('.wasm') || asset.includes('/workers/');
+const PRECACHE = ASSETS.filter((asset) => !isHeavyRuntimeAsset(asset));
+const RUNTIME_CACHEABLE = new Set(ASSETS.filter(isHeavyRuntimeAsset));
 
 sw.addEventListener('install', (event) => {
-	event.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)));
+	event.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)));
 	sw.skipWaiting();
 });
 
@@ -19,7 +26,14 @@ sw.addEventListener('activate', (event) => {
 	event.waitUntil(
 		(async () => {
 			const keys = await caches.keys();
-			await Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)));
+			// Only retire old app-shell caches. The Supertonic model is hundreds
+			// of megabytes and lives in its own resumable cache, so an app update
+			// must not force users to download it again.
+			await Promise.all(
+				keys
+					.filter((key) => key.startsWith('accrev-cache-') && key !== CACHE)
+					.map((key) => caches.delete(key))
+			);
 			await sw.clients.claim();
 		})()
 	);
@@ -33,7 +47,17 @@ sw.addEventListener('fetch', (event) => {
 
 	// Cache-first for our build assets and static files (immutable per version).
 	if (ASSETS.includes(url.pathname)) {
-		event.respondWith(caches.match(req).then((r) => r ?? fetch(req)));
+		event.respondWith(
+			(async () => {
+				const cached = await caches.match(req);
+				if (cached) return cached;
+				const response = await fetch(req);
+				if (response.ok && RUNTIME_CACHEABLE.has(url.pathname)) {
+					void caches.open(CACHE).then((cache) => cache.put(req, response.clone()));
+				}
+				return response;
+			})()
+		);
 		return;
 	}
 

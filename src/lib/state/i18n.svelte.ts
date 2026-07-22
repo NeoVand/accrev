@@ -96,7 +96,7 @@ const en = {
 	voice_model: 'On-device',
 	voice_browser: 'Browser',
 	voice_hint:
-		'On-device uses a warm, natural voice (the audiobook’s “Heart”). It loads a small model on first use and runs on desktop only — iPhone/iPad fall back to the browser voice.',
+		'On-device uses Supertonic 3 with ten voices, adjustable quality and pace, and WebGPU/WASM acceleration after a one-time model download.',
 	progress_eyebrow: 'progress',
 	progress_title: 'Calendar & mastery',
 	progress_body: 'Streak heatmap, words mastered, and category coverage land in Phase 3.',
@@ -397,7 +397,7 @@ const fa: Record<MessageKey, MsgValue> = {
 	voice_model: 'روی‌دستگاه',
 	voice_browser: 'مرورگر',
 	voice_hint:
-		'حالت روی‌دستگاه از صدای گرم و طبیعی (همان «هارت» کتاب صوتی) استفاده می‌کند. بار اول یک مدل کوچک دانلود می‌شود و فقط روی دسکتاپ کار می‌کند؛ آیفون/آیپد به صدای مرورگر برمی‌گردد.',
+		'صدای روی‌دستگاه از Supertonic 3 با ده صدا، کیفیت و سرعت قابل‌تنظیم، و شتاب‌دهی WebGPU یا WASM استفاده می‌کند.',
 	progress_eyebrow: 'پیشرفت',
 	progress_title: 'تقویم و تسلط',
 	progress_body: 'نقشۀ دنباله، کلمات یاد‌گرفته‌شده، و پوشش دسته‌ها در فاز ۳ میاد.',
